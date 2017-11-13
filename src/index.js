@@ -3,7 +3,7 @@
  */
 const sayHello = require('./hello.js');
 
-sayHello();
+sayHello(`Terry`);
 
 /**
  * require style imports
