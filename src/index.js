@@ -8,13 +8,16 @@ sayHello(`Terry`);
 /**
  * require style imports
  */
-const getMovies = require('./api.js');
+const {getMovies} = require('./api.js');
 
 // console.log(getMovies);
 
-getMovies.then((movies) => {
+getMovies().then(movies => {
   console.log('Here are all the movies:');
+console.log(movies);
+
   movies.forEach(({title, rating, id}) => {
+
     console.log(`${id} ${title} ${rating}`);
   });
 }).catch((error) => {
