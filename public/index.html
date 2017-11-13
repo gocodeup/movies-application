@@ -3,15 +3,25 @@
 <head>
     <meta charset="UTF-8" />
     <title>My Application</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="myFunction()" style="margin:0;">
 
-    <div class="container">
-        <h1>Hello There!</h1>
-        <p>To get started, edit <code>src/index.js</code>.</p>
-    </div>
+<div class="loader"></div>
 
-    <script src="/main.js"></script>
+<div style="display:none;" id="myDiv" class="animate-bottom">
+    <h2>Tada!</h2>
+    <p>Some text in my newly loaded page..</p>
+</div>
+    <!--<div class="container">-->
+        <!--<h1>Hello There!</h1>-->
+        <!--<p>To get started, edit <code>src/index.js</code>.</p>-->
+    <!--</div>-->
+
+    <script src="/src/index.js"></script>
 </body>
 </html>
+
+
+
+
