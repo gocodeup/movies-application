@@ -17,13 +17,15 @@ getMovies().then(movies => {
 
     let table =
         // "<h2>Movie Catalog</h2>" +
-        "<thead>" +
-            "<tr>" +
-                "<th class='title-head'>Title</th>" +
-                "<th class='id-head'>ID</th>" +
-                "<th class='rating-head'>Rating</th>" +
-            "</tr>" +
-        "</thead>"
+        "<table>"+
+          "<thead>" +
+              "<tr>" +
+                  "<th width='200' height='10' class='title-head'>Title</th>" +
+                  "<th width='200' height='10' class='id-head'>ID</th>" +
+                  "<th width='200' height='10' class='rating-head'>Rating</th>" +
+              "</tr>" +
+          "</thead>"+
+        "</table>";
 
     movies.forEach(function (movie) {
 
@@ -32,15 +34,17 @@ getMovies().then(movies => {
         let rating = movie.rating;
 
         table += `
+         <table>
             <tbody>
                 <tr>
-                    <td class="title-block">${title}</td>
-                    <td>${id}</td>
-                    <td>${rating}</td>
+                    <td width="200" class="title-block">${title}</td>
+                    <td width="200">${id}</td>
+                    <td width="200">${rating}</td>
                 </tr>
-            </tbody>`;
-
+            </tbody>
+          </table>`;
     });
+
 
     $(".bodyHTML").html(table);
 
