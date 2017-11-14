@@ -22,7 +22,7 @@ getMovies().then((movies) => {
   console.log(error);
 });
 
- $.getJSON('api/movies').done(function (data) {
+$.getJSON('api/movies').done(function (data) {
     buildHTML(data);
 }).fail(function (jqXhr, status, error) {
     console.log("there was an error!");
