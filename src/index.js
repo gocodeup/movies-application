@@ -22,24 +22,27 @@ getMovies().then((movies) => {
   console.log(error);
 });
 
-$.getJSON('/api/movies').done(function (data) {
+
+$.getJSON('api/movies').done(function (data) {
     buildHTML(data);
 }).fail(function (jqXhr, status, error) {
     console.log("there was an error!");
     console.log("response status:" + status);
     console.log("check console log for" + error)
 });
-
+// text on screen
     function buildHTML(movies) {
         let moviesHTML = "";
         movies.forEach(function (movies) {
 
 
             moviesHTML += "<div class='movies'>";
-            moviesHTML += "<h6>" + movies.title
+            moviesHTML += "<tr>" + movies.title + " </tr>";
+            moviesHTML += "<td>" + movies.rating + " </td>"
 
 
+        });
+        $("#movies").html(moviesHTML);
+}
 
 
-        })
-    }
