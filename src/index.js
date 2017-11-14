@@ -18,6 +18,7 @@ console.log(movies);
 
   movies.forEach(({title, rating, id}) => {
 
+
     console.log(`${id} ${title} ${rating}`);
   });
 }).catch((error) => {
