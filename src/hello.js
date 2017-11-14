@@ -1,1 +1,6 @@
-export default (name) => console.log(`Hello there, ${name}!`);
+const sayHello = name => {
+    console.log(`Hello there, ${name}!`);
+};
+
+module.exports = sayHello;
+
