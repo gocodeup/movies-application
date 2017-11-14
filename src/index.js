@@ -36,11 +36,11 @@ $.getJSON('api/movies').done(function (data) {
         movies.forEach(function (movies) {
 
 
-            moviesHTML += "<div class='movies'>";
-            moviesHTML += "<th> " + movies.id + " </th>"
+            moviesHTML += "<table id='movies'>";
+            moviesHTML += "<tr> " + movies.id + " </tr>";
             moviesHTML += "<tr>" + movies.title + " </tr>";
-            moviesHTML += "<td>" + movies.rating + " </td>"
-
+            moviesHTML += "<tr>" + movies.rating + " </tr>"
+            moviesHTML += "<hr>"
 
         });
 
