@@ -7,6 +7,7 @@ html, body {
     top: 50%;
     transform: translateY(-100%);
     text-align: center;
+    margin: auto;
 }
 .loader {
     border-top: 16px solid blue;
@@ -40,3 +41,13 @@ table, th, td {
     border: 1px solid black;
 
 }
+th {
+    text-align: center;
+}
+table {
+    position: relative;
+    margin: auto;
+    align-self: center;
+
+}
+
