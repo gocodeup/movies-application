@@ -37,12 +37,16 @@ $.getJSON('api/movies').done(function (data) {
 
 
             moviesHTML += "<div class='movies'>";
+            moviesHTML += "<th> " + movies.id + " </th>"
             moviesHTML += "<tr>" + movies.title + " </tr>";
             moviesHTML += "<td>" + movies.rating + " </td>"
 
 
         });
+
         $("#movies").html(moviesHTML);
 }
 
-
+$(window).on('load',function(){
+    $('.loader').fadeOut();
+});
