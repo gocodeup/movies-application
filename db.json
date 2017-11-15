@@ -9,6 +9,21 @@
       "title": "Star Wars: A New Hope",
       "rating": "5",
       "id": 2
+    },
+    {
+      "title": "Goonies",
+      "rating": "5",
+      "id": 3
+    },
+    {
+      "title": "Goosebumps",
+      "rating": "1",
+      "id": 4
+    },
+    {
+      "title": "Top Gun",
+      "rating": "5",
+      "id": 5
     }
   ]
 }
