@@ -37,7 +37,7 @@ $.getJSON('api/movies').done(function (data) {
 
 
             moviesHTML += "<table id='movies'>";
-            moviesHTML += "<table class='table table-hover'>";
+
             moviesHTML += "<th>" + movies.id + "</th>";
             moviesHTML += "<th>" + "</th>";
             moviesHTML += "<td> " + movies.title + "</td>";
