@@ -12,62 +12,78 @@
     <h1 class="head">Movie Project!</h1>
 
     <div class="container">
-     <div class="row">
-         <div class="container-fluid col-sm-3 col-sm-offset-1">
-            <div class="box">
+        <div class="row">
+
+            <div class="col-sm-3 col-sm-offset-1">
+                <div class="box">
                     <h3>Movies</h3>
-                <table class="table table-hover">
-                    <thead>
+                    <table class="table table-hover">
+                        <thead>
                         <tr>
                             <th>ID</th>
                             <th>Title</th>
                             <th>Rating</th>
                         </tr>
-                    </thead>
-                </table>
-
-                </div>
-             <br>
+                        </thead>
+                    </table>
                 <div id="movies" class="box"></div>
 
+                </div>
 
-         </div>
-         <form class="form-horizontal">
-             <fieldset>
-                 <!-- Form Name -->
-                 <legend>Search Films Here</legend>
-
-                 <!-- Input With Search http://getfuelux.com/javascript.html#search-->
-                 <div class="form-group">
-                     <label class="control-label col-sm-2" for="searchInput"></label>
-                     <div class="col-sm-10">
-                         <div class="search input-group" data-initialize="search" role="search" id="search">
-                             <div class="form-group">
-                                 <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                             <input id="searchInput" name="searchInput" class="form-control" placeholder="Movie Title" type="search">
-                     </div>
-
-                 </div>
-           </div>
-                 <!-- Button http://getbootstrap.com/css/#buttons -->
-                 <div class="form-group">
-                     <label class="control-label col-sm-2" for="singlebutton"></label>
-                     <div class="text-right col-sm-10">
-                         <button type="button" id="singlebutton" name="singlebutton" class="btn btn-primary" aria-label="Single Button">Button</button>
-                     </div>
-                 </div>
+            </div>
 
 
 
-             </fieldset>
 
-         </form>
+            <form class="">
+                <fieldset>
+                    <!-- Form Name -->
+                    <legend>Search Films Here</legend>
+
+                    <!-- Input With Search http://getfuelux.com/javascript.html#search-->
+                    <div class="form-group">
+                        <div class="col-sm-5">
+                            <div class="search input-group" data-initialize="search" role="search" id="search">
+                                <div class="form-group">
+                                    <h5>Add a movie to our list! </h5>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Movie Title">
+                                    <select id="selectRating" name="selectRating" class="form-control">
+                                        <li>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </li>
+                                    </select>
 
 
-     </div> <!-- div that ends row -->
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Button http://getbootstrap.com/css/#buttons -->
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="singlebutton"></label>
+                            <div class="text-right col-sm-2">
+                                <button type="button" id="singlebutton" name="singlebutton" class="btn btn-primary" aria-label="Single Button">Button</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </fieldset>
+
+            </form>
+
+
+        </div> <!-- div that ends row -->
+
 
 
     </div>
+
+
 
 
 

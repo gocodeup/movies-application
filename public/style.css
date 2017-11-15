@@ -1,13 +1,10 @@
 html, body {
     height: 100%;
+    background: darkgray;
+
 }
 
-.box {
-    /*!*position: relative;*!*/
-    /*top: 50%;*/
-    /*transform: translateY(-100%);*/
-    text-align: center;
-}
+
 .loader {
     position: fixed;
     left: 0px;
@@ -21,4 +18,16 @@ html, body {
 .head {
     text-align: center;
 }
+
+table {
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+td{
+    border: 1px solid black;
+    padding: 5px 10px;
+}
+
+
 

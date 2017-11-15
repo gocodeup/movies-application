@@ -38,11 +38,11 @@ $.getJSON('api/movies').done(function (data) {
 
             moviesHTML += "<table id='movies'>";
 
-            moviesHTML += "<th>" + movies.id + "</th>";
-            moviesHTML += "<th>" + "</th>";
-            moviesHTML += "<td> " + movies.title + "</td>";
+            moviesHTML += "<td> " + movies.id + "</td>";
+            // moviesHTML += "<th> " + "</th>";
+            moviesHTML += "<td> " + movies.title + " </td>";
             // moviesHTML += "<tr>" + movies.title + " </tr>";
-            moviesHTML += "<td>" + movies.rating + " </td>";
+            moviesHTML += " <td> " + movies.rating + " </td>";
             // moviesHTML += "<hr>";
             moviesHTML += "</table>"
 
@@ -50,6 +50,10 @@ $.getJSON('api/movies').done(function (data) {
 
         $("#movies").html(moviesHTML);
 }
+
+
+
+
 
 $(window).on('load',function(){
     $('.loader').fadeOut();
