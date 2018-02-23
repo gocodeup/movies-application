@@ -3,15 +3,33 @@
 <head>
     <meta charset="UTF-8" />
     <title>My Application</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Inknut+Antiqua" rel="stylesheet">
 </head>
 <body>
+<header class="">
+    <h1>Move It Movies</h1>
+</header>
 
-    <div class="container">
-        <h1>Hello There!</h1>
-        <p>To get started, edit <code>src/index.js</code>.</p>
+    <div class="container" id="movieScrollBar">
+        <!--This is where we will put the Movie Scroll Bar-->
+        <!--<p>To get started, edit <code>src/index.js</code>.</p>-->
     </div>
-
+    <div class="container" id="starBar">
+        <!--this is where we will put the stars for movie Rating.
+        This will probably need some kind of radio button with Stars
+        as the clickable area.-->
+    </div>
+    <div class="container" id="editDelete">
+        <!--This is where the edit and delete button will be. Also the
+        Add input field. Add input should send info to db.json.
+        info needed for db.json is "title" and "'rating' of 1-5 stars"-->
+    </div>
+    <div class="container" id="AddField">
+        <!--This is where the edit and delete button will be. Also the
+        Add input field. Add input should send info to db.json.
+        info needed for db.json is "title" and "'rating' of 1-5 stars"-->
+    </div>
     <script src="/main.js"></script>
 </body>
 </html>
