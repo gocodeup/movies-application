@@ -32,7 +32,7 @@ $('input').keyup(function(){
   }else{
       $('#addMovie').prop('disabled',true);
   }
-})
+});
 
 
 //#################    Add movie button  #####################################
@@ -54,5 +54,37 @@ $('#addMovie').click(function(){
       .then(showMovies);
     $('#movieTitle').val('');
     $('#movieRating').val('');
+
+});
+
+$("#getMovie").click(function() {
+    getMovies().then((movies) => {
+        let changeMovie = movies.filter((movie) =>
+            movie.id === parseFloat($("#editMovieID").val())
+        );
+        $('#editMovieTitle').val(changeMovie.title);
+        $('#editMovieRating').val(changeMovie.rating);
+    });
+});
+
+
+//################ Edit movie info ##############################################
+
+$("#editMovie").click(function() {
+    event.preventDefault();
+    let updatedMovie = {
+        title: $('#editMovieTitle').val(),
+        rating: $('#editMovieRating').val()
+    };
+    const url = ('/api/movies/{' + parseFloat($("#editMovieID").val()) + "}" );
+    const options = {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedMovie)
+    };
+    fetch(url, options)
+        .then(showMovies);
 
 });
