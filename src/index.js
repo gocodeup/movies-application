@@ -43,7 +43,7 @@ $('#add-new-movie').click(function()  {
   const addMovie = $('#movieTitle').val();
   const addRating = $('#movieRating').val();
   const addObj = {title: addMovie, body: addRating};
-  const url = '/api/movies'
+  const url = '/api/movies';
   const options = {
     method: 'POST',
       headers: {
@@ -59,6 +59,10 @@ $('#add-new-movie').click(function()  {
         });
 });
 
+$('.panel-default').click(function() {
+  const id = (movies.id).val();
+  console.log(id);
+});
 
 
 
