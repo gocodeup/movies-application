@@ -5,9 +5,9 @@ html, body {
 
 .container {
   display: grid;
-  grid-template-columns: 10px 1fr 10px;
+  grid-template-columns: 10vw 80vw 10vw;
   -ms-grid-template-rows: 10vmin 80vmin 10vmin;
-  grid-template-rows: 10vmin 80vmin 10vmin;
+  grid-template-rows: 10vmin 10vmin 70vmin 10vmin;
 }
 
 h1 {
@@ -34,4 +34,11 @@ form {
 
 input {
   font-size: 1em;
+}
+
+img {
+  text-align: center;
+  margin: 0 auto;
+  height: 200px;
+  padding: 10px;
 }

@@ -1,4 +1,4 @@
-import getMovies from './api';
+import getMovies from './omdb';
 
 let title = document.getElementById('searchVal');
 
