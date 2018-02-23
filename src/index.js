@@ -22,7 +22,7 @@ getMovies().then((movies) => {
 
 
 //making ajax request for movie list
-var request = $.ajax("db.json");
+var request = $.ajax("./api.js");
 
 request.fail(function(jqXhr, status, error) {
     console.log("There was an error!");
@@ -46,3 +46,24 @@ function addMovieList(movies) {
     htmlString += "</tr>";
     $("#insertMovies").append(htmlString);
 }
+
+
+// trying to send data using forms
+var postMovies = $( '#post-movie' );
+
+postMovies.on( 'submit', function( e ) {
+    e.preventDefault();
+
+    $.ajax({
+        url: './api.js',
+        method: 'POST',
+        data: postMovies.serialize(),
+        crossDomain: true,
+        beforeSend: function ( xhr ) {
+            xhr.setRequestHeader( 'Authorization', 'Basic username:password' );
+        },
+        success: function( data ) {
+            console.log( data );
+        }
+    });
+});
