@@ -12,12 +12,19 @@ const $ = require('jquery');
 
 function showMovies() {
     getMovies().then((movies) => {
-        $('#movieDisplay').html('Here are all the movies: ' + '<br>');
+        $('#movieDisplay').html('Here are all the movies: ' + '<br><ul>');
         // console.log('Here are all the movies:');
         movies.forEach(({title, rating, id}) => {
             // console.log(`id#${id} - ${title} - rating: ${rating}`);
-            $('#movieDisplay').append(`id#${id} - ${title} - rating: ${rating}<br>`);
+            $('#movieDisplay').append(`<li>id#${id} - ${title} - rating: ${rating}<button class="remove">Delete</button></li><br>`);
         });
+        $('#movieDisplay').append('</ul>');
+        $('.remove').click(function(){
+          event.preventDefault();
+            let a =$(this).parent()[0].innerText;
+            let idNum = parseFloat(a.match(/\d/g)[0]);
+            removeMovie(idNum);
+        })
     }).catch((error) => {
         alert('Oh no! Something went wrong.\nCheck the console for details.')
         console.log(error);
@@ -99,4 +106,38 @@ $("#editMovie").click(function() {
     $('#editMovieTitle').val("");
     $('#editMovieRating').val("");
     $("#editMovieID").val("");
+});
+
+
+//#######################   DELETE Movie      #####################################
+
+function removeMovie(idNum){
+      console.log('hello from testing');
+
+      const url = ('/api/movies/' + idNum);
+      const options = {
+          method: 'DELETE',
+          headers: {
+              'Content-Type': 'application/json'
+          }
+
+      };
+      fetch(url, options)
+          .then(showMovies);
+
+}
+
+
+//################# Check for valid ID input  #############################
+
+$('#editMovieID').keyup(function(){
+
+  let idHolder =[];
+  $('li').each(function(index,element){idHolder.push((element.innerText).match(/\d/g)[0])})
+
+    if(idHolder.includes($('#editMovieID').val())){
+        $('#getMovie').prop('disabled',false);
+    }else{
+        $('#getMovie').prop('disabled',true);
+    }
 });
