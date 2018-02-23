@@ -7,7 +7,7 @@ const $ = require('jquery');
 
 // this runs the loading.gif image
 const loadingGif = () => {
-    $('.container').html("<img src='./img/page-loader.gif' class='loader'>");
+    $('.container-loader').html("<img src='./img/page-loader.gif' class='loader'>");
 };
 loadingGif();
 
@@ -16,6 +16,7 @@ $('.add-movie-form').hide();
 // this function shows the forms upon page load when called
 function formLoader() {
     $('.add-movie-form').show();
+    $('.container-loader').hide()
 }
 
 
@@ -37,7 +38,7 @@ for (let mov of moviesBuilder) {
   list += `<h2> ${mov} </h2>`;
 }
 list += '</ul>';
-$('.container').html(list);
+$('#movie-stuff').html(list);
 
 // this runs if there is an error
 }).catch((error) => {
@@ -47,7 +48,7 @@ $('.container').html(list);
 
 
 // this adds a movie when clicked
-$('#add-movie-button').click(function () {
+$('#add-movie-button').click(function (e) {
     let title = $('#new-title').val();
     let rating = $('#new-rating').val();
     let movie = {
