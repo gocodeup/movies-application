@@ -38,30 +38,41 @@ function updateMovies() {
       let html = "<table><tr><th>ID</th><th>Movie</th><th>Rating</th><th> </th></tr>";
       movies.forEach(({title, rating, id}) => {
         html += `<tr><td>${id}</td><td>${title}</td><td>${rating}</td><td><button value="${id}" class="edit">Edit</button></td></tr>`;
-
       });
       html += "</table>";
       $(".container").html(html);
         $(".edit").click((e) => {
+            let id = e.target.value;
             $(".editMovieForm").show();
-            const movie = {title: $("#editMovie").val(), rating: $("#newRating").val(), id: ""};
-            const url = '/api/movies/3';
-            const options = {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(movie),
-            };
-            fetch(url, options)
-                .then(movie => console.log(movie))
-
-                .catch();
-            console.log("hello");
-
+        });
+        $("#updateMovie").click((e) => {
+            e.preventDefault();
+            saveMovie(3);
         });
     }).catch((error) => {
       alert('Oh no! Something went wrong.\nCheck the console for details.');
       console.log(error);
     });
+}
+function saveMovie(id) {
+        console.log(id);
+        const movie = {title: $("#editMovie").val(), rating: $("#newRating").val(), id: ""};
+        const url = `/api/movies/${id}`;
+        const options = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(movie)
+        };
+        console.log(url);
+        console.log(options);
+        fetch(url, options)
+            .then(movie => {
+                updateMovies();
+                $(".editMovieForm").hide();
+                $("#editMovie").val("");
+                $("#newRating").val("1");
+            })
+            .catch();
 }
