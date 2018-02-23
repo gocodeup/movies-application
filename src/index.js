@@ -1,6 +1,7 @@
 /**
  * es6 modules and imports
  */
+
 import sayHello from './hello';
 sayHello('World');
 
@@ -18,3 +19,30 @@ getMovies().then((movies) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.')
   console.log(error);
 });
+
+
+//making ajax request for movie list
+var request = $.ajax("db.json");
+
+request.fail(function(jqXhr, status, error) {
+    console.log("There was an error!");
+    console.log("Response status: " + status);
+    console.log("Error obj: " + error);
+});
+request.done(function(data) {
+    console.log(data);
+    data.forEach(function(movie) {
+        addMovieList(movie);
+    });
+});
+
+
+function addMovieList(movies) {
+    var htmlString = "";
+    htmlString += "<tr>";
+    htmlString += "<td>" + movies.title + "</td>";
+    htmlString += "<td>" + movies.rating + "</td>";
+    htmlString += "<td>$ " + movies.id + "</td>";
+    htmlString += "</tr>";
+    $("#insertMovies").append(htmlString);
+}
