@@ -8,13 +8,18 @@ sayHello('World');
  * require style imports
  */
 const {getMovies} = require('./api.js');
-
+const $ = require('jquery');
+$(window).load(() =>{
+  $(".container").html("Loading...");
+});
 getMovies().then((movies) => {
-  console.log('Here are all the movies:');
+  let html = "<table><tr><th>ID</th><th>Movie</th><th>Rating</th></tr>";
   movies.forEach(({title, rating, id}) => {
-    console.log(`id#${id} - ${title} - rating: ${rating}`);
+    html += `<tr><td>${id}</td><td>${title}</td><td>${rating}</td></tr>`;
   });
+  html += "</table>";
+  $(".container").html(html);
 }).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.')
+  alert('Oh no! Something went wrong.\nCheck the console for details.');
   console.log(error);
 });
