@@ -1,10 +1,73 @@
 html, body {
-    height: 100%;
+    font-size: calc(1vmax + 1em);
 }
 
-.container {
-    position: relative;
-    top: 50%;
-    transform: translateY(-100%);
-    text-align: center;
+#loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+main {
+  display: none;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: 10vw 80vw 10vw;
+  -ms-grid-template-rows: 10vh 80vh 10vh;
+  grid-template-rows: 10vh 10vh 70vh 10vh;
+}
+
+h1 {
+  padding: 1rem;
+  font-size: 1em;
+  grid-row: 1;
+  grid-column: 2;
+  text-align: center;
+  text-overflow: ellipsis;
+  margin: auto;
+}
+
+.content {
+  grid-row: 2;
+  grid-column: 2;
+  /* margin: auto; */
+}
+
+form {
+  justify-content: center;
+  display: flex;
+  flex-flow: nowrap;
+  text-align: center;
+}
+
+input {
+  height: 3vmax;
+  font-size: 1rem;
+  width: 100%;
+}
+
+#poster-img {
+  text-align: center;
+  grid-row: 3;
+  grid-column: 2;
+  overflow: scroll;
+}
+
+.results {
+  padding-top: 1rem;
+}
+
+p {
+  font-size: 1rem;
+  margin: 0 auto;
+}
+
+img {
+  text-align: center;
+  margin: 0 auto;
+  height: 200px;
+  padding: 10px;
 }

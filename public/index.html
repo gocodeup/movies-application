@@ -6,12 +6,18 @@
     <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-
-    <div class="container">
-        <h1>Hello There!</h1>
-        <p>To get started, edit <code>src/index.js</code>.</p>
+  <div id="loading"><h1>LOADING...</h1></div>
+  <main>
+    <div id="container">
+      <h1>Tri-force Productions</h1>
+      <div class="content">
+        <form action="GET">
+          <input type="text" id="searchVal" placeholder="Search for a movie...">
+        </form>
+      </div>
+      <div id="poster-img"></div>
     </div>
-
-    <script src="/main.js"></script>
+  </main>
+<script src="main.js"></script>
 </body>
 </html>
