@@ -1,3 +1,6 @@
+
+const $ = require('jquery');
+
 /**
  * es6 modules and imports
  */
@@ -9,6 +12,7 @@ sayHello('World');
  */
 const {getMovies} = require('./api.js');
 
+
 getMovies().then((movies) => {
   console.log('Here are all the movies:');
   movies.forEach(({title, rating, id}) => {
@@ -18,3 +22,9 @@ getMovies().then((movies) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.')
   console.log(error);
 });
+
+// $('.container').html('Here are all the movies:');
+
+
+
+
