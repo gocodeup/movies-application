@@ -3,8 +3,8 @@ const $ = require('jquery');
 /**
  * es6 modules and imports
  */
-import sayHello from './hello';
-sayHello('World');
+// import sayHello from './hello';
+// sayHello('World');
 
 /**
  * require style imports
@@ -29,9 +29,26 @@ getMovies().then((movies) => {
   console.log(error);
 });
 
-// $('.container').html('Here are all the movies:');
+
 
 const displayMovies = () => {
     $('.main-display').html('Loading...');
 };
 displayMovies();
+
+
+// on click of button pull in the values from id="movieTitle" id="movieRating"
+
+$('#add-new-movie').click(function()  {
+  const addMovie = $('#movieTitle').val();
+  const addRating = $('#movieRating').val();
+});
+
+
+
+
+
+
+
+
+
