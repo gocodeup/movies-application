@@ -26,7 +26,7 @@ function showMovies() {
 showMovies();
 
 // ###################    Check values for input  ##########################
-$('input').keyup(function(){
+$('.searchMovie').keyup(function(){
   if($('#movieTitle').val()!=='' && $('#movieRating').val()!==''){
     $('#addMovie').prop('disabled',false);
   }else{
@@ -58,14 +58,22 @@ $('#addMovie').click(function(){
 });
 
 $("#getMovie").click(function() {
+    event.preventDefault();
+    console.log("hello");
     getMovies().then((movies) => {
-        let changeMovie = movies.filter((movie) =>
-            movie.id === parseFloat($("#editMovieID").val())
-        );
-        $('#editMovieTitle').val(changeMovie.title);
-        $('#editMovieRating').val(changeMovie.rating);
+        let changeMovie = singleMovie(movies);
+        $('#editMovieTitle').val(changeMovie[0].title);
+        $('#editMovieRating').val(changeMovie[0].rating);
+        console.log(changeMovie);
     });
 });
+
+function singleMovie(movies){
+    let changeMovie = movies.filter((movie) =>
+        movie.id === parseFloat($("#editMovieID").val())
+    );
+    return changeMovie;
+}
 
 
 //################ Edit movie info ##############################################
@@ -74,9 +82,11 @@ $("#editMovie").click(function() {
     event.preventDefault();
     let updatedMovie = {
         title: $('#editMovieTitle').val(),
-        rating: $('#editMovieRating').val()
+        rating: $('#editMovieRating').val(),
+        id: $("#editMovieID").val()
     };
-    const url = ('/api/movies/{' + parseFloat($("#editMovieID").val()) + "}" );
+    const url = ('/api/movies/' + parseFloat($("#editMovieID").val()));
+    // const url = ("/api/movies");
     const options = {
         method: 'PUT',
         headers: {
@@ -86,5 +96,7 @@ $("#editMovie").click(function() {
     };
     fetch(url, options)
         .then(showMovies);
-
+    $('#editMovieTitle').val("");
+    $('#editMovieRating').val("");
+    $("#editMovieID").val("");
 });
