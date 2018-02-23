@@ -16,13 +16,28 @@
 
 
     <form>
-        <label for="movieTitle">Enter the Movie's Title:
+        <label class="searchMovie" for="movieTitle">Enter the Movie's Title:
             <input id="movieTitle" type="text">
         </label>
-        <label for="movieRating">Enter the Movie's Rating:
+        <label class="searchMovie" for="movieRating">Enter the Movie's Rating:
             <input id="movieRating" type="text">
         </label>
         <button id="addMovie" disabled>Add</button>
+    </form>
+
+    <form>
+        <label for="editMovieID">Enter the movie's ID.
+            <input id="editMovieID" type="text">
+        </label>
+        <button id="getMovie">Submit</button>
+
+        <label for="editMovieTitle">Edit the Movie's Title:
+            <input id="editMovieTitle" type="text">
+        </label>
+        <label for="editMovieRating">Edit the Movie's Rating:
+            <input id="editMovieRating" type="text">
+        </label>
+        <button id="editMovie">Update</button>
     </form>
 
 <div id="movieDisplay">
