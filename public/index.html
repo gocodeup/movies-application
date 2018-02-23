@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <title>My Application</title>
+    <!--<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">-->
     <link rel="stylesheet" href="/style.css" />
+
 </head>
 <body>
 
@@ -12,6 +14,24 @@
         <p>To get started, edit <code>src/index.js</code>.</p>
     </div>
 
+
+    <form>
+        <label for="movieTitle">Enter the Movie's Title:
+            <input id="movieTitle" type="text">
+        </label>
+        <label for="movieRating">Enter the Movie's Rating:
+            <input id="movieRating" type="text">
+        </label>
+        <button id="addMovie" disabled>Add</button>
+    </form>
+
+<div id="movieDisplay">
+    Your Page is loading....
+</div>
+
+
     <script src="/main.js"></script>
+    <!--<script src="../node_modules/bootstrap/dist/js/bootstrap.js" ></script>-->
+    <script   src="http://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
 </body>
 </html>
