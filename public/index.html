@@ -15,17 +15,31 @@
         <!--This is where we will put the Movie Scroll Bar-->
         <!--<p>To get started, edit <code>src/index.js</code>.</p>-->
     </div>
-    <div class="container" id="starBar">
-        <!--this is where we will put the stars for movie Rating.
-        This will probably need some kind of radio button with Stars
-        as the clickable area.-->
-    </div>
+        <div class="container" id="starBar">
+            <div class="star" id="star-rank1">1</div>
+            <div class="star" id="star-rank2">2</div>
+            <div class="star" id="star-rank3">3</div>
+            <div class="star" id="star-rank4">4</div>
+            <div class="star" id="star-rank5">5</div>
+            <!--this is where we will put the stars for movie Rating.
+            This will probably need some kind of radio button with Stars
+            as the clickable area.-->
+        </div>
+
     <div class="container" id="editDelete">
+
+        <button id="edit-button" type="button">Edit</button>
+        <button id="delete-button" type="submit">Delete</button>
         <!--This is where the edit and delete button will be. Also the
         Add input field. Add input should send info to db.json.
         info needed for db.json is "title" and "'rating' of 1-5 stars"-->
     </div>
     <div class="container" id="AddField">
+        <div>ADD A MOVIE HERE!</div>
+        <input type="text" id="input-add-field" placeholder="Enter movie title here: ">
+
+        <button type="submit" id="add-button">Add</button>
+
         <!--This is where the edit and delete button will be. Also the
         Add input field. Add input should send info to db.json.
         info needed for db.json is "title" and "'rating' of 1-5 stars"-->
