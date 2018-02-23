@@ -10,6 +10,8 @@
 const {getMovies} = require('./api.js');
 const $ = require('jquery');
 
+let id;
+
 $(".container").html("<h1>Loading...</h1>");
 $("form").hide();
 
@@ -42,19 +44,20 @@ function updateMovies() {
       html += "</table>";
       $(".container").html(html);
         $(".edit").click((e) => {
-            let id = e.target.value;
+             id = e.target.value;
             $(".editMovieForm").show();
-        });
-        $("#updateMovie").click((e) => {
-            e.preventDefault();
-            saveMovie(3);
         });
     }).catch((error) => {
       alert('Oh no! Something went wrong.\nCheck the console for details.');
       console.log(error);
     });
 }
-function saveMovie(id) {
+    $("#updateMovie").click((e) => {
+            console.log(e);
+            e.preventDefault();
+            saveMovie();
+        });
+function saveMovie() {
         console.log(id);
         const movie = {title: $("#editMovie").val(), rating: $("#newRating").val(), id: ""};
         const url = `/api/movies/${id}`;

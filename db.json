@@ -1,8 +1,8 @@
 {
   "movies": [
     {
-      "title": "asdfasdf",
-      "rating": "3",
+      "title": "movie",
+      "rating": "1",
       "id": 1
     },
     {
@@ -11,13 +11,13 @@
       "id": 2
     },
     {
-      "title": "third",
+      "title": "is this real?",
       "rating": "1",
       "id": 3
     },
     {
-      "title": "sdfasdf",
-      "rating": "1",
+      "title": "did we get it?",
+      "rating": "4",
       "id": 4
     }
   ]
