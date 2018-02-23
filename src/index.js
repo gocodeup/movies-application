@@ -13,12 +13,28 @@ sayHello('World');
 const {getMovies} = require('./api.js');
 
 $(document).ready(function(){
-    $('#addTest').remove();
+    // $('#addTest').remove();
     setTimeout(function () {
     $('#load_screen').remove();
-    $('<h1>Hello There!</h1>\n' +
-        '            <p>To get started, edit <code>src/index.js</code>.</p>').appendTo(".addTest");
-    $('<table id="listMovies container" align="center">\n' +
+    $('<h1>The Movie App</h1>,<br>').appendTo(".addTest");
+    listAndTable();
+    }, 2000)
+});
+
+const postMovies = (movie, rating) => {
+    fetch('/api/movies',{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({title: movie, rating: rating})
+    }).then(function (response) {
+        return response.json();
+    })
+}
+
+function listAndTable(){
+    $('<table id="listMovies" align="center">\n' +
         '<thead>\n' +
         '<tr>\n' +
         '<th>ID</th>\n' +
@@ -28,7 +44,10 @@ $(document).ready(function(){
         '</thead>\n' +
         '<tbody id="instertMovies"></tbody>\n' +
         '</table>').appendTo('.movies');
+    tableLoad(); // Loads table
+}
 
+function tableLoad(){
     getMovies().then((movies) => {
         $('#movies').append('<h2>Here are all the Movies</h2>');
         movies.forEach(({title, rating, id}) => {
@@ -45,25 +64,7 @@ $(document).ready(function(){
         alert('Oh no! Something went wrong.\nCheck the console for details.')
         console.log(error);
     });
-        $('#main').removeClass('hidden')
-
-    }, 2000)
-});
-
-const postMovies = (movie, rating) => {
-    fetch('/api/movies',{
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({title: movie, rating: rating})
-    }).then(function (response) {
-        return response.json();
-    })
-        //.then(function (movies) {
-    //     console.log(movies);
-    //     movies.title.push(movie);
-    // });
+    $('#main').removeClass('hidden');
 }
 
 let rating = [];
@@ -78,13 +79,12 @@ function submitMovies() {
     } else {
         alert('Please enter a movie to POST.');
     }
-
-
 }
 
 $("#submit").click(function() {
    submitMovies();
-    $("#listMovies").empty();
+   $('#listMovies').empty();
+   listAndTable();
 });
 
 let ratings = $('.dropdown-item');
