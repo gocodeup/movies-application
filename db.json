@@ -1,24 +1,14 @@
 {
   "movies": [
     {
-      "title": "asdfasdf",
-      "rating": "3",
+      "title": "movie",
+      "rating": "1",
       "id": 1
     },
     {
       "title": "sdfasdf",
       "rating": "1",
       "id": 2
-    },
-    {
-      "title": "third",
-      "rating": "1",
-      "id": 3
-    },
-    {
-      "title": "sdfasdf",
-      "rating": "1",
-      "id": 4
     }
   ]
 }
