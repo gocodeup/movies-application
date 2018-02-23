@@ -16,8 +16,12 @@
     "babel-loader": "^7.1.1",
     "babel-preset-env": "^1.5.2",
     "concurrently": "^3.5.0",
+    "imdb-api": "^3.1.2",
     "json-server": "^0.11.2",
+    "omdb": "^0.8.0",
+    "omdb-js": "^1.0.0",
     "promise-polyfill": "^6.0.2",
+    "request": "^2.83.0",
     "webpack": "^3.0.0",
     "webpack-dev-server": "^2.5.0",
     "whatwg-fetch": "^2.0.3"

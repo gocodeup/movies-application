@@ -2,6 +2,7 @@
 // necessary for webpack
 const path = require('path');
 const webpack = require('webpack');
+const imdb = require('imdb-api');
 
 module.exports = {
   // where our app "starts"
