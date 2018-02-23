@@ -24,7 +24,3 @@ getMovies().then((movies) => {
 });
 
 // $('.container').html('Here are all the movies:');
-
-
-
-
