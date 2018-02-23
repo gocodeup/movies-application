@@ -1,8 +1,8 @@
 /**
  * es6 modules and imports
  */
-import sayHello from './hello';
-sayHello('World');
+// import sayHello from './hello';
+// sayHello('World');
 
 /**
  * require style imports
@@ -25,20 +25,43 @@ $("#addMovie").click((e) => {
         body: JSON.stringify(movie),
     };
     fetch(url, options)
-        .then((data) => console.log(data))
+        .then(movie => updateMovies())
         .catch(error => console.log(error));
     $("#newMovie").val("");
     $("#rating").val("1");
 });
-getMovies().then((movies) => {
-  $("form").show();
-  let html = "<table><tr><th>ID</th><th>Movie</th><th>Rating</th></tr>";
-  movies.forEach(({title, rating, id}) => {
-    html += `<tr><td>${id}</td><td>${title}</td><td>${rating}</td></tr>`;
-  });
-  html += "</table>";
-  $(".container").html(html);
-}).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.');
-  console.log(error);
-});
+updateMovies();
+function updateMovies() {
+
+    getMovies().then((movies) => {
+      $(".newMovieForm").show();
+      let html = "<table><tr><th>ID</th><th>Movie</th><th>Rating</th><th> </th></tr>";
+      movies.forEach(({title, rating, id}) => {
+        html += `<tr><td>${id}</td><td>${title}</td><td>${rating}</td><td><button value="${id}" class="edit">Edit</button></td></tr>`;
+
+      });
+      html += "</table>";
+      $(".container").html(html);
+        $(".edit").click((e) => {
+            $(".editMovieForm").show();
+            const movie = {title: $("#editMovie").val(), rating: $("#newRating").val(), id: ""};
+            const url = '/api/movies/3';
+            const options = {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(movie),
+            };
+            fetch(url, options)
+                .then(movie => console.log(movie))
+
+                .catch();
+            console.log("hello");
+
+        });
+    }).catch((error) => {
+      alert('Oh no! Something went wrong.\nCheck the console for details.');
+      console.log(error);
+    });
+}
