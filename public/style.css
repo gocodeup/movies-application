@@ -141,18 +141,43 @@ header{
     width: 100%;
     height: 50%;
     border-radius: 15px;
-    font-size: 30px;
+    font-size: 20px;
     text-align: center;
     font-family: 'Inknut Antiqua', serif;
 }
 
 #add-button {
     font-size: 1em;
-    border-radius: 15px;
+    border-radius: 105px;
     font-family: 'Inknut Antiqua', serif;
 }
 
+.star {
+    border: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    opacity: 0;
+}
 
+.starHover:hover {
+   color: #FFC107;
+}
+
+input:checked ~ .starHover:before {
+    color: #FFC107;
+}
+
+.starHover:hover ~ .starHover:before {
+    color: #ffdb70;
+}
+
+.starHover:hover:before {
+    color: #FFC107;
+}
 
 
 
