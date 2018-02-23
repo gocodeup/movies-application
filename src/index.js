@@ -44,7 +44,10 @@ function updateMovies() {
         $(".edit").click((e) => {
             let id = e.target.value;
             $(".editMovieForm").show();
-            saveMovie(id);
+        });
+        $("#updateMovie").click((e) => {
+            e.preventDefault();
+            saveMovie(3);
         });
     }).catch((error) => {
       alert('Oh no! Something went wrong.\nCheck the console for details.');
@@ -52,8 +55,6 @@ function updateMovies() {
     });
 }
 function saveMovie(id) {
-    $("#updateMovie").click((e) => {
-        e.preventDefault();
         console.log(id);
         const movie = {title: $("#editMovie").val(), rating: $("#newRating").val(), id: ""};
         const url = `/api/movies/${id}`;
@@ -74,5 +75,4 @@ function saveMovie(id) {
                 $("#newRating").val("1");
             })
             .catch();
-    })
 }
