@@ -2,16 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>My Application</title>
+    <title>My Movie Application</title>
     <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
 
-<div class="page-loader"></div>
-
     <div class="container">
         <h1>Hello There!</h1>
         <p>To get started, edit <code>src/index.js</code>.</p>
+    </div>
+
+    <div class="page-loader">
+    <form action="POST" class="add-movie">
+        <label for="new-title">New Title:</label>
+        <input type="text" id="new-title">
+        <br>
+        <label for="new-rating">Movie Rating:</label>
+        <select name="rating" id="new-rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <br>
+        <button type="submit">Add New Movie</button>
+    </form>
     </div>
 
     <script src="/main.js"></script>
