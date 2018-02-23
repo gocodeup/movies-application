@@ -1,33 +1,41 @@
 const $ = require("jquery");
 const {getMovies} = require('./api.js');
-let movieTitles = document.getElementById("movie-title");
+let renderMovies = document.getElementById("movie-title");
 
-$("#addMovie").click((e) => {
-    e.preventDefault();
-    const movie = {title: $("#newMovie").val(), rating: $("#rating").val(), id: ""};
+function fetchNBuild(movieObj)
+{
     const url = '/api/movies';
     const options = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(movie),
+        body: JSON.stringify(movieObj)
     };
     fetch(url, options)
         .then((data) => getMovies())
-            .then(movies => {
-                movies.forEach(({title, rating}) => {
-                    //   console.log(`id#${id} - ${title} - rating: ${rating}`);
-                    movieTitles.innerHTML +=
-                        ` 
+        .then(movies => {
+            let movieHTML = "";
+            movies.forEach(({title, rating}) => {
+                movieHTML +=
+                    ` 
           <div>
           ${title} - rating: ${rating}
           </div>
           
           `;
-                })
+                renderMovies.innerHTML = movieHTML;
             })
+        })
         .catch(error => console.log(error));
+
+}
+
+$("#addMovie").click((e) => {
+    e.preventDefault();
+    const movie = {title: $("#newMovie").val(), rating: $("#rating").val(), id: ""};
+    console.log(movie);
+        fetchNBuild(movie);
         $("#newMovie").val("");
         $("#rating").val("1");
 });
@@ -37,7 +45,7 @@ getMovies().then((movies) => {
   console.log(movies);
   movies.forEach(({title, rating}) => {
       //   console.log(`id#${id} - ${title} - rating: ${rating}`);
-      movieTitles.innerHTML +=
+      renderMovies.innerHTML +=
           ` 
           <div>
           ${title} - rating: ${rating}
