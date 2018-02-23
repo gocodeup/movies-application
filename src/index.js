@@ -1,8 +1,12 @@
+const $ = require('jquery');
+
+
 /**
  * es6 modules and imports
  */
-import sayHello from './hello';
-sayHello('World');
+
+import loadingGif from './hello';
+loadingGif();
 
 /**
  * require style imports
@@ -15,6 +19,6 @@ getMovies().then((movies) => {
     console.log(`id#${id} - ${title} - rating: ${rating}`);
   });
 }).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.')
+  alert('Oh no! Something went wrong.\nCheck the console for details.');
   console.log(error);
 });
