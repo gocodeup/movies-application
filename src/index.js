@@ -34,13 +34,32 @@ updateMovies();
 function updateMovies() {
 
     getMovies().then((movies) => {
-      $("form").show();
-      let html = "<table><tr><th>ID</th><th>Movie</th><th>Rating</th></tr>";
+      $(".newMovieForm").show();
+      let html = "<table><tr><th>ID</th><th>Movie</th><th>Rating</th><th> </th></tr>";
       movies.forEach(({title, rating, id}) => {
-        html += `<tr><td>${id}</td><td>${title}</td><td>${rating}</td></tr>`;
+        html += `<tr><td>${id}</td><td>${title}</td><td>${rating}</td><td><button value="${id}" class="edit">Edit</button></td></tr>`;
+
       });
       html += "</table>";
       $(".container").html(html);
+        $(".edit").click((e) => {
+            $(".editMovieForm").show();
+            const movie = {title: $("#editMovie").val(), rating: $("#newRating").val(), id: ""};
+            const url = '/api/movies/3';
+            const options = {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(movie),
+            };
+            fetch(url, options)
+                .then(movie => console.log(movie))
+
+                .catch();
+            console.log("hello");
+
+        });
     }).catch((error) => {
       alert('Oh no! Something went wrong.\nCheck the console for details.');
       console.log(error);

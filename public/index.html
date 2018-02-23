@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-    <form>
+    <form class="newMovieForm">
         <label for="newMovie">Movie Title:
             <input id="newMovie" type="text">
         </label>
@@ -23,6 +23,19 @@
     <div class="container">
         <!--<h1>Loading...</h1>-->
     </div>
+    <form class="editMovieForm">
+        <label for="editMovie">Edit Movie
+            <input type="text" id="editMovie">
+        </label>
+        <select name="rating" id="newRating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <button id="updateMovie">Save</button>
+    </form>
 
     <script src="/main.js"></script>
 </body>
