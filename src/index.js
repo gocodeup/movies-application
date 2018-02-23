@@ -9,9 +9,9 @@ sayHello('World');
  */
 const {getMovies} = require('./api.js');
 const $ = require('jquery');
-$(window).load(() =>{
-  $(".container").html("Loading...");
-});
+
+$(".container").html("<h1>Loading...</h1>");
+
 getMovies().then((movies) => {
   let html = "<table><tr><th>ID</th><th>Movie</th><th>Rating</th></tr>";
   movies.forEach(({title, rating, id}) => {
