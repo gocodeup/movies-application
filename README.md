@@ -1,4 +1,4 @@
-# Movies Application
+**_`__****`_**# Movies Application
 
 For this project, we will be building a single page movie application (SPA). It
 will allow users to add, edit, and delete movies, as well as rate them. We will
