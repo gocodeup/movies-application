@@ -12,7 +12,12 @@ const loadingGif = () => {
 loadingGif();
 
 // hide form until called in getMovies function
-$('.page-loader').hide();
+$('.add-movie-form').hide();
+// this function shows the forms upon page load when called
+function formLoader() {
+    $('.add-movie-form').show();
+}
+
 
 /**
  * require style imports
@@ -40,7 +45,25 @@ $('.container').html(list);
   console.log(error);
 });
 
-// this function shows the forms upon page load when called
-function formLoader() {
-    $('.page-loader').show();
-}
+
+// this adds a movie when clicked
+$('#add-movie-button').click(function () {
+    let title = $('#new-title').val();
+    let rating = $('#new-rating').val();
+    let movie = {
+        title: title,
+        rating: rating
+    };
+
+    let url = '/api/movies';
+    let options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({title, rating}),
+    };
+    fetch(url, options)
+        .then(/* post was created successfully */)
+        .catch(/* handle errors */);
+});
