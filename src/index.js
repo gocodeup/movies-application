@@ -36,7 +36,7 @@ request.done(function(data) {
     });
 });
 
-
+//adding movie list to page
 function addMovieList(movies) {
     var htmlString = "";
     htmlString += "<tr>";

@@ -9,6 +9,16 @@
       "title": "Star Wars: A New Hope",
       "rating": "5",
       "id": 2
+    },
+    {
+      "title": "",
+      "rating": "Are a fun way to use JS!",
+      "id": 3
+    },
+    {
+      "title": "$()",
+      "rating": "Are a fun way to use JS!",
+      "id": 4
     }
   ]
 }
