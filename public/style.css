@@ -8,3 +8,11 @@ html, body {
     transform: translateY(-100%);
     text-align: center;
 }
+
+.page-loader {
+    text-align: center;
+}
+
+.add-movie {
+    padding: 10px;
+}
