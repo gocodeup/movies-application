@@ -3,32 +3,34 @@
 <head>
     <meta charset="UTF-8" />
     <title>My Movie Application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
 
-    <div class="container">
-        <h1>Hello There!</h1>
-        <p>To get started, edit <code>src/index.js</code>.</p>
-    </div>
+    <div class="container-loader"></div>
 
-    <div class="page-loader">
-    <form action="POST" class="add-movie">
-        <label for="new-title">New Title:</label>
-        <input type="text" id="new-title">
-        <br>
-        <label for="new-rating">Movie Rating:</label>
-        <select name="rating" id="new-rating">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-        <br>
-        <button type="submit">Add New Movie</button>
-    </form>
-    </div>
+    <div class="row"></div>
+        <div class="col-md-3">
+            <div class="add-movie-form">
+                <form class="add-movie">
+                    <label for="new-title">New Title:</label>
+                    <input type="text" id="new-title">
+                    <br>
+                    <label for="new-rating">Movie Rating:</label>
+                    <select name="rating" id="new-rating">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <br>
+                    <button type="submit" id="add-movie-button">Add New Movie</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-9" id="movie-stuff"></div>
 
     <script src="/main.js"></script>
 </body>
