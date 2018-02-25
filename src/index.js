@@ -8,10 +8,12 @@ loadingGif();
 
 // hide form until called in getMovies function
 $('.add-movie-form').hide();
+$('.search-box').hide();
 
 // this function shows the forms upon page load when called
 function formLoader() {
     $('.add-movie-form').show();
+    $('.search-box').show();
     $('.container-loader').hide()
 }
 
@@ -41,7 +43,6 @@ function updateMovieList() {
             $('#movie-stuff' + id[2]).hide();
             updateMovieList()
         });
-// this runs if there is an error
     }).catch((error) => {
         alert('Oh no! Something went wrong.\nCheck the console for details.');
         console.log(error);
@@ -88,7 +89,7 @@ $('#edit-movie-button').click(function (e) {
         .catch(/* handle errors */);
 });
 
-//################################################# DELETE MOVIE FROM DB ##############################################
+//################################################# DELETE MOVIE FROM DB ###############################################
 function deleteMovie(id) {
     const options = {
         method: 'DELETE',
@@ -100,3 +101,20 @@ function deleteMovie(id) {
 }
 
 updateMovieList();
+
+//################################################# SEARCH BOX FUNCTIONALITY ###########################################
+// function searchMovies(input) {
+//     let searchedBoxMovies = movieName.value.toLowerCase();
+//     getMovies().then((movies) => {
+//         let filteredMovies = [];
+//         movies.forEach(function (movie) {
+//             if(movie.name.toLowerCase().includes(searchedBoxMovies)){
+//                 filteredMovies.push(movie);
+//             }
+//         });
+//         movieList.innerHTML = updateMovieList(filteredMovies);
+//     })
+// }
+// let movieList = document.querySelector('#movie-stuff');
+// const movieName = document.querySelector("#search-box");
+// movieName.addEventListener("keypress", searchMovies);

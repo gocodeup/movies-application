@@ -21,5 +21,10 @@ html, body {
 ul {
     font-size: 18px;
 }
-
+.right {
+    clear: both;
+}
+.search-box {
+    text-align: center;
+}
 
