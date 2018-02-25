@@ -27,13 +27,8 @@ function updateMovieList() {
         formLoader();
         moviesBuilder.innerHTML = ('');
         movies.forEach(({title, rating, id}) => {
-            moviesBuilder.innerHTML +=
-                `
-        <div class="movie-display">
-        ${id}. The title of the movie is: ${title} and the rating is: ${rating}. <button type="submit" id="del-btn-${id}" class="deleteBtn">Delete Movie</button>
-        </div>
-            `
-            ;
+            moviesBuilder.innerHTML += `<div class="movie-display">${id}. Movie Title: ${title} Rating: ${rating}. 
+            <button type="submit" id="del-btn-${id}" class="deleteBtn">Delete Movie</button></div>`;
         });
 
         $('.deleteBtn').click((e) => {
