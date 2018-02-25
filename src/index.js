@@ -8,6 +8,7 @@ loadingGif();
 
 // hide form until called in getMovies function
 $('.add-movie-form').hide();
+
 // this function shows the forms upon page load when called
 function formLoader() {
     $('.add-movie-form').show();
@@ -16,35 +17,43 @@ function formLoader() {
 
 const {getMovies} = require('./api.js');
 
-getMovies().then((movies) => {
-  formLoader();
-  let moviesBuilder = [];
-  movies.forEach(({title, rating}) => {
-    moviesBuilder.push(`The title of the movie is: ${title} and the rating is: ${rating}.`);
-  });
+const moviesBuilder = document.getElementById('movie-stuff');
 
-// this builds movie html and prints to page
-let list = '<ul>';
-for (let mov of moviesBuilder) {
-  list += `<h2> ${mov} </h2>`;
-}
-list += '</ul>';
-$('#movie-stuff').html(list);
+//################################################# UPDATE MOVIES FUNCTION #############################################
+function updateMovieList() {
+    getMovies().then((movies) => {
+        formLoader();
+        moviesBuilder.innerHTML = ('');
+        movies.forEach(({title, rating, id}) => {
+            moviesBuilder.innerHTML +=
+                `
+        <div class="movie-display">
+        ${id}. The title of the movie is: ${title} and the rating is: ${rating}. <button type="submit" id="del-btn-${id}" class="deleteBtn">Delete Movie</button>
+        </div>
+            `
+            ;
+        });
 
+        $('.deleteBtn').click((e) => {
+            e.preventDefault();
+            let id = event.currentTarget.id.split('-');
+            deleteMovie(id[2]);
+            $('#movie-stuff' + id[2]).hide();
+            updateMovieList()
+        });
 // this runs if there is an error
-}).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.');
-  console.log(error);
-});
+    }).catch((error) => {
+        alert('Oh no! Something went wrong.\nCheck the console for details.');
+        console.log(error);
+    });
+}
 
-// this adds a movie when clicked
+
+//################################################# ADD NEW MOVIE FROM DB ##############################################
 $('#add-movie-button').click(function (e) {
+    e.preventDefault();
     let title = $('#new-title').val();
     let rating = $('#new-rating').val();
-    let movie = {
-        title: title,
-        rating: rating
-    };
 
     let url = '/api/movies';
     let options = {
@@ -55,30 +64,39 @@ $('#add-movie-button').click(function (e) {
         body: JSON.stringify({title, rating}),
     };
     fetch(url, options)
-        .then(/* post was created successfully */)
+        .then( () => updateMovieList())
         .catch(/* handle errors */);
 });
 
-//this edits a movie when clicked
+//################################################# EDIT EXISTING MOVIE IN DB ##########################################
 $('#edit-movie-button').click(function (e) {
+    e.preventDefault();
     let title = $('#edit-title').val();
     let rating = $('#edit-rating').val();
-    let id = $(this).attr("data-id");
-    let movie = {
-        title: title,
-        rating: rating,
-        id: id
-    };
+    let id= $('#edit-movie-id').val();
 
-    let url = '/api/movies/${id}';
+    let url = '/api/movies/' + $('#edit-movie-id').val();
     let options = {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({title, rating}),
+        body: JSON.stringify({title, rating, id}),
     };
     fetch(url, options)
-        .then(/* post was created successfully */)
+        .then(() => updateMovieList())
         .catch(/* handle errors */);
 });
+
+//################################################# DELETE MOVIE FROM DB ##############################################
+function deleteMovie(id) {
+    const options = {
+        method: 'DELETE',
+    };
+    fetch(`/api/movies/${id}`, options)
+        .then(response => response.json())
+        .catch(error => console.log(error))
+
+}
+
+updateMovieList();

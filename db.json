@@ -1,7 +1,7 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
+      "title": "Star Wars: The Last Jedi",
       "rating": "4",
       "id": 1
     },
@@ -9,6 +9,21 @@
       "title": "Star Wars: A New Hope",
       "rating": "5",
       "id": 2
+    },
+    {
+      "title": "Lord of the Rings: The Two Towers",
+      "rating": "2",
+      "id": 3
+    },
+    {
+      "title": "Rogue One: A Star Wars Story",
+      "rating": "3",
+      "id": 4
+    },
+    {
+      "title": "Lord of the Rings: The Return of the King",
+      "rating": "4",
+      "id": 5
     }
   ]
 }

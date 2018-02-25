@@ -2,6 +2,10 @@ html, body {
     height: 100%;
 }
 
+.loader {
+    margin-top: 11%;
+}
+
 .container-loader {
     text-align: center;
 }
@@ -10,7 +14,12 @@ html, body {
     text-align: center;
 }
 
-.loader {
-    margin-top: 11%;
+.add-movie, .edit-movie {
+    text-align:left;
 }
+
+ul {
+    font-size: 18px;
+}
+
 
