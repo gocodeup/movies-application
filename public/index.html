@@ -4,14 +4,76 @@
     <meta charset="UTF-8" />
     <title>My Application</title>
     <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
 </head>
-<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 pageTitle">
+            <h1>Movies</h1>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 newMovieSection" >
+                <div class="row">
+                    <div class="col-xs-3">
+                        <input type="text" name="movieTitleInput" id="movieTitleInput" placeholder="movie title...">
+                    </div>
+                    <div class="col-xs-3">
+                        <label for="movieRatingInput">Rating:</label>
+                        <select name="movieRatingInput" id="movieRatingInput">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-3">
+                        <button class="btn btn-info" type="button" id="submitBtn">Submit New Movie</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row tableHeading">
+        <div class="col-xs-3"><h2 id="sortTitles" class="sortHeads">Titles</h2></div>
+        <div class="col-xs-3"><h2 id="sortRating" class="sortHeads">Rating</h2></div>
+        <div class="col-xs-3"><h2>Options</h2></div>
+    </div>
+    <div class="divider"></div>
+    <!--Below is where movies will be displayed-->
+    <div class="row" id="display-movies">
+        <div class="col-xs-12">
+            <div class="loader"></div>
+        </div>
+    </div>
+</div>
+<!--<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">-->
+    <!--<div class="modal-dialog modal-lg" role="document">-->
+        <!--<div class="modal-content">-->
+            <!--...-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
 
-    <div class="container">
-        <h1>Hello There!</h1>
-        <p>To get started, edit <code>src/index.js</code>.</p>
+
+    <div id="id01" class="modal">
+        <form class="modal-content animate" action="/action_page.php">
+                <span onclick="document.getElementById('id01').style.display='none'"
+                    class="close" title="Close Modal">&times;</span>
+                <input type="text" name="movieTitleEdit" id="movieTitleEdit"
+                       placeholder="movie Title...">
+                <label for="movieRatingEdit">Rating:</label>
+                <select name="movieRatingEdit" id="movieRatingEdit">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button class="btn btn-info" type="button" id="editSubmit" onclick="document.getElementById('id01').style.display='none'">Edit Movie</button>
+        </form>
     </div>
 
-    <script src="/main.js"></script>
+<script src="/main.js"></script>
 </body>
 </html>
