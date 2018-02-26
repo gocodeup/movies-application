@@ -13,7 +13,7 @@ const $ = require('jquery');
 let id;
 
 $(".container").html("<img src='https://media1.tenor.com/images/d6cd5151c04765d1992edfde14483068/tenor.gif?itemid=5662595'>");
-$("form").hide();
+$(".afterLoad").hide();
 
 $("#addMovie").click((e) => {
     e.preventDefault();
@@ -44,20 +44,23 @@ updateMovies();
 function updateMovies() {
 
     getMovies().then((movies) => {
-      $(".newMovieForm").show();
+      $(".afterLoad").show();
+        $(".editMovieForm").hide();
       let html = "<table><tr><th>ID</th><th>Movie</th><th>Rating</th><th> </th></tr>";
       movies.forEach(({title, rating, id}) => {
         html += `<tr><td>${id}</td><td>${title}</td><td>${rating}</td><td><button data-movie="${title}" data-rating="${rating}" value="${id}" class="edit">Edit</button><button class="delete" value="${id}">Delete</button></td></tr>`;
       });
       html += "</table>";
-      $(".container").html(html);
+      $(".movieList").html(html);
+      $(".container").hide();
         $(".edit").click((e) => {
              id = e.target.value;
             let movie = e.target.dataset.movie;
             let rating = e.target.dataset.rating;
             $("#editMovie").val(movie);
             $("#newRating").val(rating);
-            $(".editMovieForm").show();
+            // $(".editMovieForm").show();
+            $(".modal").css("display", "block");
         });
         $(".delete").click((e) => {
             id = e.target.value;
@@ -72,8 +75,9 @@ function updateMovies() {
     $("#updateMovie").click((e) => {
             console.log(e);
             e.preventDefault();
-        $("#updateMovie").html("<img class='smallLoading' src='https://media1.tenor.com/images/d6cd5151c04765d1992edfde14483068/tenor.gif?itemid=5662595'>");
+            // $("#updateMovie").html("<img class='smallLoading' src='https://media1.tenor.com/images/d6cd5151c04765d1992edfde14483068/tenor.gif?itemid=5662595'>");
             saveMovie();
+            $("#editModal").css("display", "none");
         });
 function saveMovie() {
     if ($("#editMovie").val() !== "") {
@@ -97,7 +101,13 @@ function saveMovie() {
             .catch();
     }
 }
-
+$("#addMovieModal").click(() => {
+    $("#addModal").css("display", "block");
+});
+$("#close").click((e) => {
+    e.preventDefault();
+    $("#addModal").css("display", "none");
+});
 function deleteMovie() {
     const url = `/api/movies/${id}`;
     const options = {
