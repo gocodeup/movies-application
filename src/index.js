@@ -2,10 +2,7 @@
  * es6 modules and imports
  */
 
-<<<<<<< HEAD
-=======
 const $ = require('jquery');
->>>>>>> master
 import sayHello from './hello';
 sayHello('World');
 
@@ -18,9 +15,9 @@ const {getMovies} = require('./api.js');
 $(document).ready(function(){
     // $('#addTest').remove();
     setTimeout(function () {
-    $('#load_screen').remove();
-    $('<h1>The Movie App</h1>,<br>').appendTo(".addTest");
-    listAndTable();
+        $('#load_screen').remove();
+        $('<h1>The Movie App</h1>,<br>').appendTo(".addTest");
+        listAndTable();
     }, 2000)
 });
 
@@ -85,132 +82,20 @@ function submitMovies() {
 }
 
 $("#submit").click(function() {
-   submitMovies();
-   $('#listMovies').empty();
-   listAndTable();
+    submitMovies();
+    $('#listMovies').empty();
+    listAndTable();
 });
 
-<<<<<<< HEAD
+let ratings = $('.dropdown-item');
+ratings = Array.from(ratings);
 
-//making ajax request for movie list
-var request = $.ajax("./api.js");
-
-request.fail(function(jqXhr, status, error) {
-    console.log("There was an error!");
-    console.log("Response status: " + status);
-    console.log("Error obj: " + error);
-});
-request.done(function(data) {
-    console.log(data);
-    data.forEach(function(movie) {
-        addMovieList(movie);
+ratings.forEach(function (element) {
+    element.addEventListener('click', function() {
+        var selection = element.innerText;
+        console.log(selection);
+        rating.push(selection);
     });
 });
-
-//adding movie list to page
-function addMovieList(movies) {
-    var htmlString = "";
-    htmlString += "<tr>";
-    htmlString += "<td>" + movies.title + "</td>";
-    htmlString += "<td>" + movies.rating + "</td>";
-    htmlString += "<td>$ " + movies.id + "</td>";
-    htmlString += "</tr>";
-    $("#insertMovies").append(htmlString);
-}
-
-
-// trying to send data using forms
-var postMovies = $( '#post-movie' );
-
-postMovies.on( 'submit', function( e ) {
-    e.preventDefault();
-
-    $.ajax({
-        url: './api.js',
-        method: 'POST',
-        data: postMovies.serialize(),
-        crossDomain: true,
-        beforeSend: function ( xhr ) {
-            xhr.setRequestHeader( 'Authorization', 'Basic username:password' );
-        },
-        success: function( data ) {
-            console.log( data );
-        }
-    });
-});
-
-
-//form field data to JSON obj
-
-function formToJSON(table){
-
-
-    var keyName;
-
-    var keyNames = [];
-
-    var objectArray = [];
-
-    var numOfCols = table.rows[0].cells.length;
-
-    var numOfRows = table.rows.length;
-
-    objectArray.push("[");
-
-
-
-    for(var i = 0; i < numOfCols; i++){//begin for loop
-
-        keyName = table.rows[0].cells[i].innerHTML;
-
-        keyNames.push(keyName);
-
-
-    for(var i = 1; i < numOfRows; i++){//begin outer for loop
-        objectArray.push("{\n");
-
-        for(var j=0; j < numOfCols; j++){//begin inner for loop
-
-            var inputValue = table.rows[i].cells[j].children[0].value;
-
-            objectArray.push("\"" + keyNames[j] + "\":" + "\"" + inputValue + "\"");
-
-            if(j < (numOfCols - 1)){//begin if then
-
-                objectArray.push(",\n");
-
-            }//end if then
-
-        }//end inner for loop
-
-        if(i < (numOfRows - 1)){//begin if then
-
-            objectArray.push("\n},\n");
-
-        }
-        else{
-
-            objectArray.push("\n}");
-
-        }//end if then else
-
-    }//end outer for loop
-
-    objectArray.push("]");
-    return objectArray.join("");
-
-
-}//end function
-
-
-$("#test-form").on("submit",function(e){
-
-    e.preventDefault();
-
-    var table = $("#json-table")[0];
-
-    $("#results").val(formToJSON(table));
-
-})
 
 
