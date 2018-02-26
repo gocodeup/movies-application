@@ -1,14 +1,29 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
+      "title": "Black Panther",
       "rating": "4",
       "id": 1
     },
     {
-      "title": "Star Wars: A New Hope",
+      "title": "The Shape of Water",
       "rating": "5",
       "id": 2
+    },
+    {
+      "title": "Phantom Thread",
+      "rating": "4",
+      "id": 3
+    },
+    {
+      "title": "Annihilation",
+      "rating": "5",
+      "id": 4
+    },
+    {
+      "title": "The Shape of Water",
+      "rating": "5",
+      "id": 5
     }
   ]
 }
