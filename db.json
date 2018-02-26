@@ -11,6 +11,7 @@
       "id": 2
     },
     {
+<<<<<<< HEAD
       "title": "",
       "rating": "Are a fun way to use JS!",
       "id": 3
@@ -34,6 +35,11 @@
       "title": "$()",
       "rating": "Are a fun way to use JS!",
       "id": 7
+=======
+      "title": "The Incredible Hulk",
+      "rating": "5",
+      "id": 3
+>>>>>>> master
     }
   ]
 }

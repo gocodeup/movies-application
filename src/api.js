@@ -3,6 +3,7 @@ module.exports = {
     return fetch('/api/movies')
       .then(response => response.json());
   }
+<<<<<<< HEAD
 };
 
 const blogPost = {title: '$()', rating: 'Are a fun way to use JS!'};
@@ -18,3 +19,6 @@ const options = {
 fetch(url, options)
     .then(/* post was created successfully */)
     .catch(/* handle errors */);
+=======
+};
+>>>>>>> master
