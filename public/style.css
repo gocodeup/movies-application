@@ -43,8 +43,8 @@ ul {
 
 .search-box {
     position: absolute;
-    top: 55px;
-    right: 547px;
+    top: 35px;
+    right: 725px;
 }
 
 .add-edit-button {
@@ -60,26 +60,57 @@ ul {
     line-height: 1.5;
     background: transparent;
     position: relative;
-    box-shadow: inset 7px -8px 0 skyblue;
 }
 
 .add-edit-button:hover {
     -webkit-transition: all .35s;
-    box-shadow: inset 20px -100px 0 #99f4f8;
+    box-shadow: inset 2px -100px 0 #99f4f8;
     border: 2px solid lightskyblue;
-    background: white;
+    background: magenta;
     color: deeppink;
 }
 
 .add-new-movie-button-move {
     position: relative;
-    left: 123px;
+    left: 82px;
     top: 20px
 }
 
 .edit-movie-button-move {
     position: relative;
-    left: 133px;
+    left: 95px;
     top: 20px
 }
+
+.deleteBtn {
+    font-size: 15px;
+    padding: 5px;
+    border: 1px solid lightskyblue;
+    color: skyblue;
+    border-radius: 5px;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1;
+    position: relative;
+}
+
+.deleteBtn:hover {
+    -webkit-transition: all .35s;
+    box-shadow: inset 100px 0px #99f4f8;
+    border: 2px solid lightskyblue;
+    background: magenta;
+    color: deeppink;
+}
+
+.movie-display {
+    width: 100%;
+    border: 2px solid deepskyblue;
+    border-radius: 5px;
+}
+
+.movies {
+    text-align: center;
+}
+
+
 
