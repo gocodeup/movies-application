@@ -1,24 +1,29 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
-      "rating": "4",
+      "title": "Monster",
+      "rating": "5",
       "id": 3
     },
     {
-      "title": "Codeup",
-      "rating": "2",
+      "title": "dogs",
+      "rating": "5",
       "id": 6
     },
     {
-      "title": "Codeup",
-      "rating": "3",
+      "title": "birds",
+      "rating": "2",
       "id": 7
     },
     {
-      "title": "",
-      "rating": "1",
+      "title": "fish",
+      "rating": "2",
       "id": 8
+    },
+    {
+      "title": "bear",
+      "rating": "4",
+      "id": 9
     }
   ]
 }

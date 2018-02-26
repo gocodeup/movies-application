@@ -26,7 +26,7 @@ const runMovies = function() {
             htmlString += `<h6 class="col-xs-3 ratingCol">`;
             htmlString += `Rating: ${movie.rating}`;
             htmlString += `</h6>`;
-            htmlString += `<div class="col-xs-3"><button class="btn btn-info" type="button" id="editBtn${movie.id}">Edit</button><button class="btn btn-danger" type="button" id="deleteBtn${movie.id}">DELETE</button></div>`;
+            htmlString += `<div class="col-xs-3"><button class="btn btn-info" type="button" id="editBtn${movie.id}" data-toggle="modal" data-target=".bs-example-modal-lg"">Edit</button><button class="btn btn-danger" type="button" id="deleteBtn${movie.id}">DELETE</button></div>`;
             htmlString += `<div class="col-xs-12" id="editInputs${movie.id}"></div></div></div>`;
         });
         $('#display-movies').html(htmlString);
@@ -83,36 +83,46 @@ $('#submitBtn').click(function()  {
 const editMovies = (movies) => {
     movies.forEach((element) => {
         $(`#editBtn${element.id}`).click(() => {
-            const addMovie = $('#movieTitleInput').val();
-            const addRating = $('#movieRatingInput').val();
-            const addObj = {title: addMovie, rating: addRating};
-            const url = `./api/movies/${element.id}`;
-            const options = {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(addObj)
-            };
-            fetch(url, options)
-                .then(() => {
-                    console.log(` edit function is firing`);
-                    runMovies();
-                })
-                .catch(() => {
-                    console.log('the upload failed')
-                });
+            document.getElementById('id01').style.display='block';
+            $('#editSubmit').click(() => {
+                const addMovie = $('#movieTitleEdit').val();
+                const addRating = $('#movieRatingEdit').val();
+                const addObj = {title: addMovie, rating: addRating};
+                const url = `./api/movies/${element.id}`;
+                const options = {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(addObj)
+                };
+                fetch(url, options)
+                    .then(() => {
+                        console.log(` edit function is firing`);
+                        runMovies();
+                    })
+                    .catch(() => {
+                        console.log('the upload failed')
+                    });
+            });
         });
     });
 };
 
+//
 const modal = document.getElementById('id01');
-
 window.onclick = function(event) {
-    if (event.target === modal) {
-        modal.style.display = "none";
-    }
+    // if (event.target === modal) {
+    //     modal.style.display = "none";
+    // }
 };
+//
+// // const modal = document.getElementById('id01');
+// // const editModal = function() {
+// //     if (event.target === modal) {
+// //         modal.style.display = "none";
+// //     }
+// // };
 
 
 //----------------------------------------------------
