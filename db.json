@@ -2,13 +2,48 @@
   "movies": [
     {
       "title": "Casablanca",
-      "rating": "4",
+      "rating": "3",
       "id": 1
     },
     {
       "title": "Star Wars: A New Hope",
-      "rating": "5",
+      "rating": "4",
       "id": 2
+    },
+    {
+      "title": "American Assassin",
+      "rating": "5",
+      "id": 4
+    },
+    {
+      "title": "Star Wars: The Empire Strikes Back",
+      "rating": "5",
+      "id": 5
+    },
+    {
+      "title": "Testy12",
+      "rating": "2",
+      "id": 6
+    },
+    {
+      "title": "test this Too",
+      "rating": "2",
+      "id": 7
+    },
+    {
+      "title": "sdfsdfsdf",
+      "rating": "3",
+      "id": 8
+    },
+    {
+      "title": "new Movie edit",
+      "rating": "4",
+      "id": 9
+    },
+    {
+      "title": "New Movie Edited",
+      "rating": "2",
+      "id": 10
     }
   ]
 }

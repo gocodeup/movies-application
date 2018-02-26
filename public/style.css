@@ -1,10 +1,149 @@
 html, body {
-    height: 100%;
+    width: 100%;
+    font-family: Avenir, sans-serif;
+    margin: 0;
+    padding 0;
 }
 
 .container {
-    position: relative;
-    top: 50%;
-    transform: translateY(-100%);
+    /*position: relative;*/
+    /*top: 50%;*/
+    /*transform: translateY(-100%);*/
     text-align: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(100,100,100); /* Fallback color */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    height: 10em;
+    border-radius: .8em;
+}
+
+/* The Close Button */
+.close {
+    color: #000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    height: 1em;
+    width: 1em;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.movie-wrap {
+    margin: 1em;
+    border-bottom: 1px solid #ddd;
+    clear: both;
+    width: 98%;
+    height: 2em;
+    font-size: 1.5em;
+}
+#movie-form {
+    margin-top: 3em;
+}
+.rating-style {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+.star-all {
+    background-repeat: no-repeat;
+    margin-left: 1em;
+    margin-right: 1em;
+    width: 100px;
+    object-fit: scale-down;
+}
+.main-title {
+    font-size: 5em;
+    font-family: Impact, sans-serif;
+    background-color: dimgrey;
+    color: #ddd;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: .5em;
+    margin-bottom: 0;
+    border-radius: 1em;
+
+}
+.button {
+    width: 15em;
+    background-color: darkblue;
+    color: #fff;
+    font-size: 1em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    border-radius: 3em;
+    margin-left: 2em;
+}
+.button2 {
+    width: 15em;
+    background-color: darkblue;
+    color: #fff;
+    font-size: 1em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    border-radius: 3em;
+    margin-left: 2em;
+    margin-top: 2em;
+}
+.edit-this-movie {
+    width: 7em;
+    background-color: darkblue;
+    color: #fff;
+    font-size: .5em;
+    border-radius: 3em;
+    margin-left: 2em;
+}
+input {
+    width: 8em;
+    font-size: 1.5em;
+    border-color: #999;
+    border-radius: 1em;
+    margin-right: 1em;
+    padding-left: .5em;
+}
+label {
+    font-size: 2em;
+    font-weight: bold;
+
+}
+select {
+    font-size: 1em;
+}
+.movie-title {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+#movie-list {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+/*.update-buttons {*/
+    /*margin-top: 1em;*/
+/*}*/

@@ -6,12 +6,53 @@
     <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-
     <div class="container">
-        <h1>Hello There!</h1>
-        <p>To get started, edit <code>src/index.js</code>.</p>
+        <h1 class="main-title">- MOVIES! -</h1>
+        <!--<p>To get started, edit <code>src/index.js</code>.</p>-->
+        <span id="movie-list">Loading...</span>
+        <form id="movie-form">
+            <label for="movie-title">Movie Title
+            <input type="text" name="movie-title" id="movie-title" ></label>
+            <label for="movie-rating">Rate this movie
+            <select type="select" name="movie-rating" id="movie-rating" >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select></label>
+            <button type="submit" id="add-movie" class="button">Add Movie</button>
+        </form>
+
+    <div id="myModal" class="modal">
+
+        <div class="modal-content">
+                <div class="close">X</div>
+            <form>
+                <label for="edit-title">Edit the Movie's Title:
+                    <input id="edit-title" type="text">
+                </label>
+                <label for="edit-rating">Edit the Movie's Rating:
+                    <select type="select" name="movie-rating" id="edit-rating" >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </label>
+
+                <button id="update-movie" class="button2">Update Movie</button>
+                <button id="delete-movie" class="button2">Delete Movie</button>
+
+            </form>
+        </div>
+
+    </div>
     </div>
 
+
+<span class="results__display"></span>
     <script src="/main.js"></script>
 </body>
 </html>
