@@ -3,22 +3,17 @@
     {
       "title": "Casablanca",
       "rating": "4",
-      "id": 1
-    },
-    {
-      "title": "Star Wars: A New Hope",
-      "rating": "5",
-      "id": 2
-    },
-    {
-      "title": "Forest Dump",
-      "body": "2",
       "id": 3
     },
     {
-      "title": "Forest Dump",
-      "body": "2",
-      "id": 4
+      "title": "Codeup",
+      "rating": "2",
+      "id": 6
+    },
+    {
+      "title": "Codeup",
+      "rating": "3",
+      "id": 7
     }
   ]
 }

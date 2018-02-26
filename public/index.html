@@ -7,57 +7,47 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
 </head>
 <body>
-
 <div class="container">
-    <h1 class="main-display text-center">Bootstrap 3 Modal Demo</h1>
     <div class="row">
-        <div class="col-sm-6 col-sm-offset-3">
-            <div class="panel-group">
-                <div class="htmlHere"></div>
-            </div>
-            <div class="form-group">
-                <label for="movieTitle">Title</label>
-                <input type="text" class="form-control" id="movieTitle">
-            </div>
-            <div class="form-group">
-                <label for="movieRating">Rating</label>
-                <input type="text" class="form-control" id="movieRating">
-            </div>
-            <div id="add-new-movie">
-                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal">
-                    Submit New Movie
-                </button>
-            </div>
+        <div class="col-xs-12 pageTitle">
+            <h1>Movies</h1>
         </div>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-            </div>
-            <div class="panel-group">
-                <div class="htmlHere">
-
+        <div class="row">
+            <div class="col-xs-12 newMovieSection" >
+                <div class="row">
+                    <div class="col-xs-3">
+                        <input type="text" name="movieTitleInput" id="movieTitleInput" placeholder="movie title...">
+                    </div>
+                    <div class="col-xs-3">
+                        <label for="movieRatingInput">Rating:</label>
+                        <select name="movieRatingInput" id="movieRatingInput">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-3">
+                        <button class="btn btn-info" type="button" id="submitBtn">Submit New Movie</button>
+                    </div>
                 </div>
             </div>
-            <div class="modal-body">
-                It Works! That means the JS is all wired up correctly.
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+        </div>
+    </div>
+    <div class="row tableHeading">
+        <div class="col-xs-3"><h2 id="sortTitles" class="sortHeads">Titles</h2></div>
+        <div class="col-xs-3"><h2 id="sortRating" class="sortHeads">Rating</h2></div>
+        <div class="col-xs-3"><h2>Options</h2></div>
+    </div>
+    <div class="divider"></div>
+    <!--Below is where movies will be displayed-->
+    <div class="row" id="display-movies">
+        <div class="col-xs-12">
+            <div class="loader"></div>
         </div>
     </div>
 </div>
-
-
-
 <script src="/main.js"></script>
 </body>
 </html>
