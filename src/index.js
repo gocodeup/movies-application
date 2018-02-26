@@ -83,7 +83,25 @@ $('#submitBtn').click(function()  {
 const editMovies = (movies) => {
     movies.forEach((element) => {
         $(`#editBtn${element.id}`).click(() => {
-            console.log(`click ${element.id}`)
+            const addMovie = $('#movieTitleInput').val();
+            const addRating = $('#movieRatingInput').val();
+            const addObj = {title: addMovie, rating: addRating};
+            const url = `./api/movies/${element.id}`;
+            const options = {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(addObj)
+            };
+            fetch(url, options)
+                .then(() => {
+                    console.log(` edit function is firing`);
+                    runMovies();
+                })
+                .catch(() => {
+                    console.log('the upload failed')
+                });
         });
     });
 };
@@ -112,11 +130,11 @@ const deleteMovies = (movies) => {
                 };
                 fetch(url, options)
                     .then(() => {
-                        console.log(`new edit function is firing`);
+                        console.log(`delete function is firing`);
                         runMovies();
                     })
                     .catch(() => {
-                        console.log('the upload failed')
+                        console.log('delete failed')
                     });
             }});
     });

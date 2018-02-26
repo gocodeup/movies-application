@@ -1,19 +1,19 @@
 {
   "movies": [
     {
-      "title": "Star Wars: A New Hope",
-      "rating": "5",
-      "id": 2
-    },
-    {
       "title": "Casablanca",
       "rating": "4",
       "id": 3
     },
     {
-      "title": "Power Rangers",
-      "rating": "5",
-      "id": 4
+      "title": "Codeup",
+      "rating": "2",
+      "id": 6
+    },
+    {
+      "title": "Codeup",
+      "rating": "3",
+      "id": 7
     }
   ]
 }
