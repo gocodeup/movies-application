@@ -14,61 +14,6 @@
       "title": "The Incredible Hulk",
       "rating": "5",
       "id": 3
-    },
-    {
-      "title": "El Gonzo",
-      "rating": 5,
-      "id": 4
-    },
-    {
-      "title": "El Armando Justiciero",
-      "rating": 5,
-      "id": 5
-    },
-    {
-      "title": "The Peruvian",
-      "rating": "4",
-      "id": 6
-    },
-    {
-      "title": "The Coop",
-      "rating": "4",
-      "id": 7
-    },
-    {
-      "title": "The Bad Hombres",
-      "rating": "3",
-      "id": 8
-    },
-    {
-      "title": "The Bad Hombres 2",
-      "rating": "4",
-      "id": 9
-    },
-    {
-      "title": "The Bad Hombres 3",
-      "rating": "3",
-      "id": 10
-    },
-    {
-      "title": "The Bad Hombres 4",
-      "rating": "5",
-      "id": 11
-    },
-    {
-      "title": "The Bad Hombres 5",
-      "rating": "2",
-      "id": 12
-    },
-    {
-      "title": "The Bad Cooper",
-      "rating": "2,5",
-      "id": 13
-    },
-    {
-      "title": "The Bad Cooper",
-      "rating": "4",
-      "id": 14
     }
   ]
 }
