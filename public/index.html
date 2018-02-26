@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="/style.css" />
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
 </head>
-<body>
 <div class="container">
     <div class="row">
         <div class="col-xs-12 pageTitle">
@@ -48,6 +47,31 @@
         </div>
     </div>
 </div>
+
+    <button onclick="document.getElementById('id01').style.display='block'"
+        style="width:auto">Login</button>;
+
+    <div id="id01" class="modal">
+        <form class="modal-content animate" action="/action_page.php">
+            <div class="imgcontainer">
+                <span
+                    onclick="document.getElementById('id01').style.display='none'"
+                    class="close" title="Close Modal">&times;</span>
+                <input type="text" name="movieTitleInput" id="movieTitleEdit"
+                       placeholder="movie Title...">
+                <label for="movieRatingInput">Rating:</label>
+                <select name="movieRatingInput" id="movieRatingEdit">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button class="btn btn-info" type="button" id="editBtn">Submit New Movie</button>
+            </div>
+        </form>
+    </div>
+
 <script src="/main.js"></script>
 </body>
 </html>
