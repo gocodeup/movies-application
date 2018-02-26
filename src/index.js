@@ -12,6 +12,7 @@ sayHello('World');
 // const {postMovies} = require('./api.js');
 const {getMovies} = require('./api.js');
 
+
 $(document).ready(function(){
     // $('#addTest').remove();
     setTimeout(function () {
