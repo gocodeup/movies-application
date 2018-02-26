@@ -1,29 +1,29 @@
 {
   "movies": [
     {
-      "title": "Monster",
+      "title": "Black Panther",
+      "rating": "4",
+      "id": 1
+    },
+    {
+      "title": "The Shape of Water",
       "rating": "5",
+      "id": 2
+    },
+    {
+      "title": "Phantom Thread",
+      "rating": "4",
       "id": 3
     },
     {
-      "title": "dogs",
+      "title": "Annihilation",
       "rating": "5",
-      "id": 6
+      "id": 4
     },
     {
-      "title": "birds",
-      "rating": "2",
-      "id": 7
-    },
-    {
-      "title": "fish",
-      "rating": "2",
-      "id": 8
-    },
-    {
-      "title": "bear",
-      "rating": "4",
-      "id": 9
+      "title": "The Shape of Water",
+      "rating": "5",
+      "id": 5
     }
   ]
 }
