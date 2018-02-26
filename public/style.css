@@ -8,3 +8,9 @@ html, body {
     transform: translateY(-100%);
     text-align: center;
 }
+img {
+    width: 150px;
+}
+.smallLoading {
+    width: 12px;
+}

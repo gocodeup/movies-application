@@ -12,12 +12,13 @@ const $ = require('jquery');
 
 let id;
 
-$(".container").html("<h1>Loading...</h1>");
+$(".container").html("<img src='https://media1.tenor.com/images/d6cd5151c04765d1992edfde14483068/tenor.gif?itemid=5662595'>");
 $("form").hide();
 
 $("#addMovie").click((e) => {
     e.preventDefault();
     if ($("#newMovie").val() !== "") {
+        $("#addMovie").html("<img class='smallLoading' src='https://media1.tenor.com/images/d6cd5151c04765d1992edfde14483068/tenor.gif?itemid=5662595'>");
         const movie = {title: $("#newMovie").val(), rating: $("#rating").val(), id: ""};
         const url = '/api/movies';
         const options = {
@@ -28,7 +29,10 @@ $("#addMovie").click((e) => {
             body: JSON.stringify(movie),
         };
         fetch(url, options)
-            .then(movie => updateMovies())
+            .then(movie => {
+                updateMovies();
+                $("#addMovie").html("Submit");
+            })
             .catch(error => console.log(error));
         $("#newMovie").val("");
         $("#rating").val("1");
@@ -43,16 +47,21 @@ function updateMovies() {
       $(".newMovieForm").show();
       let html = "<table><tr><th>ID</th><th>Movie</th><th>Rating</th><th> </th></tr>";
       movies.forEach(({title, rating, id}) => {
-        html += `<tr><td>${id}</td><td>${title}</td><td>${rating}</td><td><button value="${id}" class="edit">Edit</button><button class="delete" value="${id}">Delete</button></td></tr>`;
+        html += `<tr><td>${id}</td><td>${title}</td><td>${rating}</td><td><button data-movie="${title}" data-rating="${rating}" value="${id}" class="edit">Edit</button><button class="delete" value="${id}">Delete</button></td></tr>`;
       });
       html += "</table>";
       $(".container").html(html);
         $(".edit").click((e) => {
              id = e.target.value;
+            let movie = e.target.dataset.movie;
+            let rating = e.target.dataset.rating;
+            $("#editMovie").val(movie);
+            $("#newRating").val(rating);
             $(".editMovieForm").show();
         });
         $(".delete").click((e) => {
             id = e.target.value;
+            $(".delete").eq(id-1).html("<img class='smallLoading' src='https://media1.tenor.com/images/d6cd5151c04765d1992edfde14483068/tenor.gif?itemid=5662595'>");
             deleteMovie();
         })
     }).catch((error) => {
@@ -63,6 +72,7 @@ function updateMovies() {
     $("#updateMovie").click((e) => {
             console.log(e);
             e.preventDefault();
+        $("#updateMovie").html("<img class='smallLoading' src='https://media1.tenor.com/images/d6cd5151c04765d1992edfde14483068/tenor.gif?itemid=5662595'>");
             saveMovie();
         });
 function saveMovie() {
@@ -82,6 +92,7 @@ function saveMovie() {
                 $(".editMovieForm").hide();
                 $("#editMovie").val("");
                 $("#newRating").val("1");
+                $("#updateMovie").html("Save");
             })
             .catch();
     }
