@@ -30,9 +30,11 @@ const runMovies = function() {
             htmlString += `<div class="col-xs-12" id="editInputs${movie.id}"></div></div></div>`;
         });
         $('#display-movies').html(htmlString);
+        editMovies(movies);
+        deleteMovies(movies);
 
     }).catch((error) => {
-        alert('Oh no! Something went wrong.\nCheck the console for details.');
+        console.log('Oh no! Something went wrong.\nCheck the console for details.');
         console.log(error);
     });
 };
@@ -43,21 +45,19 @@ runMovies();
 //----------------------------------------------------
 
 const displayMovies = () => {
-    $('#display-movies').html('Loading...');
+    $('#display-movies').html('<div class="loader"></div>');
 };
 displayMovies();
 
 
 
 //----------------------------------------------------
-// on click of button pull in the values from id="movieTitle" id="movieRating"
+// Add Movie   on click of button pull in the values from id="movieTitle" id="movieRating"
 //----------------------------------------------------
 
 $('#submitBtn').click(function()  {
   const addMovie = $('#movieTitleInput').val();
   const addRating = $('#movieRatingInput').val();
-  console.log(addMovie);
-  console.log(addRating);
   const addObj = {title: addMovie, rating: addRating};
   const url = '/api/movies';
   const options = {
@@ -70,26 +70,36 @@ $('#submitBtn').click(function()  {
     fetch(url, options)
         .then(runMovies)
         .catch((error) => {
-            alert('Oh no! Something went wrong.\nCheck the console for details.');
+            console.log('Oh no! Something went wrong.\nCheck the console for details.');
             console.log(error);
         });
 });
 
-$('h2').click(function() {
-    console.log("click");
-  const id = (movies.id).val();
-  console.log(id);
-});
+//----------------------------------------------------
+// Edit Movie
+//----------------------------------------------------
+
+
+const editMovies = (movies) => {
+    movies.forEach((element) => {
+        $(`#editBtn${element.id}`).click(() => {
+            console.log(`click ${element.id}`)
+        });
+    });
+};
+
+
+
 
 //----------------------------------------------------
 // Delete Movie
 //----------------------------------------------------
 
 
+
 const deleteMovies = (movies) => {
     movies.forEach((element) => {
         $(`#deleteBtn${element.id}`).click(() => {
-            console.log(element.id);
             let url;
             let options;
             if (confirm(`Are you Sure you want to delete:  ${element.title}?`)) {
@@ -103,16 +113,15 @@ const deleteMovies = (movies) => {
                 fetch(url, options)
                     .then(() => {
                         console.log(`new edit function is firing`);
-                        fetchingMovieList();
+                        runMovies();
                     })
                     .catch(() => {
                         console.log('the upload failed')
                     });
-            }
-        });
+            }});
     });
 };
-deleteMovies();
+
 
 
 

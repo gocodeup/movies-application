@@ -1,39 +1,19 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
-      "rating": "4",
-      "id": 1
-    },
-    {
       "title": "Star Wars: A New Hope",
       "rating": "5",
       "id": 2
     },
     {
-      "title": "Forest Dump",
-      "rating": "2",
+      "title": "Casablanca",
+      "rating": "4",
       "id": 3
     },
     {
-      "title": "Dumb and Dumber",
-      "rating": "4",
+      "title": "Power Rangers",
+      "rating": "5",
       "id": 4
-    },
-    {
-      "title": "Polar Pop",
-      "rating": "2",
-      "id": 5
-    },
-    {
-      "title": "water works",
-      "rating": "3",
-      "id": 6
-    },
-    {
-      "title": "Larry the dog",
-      "rating": "3",
-      "id": 7
     }
   ]
 }
