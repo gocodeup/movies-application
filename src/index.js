@@ -15,7 +15,7 @@ const {created} = require('./create-movie');
 getMovies().then((movies) => {
   console.log('Here are all the movies:');
   movies.forEach(({title, rating, id}) => {
-    $(".container").append(`<tr><td>id# ${id} - ${title} - rating: ${rating}</td></tr>`);
+    $(".container").append(`<table><tr><td>${title} - rating: ${rating}</td></tr></table>`);
     displayLoading();
   });
 }).catch((error) => {
@@ -24,7 +24,8 @@ getMovies().then((movies) => {
 });
 
 function displayLoading() {
-    $(".loadingMessage").css("display", "none")
+    $(".loadingMessage").css("display", "none");
+    $("h1").text("Movie List");
 }
 
 $("#createBtn").click(function(){
