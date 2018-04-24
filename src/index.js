@@ -1,8 +1,8 @@
 /**
  * es6 modules and imports
  */
-import sayHello from './hello';
-sayHello('World');
+// import sayHello from './hello';
+// sayHello('World');
 
 /**
  * require style imports
@@ -25,3 +25,4 @@ getMovies().then((movies) => {
 function displayLoading() {
     $(".loadingMessage").css("display", "none")
 }
+
