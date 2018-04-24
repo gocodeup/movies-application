@@ -2,6 +2,7 @@ html, body {
     height: 100%;
 }
 
+
 .container {
     position: relative;
     top: 50%;
@@ -12,3 +13,4 @@ html, body {
 .invisible {
     display: none;
 }
+
