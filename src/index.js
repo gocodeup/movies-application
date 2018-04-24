@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * es6 modules and imports
  */
@@ -17,4 +19,10 @@ getMovies().then((movies) => {
 }).catch((error) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.')
   console.log(error);
+});
+
+$(document).ready(function() {
+    setTimeout(function() {
+      $('body > div > h1:nth-child(1)').addClass('poof');
+    }, 2000);
 });

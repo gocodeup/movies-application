@@ -1,5 +1,6 @@
 html, body {
     height: 100%;
+    background-color: red;
 }
 
 .container {
@@ -7,4 +8,12 @@ html, body {
     top: 50%;
     transform: translateY(-100%);
     text-align: center;
+}
+
+/*.unPoof{*/
+    /*visibility: visible;*/
+/*}*/
+
+.poof{
+    visibility: hidden;
 }
