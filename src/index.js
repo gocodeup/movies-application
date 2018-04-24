@@ -1,8 +1,8 @@
 /**
  * es6 modules and imports
  */
-import sayHello from './hello';
-sayHello('World');
+// import sayHello from './hello';
+// sayHello('World');
 
 /**
  * require style imports
@@ -18,3 +18,4 @@ getMovies().then((movies) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.')
   console.log(error);
 });
+
