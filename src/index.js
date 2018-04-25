@@ -1,20 +1,21 @@
 /**
- * es6 modules and imports
+ * This file is the "entrypoint" into your application
  */
-import sayHello from './hello';
-sayHello('World');
 
-/**
- * require style imports
- */
-const {getMovies} = require('./api.js');
 
-getMovies().then((movies) => {
-  console.log('Here are all the movies:');
-  movies.forEach(({title, rating, id}) => {
-    console.log(`id#${id} - ${title} - rating: ${rating}`);
-  });
-}).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.')
-  console.log(error);
-});
+import 'bootstrap'
+let $ = require('jquery');
+import getMovies from './api.js';
+"use strict";
+
+    $(document).ready(function() {
+        // Animate loader off screen
+        $(".se-pre-con").fadeOut("slow");
+    });
+
+    // $(() => {
+    //   $('[data-toggle="popover"]').popover()
+    // });
+
+    $('#movies').html('<p>' + {getMovies} + '</p>');
+
