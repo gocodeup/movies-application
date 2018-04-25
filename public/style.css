@@ -1,10 +1,73 @@
 html, body {
     height: 100%;
+    font-family: 'Roboto', sans-serif;
+
 }
 
 .container {
-    position: relative;
-    top: 50%;
-    transform: translateY(-100%);
+    width: 85%;
+    margin-top: 75px;
+    margin-bottom: 75px;
     text-align: center;
+}
+
+/* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+.loader {
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, 1.0 )
+    url('loader.gif')
+    50% 50%
+    no-repeat;
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+    font-size: xx-large;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+#addMovie {
+    color: #000;
+    background-color: mediumturquoise;
+}
+
+select {
+    height: 34px;
+}
+
+input {
+    height: 34px;
+}
+
+.card-body {
+    padding: 0.75rem;
+    background-color: darkblue;
+    color: white;
+    height: 250px;
+    border: 5px solid red;
+}
+
+.card-subtitle {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 15px;
+}
+
+.dbId {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 15px;
 }
