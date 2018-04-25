@@ -1,7 +1,7 @@
 import 'bootstrap'
 let $ = require("jquery");
 import {getMovies} from './api.js'
-const imdb = require('imdb-api');
+const omdbApi = require('omdb-client');
 
 function dbChecker() {
    return getMovies().then( (data)=> {
@@ -12,8 +12,14 @@ function dbChecker() {
                let rating = data.rating;
                let id = data.id;
 
-               imdb.get(title, {apiKey: "d294c676", timeout: 30000}).then(
-                   console.log).catch(console.log);
+               let params =
+                   {
+                   apiKey: "d294c676",
+                   timeout: 30000
+                   };
+               window.omdb.get(params, function(err, data) {
+                   console.log(data);
+               });
 
 
                let card  = `<div class="card" style="width: 18rem;">
