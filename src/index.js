@@ -15,6 +15,10 @@ import addMovie from './addMovies.js';
 
 import deleteMovie from './deleteMovie.js';
 
+import editMovie from './editMovies.js';
+
+editMovie(4, {title: 'Finding Dory', rating: '3'});
+
 import {getMovies} from './api.js';
 
 getMovies().then((movies) => {
