@@ -4,3 +4,4 @@ module.exports = {
       .then(response => response.json());
   }
 };
+$('#movieButton').button('toggle')

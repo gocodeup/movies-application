@@ -1,6 +1,8 @@
 /**
  * es6 modules and imports
  */
+
+'use strict';
 const $ = require('jquery');
 import sayHello from './hello.js';
 sayHello('World');
@@ -8,6 +10,7 @@ sayHello('World');
 /**
  * require style imports
  */
+
 const {getMovies} = require('./api.js');
 $(".loader").css("display", "block");
 getMovies().then((movies) => {
@@ -20,3 +23,4 @@ getMovies().then((movies) => {
     alert('Oh no! Something went wrong.\nCheck the console for details.');
     console.log(error);
 });
+

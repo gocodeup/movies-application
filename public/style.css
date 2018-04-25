@@ -1,5 +1,7 @@
 html, body {
     height: 100%;
+    font-family: 'Roboto', sans-serif;
+
 }
 
 .container {
@@ -26,4 +28,17 @@ html, body {
     50% 50%
     no-repeat;
     overflow: hidden;
+}
+
+
+h1 {
+    text-align: center;
+    font-size: xx-large;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+#addMovie {
+    color: #000;
+    background-color: mediumturquoise;
 }
