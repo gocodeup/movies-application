@@ -6,14 +6,9 @@
       "id": 1
     },
     {
-      "title": "Star Wars: A New Hope",
-      "rating": "5",
-      "id": 2
-    },
-    {
       "title": "John Wick",
-      "rating": "5",
-      "id": 3
+      "rating": "5.5",
+      "id": 2
     }
   ]
 }
