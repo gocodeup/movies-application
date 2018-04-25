@@ -18,8 +18,10 @@ getMovies().then((movies) => {
     $(".row").append(`<div class="col-6">
         <div class="card">
             <div class="card-body">
+            <button class="deleteBtn">x</button>
                 <h5 class="card-title">${title}</h5>
                 <h6 class="card-subtitle">rating: ${rating}</h6>
+                <p class="dbId">${id}</p>
             </div>
         </div>
     </div>`);
@@ -42,4 +44,5 @@ $("#createBtn").click(function(){
   created({title: movieTitle,
   rating: movieRating})
 });
+
 
