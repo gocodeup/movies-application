@@ -29,15 +29,13 @@ getMovies().then((movies) => {
   console.log(error);
 });
 
-var loader;
+const showPage = () => {
+    $('#loader').css('display','none');
+    $('#myDiv').css('display','block')
+};
 
-function loadingTimer() {
-  loader = setTimeout(showPage, 3000);
-}
-
-function showPage() {
-  $('#loader').css('display','none');
-  $('#myDiv').css('display','block')
-}
+const loadingTimer = () => {
+  const loader = setTimeout(showPage, 3000)
+};
 
 $(document).ready(loadingTimer());
