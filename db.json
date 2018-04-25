@@ -9,6 +9,86 @@
       "title": "Star Wars: A New Hope",
       "rating": "5",
       "id": 2
+    },
+    {
+      "title": "Pulp Fiction",
+      "rating": "",
+      "id": 3
+    },
+    {
+      "title": "movie title",
+      "rating": "3",
+      "id": 4
+    },
+    {
+      "title": "IT",
+      "rating": "3",
+      "id": 5
+    },
+    {
+      "title": "Harry Potter",
+      "rating": "2",
+      "id": 6
+    },
+    {
+      "title": "Jumanji",
+      "rating": "3",
+      "id": 7
+    },
+    {
+      "title": "Mary Poppins",
+      "rating": "1",
+      "id": 8
+    },
+    {
+      "title": "The Shining",
+      "rating": "2",
+      "id": 9
+    },
+    {
+      "title": "Alice in wonderland",
+      "rating": "1",
+      "id": 10
+    },
+    {
+      "title": "Scooby Doo",
+      "rating": "1",
+      "id": 11
+    },
+    {
+      "title": "Emoji Movie",
+      "rating": "1",
+      "id": 12
+    },
+    {
+      "title": "Blockers",
+      "rating": "1",
+      "id": 13
+    },
+    {
+      "title": "Addams Family",
+      "rating": "4",
+      "id": 14
+    },
+    {
+      "title": "Space Balls",
+      "rating": "3",
+      "id": 15
+    },
+    {
+      "title": "",
+      "rating": "",
+      "id": 16
+    },
+    {
+      "title": "stuff",
+      "rating": "3",
+      "id": 17
+    },
+    {
+      "title": "stuff",
+      "rating": "3",
+      "id": 18
     }
   ]
 }
