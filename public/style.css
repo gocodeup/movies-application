@@ -12,3 +12,7 @@ html, body {
 table {
     margin: 0 auto;
 }
+
+.dbId {
+    display: none;
+}

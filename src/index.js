@@ -11,6 +11,7 @@
 const $ = require("jquery");
 const {getMovies} = require('./api.js');
 const {created} = require('./create-movie');
+const {deleteMovie} = require('./delete-movie');
 
 getMovies().then((movies) => {
   console.log('Here are all the movies:');
@@ -18,8 +19,10 @@ getMovies().then((movies) => {
     $(".row").append(`<div class="col-6">
         <div class="card">
             <div class="card-body">
+                <button>x</button>
                 <h5 class="card-title">${title}</h5>
                 <h6 class="card-subtitle">rating: ${rating}</h6>
+                <p class="dbId">${id}</p>
             </div>
         </div>
     </div>`);
@@ -41,5 +44,11 @@ $("#createBtn").click(function(){
 
   created({title: movieTitle,
   rating: movieRating})
+});
+
+$(".row").on('click', 'button', function() {
+    let movieId = $(this).parent()["0"].children[3].innerText;
+    console.log(movieId);
+    deleteMovie({id: movieId})
 });
 
