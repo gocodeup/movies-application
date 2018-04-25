@@ -21,8 +21,8 @@ html, body {
     left:       0;
     height:     100%;
     width:      100%;
-    background: rgba( 0, 0, 0, 1.0 )
-    url('pacman-load.gif')
+    background: rgba( 255, 255, 255, 1.0 )
+    url('loading.gif')
     50% 50%
     no-repeat;
     overflow: hidden;
