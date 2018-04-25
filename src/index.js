@@ -18,7 +18,7 @@ getMovies().then((movies) => {
                </button>
                <button type="button" class="btn btn-danger">X</button>
                <h5 class="card-title"><em>Movie Title: </em><br>${title}</h5>
-               <h6 class="card-subtitle"> ${rating} Stars</h6>
+               <p class="card-subtitle"> ${rating} Stars</p>
                <p class="dbId">${id}</p>
            </div>
        </div>
