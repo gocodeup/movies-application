@@ -1,3 +1,4 @@
+
 'use strict';
 const $ = require('jquery');
 import sayHello from './hello.js';
@@ -27,3 +28,4 @@ getMovies().then((movies) => {
     alert('Oh no! Something went wrong.\nCheck the console for details.');
     console.log(error);
 });
+

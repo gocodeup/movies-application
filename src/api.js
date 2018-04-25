@@ -3,4 +3,5 @@ module.exports = {
     return fetch('/api/movies')
       .then(response => response.json());
   }
+
 };
