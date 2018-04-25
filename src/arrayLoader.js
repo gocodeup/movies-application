@@ -20,7 +20,7 @@ function dbChecker() {
 
                omdbApi.get(params, function(err, data) {
                    console.log(data);
-                   console.log(err);
+                   //console.log(err);
 
             let card  = `<div class="card" style="width: 18rem;">
             <img class="card-img-top" src="${data.Poster}" alt="Card image cap">
