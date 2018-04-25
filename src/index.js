@@ -10,8 +10,9 @@ import test from './searchFunction.js';
 
 
 $(".se-pre-con").fadeOut("slow");
-dbChecker;
 
-$("#search").click(
-    test()
-);
+
+
+
+
+
