@@ -1,12 +1,16 @@
 /**
  * es6 modules and imports
  */
+import 'bootstrap'
+import $ from 'jquery'
+
+$(() => {
+    $('[data-toggle="popover"]').popover()
+});
+
 import sayHello from './hello';
 sayHello('World');
 
-/**
- * require style imports
- */
 import addMovie from './addMovies.js';
 
 import deleteMovie from './deleteMovie.js';
@@ -22,5 +26,3 @@ getMovies().then((movies) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.')
   console.log(error);
 });
-
-
