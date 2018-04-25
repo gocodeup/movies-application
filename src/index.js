@@ -15,7 +15,14 @@ const {created} = require('./create-movie');
 getMovies().then((movies) => {
   console.log('Here are all the movies:');
   movies.forEach(({title, rating, id}) => {
-    $(".container").append(`<table><tr><td>${title} - rating: ${rating}</td></tr></table>`);
+    $(".row").append(`<div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">${title}</h5>
+                <h6 class="card-subtitle">rating: ${rating}</h6>
+            </div>
+        </div>
+    </div>`);
     displayLoading();
   });
 }).catch((error) => {
