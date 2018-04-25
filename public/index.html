@@ -7,6 +7,39 @@
     <link rel="stylesheet" href="style.css" />
 
 </head>
+<body>
+    <h1>Movies!</h1>
+    <form>
+    <!--movie title-->
+    <div class="form-group">
+        <label for="newMovieTitle">Movie Title</label>
+        <input type="text" class="form-control" id="newMovieTitle" placeholder="Enter movie title">
+    </div>
+    <!--genre-->
+    <div class="form-group">
+        <label for="newMovieGenre">Movie Genre</label>
+        <select class="form-control" id="newMovieGenre">
+            <option>Action</option>
+            <option>Adventure</option>
+            <option>Comedy</option>
+            <option>Drama</option>
+            <option>Horror</option>
+        </select>
+    </div>
+    <!--stars-->
+    <div class="form-group">
+        <label for="newMovieRating">Star Rating</label>
+        <select multiple class="form-control" id="newMovieRating">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+    </div>
+    <button type="button" class="btn btn-secondary" id="submitMovie">Submit Movie</button>
+    </form>
+
     <div id="loader"></div>
     <div style="display:none;" id="myDiv" class="animate-bottom">
         <h2>Tada!</h2>

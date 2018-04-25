@@ -30,11 +30,11 @@ import {getMovies} from './api.js';
 // });
 
 
-getMovies().then((movies) => {
-    movies.forEach((movie) => {
-        console.log(movie);
-    })
-}).catch(error => console.error(error));
+// getMovies().then((movies) => {
+//     movies.forEach((movie) => {
+//         console.log(movie);
+//     })
+// }).catch(error => console.error(error));
 
 const showPage = () => {
     $('#loader').css('display','none');
