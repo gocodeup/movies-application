@@ -5,9 +5,9 @@ html, body {
 }
 
 .container {
-    position: relative;
-    top: 50%;
-    transform: translateY(-100%);
+    width: 85%;
+    margin-top: 75px;
+    margin-bottom: 75px;
     text-align: center;
 }
 
@@ -41,4 +41,19 @@ h1 {
 #addMovie {
     color: #000;
     background-color: mediumturquoise;
+
+}
+
+select {
+    height: 34px;
+}
+
+input {
+    height: 34px;
+}
+
+.card-body {
+    padding: 0.75rem;
+    background-color: darkblue;
+    color: white;
 }
