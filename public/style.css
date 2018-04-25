@@ -22,9 +22,8 @@ html, body {
     display: flex;
 }
 
-#logo {
-    height: 6em;
-    width: 6em;
+.logo {
+    background-image: url("video-reel-clipart-1.jpg");
     border: 1em solid black;
-
 }
+
