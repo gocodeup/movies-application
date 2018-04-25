@@ -57,3 +57,5 @@ $(".row").on('click', '.deleteBtn', function() {
     alert("This should let you edit")
 });
 
+
+
