@@ -10,7 +10,7 @@
 
 const $ = require("jquery");
 const {getMovies} = require('./api.js');
-const {created} = require('./create-movie');
+const {created, editMovie} = require('./create-movie');
 const {deleteMovie} = require('./delete-movie');
 
 getMovies().then((movies) => {
@@ -44,10 +44,11 @@ getMovies().then((movies) => {
                         Title: <input type="text" id="editTitle" value="${title}">
                         Rating: <input type="text" id="editRating" value="${rating}">
                     </form>
+                    <p class="editId">${id}</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary editBtn">Save changes</button>
                 </div>
             </div>
         </div>
@@ -77,14 +78,17 @@ $(".row").on('click', '.deleteBtn', function() {
     let movieId = $(this).parent()["0"].children[4].innerText;
     deleteMovie(movieId);
     $(this).parent().parent().hide();
-}).on('click', '.editBtn', function() {
-    alert("This should let you edit")
 });
 
-$(document).ready(function(){
-    $("#Buildings_opener").click(function(){
-        $(`#modal${id}`).modal({
-            backdrop: false
-        });
-    });
+$("body").on('click', '.editBtn', function() {
+    const editTitle = $("#editTitle").val();
+    const editRating = $("#editRating").val();
+    let movieEditId = $(".editId")["0"].innerText;
+
+    console.log(movieEditId);
+    console.log(editRating);
+    console.log(editTitle);
+
+    editMovie({title: editTitle, rating: editRating, id: movieEditId})
 });
+
