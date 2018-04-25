@@ -47,8 +47,11 @@ $("#createBtn").click(function(){
 });
 
 $(".row").on('click', 'button', function() {
-    let movieId = $(this).parent()["0"].children[3].innerText;
-    console.log(movieId);
-    deleteMovie({id: movieId})
+    let arrayNum = -1;
+    let movieId = parseInt($(this).parent()["0"].children[3].innerText);
+    arrayNum = arrayNum + movieId;
+    console.log(arrayNum);
+    deleteMovie(arrayNum);
 });
+
 
