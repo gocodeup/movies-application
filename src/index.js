@@ -53,7 +53,7 @@ $('#submitMovie').on('click', function(){
         rating: ($('#newMovieRating').val().toString())})
 });
 
-$('#deleteMovie').('click', function(){
-    deleteMovie()
-});
+// $('#deleteMovie').('click', function(){
+//     deleteMovie()
+// });
 
