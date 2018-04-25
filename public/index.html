@@ -1,18 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <title>My Application</title>
-    <link rel="stylesheet" href="/style.css" />
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>My Application</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+    <body>
 
-<div class="container">
-    <h1>Hello There!</h1>
-    <p>To get started, edit <code>src/index.js</code>.</p>
-</div>
+        <h1>Movie Time!</h1>
+        <div class="container">
+            <input type="text" placeholder="Movie Name" name="search">
+            <select class="selectpicker" data-live-search="true">
+                <option id="1">1 Stars</option>
+                <option id="2">2 Stars</option>
+                <option id="3">3 Stars</option>
+                <option id="4">4 Stars</option>
+                <option id="5">5 Stars</option>
+            </select>
+            <button id="addMovie" type="button" class="btn btn-outline-success">Add your Movie!</button>
+        </div>
 
-<div class="loader"><!-- Place at bottom of page --></div>
-<script src="/main.js"></script>
-</body>
+        <div class="container">
+            <div class="row">
+
+            </div>
+        </div>
+
+        <!--animation that runs "loading" while site loads-->
+        <div class="loader"><!-- Place at bottom of page --></div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="/main.js"></script>
+
+    </body>
 </html>
