@@ -28,3 +28,16 @@ getMovies().then((movies) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.')
   console.log(error);
 });
+
+var loader;
+
+function loadingTimer() {
+  loader = setTimeout(showPage, 3000);
+}
+
+function showPage() {
+  $('#loader').css('display','none');
+  $('#myDiv').css('display','block')
+}
+
+$(document).ready(loadingTimer());
