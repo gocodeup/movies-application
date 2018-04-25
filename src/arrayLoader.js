@@ -1,6 +1,5 @@
-import 'bootstrap'
 let $ = require("jquery");
-import {getMovies} from './api.js'
+import getMovies from './api.js';
 const omdbApi = require('omdb-client');
 
 function dbChecker() {

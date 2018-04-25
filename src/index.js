@@ -1,14 +1,12 @@
 /**
  * This file is the "entrypoint" into your application
  */
-import 'bootstrap'
-import $ from 'jquery'
-import {dbChecker} from './arrayLoader.js'
+let $ = require('jquery');
+import 'bootstrap';
+
+import dbChecker from './arrayLoader.js';
+import getMovies from './api.js';
 
 
-
-$(() => {
-  $('[data-toggle="popover"]').popover()
-});
-
+$(".se-pre-con").fadeOut("slow");
 dbChecker;
