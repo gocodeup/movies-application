@@ -51,4 +51,3 @@ $(".row").on('click', 'button', function() {
     deleteMovie(movieId);
     $(this).parent().parent().hide();
 });
-
