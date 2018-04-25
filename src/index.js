@@ -7,8 +7,11 @@ sayHello('World');
 /**
  * require style imports
  */
+import addMovie from './addMovies.js';
 import {getMovies} from './api.js';
-
+import deleteMovie from './deleteMovie.js';
+// deleteMovie(4);
+console.log()
 getMovies().then((movies) => {
   console.log('Here are all the movies:');
   movies.forEach(({title, rating, id}) => {
