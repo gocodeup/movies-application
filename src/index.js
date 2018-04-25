@@ -1,9 +1,11 @@
 /**
  * This file is the "entrypoint" into your application
  */
-
-
 import 'bootstrap'
+import $ from 'jquery'
+import {dbChecker} from './arrayLoader.js'
+
+
 let $ = require('jquery');
 import getMovies from './api.js';
 "use strict";
@@ -19,3 +21,4 @@ import getMovies from './api.js';
 
     $('#movies').html('<p>' + {getMovies} + '</p>');
 
+dbChecker;
