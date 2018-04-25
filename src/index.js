@@ -11,6 +11,7 @@
 const $ = require("jquery");
 const {getMovies} = require('./api.js');
 const {created} = require('./create-movie');
+const {deleteMovie} = require('./delete-movie');
 
 getMovies().then((movies) => {
   console.log('Here are all the movies:');
@@ -45,4 +46,9 @@ $("#createBtn").click(function(){
   rating: movieRating})
 });
 
+$(".row").on('click', 'button', function() {
+    let movieId = $(this).parent()["0"].children[3].innerText;
+    console.log(movieId);
+    deleteMovie({id: movieId})
+});
 
