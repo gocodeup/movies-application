@@ -47,3 +47,13 @@ const loadingTimer = () => {
 
 $(document).ready(loadingTimer());
 
+$('#submitMovie').on('click', function(){
+    addMovie({title: ($('#newMovieTitle').val().toString()),
+        genre: ($('#newMovieGenre').val().toString()),
+        rating: ($('#newMovieRating').val().toString())})
+});
+
+$('#deleteMovie').('click', function(){
+    deleteMovie()
+});
+
