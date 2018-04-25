@@ -9,6 +9,22 @@
       "title": "Star Wars: A New Hope",
       "rating": "5",
       "id": 2
+    },
+    {
+      "title": "Singing in the Rain",
+      "rating": "5",
+      "id": 3
+    },
+    {
+      "title": "Finding Nemo",
+      "rating": "5",
+      "id": 4
+    },
+    {
+      "title": "The Lion King",
+      "genre": "Adventure",
+      "rating": "4",
+      "id": 5
     }
   ]
 }
