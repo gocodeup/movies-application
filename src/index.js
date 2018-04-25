@@ -5,13 +5,17 @@
 
 import 'bootstrap'
 let $ = require('jquery');
+import getMovies from './api.js';
 "use strict";
-    $(window).load(function() {
+
+    $(document).ready(function() {
         // Animate loader off screen
         $(".se-pre-con").fadeOut("slow");
     });
 
-    $(() => {
-      $('[data-toggle="popover"]').popover()
-    })
+    // $(() => {
+    //   $('[data-toggle="popover"]').popover()
+    // });
+
+    $('#movies').html('<p>' + {getMovies} + '</p>');
 

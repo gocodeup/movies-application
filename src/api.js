@@ -1,6 +1,7 @@
-module.exports = {
-  getMovies: () => {
-    return fetch('/api/movies')
+
+const getMovies = () => {
+    return fetch('/db.json')
       .then(response => response.json());
-  }
-};
+  };
+
+export default {getMovies};
