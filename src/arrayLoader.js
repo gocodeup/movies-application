@@ -5,7 +5,7 @@ const omdbApi = require('omdb-client');
 function dbChecker() {
    return getMovies().then( (data)=> {
            data.forEach( (data)=> {
-               console.log(data);
+               // console.log(data);
 
                let title = data.title;
                let rating = data.rating;
@@ -19,34 +19,22 @@ function dbChecker() {
                };
 
                omdbApi.get(params, function(err, data) {
-                   console.log(data);
-                   console.log(err);
+                   // console.log(data);
+                   //console.log(err);
 
-            let card  = `<div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="${data.Poster}" alt="Card image cap">
-            <div class="card-body">
-            <h5 class="card-title">${title}</h5>
-            <p class="card-text"> MetaCritic Score: ${data.Ratings[2].Value}</p>
-            </div>
-            </div>`;
+                    let card  = `<div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="${data.Poster}" alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title">${title}</h5>
+                    <p class="card-text"> MetaCritic Score: ${data.Ratings[2].Value}</p>
+                    </div>
+                    </div>`;
 
-            $("#movies").append(card);
-
-
-            });
-
-           })
-       })
-}
-
-
-
-
-
-
-
-
-
+                    $("#movies").append(card);
+                });
+           });
+       });
+   }
 
 module.exports= dbChecker();
 
