@@ -30,24 +30,10 @@ function dbChecker() {
             </div>
             </div>`;
 
-            $(".container").append(card);
+            $("#movies").append(card);
 
 
-});
-//                let card  = `<div class="card" style="width: 18rem;">
-//   <!--<img class="card-img-top" src="#" alt="Card image cap">-->
-//   <div class="card-body">
-//     <h5 class="card-title">${title}</h5>
-//     <p class="card-text">${rating}</p>
-//   </div>
-// </div>`
-//
-//                $(".container").append(card);
-
-
-
-
-
+            });
 
            })
        })
