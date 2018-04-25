@@ -1,7 +1,7 @@
 
 const getMovies = () => {
-    return fetch('/db.json')
+    return fetch('/api/movies')
       .then(response => response.json());
   };
 
-export default {getMovies};
+export default getMovies;
