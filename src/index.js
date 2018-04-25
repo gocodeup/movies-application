@@ -19,7 +19,10 @@ getMovies().then((movies) => {
     $(".row").append(`<div class="col-6">
         <div class="card">
             <div class="card-body">
-            <button class="deleteBtn">x</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                Edit
+                </button>
+                <button class="deleteBtn">x</button>
                 <h5 class="card-title">${title}</h5>
                 <h6 class="card-subtitle">rating: ${rating}</h6>
                 <p class="dbId">${id}</p>
@@ -46,8 +49,11 @@ $("#createBtn").click(function(){
   rating: movieRating})
 });
 
-$(".row").on('click', 'button', function() {
-    let movieId = $(this).parent()["0"].children[3].innerText;
+$(".row").on('click', '.deleteBtn', function() {
+    let movieId = $(this).parent()["0"].children[4].innerText;
     deleteMovie(movieId);
     $(this).parent().parent().hide();
+}).on('click', '.editBtn', function() {
+    alert("This should let you edit")
 });
+
