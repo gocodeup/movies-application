@@ -48,7 +48,7 @@ $("#createBtn").click(function(){
 
 $(".row").on('click', 'button', function() {
     let movieId = $(this).parent()["0"].children[3].innerText;
-    console.log(movieId);
-    deleteMovie({id: movieId})
+    deleteMovie(movieId);
+    $(this).parent().parent().hide();
 });
 
