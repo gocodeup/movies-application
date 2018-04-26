@@ -1,17 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>My Application</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
 </head>
 <body>
-
-    <div class="container">
-        <h1>Hello There!</h1>
-        <p>To get started, edit <code>src/index.js</code>.</p>
+<!--------modal card for loader-------------->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body" id="loaderBackground">
+                <div class="col mt-4">
+                <div class="ball"></div>
+                <div class="ball1"></div>
+                    <h4 class="text-white text-center">Loading</h4>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+<!---------modal card for edit----------------->
 
-    <script src="/main.js"></script>
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body" id="editBackground">
+                <div class="tab-pane fade show active" id="addMovie" role="tabpanel" aria-labelledby="addMovie-tab">
+                    <div class="card">
+                        <div class="card-header text-white bg-dark text-center">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" class="text-white">&times;</span>
+                            </button>
+                            <h1>Edit Movie</h1>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <form id-="editModal">
+
+                                            <!--card here-->
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--------tabs and tab content----------------->
+<div class="container">
+
+</div>
+<!--<ul class="nav nav-tabs" id="myTab" role="tablist">-->
+    <!--<li class="nav-item">-->
+        <!--<a class="nav-link active" id="addMovie-tab" data-toggle="tab" href="#addMovie" role="tab"-->
+           <!--aria-controls="addMovie" aria-selected="true">Add New Movie</a>-->
+    <!--</li>-->
+    <!--<li class="nav-item">-->
+        <!--<a class="nav-link" id="editMovie-tab" data-toggle="tab" href="#editMovie" role="tab" aria-controls="editMovie"-->
+           <!--aria-selected="false">Edit Movie</a>-->
+    <!--</li>-->
+    <!--<li class="nav-item">-->
+        <!--<a class="nav-link" id="deleteMovie-tab" data-toggle="tab" href="#deleteMovie" role="tab"-->
+           <!--aria-controls="deleteMovie" aria-selected="false">Delete Movie</a>-->
+    <!--</li>-->
+<!--</ul>-->
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="addMovie" role="tabpanel" aria-labelledby="addMovie-tab">
+        <div class="card">
+            <div class="card-header text-white bg-dark text-center"><h1>The Movies</h1></div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <form>
+                            <div class="form-group">
+                                <label for="input">New Movie</label>
+                                <input type="text" class="form-control" id="input" aria-describedby="input"
+                                       placeholder="Enter New Movie Title">
+                            </div>
+                            <div class="form-group">
+                                <div class="rateYo" id="getRating"></div>
+                                <small>Rate your movie</small>
+                            </div>
+
+                            <button type="button" class="btn btn-dark" id="addNew">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="editMovie" role="tabpanel" aria-labelledby="editMovie-tab">
+        <div class="card">
+            <div class="card-header text-white bg-dark text-center"><h1>Edit Movie</h1></div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="deleteMovie" role="tabpanel" aria-labelledby="deleteMovie-tab">
+        <div class="card">
+            <div class="card-header text-white bg-dark text-center"><h1>Delete Movie</h1></div>
+            <div class="card-body">
+            </div>
+        </div>
+    </div>
+</div>
+<!-----------card container for movie cards-------------------->
+        <div class="container-fluid">
+            <div id="main" class="row"></div>
+        </div>
+
+
+
+        <script src="/main.js"></script>
+        <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"-->
+                <!--integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"-->
+                <!--crossorigin="anonymous"></script>-->
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"-->
+                <!--integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"-->
+                <!--crossorigin="anonymous"></script>-->
+        <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"-->
+                <!--integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"-->
+                <!--crossorigin="anonymous"></script>-->
 </body>
 </html>
