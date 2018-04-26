@@ -12,4 +12,16 @@ const addMovies = (newMovies) => {
     return fetch(theMovies, options)
     .then(response => response.json());
 };
-module.exports = {getMovies, addMovies};
+
+const deleteMovies = (id) => {
+
+    const theMovies =`/api/movies/${id}`;
+    const options = {
+        method: 'DELETE',
+    };
+    return fetch(theMovies, options)
+        .then(response => response.json());
+
+}
+module.exports = {getMovies, addMovies, deleteMovies};
+

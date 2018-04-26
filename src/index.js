@@ -4,6 +4,7 @@ import sayHello from './hello.js';
 sayHello('World');
 
 const post = require('./api.js');
+
 $(".loader").css("display", "block");
 function createCards() {
     $(".row").html("<p>Loading Movies...</p>");
@@ -18,7 +19,7 @@ function createCards() {
                <button type="button" class="btn btn-primary">
                Edit
                </button>
-               <button type="button" class="btn btn-danger">X</button>
+               <button type="button"  data-id="${id}" class="btn btn-danger delete">X</button>
                <h5 class="card-title"><em>Movie Title: </em><br>${title}</h5>
                <p class="card-subtitle"> ${rating} Stars</p>
                <p class="dbId">${id}</p>
@@ -43,3 +44,42 @@ $('#addMovie').click((e) => {
         createCards();
     }, 1200);
 });
+
+
+//
+// $(function() {
+//     $(".delete").click(function() {
+//         $('#load').fadeIn();
+//         var commentContainer = $(this).parent();
+//         var id = $(this).attr("id");
+//         var string = 'id='+ id ;
+//
+//         $.ajax({
+//             type: "POST",
+//             url: "delete.php",
+//             data: string,
+//             cache: false,
+//             success: function(){
+//                 card.slideUp('slow', function() {$(this).remove();});
+//                 $('#load').fadeOut();
+//             }
+//
+//         });
+//
+//         return false;
+//     });
+// });
+//
+
+$('.row').on('click', '.delete', (e)=>{
+    e.preventDefault();
+    console.log($(e.target).data('id'));
+    $(e.target).parent('h1').remove();
+    post.deleteMovies($(e.target).data('id')).then(movie => {
+        $(e.target).parent().slideUp('slow', function() {$(this).remove();});
+
+    });
+
+});
+
+
