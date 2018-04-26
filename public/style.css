@@ -13,6 +13,6 @@ table {
     margin: 0 auto;
 }
 
-.dbId {
+.dbId, .editId {
     display: none;
 }
