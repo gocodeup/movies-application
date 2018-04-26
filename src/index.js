@@ -7,7 +7,7 @@ const post = require('./api.js');
 
 $(".loader").css("display", "block");
     function createCards() {
-         $(".row").html("<div class=\"loader\"><!-- Place at bottom of page --></div><p>Loading Movies...</p>");
+         $(".row").html("Loading....");
              post.getMovies().then((movies) => {
                  $(".loader").css("display", "none");
                  console.log('Here are all the movies:');
