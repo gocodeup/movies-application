@@ -1,54 +1,14 @@
 {
   "movies": [
     {
-      "title": "fucker",
-      "rating": "1 Stars",
-      "id": 5
+      "title": "Casablanca",
+      "rating": "4",
+      "id": 1
     },
     {
-      "title": "fucker",
-      "rating": "1 Stars",
-      "id": 6
-    },
-    {
-      "title": "fucker",
-      "rating": "1 Stars",
-      "id": 7
-    },
-    {
-      "title": "fucker",
-      "rating": "1 Stars",
-      "id": 8
-    },
-    {
-      "title": "fucker",
-      "rating": "1 Stars",
-      "id": 12
-    },
-    {
-      "title": "fucker",
-      "rating": "1 Stars",
-      "id": 13
-    },
-    {
-      "title": "fucker",
-      "rating": "1 Stars",
-      "id": 14
-    },
-    {
-      "title": "fucker",
-      "rating": "1 Stars",
-      "id": 15
-    },
-    {
-      "title": "fucker",
-      "rating": "1 Stars",
-      "id": 16
-    },
-    {
-      "title": "fucker",
-      "rating": "1 Stars",
-      "id": 17
+      "title": "Star Wars: A New Hope",
+      "rating": "5",
+      "id": 2
     }
   ]
 }
