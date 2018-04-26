@@ -77,7 +77,10 @@ $('.row').on('click', '.delete', (e)=>{
     $(e.target).parent('h1').remove();
     post.deleteMovies($(e.target).data('id')).then(movie => {
         $(e.target).parent().slideUp('slow', function() {$(this).remove();});
+        setTimeout(function(){
+            createCards();
 
+        }, 300)
     });
 
 });
