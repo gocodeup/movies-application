@@ -30,7 +30,7 @@ getMovies().then((movies) => {
                 </div>
             </div>
           </div>`);
-      $("body").append(`<div class="modal fade" id="modal${id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      $("body").append(`<div class="modal fade ex1" id="modal${id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -88,7 +88,9 @@ $("body").on('click', '.editBtn', function() {
     console.log(movieEditId);
     console.log(editRating);
     console.log(editTitle);
-
-    editMovie({title: editTitle, rating: editRating, id: movieEditId})
+    $(".ex1").hide();
+    $("body > div.modal-backdrop.fade.show").hide();
+    editMovie({title: editTitle, rating: editRating, id: movieEditId});
+    location.reload();
 });
 
