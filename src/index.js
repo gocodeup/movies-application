@@ -15,7 +15,7 @@ function createCards() {
             $(".row").append(`<div class="col-4">
        <div class="card">
            <div class="card-body">
-               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+               <button type="button" class="btn btn-primary">
                Edit
                </button>
                <button type="button" class="btn btn-danger">X</button>
@@ -39,5 +39,7 @@ $('#addMovie').click((e) => {
     const title = $('input').val();
     const rating = $('select').val();
     post.addMovies({title: title, rating: rating});
-    createCards();
+    setTimeout(function(){
+        createCards();
+    }, 1200);
 });
