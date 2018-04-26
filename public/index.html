@@ -9,13 +9,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
 </head>
 <body>
+
     <div class="x">Loading...</div>
 
     <table class="table">
 
     </table>
 
-    <p class=".test"></p>
+
 
     <!--add new movie-->
     <form>
@@ -32,6 +33,23 @@
 
         </select>
         <button id="addMovie" class="btn btn-primary btn-sm">Add Movie</button>
+    </form>
+<br>
+<!--edit movie-->
+<div class="edit-body">
+    <form>
+        <input id="editForm"  class="form-control" type="text" value="">
+        <label class="editTitle" for="editRating">Change Movie Rating</label>
+        <select id="editRating">
+            <option value="">1-5</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <input id="editMovie"  class="form-control" type="text" placeholder="Edit Movie Title">
+        <button id="editButton" class="btn-primary">Edit Movie</button>
     </form>
 
 
