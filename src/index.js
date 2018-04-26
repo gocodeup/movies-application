@@ -15,6 +15,16 @@ import $ from 'jquery';
 // const refreshPage(){
 //     createHTMLDocument.getElementById().style.display="none";}
 //     module.exports={refreshPage};}
+function deletion(id) {
+
+    const url = `/api/movies/${id}`;
+    const options = {
+        method: "DELETE",
+    };
+
+    return fetch(url, options)
+        .then(response => response.json());
+}
 
 const {getMovies} = require('./api.js');
 
@@ -24,13 +34,20 @@ function refreshPage() {
         console.log(movies);
         $(".x").toggleClass("invisible");
         console.log('Here are all the movies:');
-        html += "<tr><th>No.</th><th>Name</th><th>Rating</th><th>delete</th></tr>";
+        html += "<tr><th>No.</th><th>Name</th><th>Rating</th></tr>";
         movies.forEach(({title, rating, id}) => {
             // console.log('html' + html);
             // console.log(`id#${id} - ${title} - rating: ${rating}`);
-            html +=`<tr><td>${id}</td><td>${title}</td><td>${rating}</td><td><button class="delete btn-outline-info">delete</button></td></tr>`;
+            html +=`<tr id="${id}"><td>${id}</td><td>${title}</td><td>${rating}</td><td><button class="delete btn-outline-info" title="${id}">delete</button></td><td><button class="edit btn-outline-info">edit</button></td></tr>`;
         });
         $("table").html(html);
+        //delete movie
+        $("button.delete").click(() => {
+            const ident = $(this).attr('title');
+            console.log(ident);
+            $(this).parent('tr').remove();
+            deletion(ident);
+        });
     }).catch((error) => {
         alert('Oh no! Something went wrong.\nCheck the console for details.');
         console.log(error);
@@ -66,29 +83,4 @@ $("#addMovie").click((e) => {
 });
 
 //delete movie
-function deletion(id) {
-    const url = `/api/movies/${id}`;
-    const options = {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-        }
 
-    };
-
-    fetch(url, options)
-        .then( () => {
-            refreshPage()
-        })
-        .catch((error) => {
-            alert('Oh no! Something went wrong.\nCheck the console for details.');
-            console.log(error);
-        });
-
-}
-
-$(".delete").click((e) => {
-    e.preventDefault();
-
-    deletion();
-});
