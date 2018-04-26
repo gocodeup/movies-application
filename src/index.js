@@ -41,6 +41,7 @@ function refreshPage() {
             html +=`<tr id="${id}"><td>${id}</td><td>${title}</td><td>${rating}</td><td><button class="delete btn-outline-info" title="${id}">delete</button></td><td><button class="edit btn-outline-info">edit</button></td></tr>`;
         });
         $("table").html(html);
+
         //delete movie
         $("button.delete").click(() => {
             const ident = $(this).attr('title');
