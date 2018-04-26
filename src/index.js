@@ -54,6 +54,7 @@ function refreshPage() {
         console.log(error);
     });
 }
+
 refreshPage();
 // add movie
 $("#addMovie").click((e) => {
