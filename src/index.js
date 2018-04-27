@@ -21,7 +21,6 @@ $(".loader").css("display", "block");
                          <button type="button" data-id="${id}" class="btn btn-danger delete">X</button>
                          <h5 class="card-title"><em>Movie Title: </em><br>${title}</h5>
                          <p class="card-subtitle">${rating} Stars</p>
-                         <p class="dbId">${id}</p>
                      </div>
                  </div>
              </div>`);
