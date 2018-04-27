@@ -4,3 +4,5 @@
 node_modules/
 main.js
 *.map
+
+src/jquery-2.2.4.js
