@@ -25,10 +25,10 @@ const deleteMovies = (id) => {
 };
 
 
-const editMovies = (newMovies) => {
-    const theMovies = '/api/movies';
+const editMovies = (id, newMovies) => {
+    const theMovies = `/api/movies/${id}`;
     const options = {
-        method: 'Patch',
+        method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(newMovies)
     };
