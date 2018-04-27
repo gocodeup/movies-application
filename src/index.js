@@ -16,42 +16,46 @@ $(".loader").css("display", "block");
                     $(".row").append(`<div class="col-4">
                     <div class="card">
                          <div class="card-body">
-                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal${id}"> Edit</button>
-                         <button type="button"  data-id="${id}" class="btn btn-danger delete">X</button>
+                         <button type="button" data-id="${id}" class="btn btn-primary edit" data-toggle="modal" data-target="#modal${id}"> Edit</button>
+                         <button type="button" data-id="${id}" class="btn btn-danger delete">X</button>
                          <h5 class="card-title"><em>Movie Title: </em><br>${title}</h5>
-                         <p class="card-subtitle"> ${rating} Stars</p>
+                         <p class="card-subtitle"> ${rating}</p>
                          <p class="dbId">${id}</p>
                      </div>
                  </div>
              </div>`);
-             $("body").append(`<div class="modal fade" id="modal${id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+             $("body").append(`<div class="modal fade" id="modal${id}" data-id="${id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                          <div class="modal-header">
-                         <h5 class="modal-title" id="exampleModalLabel">Ediit your movie.</h5>
+                         <h5 class="modal-title" id="exampleModalLabel">Edit your movie.</h5>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                          </div>
                         <div class="modal-body">
                              <form>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="${title}">
+                                <br style="margin: 3px">
+                                    <input type="text" class="form-control newtitle${id}" value="${title}">
                                     <small id="emailHelp" class="form-text text-muted">Change your movie.</small>
                                 </div>
                                 <div class="form-group">
                                     <form>
    
                                     <div class="form-group">
-                                         <label for="exampleInputPassword1">Rating</label>
-                                         <input type="text" class="form-control" id="exampleInputPassword1" value="${rating}">
+                                         <select class="stars${id}" data-live-search="true">
+                                            <option id="1">1 Stars</option>
+                                            <option id="2">2 Stars</option>
+                                            <option id="3">3 Stars</option>
+                                            <option id="4">4 Stars</option>
+                                            <option id="5">5 Stars</option>
+                                         </select>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
                                     </form>
           
                                  </div>
                                  <div class="modal-footer">
                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                     <button  id="editMovies" class="btn btn-primary btn">Save changes</button>
+                                     <button  id="editMovies" data-id="${id}" class="btn btn-success">Save changes</button>
                                  </div>
                              </div>
                         </div>
@@ -74,8 +78,9 @@ $('#addMovie').click((e) => {
     }, 1200);
 });
 
+const row = $('.row');
 
-$('.row').on('click', '.delete', (e)=>{
+row.on('click', '.delete', (e)=>{
     e.preventDefault();
     console.log($(e.target).data('id'));
     $(e.target).parent('h1').remove();
@@ -83,10 +88,24 @@ $('.row').on('click', '.delete', (e)=>{
         $(e.target).parent().slideUp('slow', function() {$(this).remove();});
         setTimeout(function(){
             createCards();
-
         }, 300)
     });
+});
 
+// row.on('click', '.edit', (e)=>{
+//     const editnumber = $(e.target).data('id');
+//     console.log(editnumber);
+// });
+
+$("body").on('click', '#editMovies', (e)=>{
+   e.preventDefault();
+    const number = ($(e.target).data('id'));
+    let title = $(".newtitle"+number).val();
+    let rating = $(".stars").val();
+    post.editMovies($(e.target).data("id"), {title: title, rating: rating});
+    setTimeout(function(){
+        createCards();
+    }, 300)
 });
 
 
