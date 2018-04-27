@@ -5,6 +5,7 @@ sayHello('World');
 
 const post = require('./api.js');
 
+// function to run through JSON file to create a card for each movie
 $(".loader").css("display", "block");
     function createCards() {
          $(".row").html("Loading....");
@@ -19,7 +20,7 @@ $(".loader").css("display", "block");
                          <button type="button" data-id="${id}" class="btn btn-primary edit" data-toggle="modal" data-target="#modal${id}"> Edit</button>
                          <button type="button" data-id="${id}" class="btn btn-danger delete">X</button>
                          <h5 class="card-title"><em>Movie Title: </em><br>${title}</h5>
-                         <p class="card-subtitle"> ${rating}</p>
+                         <p class="card-subtitle">${rating} Stars</p>
                          <p class="dbId">${id}</p>
                      </div>
                  </div>
@@ -42,12 +43,13 @@ $(".loader").css("display", "block");
                                     <form>
    
                                     <div class="form-group">
+                                    <p>Stars</p>
                                          <select class="stars${id}" data-live-search="true">
-                                            <option id="1">1 Stars</option>
-                                            <option id="2">2 Stars</option>
-                                            <option id="3">3 Stars</option>
-                                            <option id="4">4 Stars</option>
-                                            <option id="5">5 Stars</option>
+                                            <option id="1">1</option>
+                                            <option id="2">2</option>
+                                            <option id="3">3</option>
+                                            <option id="4">4</option>
+                                            <option id="5">5</option>
                                          </select>
                                     </div>
                                     </form>
@@ -67,6 +69,7 @@ $(".loader").css("display", "block");
              }
             createCards();
 
+// function for adding movies
 $('#addMovie').click((e) => {
     e.preventDefault();
     console.log('test');
@@ -80,6 +83,8 @@ $('#addMovie').click((e) => {
 
 const row = $('.row');
 
+
+// function for deleting movies
 row.on('click', '.delete', (e)=>{
     e.preventDefault();
     console.log($(e.target).data('id'));
@@ -92,20 +97,17 @@ row.on('click', '.delete', (e)=>{
     });
 });
 
-// row.on('click', '.edit', (e)=>{
-//     const editnumber = $(e.target).data('id');
-//     console.log(editnumber);
-// });
 
+// function for editing movies
 $("body").on('click', '#editMovies', (e)=>{
    e.preventDefault();
     const number = ($(e.target).data('id'));
     let title = $(".newtitle"+number).val();
-    let rating = $(".stars").val();
+    let rating = $(".stars"+number).val();
     post.editMovies($(e.target).data("id"), {title: title, rating: rating});
     setTimeout(function(){
         createCards();
-    }, 300)
+    }, 300);
+    $('.modal').css("display", "none");
+    $('.modal-backdrop').css("display", "none")
 });
-
-
