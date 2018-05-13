@@ -1,17 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>My Application</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/style.css"/>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Hello There!</h1>
-        <p>To get started, edit <code>src/index.js</code>.</p>
-    </div>
+<div class="container">
+    <h1>Hello There!</h1>
+    <p>To get started, edit <code>src/index.js</code>.</p>
+    <p id="loading"></p>
 
-    <script src="/main.js"></script>
+
+    <table id="movie-list">
+
+
+    </table>
+
+
+    <h5>add a movie</h5>
+    <form action="" method="post">
+        <input type="text" id="title">
+        <select name="rating" id="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+
+        </select>
+        <input type="button" value="add this movie" id="sub">
+    </form>
+</div>
+
+<script src="/main.js"></script>
+<script type="text/javascript" src="/src/index.js"></script>
 </body>
 </html>
