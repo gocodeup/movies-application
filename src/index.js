@@ -1,8 +1,7 @@
 /**
  * es6 modules and imports
  */
-import sayHello from './hello';
-sayHello('World');
+
 
 /**
  * require style imports
@@ -13,6 +12,17 @@ getMovies().then((movies) => {
   console.log('Here are all the movies:');
   movies.forEach(({title, rating, id}) => {
     console.log(`id#${id} - ${title} - rating: ${rating}`);
+
+
+   const div = document.createElement("div");
+   const text = document.createTextNode(`id#${id} - ${title} - rating: ${rating}`);
+   div.appendChild(text);
+   document.body.appendChild(div);
+
+
+
+
+
   });
 }).catch((error) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.')
