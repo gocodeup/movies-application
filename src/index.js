@@ -1,20 +1,26 @@
 /**
  * es6 modules and imports
  */
-import sayHello from './hello';
-sayHello('World');
+    const $ = require('jquery');
+    $("#load").html("...loading");
 
-/**
- * require style imports
- */
-const {getMovies} = require('./api.js');
+    import sayHello from './hello';
+    sayHello('World');
 
-getMovies().then((movies) => {
-  console.log('Here are all the movies:');
-  movies.forEach(({title, rating, id}) => {
-    console.log(`id#${id} - ${title} - rating: ${rating}`);
-  });
-}).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.')
-  console.log(error);
-});
+    /**
+     * require style imports
+     */
+    const {getMovies} = require('./api.js');
+
+    getMovies().then((movies) => {
+      console.log('Here are all the movies:');
+      movies.forEach(({title, rating, id}) => {
+        console.log(`id#${id} - ${title} - rating: ${rating}`);
+      });
+    }).catch((error) => {
+      alert('Oh no! Something went wrong.\nCheck the console for details.')
+      console.log(error);
+    });
+
+    $("body").css("background-color", "red");
+
