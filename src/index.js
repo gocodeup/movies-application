@@ -24,14 +24,14 @@ function buildHtml(arrOfObj) {
     html += "<th>Movie ID</th>";
     arrOfObj.forEach((movie) => {
         html += "<tr>";
-        html += "<td><button class='editBtns'>Edit </button> " + movie.title + "</td>";
+        html += "<td><button class='editBtns'>Edit</button><button>Delete</button>" + movie.title + "</td>";
         html += "<td>" + movie.rating + "</td>";
         html += "<td>" + movie.id + "</td>";
         html += "</tr>";
         html += "<tr class='editRow'>";
         html += "<td><input id='editMovie'></td>";
         html += "<td><input id='editRating'></td>";
-        html += "<td><button id='save'>Save</button>";
+        html += "<td><button class='saveBtns'>Save</button>";
         html += "</tr>";
     });
     html += "</table>";
@@ -75,9 +75,17 @@ let editMovie = () => {
     });
 };
 
-let updateMovie = () => {
+let updateMoveAfterEdit = () => {
+    $(document).on('click', '.saveBtns', (e) => {
+        console.log($(e.currentTarget).parent().parent().prev())
+    });
+
+
 
 };
+
+updateMoveAfterEdit();
+
 
 addMovie();
 editMovie();
