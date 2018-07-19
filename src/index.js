@@ -12,6 +12,7 @@ sayHello('World');
 const {getMovies} = require('./api.js');
 
 $(".container").show();
+$("#form").hide();
 
 function buildHtml(arrOfObj) {
     let html = "<table>";
@@ -21,25 +22,26 @@ function buildHtml(arrOfObj) {
     html += "<th>Movie ID</th>";
     arrOfObj.forEach((movie) => {
         html += "<tr>";
-        html += "<td>" + movie.title + "</td>";
+        html += "<td><button>Edit </button> " + movie.title + "</td>";
         html += "<td>" + movie.rating + "</td>";
         html += "<td>" + movie.id + "</td>";
         html += "</tr>";
+        html += "<tr>";
     });
     html += "</table>";
-
-    html += "<form>";
-    html += "<label>Movie Title</label>";
-    html += "<input id='movieTitle'>";
-    html += "<label>Movie Rating</label>";
-    html += "<input id='movieRating'>";
-    html += "</form>";
-    html += "<button id='submitButton'>Submit</button>";
     return html;
 }
 
+getMovies().then((data) => $(".JsonTable").html(buildHtml(data)))
+    .then(() => $(".container").hide())
+    .then(() => $("#form").show())
+    .catch((error) => {
+        alert('Oh no! Something went wrong.\nCheck the console for details.');
+        console.log(error);
+    });
+
 let addMovie = () => {
-    $('#submitButton').click(() => {
+    $('#test').click(() => {
         let movieTitleVal = $('#movieTitle').val();
         let movieRatinfVal = $('#movieRating').val();
 
@@ -52,29 +54,17 @@ let addMovie = () => {
             },
             body: JSON.stringify(newMovie),
         };
-
         fetch(url, options)
             .then(() => {
                 getMovies().then((data) => $(".JsonTable").html(buildHtml(data)));
-                console.log("1");
             })
-            .catch(/* handle errors */);
+            .catch(() => console.log("error!"));
     });
 };
 
-
-getMovies().then((data) => $(".JsonTable").html(buildHtml(data)))
-    .then(() => $(".container").hide())
-    .then(() => addMovie())
-    .catch((error) => {
-        alert('Oh no! Something went wrong.\nCheck the console for details.');
-        console.log(error);
-    });
+addMovie();
 
 
 
-$('#submitBtn2').click(() => {
-    $('body').css('background-color', 'red');
 
-});
 
