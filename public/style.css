@@ -8,6 +8,12 @@ html, body {
     transform: translateY(-100%);
     text-align: center;
 }
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}
 
 #loader {
     position: absolute;
@@ -55,6 +61,5 @@ html, body {
 }
 
 #myDiv {
-    display: none;
     text-align: center;
 }
