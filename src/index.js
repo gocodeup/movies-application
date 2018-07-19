@@ -26,3 +26,9 @@ $(window).load(function() {
     // Animate loader off screen
     $(".se-pre-con").fadeOut("650");
 });
+
+// function creates the table data
+var app = new function() {
+
+
+

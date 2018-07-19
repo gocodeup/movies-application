@@ -21,3 +21,17 @@ html, body {
     z-index: 9999;
     background: url('img/Preloader_3.gif') center no-repeat #fff;
 }
+
+/*Styling out the table that holds the data*/
+th, td {
+    border: 1px solid black;
+}
+
+table {
+    width: 50%;
+    border-collapse: collapse;
+}
+
+th {
+    height: 50px;
+}
