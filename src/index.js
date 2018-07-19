@@ -1,8 +1,8 @@
-/**
- * es6 modules and imports
- */
-import sayHello from './hello';
-sayHello('World');
+// /**
+//  * es6 modules and imports
+//  */
+// import sayHello from './hello';
+// sayHello('World');
 
 /**
  * require style imports
