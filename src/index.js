@@ -11,6 +11,8 @@ sayHello('World');
  */
 const {getMovies} = require('./api.js');
 
+$(".container").show();
+
 function buildHtml(arrOfObj) {
     let html = "<table>";
     html += "<tr>";
@@ -37,7 +39,8 @@ function buildHtml(arrOfObj) {
 
 
 
-getMovies().then((data) => $(".container").html(buildHtml(data)))
+getMovies().then((data) => $(".JsonTable").html(buildHtml(data)))
+    .then(() => $(".container").hide())
     .catch((error) => {
         alert('Oh no! Something went wrong.\nCheck the console for details.');
         console.log(error);
