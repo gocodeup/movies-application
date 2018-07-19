@@ -24,6 +24,26 @@ html, body {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loadText {
+    position: absolute;
+    left: 46%;
+    top: 65px;
+    font-family: "Courier New";
+    font-size: 20px;
+}
+
+.visible {
+    display: block;
+}
+
+.invisible {
+    display: none;
 }

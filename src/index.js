@@ -3,6 +3,7 @@
  */
 import sayHello from './hello';
 sayHello('World');
+import $ from 'jquery';
 
 /**
  * require style imports
@@ -18,5 +19,12 @@ getMovies().then((movies) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.');
   console.log(error);
 });
+const loader = $('#loading');
+$(document).ready(() => {
+  loader.addClass("visible")
+});
 
-
+$('button').click(() => {
+    loader.removeClass("visible");
+    loader.addClass("invisible");
+});
