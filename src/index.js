@@ -5,10 +5,19 @@ const {getMovies} = require('./api.js');
 require('bootstrap');
 const $ = require('jquery');
 
+
+
+
+
 // Display all movies
+
+
+
 const showMovies = () => {
     getMovies().then((movies) => {
         $('#movies').empty();
+
+
 
         movies.forEach(({title, rating, id}) => {
             console.log(`id#${id} - ${title} - rating: ${rating}`);
@@ -41,4 +50,53 @@ $('#submit').click((e) => {
         .then(showMovies);
 });
 
+
+//edit all movies
+
+$('#edit-submit').click((e) => {
+    e.preventDefault();
+
+    const editMovies = {title: $('#edit-movie-title').val(), rating: $('#edit-movie-rating').val()};
+// Line 52 is how edited movie id is sent to json database
+    const url = `/api/movies/${$("#edit-movie-id").val()}`;
+    const options = {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(editMovies)
+    };
+
+    fetch(url, options)
+        .then(showMovies);
+
+})
+
+getMovies().then((movies) => {
+    movies.forEach(({title}) => {
+        const movies = ('<option id="test" value=""> '+ `${title}` + '  </option>');
+
+        $('#show-all-movies:last').append(movies);
+
+    })
+
+
+})
+
+
+$("#show-all-movies").click(() => {
+    console.log($('option:selected').text());
+
+    // $( "select" )
+    //     .change(function () {
+    //         var str = "";
+    //         $( "select option:selected" ).each(function() {
+    //             str += $( this ).text() + " ";
+    //         });
+    //         $( "div" ).text( str );
+    //     })
+    //     .change();
+});
 showMovies();
+
+
