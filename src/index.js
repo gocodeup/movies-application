@@ -5,19 +5,10 @@ const {getMovies} = require('./api.js');
 require('bootstrap');
 const $ = require('jquery');
 
-
-
-
-
 // Display all movies
-
-
-
 const showMovies = () => {
     getMovies().then((movies) => {
         $('#movies').empty();
-
-
 
         movies.forEach(({title, rating, id}) => {
             console.log(`id#${id} - ${title} - rating: ${rating}`);
@@ -51,11 +42,9 @@ $('#submit').click((e) => {
 });
 
 
-//edit all movies
-
+// Edit all movies
 $('#edit-submit').click((e) => {
     e.preventDefault();
-
     const editMovies = {title: $('#edit-movie-title').val(), rating: $('#edit-movie-rating').val()};
 // Line 52 is how edited movie id is sent to json database
     const url = `/api/movies/${$("#edit-movie-id").val()}`;
@@ -69,34 +58,25 @@ $('#edit-submit').click((e) => {
 
     fetch(url, options)
         .then(showMovies);
-
-})
+});
 
 getMovies().then((movies) => {
-    movies.forEach(({title}) => {
-        const movies = ('<option id="test" value=""> '+ `${title}` + '  </option>');
-
+    movies.forEach(({id, title}) => {
+        const movies = ('<option id="' + `${id}` + '">'  + `${title}` + '</option>');
         $('#show-all-movies:last').append(movies);
+    });
 
-    })
-
-
-})
-
-
-$("#show-all-movies").click(() => {
-    console.log($('option:selected').text());
-
-    // $( "select" )
-    //     .change(function () {
-    //         var str = "";
-    //         $( "select option:selected" ).each(function() {
-    //             str += $( this ).text() + " ";
-    //         });
-    //         $( "div" ).text( str );
-    //     })
-    //     .change();
+    $('#show-all-movies').change(() => {
+        console.log($('#show-all-movies option:selected').attr('id'));
+        const url = `/api/movies/${$('#show-all-movies option:selected').attr('id')}`;
+        const options = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'applications/json'
+            }
+        };
+        fetch(url, options).then(response => console.log(response.json()))
+    });
 });
+
 showMovies();
-
-
