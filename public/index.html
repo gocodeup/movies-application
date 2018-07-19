@@ -12,17 +12,26 @@
     <div id="loader"></div>
 
     <div id="myDiv" class="container animate-bottom">
-        <div id="movies">
+        <form>
             <div class="form-group">
                 <label for="title">Title:</label>
                 <input type="text" class="form-control" id="title">
             </div>
             <div class="form-group">
-                <label for="rating">Rating:</label>
-                <input type="text" class="form-control" id="rating">
+                <label>Rating:</label> <br>
+                <input type="radio" name="rating" value="1"> 1
+                <input type="radio" name="rating" value="2"> 2
+                <input type="radio" name="rating" value="3"> 3
+                <input type="radio" name="rating" value="4"> 4
+                <input type="radio" name="rating" value="5"> 5
             </div>
-            <button id="addMovie"></button>
-        </div>
+            <button id="addMovie" class="btn btn-primary">Add Movie</button>
+        </form>
+
+        <br>
+
+        <div id="movies"></div>
+
     </div>
 
 
