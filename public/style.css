@@ -8,3 +8,9 @@ html, body {
     transform: translateY(-100%);
     text-align: center;
 }
+
+table {
+    width: 100%;
+    border: 2px solid salmon;
+    background-color: lightcoral;
+}
