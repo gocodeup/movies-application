@@ -8,11 +8,31 @@
 <body>
 
 <div class="container">
-    <div id="loading" class="loading">
-        <div class="loader"></div>
-        <div class="loadText">LOADING</div>
+
+
+    <form>
+        <input type="text" name="movie-title" placeholder="Enter Your Movie Here">
+
+        <select>
+            <option value="1star">one</option>
+            <option value="2star">two</option>
+            <option value="3star">three</option>
+            <option value="4star">four</option>
+            <option value="5star">five</option>
+        </select>
+
+        <button type="submit">Submit</button>
+
+        <div id="loading" class="loading">
+            <div class="loader"></div>
+            <div class="loadText">LOADING</div>
+        </div>
+    </form>
+
+
+    <div>
+        <ul id="movie-info"></ul>
     </div>
-        <button>invis</button>
 </div>
 
 <script src="/main.js"></script>
