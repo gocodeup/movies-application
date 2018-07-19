@@ -7,25 +7,21 @@
 </head>
 <body>
 <div id="load"></div>
-    <!--<div class="container">-->
-        <!--<h1>Hello There!</h1>-->
-        <!--&lt;!&ndash;<p>To get started, edit <code>src/index.js</code>.</p>&ndash;&gt;-->
-    <!--</div>-->
 <div id="contents">
-    <form id="addMovies" action="/db.json">
+    <form id="addMovies" method="post">
         <label for="userAddMovies">Add yo movieh:</label>
         <input type="text" id="userAddMovies">
         <label for="one">1</label>
-        <input type="radio" id="one" value="1">
+        <input type="radio" name='userRating' id="one" value="1">
         <label for="one">2</label>
-        <input type="radio" id="two" value="2">
+        <input type="radio" name='userRating' id="two" value="2">
         <label for="one">3</label>
-        <input type="radio" id="three" value="3">
+        <input type="radio" name='userRating' id="three" value="3">
         <label for="one">4</label>
-        <input type="radio" id="four" value="4">
+        <input type="radio" name='userRating' id="four" value="4">
         <label for="one">5</label>
-        <input type="radio" id="five" value="5">
-        <button type="submit">Submit</button>
+        <input type="radio" name='userRating' id="five" value="5">
+        <button type="submit" value="submit" id="userSubmit">Submit</button>
     </form>
 </div>
     <script src="/main.js"></script>

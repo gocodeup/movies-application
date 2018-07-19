@@ -1,9 +1,13 @@
+const $ = require('jquery');
 module.exports = {
   getMovies: () => {
     return fetch('/api/movies')
       .then(response => response.json());
   }
 };
+
+
+/* Loading thingy */
 document.onreadystatechange = function () {
     var state = document.readyState
     if (state == 'interactive') {
@@ -15,4 +19,4 @@ document.onreadystatechange = function () {
             document.getElementById('contents').style.visibility="visible";
         },1000);
     }
-}
+};
