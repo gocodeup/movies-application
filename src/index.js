@@ -13,6 +13,8 @@ const {getMovies} = require('./api.js');
 
 $(".container").show();
 $("#form").hide();
+// $("#editInput").hide();
+// $("#editRating").hide();
 
 function buildHtml(arrOfObj) {
     let html = "<table>";
@@ -22,11 +24,15 @@ function buildHtml(arrOfObj) {
     html += "<th>Movie ID</th>";
     arrOfObj.forEach((movie) => {
         html += "<tr>";
-        html += "<td><button>Edit </button> " + movie.title + "</td>";
+        html += "<td><button class='editBtns'>Edit </button> " + movie.title + "</td>";
         html += "<td>" + movie.rating + "</td>";
         html += "<td>" + movie.id + "</td>";
         html += "</tr>";
-        html += "<tr>";
+        html += "<tr class='editRow'>";
+        html += "<td><input id='editMovie'></td>";
+        html += "<td><input id='editRating'></td>";
+        html += "<td><button id='save'>Save</button>";
+        html += "</tr>";
     });
     html += "</table>";
     return html;
@@ -35,6 +41,7 @@ function buildHtml(arrOfObj) {
 getMovies().then((data) => $(".JsonTable").html(buildHtml(data)))
     .then(() => $(".container").hide())
     .then(() => $("#form").show())
+    // .then(() => $(".editRow").hide())
     .catch((error) => {
         alert('Oh no! Something went wrong.\nCheck the console for details.');
         console.log(error);
@@ -62,7 +69,18 @@ let addMovie = () => {
     });
 };
 
+let editMovie = () => {
+    $(document).on('click', '.editBtns', (e) => {
+        $(e.currentTarget).closest('tr').next().toggleClass('visible');
+    });
+};
+
+let updateMovie = () => {
+
+};
+
 addMovie();
+editMovie();
 
 
 

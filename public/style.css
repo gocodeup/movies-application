@@ -11,14 +11,21 @@ html, body {
 
 table {
     width: 100%;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     background-color: lightskyblue;
 }
 
-table td {
-    border: 1px solid black;
-}
+/*table td {*/
+    /*border: 1px solid black;*/
+
+/*}*/
 
 table th {
     border: 1px solid black;
+}
+.editRow {
+    visibility: hidden;
+}
+.visible{
+    visibility: visible;
 }
