@@ -37,7 +37,7 @@ function buildHtml(arrOfObj) {
 
 
 
-getMovies().then((movies) => movies).then((data) => $(".container").html(buildHtml(data)))
+getMovies().then((data) => $(".container").html(buildHtml(data)))
     .catch((error) => {
         alert('Oh no! Something went wrong.\nCheck the console for details.');
         console.log(error);
