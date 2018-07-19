@@ -13,11 +13,11 @@ const $ = require('jquery');
 getMovies().then((movies) => {
   $('#loading').hide();
   console.log('Here are all the movies:');
-    $('.container').html("");
+    $('#movieList').html("");
   movies.forEach(({title, rating, id}) => {
     console.log(`id#${id} - ${title} - rating: ${rating}`);
 
-      $('.container').append(`<div id = ${id}><p><strong>Title:</strong> ${title}</p>
+      $('#movieList').append(`<div id = ${id}><p><strong>Title:</strong> ${title}</p>
       <strong>Rating:</strong> ${rating}</div>`);
   });
 }).catch((error) => {
