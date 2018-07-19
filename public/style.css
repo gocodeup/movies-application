@@ -8,3 +8,17 @@ html, body {
     transform: translateY(-100%);
     text-align: center;
 }
+
+table {
+    width: 100%;
+    border: 1px solid black;
+    background-color: lightskyblue;
+}
+
+table td {
+    border: 1px solid black;
+}
+
+table th {
+    border: 1px solid black;
+}
