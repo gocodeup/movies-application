@@ -1,4 +1,4 @@
-const $ = require('jquery');
+
 module.exports = {
   getMovies: () => {
     return fetch('/api/movies')
