@@ -14,16 +14,16 @@ sayHello('World');
 
 //PAGE LOADING...
 
-$('body').append('<div style="font-size: 50px " id="loadingDiv"><div class="loader text-center">RUUSA & LISA <br>page loading...</div></div>');
-$(window).on('load', function(){
-    setTimeout(removeLoader, 3000); //wait for page load PLUS two seconds.
-});
-function removeLoader(){
-    $( "#loadingDiv" ).fadeOut(100, function() {
-        // fadeOut complete. Remove the loading div
-        $( "#loadingDiv" ).remove();
-    });
-}
+// $('body').append('<div style="font-size: 50px " id="loadingDiv"><div class="loader text-center">RUUSA & LISA <br>page loading...</div></div>');
+// $(window).on('load', function(){
+//     setTimeout(removeLoader, 5000); //wait for page load PLUS two seconds.
+// });
+// function removeLoader(){
+//     $( "#loadingDiv" ).fadeOut(100, function() {
+//         // fadeOut complete. Remove the loading div
+//         $( "#loadingDiv" ).remove();
+//     });
+// }
 
 
 
