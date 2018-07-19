@@ -1,6 +1,8 @@
 /**
  * es6 modules and imports
  */
+
+const $ = require("jquery");
 import sayHello from './hello';
 sayHello('World');
 
@@ -9,12 +11,78 @@ sayHello('World');
  */
 const {getMovies} = require('./api.js');
 
-getMovies().then((movies) => {
-  console.log('Here are all the movies:');
-  movies.forEach(({title, rating, id}) => {
-    console.log(`id#${id} - ${title} - rating: ${rating}`);
-  });
-}).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.')
-  console.log(error);
-});
+$(".container").show();
+$("#form").hide();
+// $("#editInput").hide();
+// $("#editRating").hide();
+
+function buildHtml(arrOfObj) {
+    let html = "<table>";
+    html += "<tr>";
+    html += "<th>Movie Name</th>";
+    html += "<th>Movie Rating</th>";
+    html += "<th>Movie ID</th>";
+    arrOfObj.forEach((movie) => {
+        html += "<tr>";
+        html += "<td><button class='editBtns'>Edit </button> " + movie.title + "</td>";
+        html += "<td>" + movie.rating + "</td>";
+        html += "<td>" + movie.id + "</td>";
+        html += "</tr>";
+        html += "<tr class='editRow'>";
+        html += "<td><input id='editMovie'></td>";
+        html += "<td><input id='editRating'></td>";
+        html += "<td><button id='save'>Save</button>";
+        html += "</tr>";
+    });
+    html += "</table>";
+    return html;
+}
+
+getMovies().then((data) => $(".JsonTable").html(buildHtml(data)))
+    .then(() => $(".container").hide())
+    .then(() => $("#form").show())
+    // .then(() => $(".editRow").hide())
+    .catch((error) => {
+        alert('Oh no! Something went wrong.\nCheck the console for details.');
+        console.log(error);
+    });
+
+let addMovie = () => {
+    $('#test').click(() => {
+        let movieTitleVal = $('#movieTitle').val();
+        let movieRatinfVal = $('#movieRating').val();
+
+        let newMovie = {title:movieTitleVal, rating:movieRatinfVal};
+        let url = '/api/movies';
+        let options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newMovie),
+        };
+        fetch(url, options)
+            .then(() => {
+                getMovies().then((data) => $(".JsonTable").html(buildHtml(data)));
+            })
+            .catch(() => console.log("error!"));
+    });
+};
+
+let editMovie = () => {
+    $(document).on('click', '.editBtns', (e) => {
+        $(e.currentTarget).closest('tr').next().toggleClass('visible');
+    });
+};
+
+let updateMovie = () => {
+
+};
+
+addMovie();
+editMovie();
+
+
+
+
+

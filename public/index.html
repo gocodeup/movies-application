@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8" />
     <title>My Application</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
 
-    <div class="container">
-        <h1>Hello There!</h1>
-        <p>To get started, edit <code>src/index.js</code>.</p>
-    </div>
+<div class="container">
+    <h1 id="loading">Loading...</h1>
+</div>
 
-    <script src="/main.js"></script>
+<div class="JsonTable"></div>
+    <form id="form">
+        <label>Movie Title</label>
+        <input id='movieTitle'>
+        <label>Movie Rating</label>
+        <input id='movieRating'>
+        <button id="test">Add Movie</button>
+    </form>
+<script src="./main.js"></script>
 </body>
 </html>
