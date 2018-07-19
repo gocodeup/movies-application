@@ -1,5 +1,6 @@
 html, body {
     height: 100%;
+    background-color: tomato;
 }
 
 .container {
@@ -7,4 +8,10 @@ html, body {
     top: 50%;
     transform: translateY(-100%);
     text-align: center;
+}
+
+table {
+    width: 100%;
+    border: 2px solid salmon;
+    background-color: lightcoral;
 }
