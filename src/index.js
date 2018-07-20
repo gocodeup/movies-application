@@ -27,19 +27,19 @@ function buildHtml(objs) {
   html += '<th scope ="col">Movie ID</th>';
   html += '</thead>';
 
-  objs.forEach((movie) => {
-    html += '<tbody>';
-    html += '<tr>';
-    html += '<td>' +  movie.title + '</td>';
-    html += '<td>' +  movie.rating + '</td>';
-    html += '<td>' +  movie.id + '</td>';
-    html += '<td>' + '<button type="button" id= "edit-button">Edit</button>' + '</td>';
-    html += '<td>' + '<button type="button" id= "delete-button">Delete</button>' + '</td>';
-    html += '</tr>';
-    html += '</tbody>';
+  objs.forEach(({title, rating, id}) => {
+    html += `<tbody>`;
+    html += `<tr>`;
+    html += `<td>${title}</td>`;
+    html += `<td>${rating}</td>`;
+    html += `<td><button type="button" class= "edit-button" data-id="${id}">Edit</button></td>`;
+    html += `<td>${id}</td>`;
+    html += `<td><button type="button" class= "delete-button" data-id="${id}">Delete</button></td>`;
+    html += `</tr>`;
+    html += `</tbody>`;
   });
-    html += '</table>';
-    html += '<button id="create-movie" type="submit" class="btn btn-primary">Create Movie</button>';
+    html += `</table>`;
+    html += `<button id="create-movie" type="submit" class="btn btn-primary">Create Movie</button>`;
 
 
     return html;
@@ -57,13 +57,13 @@ $('body').on("click", "#submit-button", function(e) {
 });
 
 
-$('body').on("click", "#delete-button", function() {
-    console.log('delete works');
-    movieDeletion();
+// $('body').on("click", ".delete-button", function() {
+//     console.log('delete works');
+//     movieDeletion();
+//
+// });
 
-});
-
-$('body').on("click", "#edit-button", function() {
+$('body').on("click", ".edit-button", function() {
     $('.modal-sm').show();
     console.log('edit works');
 
@@ -96,23 +96,28 @@ function movieCreation() {
         .then(moviePopulate)
 }
 
-function movieDeletion() {
-    const newMovie = {title: $('#title-submit').val(), rating:$('#rating-submit').val()};
-    let uri = '/api/movies';
-    const options = {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newMovie),
+$('body').on("click", ".delete-button", function() {
+    //function movieDeletion() {
+        let id = $(this).attr("data-id");
+        console.log(id);
+        let uri = `/api/movies/${id}`;
+        const options = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        };
+
+        fetch(uri, options)
+            .then(moviePopulate)
     };
-    fetch(uri, options)
-        .then(moviePopulate)
-}
+});
+
 
 
 
 console.log('hello yeah');
+
 function moviePopulate() {
     getMovies().then((movies) => movies).then((data) => $("#main-stuff").html(buildHtml(data)))
         .catch((error) => {
