@@ -18,6 +18,13 @@ const showMovies = () => {
                 '</div>');
             $('#movies:last').append(movies);
         });
+
+        $('#show-all-movies').empty();
+        movies.forEach(({id, title}) => {
+            const movies = ('<option id="' + `${id}` + '">'  + `${title}` + '</option>');
+            $('#show-all-movies:last').append(movies);
+        });
+
     }).catch((error) => {
         alert('Oh no! Something went wrong.\nCheck the console for details.')
         console.log(error);
@@ -60,23 +67,21 @@ $('#edit-submit').click((e) => {
         .then(showMovies);
 });
 
-getMovies().then((movies) => {
-    movies.forEach(({id, title}) => {
-        const movies = ('<option id="' + `${id}` + '">'  + `${title}` + '</option>');
-        $('#show-all-movies:last').append(movies);
-    });
-
-    $('#show-all-movies').change(() => {
-        console.log($('#show-all-movies option:selected').attr('id'));
-        const url = `/api/movies/${$('#show-all-movies option:selected').attr('id')}`;
-        const options = {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'applications/json'
-            }
-        };
-        fetch(url, options).then(response => console.log(response.json()))
-    });
+$('#show-all-movies').change(() => {
+    console.log($('#show-all-movies option:selected').attr('id'));
+    const url = `/api/movies/${$('#show-all-movies option:selected').attr('id')}`;
+    const options = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'applications/json'
+        }
+    };
+    fetch(url, options).then(response => response.json())
+        .then(movie => {
+            $('#edit-movie-id').val(movie.id);
+            $('#edit-movie-title').val(movie.title);
+            $('#edit-movie-rating').val(movie.rating);
+        })
 });
 
 showMovies();
