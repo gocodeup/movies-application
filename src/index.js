@@ -19,8 +19,10 @@ const {getMovies} = require('./api.js');
 
     $("#userSubmit").click(function(event){
       event.preventDefault();
+      let movieTitle = $("#userAddMovie").val();
 
-      const newMovie = {title: $("#userAddMovie").val(), rating: $(".userRating").child("value").val()};
+      let movieRating = $('input[name=userRating]:checked').val();
+      const newMovie = {title: movieTitle, rating: movieRating};
       const url = "/api/movies";
       const options = {
         method: "POST",
