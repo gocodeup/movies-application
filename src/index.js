@@ -9,6 +9,7 @@
  */
 
 const $ = require("jquery");
+const bootstrap = require('bootstrap');
 
 
 const {getMovies} = require('./api.js');
@@ -17,34 +18,47 @@ function buildHtml(objs) {
 
  let html = '';
 
-  html = '<table>';
+  html = '<table id="main-table" class="table">';
+  html += '<thead>';
   html += '<tr>';
-  html += '<th>Movie Name</th>';
-  html += '<th>Movie Rating</th>';
-  html += '<th>Movie ID</th>';
+  html += '<th scope ="col">Movie Name</th>';
+  html += '<th scope ="col">Movie Rating</th>';
+  html += '<th scope ="col">Movie ID</th>';
+  html += '</thead>';
+
   objs.forEach((movie) => {
+    html += '<tbody>';
     html += '<tr>';
     html += '<td>' +  movie.title + '</td>';
     html += '<td>' +  movie.rating + '</td>';
     html += '<td>' +  movie.id + '</td>';
-    html += '<td>' + '<button type="button">Delete</button>' + '<td>';
+    html += '<td>' + '<button type="button" id= "edit-button">Edit</button>' + '</td>';
+    html += '<td>' + '<button type="button" id= "delete-button">Delete</button>' + '</td>';
     html += '</tr>';
+    html += '</tbody>';
   });
     html += '</table>';
-
 
 
     return html;
 }
 
 
+$('body').on("click", "#delete-button", function() {
+    console.log('delete works');
 
+});
 
+$('body').on("click", "#edit-button", function() {
+    $('.modal-sm').show();
+    console.log('edit works');
 
+});
 
 $('#submit-button').click(function(e) {
   e.preventDefault();
   movieCreation();
+  console.log('Submit works');
 });
 
 
@@ -69,6 +83,8 @@ function movieCreation() {
         .then(moviePopulate)
 
 }
+
+
 
 console.log('hello yeah');
 function moviePopulate() {

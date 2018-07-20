@@ -15,3 +15,7 @@ table {
     border: 2px solid salmon;
     background-color: lightcoral;
 }
+
+.modal-sm {
+    display: none;
+}
