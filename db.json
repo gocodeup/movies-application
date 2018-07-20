@@ -1,14 +1,36 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
-      "rating": "4",
-      "id": 1
+      "title": "Fear and Loathing in Las Vegas",
+      "rating": "7",
+      "id": 5
     },
     {
-      "title": "Star Wars: A New Hope",
-      "rating": "5",
-      "id": 2
+      "title": "This is Spinal Tap",
+      "rating": "11",
+      "id": 6
+    },
+    {
+      "title": "Titanic",
+      "rating": "7",
+      "id": 7
+    },
+    {
+      "title": "Hotel Transylvania",
+      "rating": "6.5",
+      "id": 8
+    },
+    {
+      "title": "2001: A Space Odyssey",
+      "rating": "9",
+      "genre": "Sci-Fi",
+      "id": 9
+    },
+    {
+      "title": "Happy Gilmore",
+      "rating": "9",
+      "genre": "Comedy",
+      "id": 10
     }
   ]
 }
