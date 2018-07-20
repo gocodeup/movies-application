@@ -67,8 +67,25 @@ $('#edit-submit').click((e) => {
         .then(showMovies);
 });
 
+// Delete selected movie
+$('#delete-submit').click((e) => {
+    e.preventDefault();
+
+    const url = `/api/movies/${$("#edit-movie-id").val()}`;
+    const options = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    };
+
+    fetch(url, options)
+        .then(showMovies);
+});
+
+
+
 $('#show-all-movies').change(() => {
-    console.log($('#show-all-movies option:selected').attr('id'));
     const url = `/api/movies/${$('#show-all-movies option:selected').attr('id')}`;
     const options = {
         method: 'GET',
