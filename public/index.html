@@ -1,17 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>My Application</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href=" /style.css" />
 </head>
 <body>
 
     <div class="container">
-        <h1>Hello There!</h1>
-        <p>To get started, edit <code>src/index.js</code>.</p>
-    </div>
+        <div id="loading">Loading</div>
+        <div id="movieList">
+            <h1>Hello There!</h1>
+            <p>To get started, edit <code>src/index.js</code>.</p>
+        </div>
+        <br>
+        <div>
+            <form id="addMovie" method="post" action="/api/movies">
+                Movie Title: <br>
+                <input type="text" id="movieTitle" name="title"><br>
+                Movie Rating: <br>
+                <input id="rates" type="number" name="rating" min="1" max="5" value="1">
+            </form>
+            <button id="submit">Submit</button>
+        </div>
+        <br>
+        <div id="editMovie">
 
+        </div>
+    </div>
     <script src="/main.js"></script>
 </body>
 </html>

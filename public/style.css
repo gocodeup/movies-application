@@ -5,6 +5,7 @@ html, body {
 .container {
     position: relative;
     top: 50%;
-    transform: translateY(-100%);
+    bottom: 50%;
+    transform: translateY(-25%);
     text-align: center;
 }
