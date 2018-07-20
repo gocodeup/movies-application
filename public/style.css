@@ -8,3 +8,23 @@ html, body {
     transform: translateY(-100%);
     text-align: center;
 }
+
+table {
+    width: 100%;
+    /*border: 1px solid black;*/
+    background-color: lightskyblue;
+}
+
+table th {
+    border: 1px solid black;
+}
+.editRow {
+    visibility: hidden;
+}
+.visible{
+    visibility: visible;
+}
+.editCol {
+    border: none;
+    width: 90px;
+}
