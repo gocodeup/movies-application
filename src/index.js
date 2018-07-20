@@ -5,6 +5,8 @@ require('bootstrap');
 
 
 const {getMovies} = require('./api.js');
+//const {dataOpenMovie} = ('http://www.omdbapi.com/?apikey=fcb137df&');
+
 
 function buildHtml(objs) {
 
@@ -19,14 +21,16 @@ function buildHtml(objs) {
   html += '<th scope ="col">Movie Name</th>';
   html += '<th scope ="col">Movie Rating</th>';
   html += '<th scope ="col">Movie ID</th>';
+  html += '<th scope ="col">Genre</th>';
   html += '</thead>';
 
-  objs.forEach(({title, rating, id}) => {
+  objs.forEach(({title, rating, id, genre}) => {
     html += `<tbody>`;
     html += `<tr>`;
     html += `<td>${title}</td>`;
     html += `<td>${rating}</td>`;
     html += `<td>${id}</td>`;
+    html += `<td>${genre}</td>`;
     html += `<td><button id='edit-function' type="button" class= "edit-button" data-id="${id}">Edit</button></td>`;
     html += `<td><button type="button" class= "delete-button" data-id="${id}">Delete</button></td>`;
     html += `</tr>`;
@@ -74,7 +78,7 @@ $('body').on("click", "#edit-submit-button", function(e) {
 
 //===========Edit Creation=======\\
 function editCreation() {
-    const newMovie = {title: $('#edit-title-submit').val(), rating:$('#edit-rating-submit').val()};
+    const newMovie = {title: $('#edit-title-submit').val(), rating:$('#edit-rating-submit').val(), genre:$('#edit-genre-submit').val()};
     let id = $('#edit-function').attr("data-id");
     let uri = `/api/movies/${id}`;
     const options = {
@@ -91,7 +95,7 @@ function editCreation() {
 //=========Movie Creation=======\\
 
 function movieCreation() {
-    const newMovie = {title: $('#title-submit').val(), rating:$('#rating-submit').val()};
+    const newMovie = {title: $('#title-submit').val(), rating:$('#rating-submit').val(), genre:$('#genre-submit').val()};
     let uri = '/api/movies';
     const options = {
         method: 'POST',
