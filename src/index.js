@@ -7,6 +7,8 @@ sayHello('World');
 /**
  * require style imports
  */
+const $ = require('jquery');
+
 
 function runMovie() {
     const {getMovies} = require('./api.js');
@@ -19,8 +21,8 @@ function runMovie() {
         movies.forEach(({title, rating, id}) => {
             console.log(`id#${id} - ${title} - rating: ${rating}`);
 
-            $('#movieList').append(`<div id = ${id}><p><strong>Title:</strong> ${title}</p>
-      <strong>Rating:</strong> ${rating}</div>`);
+            $('#movieList').append(`<div id = ${id}><p><strong>Title:</strong> ${title} </p>
+      <strong>Rating:</strong> ${rating}<p><input type="text" name="title" value="${title}"></p><button>Edit</button><button>Delete</button></div><br>`);
         });
     }).catch((error) => {
         alert('Oh no! Something went wrong.\nCheck the console for details.')
@@ -38,12 +40,13 @@ $('#submit').click( e => {
   e.preventDefault();
 
   let title = $('#movieTitle').val();
-  let rating = $('#rating').val();
+  let rating = $('#rates').val();
 
-  $.post("/api/movies", {
+  $.post("./api/movies", {
     title: title,
     rating: rating
-  }).complete( () => console.log("Success!"))
+  });
+    runMovie();
 
 });
 
