@@ -12,10 +12,9 @@ const showMovies = () => {
 
         movies.forEach(({title, rating, id}) => {
             const movies = ('<tr>' +
-                            '</tr><th scope="row">' + `${id}` + '</th>' +
-                            '<td>' + `${title}` + '</td>' +
+                            '</tr><th scope="row">' + `${title}` + '</th>' +
                             '<td>' + `${rating}` + '</td>' +
-                            '<td><button type="button" class="btn btn-primary edit-buttons" data-toggle="modal" data-target="#edit-module" id="' + `${id}` + '">Edit</button> ' + ' <button type="button" class="btn btn-danger">Delete</button></td>' +
+                            '<td><button type="button" class="btn btn-primary edit-buttons" data-toggle="modal" data-target="#edit-module" id="'+`${id}`+'">Edit</button> ' + ' <button type="button" id="'+`${id}`+'" class="btn btn-danger delete-buttons">Delete</button></td>' +
                             '</tr>'
             );
             $('#t-body:last').append(movies);
@@ -45,6 +44,21 @@ const showMovies = () => {
                     $('#edit-movie-rating').val(movie.rating);
                 });
         });
+        //DELETE
+        $('.delete-buttons').click((button) => {
+            const url = `/api/movies/${button.target.id}`;
+            const options = {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            };
+
+            fetch(url, options)
+                .then(showMovies).then(() => {
+                button.target.parentNode.parentNode.remove()
+            })
+        })
 
     }).catch((error) => {
         alert('Oh no! Something went wrong.\nCheck the console for details.');
@@ -53,9 +67,9 @@ const showMovies = () => {
 };
 
 // New movie submit
-$('#submit').click((e) => {
+$('#add-movies').click((e) => {
     e.preventDefault();
-    const newMovie = {title: $('#new-movie-title').val(), rating: $('#new-movie-rating').val()};
+    const newMovie = {title: $('#add-movie-title').val(), rating: $('#add-movie-rating').val()};
     const url = '/api/movies/';
     const options = {
         method: 'POST',
@@ -66,7 +80,10 @@ $('#submit').click((e) => {
     };
 
     fetch(url, options)
-        .then(showMovies);
+        .then(showMovies).then(() => {
+        $('#add-movie-title').val("");
+        $('#add-movie-rating').val("");
+    });
 });
 
 
@@ -86,39 +103,5 @@ $('#save').click((e) => {
     fetch(url, options)
         .then(showMovies);
 });
-
-// Delete selected movie
-$('#delete-submit').click((e) => {
-    e.preventDefault();
-
-    const url = `/api/movies/${$("#edit-movie-id").val()}`;
-    const options = {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-    };
-
-    fetch(url, options)
-        .then(showMovies);
-});
-//
-// // Dropdown list
-// $('#show-all-movies').change(() => {
-//     const url = `/api/movies/${$('#show-all-movies option:selected').attr('id')}`;
-//     const options = {
-//         method: 'GET',
-//         headers: {
-//             'Content-Type': 'applications/json'
-//         }
-//     };
-//
-//     fetch(url, options).then(response => response.json())
-//         .then(movie => {
-//             $('#edit-movie-id').val(movie.id);
-//             $('#edit-movie-title').val(movie.title);
-//             $('#edit-movie-rating').val(movie.rating);
-//         })
-// });
 
 showMovies();
