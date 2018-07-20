@@ -1,21 +1,15 @@
-/**
- * es6 modules and imports
- */
-// import sayHello from './hello';
-// sayHello('World');
 
-/**
- * require style imports
- */
 
 const $ = require("jquery");
-const bootstrap = require('bootstrap');
-
+require('bootstrap');
 
 
 const {getMovies} = require('./api.js');
 
 function buildHtml(objs) {
+
+
+
 
  let html = '';
 
@@ -32,8 +26,8 @@ function buildHtml(objs) {
     html += `<tr>`;
     html += `<td>${title}</td>`;
     html += `<td>${rating}</td>`;
-    html += `<td><button type="button" class= "edit-button" data-id="${id}">Edit</button></td>`;
     html += `<td>${id}</td>`;
+    html += `<td><button id='edit-function' type="button" class= "edit-button" data-id="${id}">Edit</button></td>`;
     html += `<td><button type="button" class= "delete-button" data-id="${id}">Delete</button></td>`;
     html += `</tr>`;
     html += `</tbody>`;
@@ -45,8 +39,11 @@ function buildHtml(objs) {
     return html;
 }
 
+//===========Add Movie========\\
+
 $('body').on("click", "#create-movie", function() {
     $('#movie-create').show();
+    $('#create-movie').hide()
 });
 
 
@@ -54,35 +51,46 @@ $('body').on("click", "#submit-button", function(e) {
     e.preventDefault();
     movieCreation();
     $('#movie-create').hide();
+    $('#create-movie').show();
 });
 
 
-// $('body').on("click", ".delete-button", function() {
-//     console.log('delete works');
-//     movieDeletion();
-//
-// });
+
+//==============Edit Movie========\\
+
 
 $('body').on("click", ".edit-button", function() {
-    $('.modal-sm').show();
+    $('#movie-edit-modal').show();
     console.log('edit works');
 
 });
 
-// $('#submit-button').click(function(e) {
-//   e.preventDefault();
-//   movieCreation();
-//   console.log('Submit works');
-// });
+$('body').on("click", "#edit-submit-button", function(e) {
+    e.preventDefault();
+    $('#movie-edit-modal').hide();
+    editCreation();
+});
 
 
+//===========Edit Creation=======\\
+function editCreation() {
+    const newMovie = {title: $('#edit-title-submit').val(), rating:$('#edit-rating-submit').val()};
+    let id = $('#edit-function').attr("data-id");
+    let uri = `/api/movies/${id}`;
+    const options = {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newMovie),
+    };
+    fetch(uri, options)
+        .then(moviePopulate)
+}
 
-//let submitRating = $('#rating-submit').value;
-
-
+//=========Movie Creation=======\\
 
 function movieCreation() {
-    console.log($('#title-submit').val());
     const newMovie = {title: $('#title-submit').val(), rating:$('#rating-submit').val()};
     let uri = '/api/movies';
     const options = {
@@ -96,10 +104,11 @@ function movieCreation() {
         .then(moviePopulate)
 }
 
+//===========Movie Deletion========\\
+
 $('body').on("click", ".delete-button", function() {
-    //function movieDeletion() {
+
         let id = $(this).attr("data-id");
-        console.log(id);
         let uri = `/api/movies/${id}`;
         const options = {
             method: 'DELETE',
@@ -110,13 +119,8 @@ $('body').on("click", ".delete-button", function() {
 
         fetch(uri, options)
             .then(moviePopulate)
-    };
 });
 
-
-
-
-console.log('hello yeah');
 
 function moviePopulate() {
     getMovies().then((movies) => movies).then((data) => $("#main-stuff").html(buildHtml(data)))
