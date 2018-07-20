@@ -8,15 +8,17 @@ const $ = require('jquery');
 // Display all movies
 const showMovies = () => {
     getMovies().then((movies) => {
-        $('#movies').empty();
+        $('#t-body').empty();
 
         movies.forEach(({title, rating, id}) => {
-            console.log(`id#${id} - ${title} - rating: ${rating}`);
-
-            const movies = ('<div class="col">' +
-                '<h1>' + `id #${id} - ${title} - rating: ${rating}` + '</h1>' +
-                '</div>');
-            $('#movies:last').append(movies);
+            const movies = ('<tr>' +
+                            '</tr><th scope="row">' + `${id}` + '</th>' +
+                            '<td>' + `${title}` + '</td>' +
+                            '<td>' + `${rating}` + '</td>' +
+                            '<td><button type="button" class="btn btn-primary edit-buttons" data-toggle="modal" data-target="#edit-module" id="' + `${id}` + '">Edit</button> ' + ' <button type="button" class="btn btn-danger">Delete</button></td>' +
+                            '</tr>'
+            );
+            $('#t-body:last').append(movies);
         });
 
         $('#show-all-movies').empty();
@@ -25,8 +27,27 @@ const showMovies = () => {
             $('#show-all-movies:last').append(movies);
         });
 
+
+        // Edit
+        $('.edit-buttons').click((button) => {
+            const url = `/api/movies/${button.target.id}`;
+            const options = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'applications/json'
+                }
+            };
+
+            fetch(url, options).then(response => response.json())
+                .then(movie => {
+                    $('#edit-movie-id').val(movie.id);
+                    $('#edit-movie-title').val(movie.title);
+                    $('#edit-movie-rating').val(movie.rating);
+                });
+        });
+
     }).catch((error) => {
-        alert('Oh no! Something went wrong.\nCheck the console for details.')
+        alert('Oh no! Something went wrong.\nCheck the console for details.');
         console.log(error);
     });
 };
@@ -49,11 +70,10 @@ $('#submit').click((e) => {
 });
 
 
-// Edit all movies
-$('#edit-submit').click((e) => {
+// Save changes button, in edit module
+$('#save').click((e) => {
     e.preventDefault();
     const editMovies = {title: $('#edit-movie-title').val(), rating: $('#edit-movie-rating').val()};
-// Line 52 is how edited movie id is sent to json database
     const url = `/api/movies/${$("#edit-movie-id").val()}`;
     const options = {
         method: 'PUT',
@@ -82,23 +102,23 @@ $('#delete-submit').click((e) => {
     fetch(url, options)
         .then(showMovies);
 });
-
-
-
-$('#show-all-movies').change(() => {
-    const url = `/api/movies/${$('#show-all-movies option:selected').attr('id')}`;
-    const options = {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'applications/json'
-        }
-    };
-    fetch(url, options).then(response => response.json())
-        .then(movie => {
-            $('#edit-movie-id').val(movie.id);
-            $('#edit-movie-title').val(movie.title);
-            $('#edit-movie-rating').val(movie.rating);
-        })
-});
+//
+// // Dropdown list
+// $('#show-all-movies').change(() => {
+//     const url = `/api/movies/${$('#show-all-movies option:selected').attr('id')}`;
+//     const options = {
+//         method: 'GET',
+//         headers: {
+//             'Content-Type': 'applications/json'
+//         }
+//     };
+//
+//     fetch(url, options).then(response => response.json())
+//         .then(movie => {
+//             $('#edit-movie-id').val(movie.id);
+//             $('#edit-movie-title').val(movie.title);
+//             $('#edit-movie-rating').val(movie.rating);
+//         })
+// });
 
 showMovies();

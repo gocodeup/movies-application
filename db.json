@@ -1,14 +1,19 @@
 {
   "movies": [
     {
-      "title": "Star Wars: A New Hope",
+      "title": "Star Wars: The Force Awakens",
       "rating": "5",
       "id": 1
     },
     {
       "title": "Blade Runner - 2049",
-      "rating": "1",
+      "rating": "5",
       "id": 2
+    },
+    {
+      "title": "Star Wars: The Last Jedi",
+      "rating": "4",
+      "id": 3
     }
   ]
 }

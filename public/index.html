@@ -10,18 +10,15 @@
 </head>
 <body>
 
-    <div id="loading" >
-        <div class="sk-circle">
-
+    <div id="loading">
+        <div class="sk-circle"></div>
+        <div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
         </div>
-            <div class="spinner">
-                <div class="rect1"></div>
-                <div class="rect2"></div>
-                <div class="rect3"></div>
-                <div class="rect4"></div>
-                <div class="rect5"></div>
-
-            </div>
     </div>
 
 
@@ -33,47 +30,99 @@
 
             </div>
         </div>
+
         <div id="movies-container" class="container-fluid m-0">
-            <div class="row" id="movies"></div>
-            <div class="row" id="add-movies">
-                <div class="col-6">
-                    <div class="form-group">
-                        <label for="new-movie-title">Movie Title</label>
-                        <input type="text" class="form-control" id="new-movie-title">
-                        <div class="form-group">
-                            <label for="new-movie-rating">Rating</label>
-                            <select class="form-control" id="new-movie-rating">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Rating</th>
+                    </tr>
+                </thead>
+                <tbody id="t-body">
+                </tbody>
+            </table>
+
+            <!-- Modal -->
+            <div class="modal fade" id="edit-module" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header" id="modal-header">
+                            <!--<div class="input-group mb-3">-->
+                                <!--<div class="input-group-prepend">-->
+                                    <!--<span class="input-group-text" id="edit-movie-title">Title</span>-->
+                                <!--</div>-->
+                                <!--<input type="text" class="form-control">-->
+                            <!--</div>-->
+                                <button type="button" class="close" data-dismiss="modal">
+                                    <span>&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">ID</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="edit-movie-id" disabled>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Title</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="edit-movie-title">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Rating</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="edit-movie-rating">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+                                <button type="button" class="btn btn-primary" id="save" data-dismiss="modal">Save changes</button>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-primary" id="submit">Submit</button>
                     </div>
                 </div>
-            </div>
 
-            <div class="row" id="edit-movies">
-                <div class="col-6">
-                    <div class="form-group">
-                        <select class="form-control" id="show-all-movies" ></select>
-                        <label for="edit-movie-id">Movie ID</label>
-                        <input type="text" class="form-control" id="edit-movie-id" readonly>
-                        <label for="edit-movie-title">Edit Movie Title</label>
-                        <input type="text" class="form-control" id="edit-movie-title">
-                        <label for="edit-movie-rating">Edit Rating</label>
-                        <input type="text" class="form-control" id="edit-movie-rating">
-                    </div>
-                    <button type="submit" class="btn btn-primary" id="edit-submit">Edit</button>
+                <!--<div class="row" id="add-movies">-->
+                <!--<div class="col-6">-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="new-movie-title">Movie Title</label>-->
+                        <!--<input type="text" class="form-control" id="new-movie-title">-->
+                        <!--<div class="form-group">-->
+                            <!--<label for="new-movie-rating">Rating</label>-->
+                            <!--<select class="form-control" id="new-movie-rating">-->
+                                <!--<option>1</option>-->
+                                <!--<option>2</option>-->
+                                <!--<option>3</option>-->
+                                <!--<option>4</option>-->
+                                <!--<option>5</option>-->
+                            <!--</select>-->
+                        <!--</div>-->
+                        <!--<button type="submit" class="btn btn-primary" id="submit">Submit</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
 
-
-                    <button type="submit" class="btn btn-danger" id="delete-submit">Delete</button>
-
-
-                </div>
-            </div>
+            <!--<div class="row" id="edit-movies">-->
+                <!--<div class="col-6">-->
+                    <!--<div class="form-group">-->
+                        <!--<select class="form-control" id="show-all-movies" ></select>-->
+                        <!--<label for="edit-movie-id">Movie ID</label>-->
+                        <!--<input type="text" class="form-control" id="edit-movie-id" readonly>-->
+                        <!--<label for="edit-movie-title">Edit Movie Title</label>-->
+                        <!--<input type="text" class="form-control" id="edit-movie-title">-->
+                        <!--<label for="edit-movie-rating">Edit Rating</label>-->
+                        <!--<input type="text" class="form-control" id="edit-movie-rating">-->
+                    <!--</div>-->
+                    <!--<button type="submit" class="btn btn-primary" id="edit-submit">Edit</button>-->
+                    <!--<button type="submit" class="btn btn-danger" id="delete-submit">Delete</button>-->
+                <!--</div>-->
+            <!--</div>-->
         </div>
     </div>
 
