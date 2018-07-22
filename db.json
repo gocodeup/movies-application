@@ -1,14 +1,22 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
+      "title": "Pulp Fiction",
       "rating": "4",
-      "id": 1
+      "genre": "Crime",
+      "id": 6
     },
     {
-      "title": "Star Wars: A New Hope",
+      "title": "Godfather",
       "rating": "5",
-      "id": 2
+      "genre": "Crime",
+      "id": 7
+    },
+    {
+      "title": "Alice in Wonderland",
+      "rating": "4",
+      "genre": "Fantasy",
+      "id": 8
     }
   ]
 }
