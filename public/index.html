@@ -5,6 +5,8 @@
     <title>Movies Application</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
 
     <link href="http://allfont.net/allfont.css?fonts=bauhaus-bold-bt" rel="stylesheet" type="text/css" />
 
@@ -27,9 +29,15 @@
 
     <div class="container-fluid" id="main-container">
 
+
+
         <div class="jumbotron jumbotron-fluid m-0 p-4">
-            <div class="container">
-                <h1 class="display-4 text-center">Salazar's CINEMAGIC</h1>
+            <div class="container text-center">
+                <h1 class="display-4 text-center">Cinephile's CineFiles</h1>
+
+                <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#add">
+                    Add Movie <i class="fas fa-plus"></i>
+                </button>
 
             </div>
         </div>
@@ -43,6 +51,8 @@
                         <tr>
                             <th scope="col">TITLE</th>
                             <th scope="col">RATING</th>
+                            <th scope="col">GENRE</th>
+                            <th scope="col">REVISE</th>
                         </tr>
                         </thead>
                         <tbody id="t-body">
@@ -55,20 +65,22 @@
 
 
             <!-- EDIT Modal -->
-            <div class="modal fade" id="edit-module" tabindex="-1" role="dialog">
+            <div class="modal fade" id="edit-module" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
-                        <div class="modal-header" id="modal-header">
+                        <div class="modal-header">
+                            <h3 class="modal-title" >Edit Movie</h3>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-
+                        </div>
+                        <div class="modal-body">
                             <div class="modal-body">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text">ID</span>
+                                        <!--<span class="input-group-text">ID</span>-->
                                     </div>
-                                    <input type="text" class="form-control" id="edit-movie-id" disabled>
+                                    <input type="hidden" class="form-control" id="edit-movie-id" disabled>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -80,28 +92,36 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Rating</span>
                                     </div>
-                                    <input type="text" class="form-control" id="edit-movie-rating">
+                                    <select class="form-control" id="edit-movie-rating">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Genre</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="edit-movie-genre">
                                 </div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" id="save" data-dismiss="modal">Save changes</button>
-                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="save" class="btn btn-success" data-dismiss="modal">Save changes</button>
                         </div>
                     </div>
                 </div>
             </div>
 
 
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#add">
-                Add movie
-            </button>
 
             <!-- ADD Modal -->
             <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
+                            <h3 class="modal-title" >Add New Movie</h3>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -110,9 +130,9 @@
                             <div class="modal-body">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text">ID</span>
+                                        <!--<span class="input-group-text">ID</span>-->
                                     </div>
-                                    <input type="text" class="form-control" id="add-movie-id" disabled>
+                                    <input type="hidden" class="form-control" id="add-movie-id" disabled>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -124,7 +144,19 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Rating</span>
                                     </div>
-                                    <input type="text" class="form-control" id="add-movie-rating">
+                                    <select class="form-control" id="add-movie-rating">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Genre</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="add-movie-genre">
                                 </div>
                             </div>
                         </div>
@@ -138,6 +170,7 @@
 
         </div>
     </div>
+
     <script src="/main.js"></script>
 </body>
 </html>

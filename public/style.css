@@ -1,18 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Baumans');
+
+
 html, body {
     height: 100%;
     background: black;
     color: white;
-    font-family: "Kannada MN";
+    font-family: "Baumans";
 
 
 }
 
 th {
     font-size: 40px!important;
+    color:yellow;
 }
 
 .table td, .table th {
     font-size: 40px!important;
+
 }
 .spinner {
     margin:  auto;
@@ -91,7 +96,8 @@ th {
 }
 
 .jumbotron {
-    background: black;
+    background: rgba(0, 0, 0, .7)!important;
+
     color: white;
 }
 
@@ -105,7 +111,7 @@ th {
 }
 
 #movies-table {
-    background-color: rgba(0,0,0,0.35);
+    background-color: rgba(0,0,0,0.5);
 }
 #loading {
     height: 100%;
@@ -179,4 +185,8 @@ th {
 img {
     opacity: 0.5;
 
+}
+
+.modal-title{
+    color: black;
 }

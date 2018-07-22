@@ -1,24 +1,22 @@
 {
   "movies": [
     {
-      "title": "Shawshank Returns",
-      "rating": "5",
-      "id": 5
+      "title": "Pulp Fiction",
+      "rating": "4",
+      "genre": "Crime",
+      "id": 6
     },
     {
-      "title": "The Dark Knight",
-      "rating": "4",
+      "title": "Godfather",
+      "rating": "5",
+      "genre": "Crime",
       "id": 7
     },
     {
-      "title": "Fight Club",
-      "rating": "5",
+      "title": "Alice in Wonderland",
+      "rating": "4",
+      "genre": "Fantasy",
       "id": 8
-    },
-    {
-      "title": "Godfather II",
-      "rating": "5",
-      "id": 11
     }
   ]
 }
