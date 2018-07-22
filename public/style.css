@@ -1,14 +1,24 @@
 html, body {
     height: 100%;
     background: black;
+    color: white;
+    font-family: "Kannada MN";
+
 
 }
 
+th {
+    font-size: 40px!important;
+}
+
+.table td, .table th {
+    font-size: 40px!important;
+}
 .spinner {
     margin:  auto;
     margin-top:-100px;
-    width: 50px;
-    height: 40px;
+    width: 500px;
+    height: 400px;
     text-align: center;
     font-size: 10px;
 }
@@ -17,7 +27,7 @@ html, body {
 .spinner > div {
     background-color: #333;
     height: 100%;
-    width: 6px;
+    width: 60px;
     display: inline-block;
 
     -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
@@ -71,8 +81,8 @@ html, body {
 
 .sk-circle {
     margin: 100px auto;
-    width: 10px;
-    height: 10px;
+    width: 100px;
+    height: 100px;
     position: relative;
     background:#000;
     border-radius:100%;
@@ -86,23 +96,22 @@ html, body {
 }
 
 #main-container {
-   opacity: 0;
     padding: 0;
     height:100%;
-
-}
-#movies-container {
-    background-image: url("./img/board-cinema-cinematography-274937.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
+    background: url("./img/board-cinema-cinematography-274937.jpg") no-repeat center;
     background-size: cover;
     height: 100%;
+
+}
+
+#movies-table {
+    background-color: rgba(0,0,0,0.35);
 }
 #loading {
     height: 100%;
     background: black;
     position: relative;
-    top: 40%;
+    top: 15%;
 
 }
 
@@ -161,4 +170,13 @@ html, body {
         top:-6px;
 
     }
+}
+
+.display-4 {
+    font-size: 100px!important;
+}
+
+img {
+    opacity: 0.5;
+
 }

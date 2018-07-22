@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>Movie Application</title>
+    <title>Movies Application</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 
@@ -29,23 +29,30 @@
 
         <div class="jumbotron jumbotron-fluid m-0 p-4">
             <div class="container">
-                <h1 class="display-4 text-center">Movies</h1>
+                <h1 class="display-4 text-center">Salazar's CINEMAGIC</h1>
 
             </div>
         </div>
 
-        <div id="movies-container" class="container-fluid m-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div id="movies-container" class="col-md-12">
+                    <table id="movies-table" class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">TITLE</th>
+                            <th scope="col">RATING</th>
+                        </tr>
+                        </thead>
+                        <tbody id="t-body">
+                        </tbody>
+                    </table>
+                </div>
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Title</th>
-                        <th scope="col">Rating</th>
-                    </tr>
-                </thead>
-                <tbody id="t-body">
-                </tbody>
-            </table>
+                <div class="col-md-2"></div>
+            </div>
+
 
             <!-- EDIT Modal -->
             <div class="modal fade" id="edit-module" tabindex="-1" role="dialog">
@@ -86,7 +93,7 @@
 
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add">
+            <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#add">
                 Add movie
             </button>
 
