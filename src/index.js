@@ -19,11 +19,40 @@ const populateMovies = () => {
         $('h1').remove();
         $('p').remove();
 
+        $('#selectMovieToEdit').click(function () {
+            const movieToEdit = $('#moviesToEdit').val();
+            const selectedMovie = movies.filter(movie => {
+                return [`${movieToEdit}`].includes(movie.title)
+            })
+            $('#movieToEditTitle').removeAttr('hidden').val(selectedMovie[0].title);
+            $('#movieToEditRating').removeAttr('hidden').val(selectedMovie[0].rating);
+            $('#submitMovieToEdit').removeAttr('hidden');
+            $('#submitMovieToEdit').click(function () {
+                const url = './api/movies';
+                const updatedMovie = {title: `${selectedMovie.title}`,rating: `${selectedMovie.rating}`}
+                const options = {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(updatedMovie)}
+                fetch(url, options)
+                    .then(data => {
+                        console.log(data);
+                    })
+                    .catch();
+            });
+        })
+
         movies.forEach(({title, rating, id}) => {
-            $('#container').append(`<h1>${title}</h1>`);
-            $('#container').append(`<p>${rating}</p>`)
-            $('#container').append(`<button id='ID${id}'>Delete Movie</button>`)
+            $(`#ID${id}`).remove()
+            $('body').append(`<div id=movie${id}></div>`);
+            $(`#movie${id}`).append(`<h1>${title}</h1>`);
+            $(`#movie${id}`).append(`<p>${rating}</p>`);
+            $(`#movie${id}`).append(`<button id='ID${id}'>Delete Movie</button>`);
+            $('#moviesToEdit').append(`<option>${title}</option>`);
             $(`#ID${id}`).click(function(e) {
+                //this needs to delete movies
                 e.preventDefault();
                 const deleteMovieTitle = title;
 
@@ -72,4 +101,6 @@ $('#addMovie').click(function () {
         })
         .catch();
 });
+
+
 
