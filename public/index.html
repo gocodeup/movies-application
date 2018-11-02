@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8" />
     <title>My Application</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <div class="container"id="container">
-        <h1>Loading ...</h1>
+    <div class="container" id="container">
+        <h1 id="loading">Loading ...</h1>
         <p style="display: none">To get started, edit <code>src/index.js</code>.</p>
     </div>
 
-    <script src="/main.js"></script>
+    <input type="text" placeholder="Movie Title" id="newMovieTitle">
+    <input type="text" placeholder="Movie Rating" id="newMovieRating">
+    <button type="submit" id="addMovie">Add Movie</button>
+
+    <script src="main.js"></script>
 </body>
 </html>
