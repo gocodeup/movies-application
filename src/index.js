@@ -18,32 +18,7 @@ const populateMovies = () => {
         $('#loading').remove();
         $('h1').remove();
         $('p').remove();
-
-        $('#selectMovieToEdit').click(function () {
-            const movieToEdit = $('#moviesToEdit').val();
-            const selectedMovie = movies.filter(movie => {
-                return [`${movieToEdit}`].includes(movie.title)
-            })
-            $('#movieToEditTitle').removeAttr('hidden').val(selectedMovie[0].title);
-            $('#movieToEditRating').removeAttr('hidden').val(selectedMovie[0].rating);
-            $('#submitMovieToEdit').removeAttr('hidden');
-            $('#submitMovieToEdit').click(function () {
-                const url = './api/movies';
-                const updatedMovie = {title: `${selectedMovie.title}`,rating: `${selectedMovie.rating}`}
-                const options = {
-                    method: 'PATCH',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(updatedMovie)}
-                fetch(url, options)
-                    .then(data => {
-                        console.log(data);
-                    })
-                    .catch();
-            });
-        })
-
+        $('option').remove();
         movies.forEach(({title, rating, id}) => {
             $(`#ID${id}`).remove()
             $('body').append(`<div id=movie${id}></div>`);
@@ -81,6 +56,36 @@ const populateMovies = () => {
     });
 };
 populateMovies();
+
+$('#selectMovieToEdit').click(function () {
+    getMovies().then((movies => {
+        const movieToEdit = $('#moviesToEdit').val();
+        const selectedMovie = movies.filter(movie => {
+            return [`${movieToEdit}`].includes(movie.title)
+        })
+        $('#movieToEditTitle').removeAttr('hidden').val(selectedMovie[0].title);
+        $('#movieToEditRating').removeAttr('hidden').val(selectedMovie[0].rating);
+        $('#submitMovieToEdit').removeAttr('hidden');
+        $('#submitMovieToEdit').click(function () {
+            const url = `./api/movies/${selectedMovie[0].id}`;
+            const updatedMovie = {title: $('#movieToEditTitle').val(), rating: $('#movieToEditRating').val()};
+            const options = {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updatedMovie)};
+            fetch(url, options)
+                .then(data => {
+                    console.log(data);
+                    $('#movieToEditTitle').attr('hidden',true);
+                    $('#movieToEditRating').attr('hidden',true);
+                    $('#submitMovieToEdit').attr('hidden',true);
+                    populateMovies();
+                })
+                .catch();
+        });
+    }))})
 
 $('#addMovie').click(function () {
   const newMovieTitle = $('#newMovieTitle').val();
