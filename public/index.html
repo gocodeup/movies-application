@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <title>My Application</title>
-    <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>My Application</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
 
-    <div class="container" id="container">
-        <h1 id="loading">Loading ...</h1>
-        <p style="display: none">To get started, edit <code>src/index.js</code>.</p>
-    </div>
+        <div class="container" id="container">
+            <h1 id="loading">Loading ...</h1>
+            <p style="display: none">To get started, edit <code>src/index.js</code>.</p>
+        </div>
 
-    <input type="text" placeholder="Movie Title" id="newMovieTitle">
-    <input type="text" placeholder="Movie Rating" id="newMovieRating">
-    <button type="submit" id="addMovie">Add Movie</button>
+        <input type="text" placeholder="Movie Title" id="newMovieTitle">
+        <input type="text" placeholder="Movie Rating" id="newMovieRating">
+        <button type="submit" id="addMovie">Add Movie</button>
 
-    <select id="moviesToEdit">
+        <select id="moviesToEdit">
 
-    </select>
-    <button id="selectMovieToEdit">Select Movie to edit</button>
-    <input type="text" hidden id="movieToEditTitle">
-    <input type="text" hidden id="movieToEditRating">
-    <button id="submitMovieToEdit" hidden>Select Movie to edit</button>
+        </select>
 
-    <script src="main.js"></script>
-</body>
+            <button id="selectMovieToEdit">Select Movie to edit</button>
+            <input type="text" hidden id="movieToEditTitle">
+            <input type="text" hidden id="movieToEditRating">
+            <button id="submitMovieToEdit" hidden>Select Movie to edit</button>
+
+        <script src="main.js"></script>
+    </body>
 </html>

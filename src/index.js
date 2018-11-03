@@ -22,29 +22,31 @@ const populateMovies = () => {
         movies.forEach(({title, rating, id}) => {
             $(`#ID${id}`).remove()
             $('body').append(`<div id=movie${id}></div>`);
-            $(`#movie${id}`).append(`<h1>${title}</h1>`);
-            $(`#movie${id}`).append(`<p>${rating}</p>`);
-            $(`#movie${id}`).append(`<button id='ID${id}'>Delete Movie</button>`);
+            $(`#movie${id}`).append(
+                `<h1>${title}</h1>
+                 <p>${rating}</p>
+                 <button id='ID${id}'>Delete Movie</button>`
+            );
+
+            // $(`#movie${id}`).append(`<p>${rating}</p>`);
+            // $(`#movie${id}`).append(`<button id='ID${id}'>Delete Movie</button>`);
             $('#moviesToEdit').append(`<option>${title}</option>`);
             $(`#ID${id}`).click(function(e) {
                 //this needs to delete movies
                 e.preventDefault();
-                const deleteMovieTitle = title;
-
+                const deleteMovieTitle = {title};
                 const url = './api/movies';
-
                 const options = {
-                    method: 'PUT',
+                    method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    // body: JSON.stringify(newMovie),
+                    body: JSON.stringify(deleteMovieTitle),
                 };
                 fetch(url, options)
                     .then(data => {
                         if (data.title === deleteMovieTitle) {
-
-                        };
+                        }
                         populateMovies();
                     })
                     .catch();
@@ -62,7 +64,7 @@ $('#selectMovieToEdit').click(function () {
         const movieToEdit = $('#moviesToEdit').val();
         const selectedMovie = movies.filter(movie => {
             return [`${movieToEdit}`].includes(movie.title)
-        })
+        });
         $('#movieToEditTitle').removeAttr('hidden').val(selectedMovie[0].title);
         $('#movieToEditRating').removeAttr('hidden').val(selectedMovie[0].rating);
         $('#submitMovieToEdit').removeAttr('hidden');
@@ -85,7 +87,7 @@ $('#selectMovieToEdit').click(function () {
                 })
                 .catch();
         });
-    }))})
+    }))});
 
 $('#addMovie').click(function () {
   const newMovieTitle = $('#newMovieTitle').val();
