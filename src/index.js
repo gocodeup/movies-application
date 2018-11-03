@@ -20,9 +20,9 @@ const populateMovies = () => {
         $('p').remove();
         $('option').remove();
         movies.forEach(({title, rating, id}) => {
-            $(`#ID${id}`).remove()
+            $(`#ID${id}`).remove();
             $('body').append(`<div id=movie${id}></div>`);
-            $(`#movie${id}`).append(
+            $(`#movie${id}`).append( // cleaned up and consolidated the below
                 `<h1>${title}</h1>
                  <p>${rating}</p>
                  <button id='ID${id}'>Delete Movie</button>`
