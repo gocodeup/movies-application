@@ -34,8 +34,8 @@ const populateMovies = () => {
             $(`#ID${id}`).click(function(e) {
                 //this needs to delete movies
                 e.preventDefault();
-                const deleteMovieTitle = {title};
-                const url = './api/movies';
+                const deleteMovieTitle = {title,rating,id};
+                const url = `./api/movies/${id}`;
                 const options = {
                     method: 'DELETE',
                     headers: {
@@ -45,9 +45,9 @@ const populateMovies = () => {
                 };
                 fetch(url, options)
                     .then(data => {
-                        if (data.title === deleteMovieTitle) {
-                        }
+                        console.log(data);
                         populateMovies();
+                        $(`#ID${id}`).remove()
                     })
                     .catch();
             });
@@ -59,10 +59,11 @@ const populateMovies = () => {
 };
 populateMovies();
 
-$('#selectMovieToEdit').click(function () {
+$('#selectMovieToEdit').click(function (e) {
+    e.preventDefault(e);
     getMovies().then((movies => {
-        const movieToEdit = $('#moviesToEdit').val();
-        const selectedMovie = movies.filter(movie => {
+        let movieToEdit = $('#moviesToEdit').val();
+        let selectedMovie = movies.filter(movie => {
             return [`${movieToEdit}`].includes(movie.title)
         });
         $('#movieToEditTitle').removeAttr('hidden').val(selectedMovie[0].title);
@@ -70,9 +71,9 @@ $('#selectMovieToEdit').click(function () {
         $('#submitMovieToEdit').removeAttr('hidden');
         $('#submitMovieToEdit').click(function () {
             const url = `./api/movies/${selectedMovie[0].id}`;
-            const updatedMovie = {title: $('#movieToEditTitle').val(), rating: $('#movieToEditRating').val()};
-            const options = {
-                method: 'PUT',
+            let updatedMovie = {title: $('#movieToEditTitle').val(), rating: $('#movieToEditRating').val()};
+            let options = {
+                method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -84,6 +85,7 @@ $('#selectMovieToEdit').click(function () {
                     $('#movieToEditRating').attr('hidden',true);
                     $('#submitMovieToEdit').attr('hidden',true);
                     populateMovies();
+                    $('#submitMovieToEdit').off();
                 })
                 .catch();
         });
@@ -103,7 +105,7 @@ $('#addMovie').click(function () {
     };
     fetch(url, options)
         .then(data => {
-            console.log(data);
+            console.log(options);
             populateMovies();
         })
         .catch();
