@@ -2,9 +2,15 @@ html, body {
     height: 100%;
 }
 
-.container {
+.container1 {
     position: relative;
     top: 50%;
     transform: translateY(-100%);
     text-align: center;
+}
+.main-header {
+    /*font-family: 'Luckiest Guy', cursive;*/
+    /*font-family: 'Titan One', cursive;*/
+    /*font-family: 'Notable', sans-serif;*/
+    font-family: 'Bungee Inline', cursive;
 }
