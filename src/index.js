@@ -1,6 +1,4 @@
 const $ = require('jquery');
-
-
 /**
  * es6 modules and imports
  */
@@ -12,7 +10,6 @@ sayHello('World');
  */
 const {getMovies} = require('./api.js');
 
-
 const populateMovies = () => {
     getMovies().then((movies) => {
         $('#loading').remove();
@@ -21,11 +18,12 @@ const populateMovies = () => {
         $('option').remove();
         movies.forEach(({title, rating, id}) => {
             $(`#ID${id}`).remove();
-            $('body').append(`<div id=movie${id}></div>`);
+            $('table').append(`<tbody id=movie${id}></tbody>`);
             $(`#movie${id}`).append( // cleaned up and consolidated the below
-                `<h1>${title}</h1>
-                 <p>${rating}</p>
-                 <button id='ID${id}'>Delete Movie</button>`
+                `<td><h5>${title}</h5></td>
+                 <td>${rating}</td>
+                 <td><button class="btn-floating btn-large waves-effect waves-light red">
+                 <i class="material-icons" id='ID${id}'>delete_forever</i></button></td>`
             );
 
             // $(`#movie${id}`).append(`<p>${rating}</p>`);
@@ -53,7 +51,8 @@ const populateMovies = () => {
             });
         });
     }).catch((error) => {
-        alert('Oh no! Something went wrong.\nCheck the console for details.');
+        alert(`Oh no! Something went wrong.
+                Check the console for details.`);
         console.log(error);
     });
 };

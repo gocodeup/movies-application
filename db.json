@@ -1,91 +1,6 @@
 {
   "movies": [
     {
-      "title": "Wait did that work! It did! Ok, the key was to turn off the event listener on the hidden click after it has been clicked, so that it is reset each time it is reset, otherwise it sends multiple urls for each movie you updated since the page has loaded. Also, on the todo list, need to fix this craziness with option box",
-      "rating": "4",
-      "id": 1
-    },
-    {
-      "title": "Pulp Fiction",
-      "rating": "3",
-      "id": 2
-    },
-    {
-      "title": "The Notebook 2",
-      "rating": "1",
-      "id": 3
-    },
-    {
-      "title": "Avengers: Infinity War",
-      "rating": "5",
-      "id": 4
-    },
-    {
-      "title": "Shaft",
-      "rating": "4",
-      "id": 5
-    },
-    {
-      "title": "Shawshank Redemption",
-      "rating": "5",
-      "id": 6
-    },
-    {
-      "title": "Shaft 4: The Shaftenator",
-      "rating": "3",
-      "id": 7
-    },
-    {
-      "title": "Hey Arnold: The Jungle Movie",
-      "rating": "3",
-      "id": 8
-    },
-    {
-      "title": "Blazing Sadles",
-      "rating": "4",
-      "id": 9
-    },
-    {
-      "title": "Longest Yard - The Old One",
-      "rating": "4",
-      "id": 10
-    },
-    {
-      "title": "Longest Yard - The Adam Sandler One",
-      "rating": "4",
-      "id": 11
-    },
-    {
-      "title": "Star Trek 4 - All blazers gon",
-      "rating": "3",
-      "id": 12
-    },
-    {
-      "title": "Star Trek 3 - All blazers gone",
-      "rating": "4",
-      "id": 13
-    },
-    {
-      "title": "Friday Night Lights",
-      "rating": "4",
-      "id": 14
-    },
-    {
-      "title": "Ok that one didnt work - but know url can change",
-      "rating": "4",
-      "id": 15
-    },
-    {
-      "title": "Ok that one didnt work - but know url can change",
-      "rating": "4",
-      "id": 16
-    },
-    {
-      "title": "looking at you url",
-      "rating": "4",
-      "id": 17
-    },
-    {
       "title": "Ok now I get the probem",
       "rating": "4",
       "id": 18
@@ -94,11 +9,6 @@
       "title": "So what needs to happen is this only sends once",
       "rating": "4",
       "id": 19
-    },
-    {
-      "title": "options and url are reset each time",
-      "rating": "4",
-      "id": 20
     },
     {
       "title": "options and url are reset each time",
@@ -124,6 +34,26 @@
       "title": "shrek",
       "rating": "4",
       "id": 26
+    },
+    {
+      "title": "Testing",
+      "rating": "4",
+      "id": 27
+    },
+    {
+      "title": "Testing 2",
+      "rating": "4",
+      "id": 28
+    },
+    {
+      "title": "Hulk",
+      "rating": "5",
+      "id": 29
+    },
+    {
+      "title": "Hulk 2",
+      "rating": "1",
+      "id": 30
     }
   ]
 }

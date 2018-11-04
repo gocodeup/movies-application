@@ -3,28 +3,69 @@
     <head>
         <meta charset="UTF-8" />
         <title>My Application</title>
-        <link rel="stylesheet" href="style.css" />
+        <!-- Google Fonts Script -->
+        <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Luckiest+Guy|Notable|Titan+One" rel="stylesheet">
+        <!-- Materialize CSS Scripts -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
+        <!-- Custom CSS Scripts -->
+        <link rel="stylesheet" href="style.css">
     </head>
-    <body>
-
-        <div class="container" id="container">
-            <h1 id="loading">Loading ...</h1>
+    <body class="light-blue accent-1">
+<div class="container">
+    <div class="center main-header" id="codeup"><h2>KC & Benny's Movie Application</h2></div>
+        <div class="container1" id="container">
+            <h1 id=" center loading">Loading ...</h1>
             <p style="display: none">To get started, edit <code>src/index.js</code>.</p>
         </div>
 
-        <input type="text" placeholder="Movie Title" id="newMovieTitle">
-        <input type="text" placeholder="Movie Rating" id="newMovieRating">
-        <button type="submit" id="addMovie">Add Movie</button>
+    <div class="row">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <label for="newMovieTitle">Enter movie Title:</label>
+                    <input type="text" placeholder="Movie Title" id="newMovieTitle">
+                </div>
+                <div class="input-field col s6">
+                    <label for="newMovieRating">Enter movie Rating:</label>
+                    <input type="text" placeholder="Movie Rating" id="newMovieRating">
+                    <button class="teal darken-1 waves-effect waves-light btn" type="submit" id="addMovie"><i class="material-icons">add</i>Movie</button>
+                </div>
+            </div>
+        </form>
+    </div>
 
-        <select id="moviesToEdit">
+        <div>
 
-        </select>
+        <select class="browser-default" id="moviesToEdit">
+            <option></option>
+        </select><br>
+            <button class="light-blue darken-1 waves-effect waves-light btn" id="selectMovieToEdit">Select Movie to edit</button>
 
-            <button id="selectMovieToEdit">Select Movie to edit</button>
             <input type="text" hidden id="movieToEditTitle">
             <input type="text" hidden id="movieToEditRating">
-            <button id="submitMovieToEdit" hidden>Select Movie to edit</button>
+            <button class="light-blue darken-1 waves-effect waves-light btn" id="submitMovieToEdit" hidden>Submit Movie to edit</button>
+        </div>
 
+            <div id="movieTable">
+                <table>
+                    <thead>
+                        <tr>
+                            <th><h4>Movie Title</h4></th>
+                            <th><h4>Rating</h4></th>
+                            <th><h4>Delete</h4></th>
+
+                        </tr>
+                    </thead>
+
+                </table>
+            </div>
+</div>
         <script src="main.js"></script>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
+        <!-- Custom JavaScript -->
     </body>
 </html>
