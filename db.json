@@ -2,7 +2,7 @@
   "movies": [
     {
       "title": "Thor: Ragnarok",
-      "rating": "5",
+      "rating": "4",
       "genre": "action",
       "id": 30
     },
@@ -20,8 +20,8 @@
     },
     {
       "title": "Spiderman",
-      "rating": "4",
-      "genre": "superhero",
+      "rating": "5",
+      "genre": "epics/historical",
       "id": 35
     },
     {
@@ -179,6 +179,12 @@
       "rating": "5",
       "genre": "drama",
       "id": 62
+    },
+    {
+      "title": "Incredibles 2",
+      "rating": "5",
+      "genre": "drama",
+      "id": 63
     }
   ]
 }
