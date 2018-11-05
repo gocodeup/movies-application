@@ -10,27 +10,34 @@ sayHello('World');
  */
 const {getMovies} = require('./api.js');
 
+
 const populateMovies = () => {
     getMovies().then((movies) => {
         $('#codeup').removeClass('hide');
         $('div, form').removeClass('hide');
-        // $('form').removeClass('hide');
         $('h1, td, h5, i, option').remove();
-        // $('td').remove();
-        // $('h5').remove();
-        // $('i').remove();
-        // $('option').remove();
         movies.forEach(({title, rating, id, genre}) => {
             $(`#ID${id}`).remove();
             $('table').append(`<tbody id=movie${id}></tbody>`);
             $(`#movie${id}`).append( // cleaned up and consolidated the below
                 `<td><h5>${title}</h5></td>
-                 <td><h5>${rating}</h5></td>
+                 <td ><h5 class="rating">${rating}</h5></td>
                  <td><h5>${genre}</h5></td>
                  <td><button class="btn-floating btn-large waves-effect waves-light red">
                  <i class="small material-icons" id='ID${id}'>delete_forever</i></button></td>`
             );
-
+            $('#newMovieGenre').append(
+                `<option>Action</option>
+                <option>Adventure</option>
+                <option>Comedy</option>
+                <option>Crime & Gangster</option>
+                <option>Drama</option>
+                <option>Epics/Historical</option>
+                <option>Horror</option>
+                <option>Musicals / Dance</option>
+                <option>Science Fiction</option>
+            <option>War</option>
+            <option>Westerns</option>`)
             $('#moviesToEdit').append(`<option>${title}</option>`);
             $(`#ID${id}`).click(function(e) {
                 //this needs to delete movies
@@ -99,14 +106,25 @@ $('#selectMovieToEdit').click(function (e) {
 $('body').keyup(function () {
     if ($('#newMovieTitle').val()  !== '' &&
         $('#newMovieRating').val() !== '' &&
-        $('#newMovieRating').val() < 6 &&
-        $('#newMovieGenre').val() !== ''){
+        $('#newMovieRating').val() < 6 ){
         $('#addMovie').removeAttr('disabled');
     }else {
         $('#addMovie').attr('disabled','disabled');
     }
 });
 
+$('#sortRating').click(() => {
+    console.log(populateMovies());
+    // const rating = [];
+    // for (let i = 0; i < $('.rating').get().length; i++){
+    //     rating.push($('.rating').get()[i].innerHTML);
+    // }
+    // console.log(rating);
+    // const sortedRatings = parseInt(rating);
+    // console.log(sortedRatings);
+    // const ratingsAsNumber = parseInt();
+    // console.log(ratingsAsNumber);
+})
 
 $('#addMovie').click(function (e) {
     e.preventDefault();

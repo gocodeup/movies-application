@@ -169,10 +169,16 @@
       "id": 60
     },
     {
-      "title": "Frozen",
-      "rating": "5",
-      "genre": "children",
+      "title": "The Godfather 2",
+      "rating": "4",
+      "genre": "drama",
       "id": 61
+    },
+    {
+      "title": "Water for Elephants",
+      "rating": "5",
+      "genre": "drama",
+      "id": 62
     }
   ]
 }
