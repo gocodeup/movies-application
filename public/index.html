@@ -15,6 +15,7 @@
         <script src="https://www.w3schools.com/lib/w3.js"></script>
 
 
+
     </head>
     <body class="light-blue accent-1">
         <div class="container">
@@ -63,15 +64,17 @@
                 <br>
                 <button class="light-blue darken-1 waves-effect waves-light btn hide" hidden id="submitMovieToEdit" >Submit Movie to edit</button>
             </div>
-
+            <input type="text" id="searchMovie" onkeyup="searchMovieTitle()" placeholder="Search for titles">
+            <input type="text" id="searchRating" onkeyup="searchMovieRating()" placeholder="Search for ratings">
+            <input type="text" id="searchGenre" onkeyup="searchMovieGenre()" placeholder="Search for genres">
             <div id="movieTable" class="hide">
                 <table id="myTable" class="table">
                     <thead>
                         <tr>
                             <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(1)')" style="cursor:pointer"><h4>Movie Title</h4></th>
-                            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(1)')" style="cursor:pointer"><h4>Rating</h4></th>
-                            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(1)')" style="cursor:pointer"><h4>Genre</h4></th>
-                            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(1)')" style="cursor:pointer"><h4>Delete</h4></th>
+                            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(2)')" style="cursor:pointer"><h4>Rating</h4></th>
+                            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(3)')" style="cursor:pointer"><h4>Genre</h4></th>
+                            <th style="cursor:pointer"><h4>Delete</h4></th>
                         </tr>
                     </thead>
                 </table>
@@ -84,5 +87,63 @@
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <!-- Custom JavaScript -->
+        <script
+                src="https://code.jquery.com/jquery-2.2.4.js"
+                integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+                crossorigin="anonymous"></script>
+        <script>
+            function searchMovieTitle() {
+                console.log('hey');
+                var input, filter, table, tbody, td, i;
+                input = $("#searchMovie").val();
+                filter = input.toUpperCase();
+                table = $("#myTable");
+                tbody = $("tbody");
+                for (i = 0; i < tbody.length; i++) {
+                    td = tbody[i].getElementsByTagName("td")[0];
+                    if (td) {
+                        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                            tbody[i].style.display = "";
+                        } else {
+                            tbody[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+            function searchMovieRating() {
+                var input, filter, table, tbody, td, i;
+                input = $("#searchRating").val();
+                filter =input
+                table = $("#myTable");
+                tbody = $("tbody");
+                for (i = 0; i < tbody.length; i++) {
+                    td = tbody[i].getElementsByTagName("td")[1];
+                    if (td) {
+                        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                            tbody[i].style.display = "";
+                        } else {
+                            tbody[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+            function searchMovieGenre() {
+                var input, filter, table, tbody, td, i;
+                input = $("#searchGenre").val();
+                filter = input.toUpperCase();
+                table = $("#myTable");
+                tbody = $("tbody");
+                for (i = 0; i < tbody.length; i++) {
+                    td = tbody[i].getElementsByTagName("td")[2];
+                    if (td) {
+                        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                            tbody[i].style.display = "";
+                        } else {
+                            tbody[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+        </script>
     </body>
 </html>
