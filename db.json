@@ -1,22 +1,10 @@
 {
   "movies": [
     {
-      "title": "Hulk",
-      "rating": "5",
-      "genre": "action",
-      "id": 29
-    },
-    {
       "title": "Thor: Ragnarok",
       "rating": "5",
       "genre": "action",
       "id": 30
-    },
-    {
-      "title": "Harry Potter",
-      "rating": "4",
-      "genre": "fantasy",
-      "id": 31
     },
     {
       "title": "Finding Nemo",
@@ -127,12 +115,6 @@
       "id": 50
     },
     {
-      "title": "Cowboy Beboop",
-      "rating": "4",
-      "genre": "drama",
-      "id": 51
-    },
-    {
       "title": "Shrek",
       "rating": "5",
       "genre": "children",
@@ -179,6 +161,18 @@
       "rating": "5",
       "genre": "comedy",
       "id": 59
+    },
+    {
+      "title": "Man of Steel",
+      "rating": "4",
+      "genre": "action",
+      "id": 60
+    },
+    {
+      "title": "Frozen",
+      "rating": "5",
+      "genre": "children",
+      "id": 61
     }
   ]
 }

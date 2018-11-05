@@ -13,26 +13,24 @@ const {getMovies} = require('./api.js');
 const populateMovies = () => {
     getMovies().then((movies) => {
         $('#codeup').removeClass('hide');
-        $('div').removeClass('hide');
-        $('form').removeClass('hide');
-        $('h1').remove();
-        $('td').remove();
-        $('h5').remove();
-        $('i').remove();
-        $('option').remove();
-        movies.forEach(({title, rating, id,genre}) => {
+        $('div, form').removeClass('hide');
+        // $('form').removeClass('hide');
+        $('h1, td, h5, i, option').remove();
+        // $('td').remove();
+        // $('h5').remove();
+        // $('i').remove();
+        // $('option').remove();
+        movies.forEach(({title, rating, id, genre}) => {
             $(`#ID${id}`).remove();
             $('table').append(`<tbody id=movie${id}></tbody>`);
             $(`#movie${id}`).append( // cleaned up and consolidated the below
                 `<td><h5>${title}</h5></td>
-                 <td>${rating}</td>
-                 <td>${genre}</td>
+                 <td><h5>${rating}</h5></td>
+                 <td><h5>${genre}</h5></td>
                  <td><button class="btn-floating btn-large waves-effect waves-light red">
-                 <i class="material-icons" id='ID${id}'>delete_forever</i></button></td>`
+                 <i class="small material-icons" id='ID${id}'>delete_forever</i></button></td>`
             );
 
-            // $(`#movie${id}`).append(`<p>${rating}</p>`);
-            // $(`#movie${id}`).append(`<button id='ID${id}'>Delete Movie</button>`);
             $('#moviesToEdit').append(`<option>${title}</option>`);
             $(`#ID${id}`).click(function(e) {
                 //this needs to delete movies
