@@ -46,6 +46,11 @@ const populateMovies = () => {
                 //this needs to delete movies
                 e.preventDefault();
                 const deleteMovieTitle = {title,rating,id};
+                $.getJSON(`https://api.themoviedb.org/3/search/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query=${title}&callback=?`, function(json) {
+                    if (json != "Nothing found.") {
+                        console.log(json.results[0].poster_path);
+                        $('#moviePoster').css('background-image', `url('http://image.tmdb.org/t/p/w500${json.results[0].poster_path}')`)
+                    }})
                 const url = `./api/movies/${id}`;
                 const options = {
                     method: 'DELETE',
@@ -79,9 +84,14 @@ $('#selectMovieToEdit').click(function (e) {
         let selectedMovie = movies.filter(movie => {
             return [`${movieToEdit}`].includes(movie.title)
         });
+        $.getJSON(`https://api.themoviedb.org/3/search/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query=${selectedMovie[0].title}&callback=?`, function(json) {
+            if (json != "Nothing found.") {
+                console.log(json.results[0].poster_path);
+                $('#moviePoster').css('background-image', `url('http://image.tmdb.org/t/p/w500${json.results[0].poster_path}')`)
+            }})
         $('#movieToEditTitle').removeAttr('hidden').val(selectedMovie[0].title);
         $('#movieToEditRating').removeAttr('hidden').val(selectedMovie[0].rating);
-        $('#movieToEditGenre').removeClass('hide');
+        $('#movieToEditGenre').removeClass('hide').val(selectedMovie[0].genre);
         $('#movieToEditGenre').append(
             `<option>Action</option>
             <option>Adventure</option>
@@ -134,6 +144,11 @@ $('#addMovie').click(function (e) {
     const newMovieTitle = $('#newMovieTitle').val();
   const newMovieRating = $('#newMovieRating').val();
     const newMovieGenre = ($('#newMovieGenre').val()).toLowerCase();
+    $.getJSON(`https://api.themoviedb.org/3/search/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query=${newMovieTitle}&callback=?`, function(json) {
+        if (json != "Nothing found.") {
+            console.log(json.results[0].poster_path);
+            $('#moviePoster').css('background-image', `url('http://image.tmdb.org/t/p/w500${json.results[0].poster_path}')`)
+        }})
     const newMovie = {title: newMovieTitle, rating: newMovieRating, genre: newMovieGenre};
     const url = './api/movies';
     const options = {
@@ -154,5 +169,6 @@ $('#addMovie').click(function (e) {
         })
         .catch();
 });
+
 
 

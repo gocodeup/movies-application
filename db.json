@@ -7,12 +7,6 @@
       "id": 30
     },
     {
-      "title": "Finding Nemo",
-      "rating": "4",
-      "genre": "children",
-      "id": 32
-    },
-    {
       "title": "Jaws",
       "rating": "3",
       "genre": "suspense",
@@ -185,6 +179,120 @@
       "rating": "5",
       "genre": "drama",
       "id": 63
+    },
+    {
+      "title": "Pulp Fiction",
+      "rating": "5",
+      "genre": "crime & gangster",
+      "id": 64
+    },
+    {
+      "title": "Django Unchained",
+      "rating": "4",
+      "genre": "action",
+      "id": 65
+    },
+    {
+      "title": "Sherlock Holmes",
+      "rating": "4",
+      "genre": "epics/historical",
+      "id": 66
+    },
+    {
+      "title": "Indiana Jones: The Last Crusade",
+      "rating": "4",
+      "genre": "adventure",
+      "id": 67
+    },
+    {
+      "title": "Darkness",
+      "rating": "2",
+      "genre": "action",
+      "id": 68
+    },
+    {
+      "title": "Dark Knight",
+      "rating": "5",
+      "genre": "action",
+      "id": 69
+    },
+    {
+      "title": "Wall Street",
+      "rating": "4",
+      "genre": "drama",
+      "id": 70
+    },
+    {
+      "title": "Anger Management",
+      "rating": "4",
+      "genre": "action",
+      "id": 72
+    },
+    {
+      "title": "Howard the Duck",
+      "rating": "4",
+      "genre": "musicals / dance",
+      "id": 75
+    },
+    {
+      "title": "Taxi Driver",
+      "rating": "4",
+      "genre": "action",
+      "id": 76
+    },
+    {
+      "title": "Star Trek",
+      "rating": "5",
+      "genre": "science fiction",
+      "id": 77
+    },
+    {
+      "title": "Rush Hour",
+      "rating": "3",
+      "genre": "comedy",
+      "id": 78
+    },
+    {
+      "title": "Harry and the Hendersons",
+      "rating": "2",
+      "genre": "comedy",
+      "id": 79
+    },
+    {
+      "title": "Frankenstein",
+      "rating": "4",
+      "genre": "horror",
+      "id": 80
+    },
+    {
+      "title": "Fast and the Furious",
+      "rating": "5",
+      "genre": "action",
+      "id": 81
+    },
+    {
+      "title": "Titanic",
+      "rating": "4",
+      "genre": "drama",
+      "id": 82
+    },
+    {
+      "title": "Hey Arnold",
+      "rating": "3",
+      "genre": "comedy",
+      "id": 83
+    },
+    {
+      "title": "Halloween Town",
+      "rating": "5",
+      "genre": "horror",
+      "id": 84
+    },
+    {
+      "title": "Shooter",
+      "rating": "5",
+      "genre": "action",
+      "id": 85
     }
   ]
 }

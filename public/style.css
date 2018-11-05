@@ -40,3 +40,32 @@ i {
 input::-webkit-input-placeholder {
     color: white !important;
 }
+
+body {
+    background-image: url('img/sunny_background.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#moviePoster {
+    width: 100%;
+    border: solid black 1px;
+    height: 100vh;
+    color: white;
+    opacity: 0.2;
+}
+
+input{
+    color: white;
+}
+
+#codeup{
+    margin-top: 120px;
+    color: black;
+}
+
+h2{
+    opacity: 1;
+}
