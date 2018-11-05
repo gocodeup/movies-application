@@ -14,3 +14,7 @@ html, body {
     /*font-family: 'Notable', sans-serif;*/
     font-family: 'Bungee Inline', cursive;
 }
+
+.hidden{
+    display: none;
+}

@@ -12,16 +12,21 @@ const {getMovies} = require('./api.js');
 
 const populateMovies = () => {
     getMovies().then((movies) => {
-        $('#loading').remove();
+        $('#codeup').removeClass('hide');
+        $('div').removeClass('hide');
+        $('form').removeClass('hide');
         $('h1').remove();
-        $('p').remove();
+        $('td').remove();
+        $('h5').remove();
+        $('i').remove();
         $('option').remove();
-        movies.forEach(({title, rating, id}) => {
+        movies.forEach(({title, rating, id,genre}) => {
             $(`#ID${id}`).remove();
             $('table').append(`<tbody id=movie${id}></tbody>`);
             $(`#movie${id}`).append( // cleaned up and consolidated the below
                 `<td><h5>${title}</h5></td>
                  <td>${rating}</td>
+                 <td>${genre}</td>
                  <td><button class="btn-floating btn-large waves-effect waves-light red">
                  <i class="material-icons" id='ID${id}'>delete_forever</i></button></td>`
             );
@@ -58,6 +63,7 @@ const populateMovies = () => {
 };
 populateMovies();
 
+
 $('#selectMovieToEdit').click(function (e) {
     e.preventDefault(e);
     getMovies().then((movies => {
@@ -67,10 +73,11 @@ $('#selectMovieToEdit').click(function (e) {
         });
         $('#movieToEditTitle').removeAttr('hidden').val(selectedMovie[0].title);
         $('#movieToEditRating').removeAttr('hidden').val(selectedMovie[0].rating);
-        $('#submitMovieToEdit').removeAttr('hidden');
+        $('#movieToEditGenre').removeAttr('hidden').val(selectedMovie[0].genre);
+        $('#submitMovieToEdit').removeClass('hide');
         $('#submitMovieToEdit').click(function () {
             const url = `./api/movies/${selectedMovie[0].id}`;
-            let updatedMovie = {title: $('#movieToEditTitle').val(), rating: $('#movieToEditRating').val()};
+            let updatedMovie = {title: $('#movieToEditTitle').val(), rating: $('#movieToEditRating').val(), genre: ($('#movieToEditGenre').val()).toLowerCase()};
             let options = {
                 method: 'PATCH',
                 headers: {
@@ -82,7 +89,8 @@ $('#selectMovieToEdit').click(function (e) {
                     console.log(data);
                     $('#movieToEditTitle').attr('hidden',true);
                     $('#movieToEditRating').attr('hidden',true);
-                    $('#submitMovieToEdit').attr('hidden',true);
+                    $('#movieToEditGenre').attr('hidden',true);
+                    $('#submitMovieToEdit').addClass('hide',true);
                     populateMovies();
                     $('#submitMovieToEdit').off();
                 })
@@ -90,10 +98,24 @@ $('#selectMovieToEdit').click(function (e) {
         });
     }))});
 
-$('#addMovie').click(function () {
-  const newMovieTitle = $('#newMovieTitle').val();
+$('body').keyup(function () {
+    if ($('#newMovieTitle').val()  !== '' &&
+        $('#newMovieRating').val() !== '' &&
+        $('#newMovieRating').val() < 6 &&
+        $('#newMovieGenre').val() !== ''){
+        $('#addMovie').removeAttr('disabled');
+    }else {
+        $('#addMovie').attr('disabled','disabled');
+    }
+});
+
+
+$('#addMovie').click(function (e) {
+    e.preventDefault();
+    const newMovieTitle = $('#newMovieTitle').val();
   const newMovieRating = $('#newMovieRating').val();
-    const newMovie = {title: newMovieTitle, rating: newMovieRating};
+    const newMovieGenre = ($('#newMovieGenre').val()).toLowerCase();
+    const newMovie = {title: newMovieTitle, rating: newMovieRating, genre: newMovieGenre};
     const url = './api/movies';
     const options = {
         method: 'POST',
@@ -104,8 +126,12 @@ $('#addMovie').click(function () {
     };
     fetch(url, options)
         .then(data => {
-            console.log(options);
+            console.log(data);
             populateMovies();
+            $('#newMovieTitle').val('');
+            $('#newMovieRating').val('');
+            $('#newMovieGenre').val('');
+            $('#addMovie').attr('disabled','disabled');
         })
         .catch();
 });

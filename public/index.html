@@ -13,29 +13,33 @@
     </head>
     <body class="light-blue accent-1">
 <div class="container">
-    <div class="center main-header" id="codeup"><h2>KC & Benny's Movie Application</h2></div>
+    <div class="center main-header hide" id="codeup"><h2>KC & Benny's Movie Application</h2></div>
         <div class="container1" id="container">
             <h1 id=" center loading">Loading ...</h1>
             <p style="display: none">To get started, edit <code>src/index.js</code>.</p>
         </div>
 
-    <div class="row">
+    <div class="row hide">
         <form class="col s12">
             <div class="row">
-                <div class="input-field col s6">
-                    <label for="newMovieTitle">Enter movie Title:</label>
+                <div class="input-field col s4">
+                    <label for="newMovieTitle">Enter Movie Title:</label>
                     <input type="text" placeholder="Movie Title" id="newMovieTitle">
                 </div>
-                <div class="input-field col s6">
-                    <label for="newMovieRating">Enter movie Rating:</label>
+                <div class="input-field col s4">
+                    <label for="newMovieRating">Enter Movie Rating:</label>
                     <input type="text" placeholder="Movie Rating" id="newMovieRating">
-                    <button class="teal darken-1 waves-effect waves-light btn" type="submit" id="addMovie"><i class="material-icons">add</i>Movie</button>
+                </div>
+                <div class="input-field col s4">
+                    <label for="newMovieGenre">Enter Movie Genre:</label>
+                    <input type="text" placeholder="Movie Genre" id="newMovieGenre">
+                    <button class="teal darken-1 waves-effect waves-light btn" type="submit" id="addMovie" disabled>Movie</button>
                 </div>
             </div>
         </form>
     </div>
 
-        <div>
+        <div class="hide">
 
         <select class="browser-default" id="moviesToEdit">
             <option></option>
@@ -44,14 +48,16 @@
 
             <input type="text" hidden id="movieToEditTitle">
             <input type="text" hidden id="movieToEditRating">
-            <button class="light-blue darken-1 waves-effect waves-light btn" id="submitMovieToEdit" hidden>Submit Movie to edit</button>
+            <input type="text" hidden id="movieToEditGenre">
+            <button class="light-blue darken-1 waves-effect waves-light btn hide" hidden id="submitMovieToEdit" >Submit Movie to edit</button>
         </div>
 
-            <div id="movieTable">
+            <div id="movieTable" class="hide">
                 <table>
                     <thead>
                         <tr>
                             <th><h4>Movie Title</h4></th>
+                            <th><h4>Rating</h4></th>
                             <th><h4>Rating</h4></th>
                             <th><h4>Delete</h4></th>
 

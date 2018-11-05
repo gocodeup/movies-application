@@ -1,59 +1,184 @@
 {
   "movies": [
     {
-      "title": "Ok now I get the probem",
-      "rating": "4",
-      "id": 18
-    },
-    {
-      "title": "So what needs to happen is this only sends once",
-      "rating": "4",
-      "id": 19
-    },
-    {
-      "title": "options and url are reset each time",
-      "rating": "4",
-      "id": 21
-    },
-    {
-      "title": "Work!!! Please!!!",
-      "rating": "4",
-      "id": 22
-    },
-    {
-      "title": "what are options now",
-      "rating": "4",
-      "id": 23
-    },
-    {
-      "title": "looking at you url",
-      "rating": "4",
-      "id": 24
-    },
-    {
-      "title": "shrek",
-      "rating": "4",
-      "id": 26
-    },
-    {
-      "title": "Testing",
-      "rating": "4",
-      "id": 27
-    },
-    {
-      "title": "Testing 2",
-      "rating": "4",
-      "id": 28
-    },
-    {
       "title": "Hulk",
       "rating": "5",
+      "genre": "action",
       "id": 29
     },
     {
-      "title": "Hulk 2",
-      "rating": "1",
+      "title": "Thor: Ragnarok",
+      "rating": "5",
+      "genre": "action",
       "id": 30
+    },
+    {
+      "title": "Harry Potter",
+      "rating": "4",
+      "genre": "fantasy",
+      "id": 31
+    },
+    {
+      "title": "Finding Nemo",
+      "rating": "4",
+      "genre": "children",
+      "id": 32
+    },
+    {
+      "title": "Jaws",
+      "rating": "3",
+      "genre": "suspense",
+      "id": 33
+    },
+    {
+      "title": "Spiderman",
+      "rating": "4",
+      "genre": "superhero",
+      "id": 35
+    },
+    {
+      "title": "Spiderman 2",
+      "rating": "5",
+      "genre": "superhero",
+      "id": 36
+    },
+    {
+      "title": "The Mummy",
+      "rating": "3",
+      "genre": "action",
+      "id": 37
+    },
+    {
+      "title": "Scorpion King",
+      "rating": "4",
+      "genre": "action",
+      "id": 38
+    },
+    {
+      "title": "Black Hawk Down",
+      "rating": "4",
+      "genre": "action",
+      "id": 39
+    },
+    {
+      "title": "Anger Managment",
+      "rating": "3",
+      "genre": "comedy",
+      "id": 40
+    },
+    {
+      "title": "Friday Night Lights",
+      "rating": "5",
+      "genre": "drama",
+      "id": 41
+    },
+    {
+      "title": "Lord of the Rings",
+      "rating": "5",
+      "genre": "fantasy",
+      "id": 42
+    },
+    {
+      "title": "The Natural",
+      "rating": "5",
+      "genre": "drama",
+      "id": 43
+    },
+    {
+      "title": "Stuart Little",
+      "rating": "3",
+      "genre": "children",
+      "id": 44
+    },
+    {
+      "title": "Thunder Road",
+      "rating": "4",
+      "genre": "drama",
+      "id": 45
+    },
+    {
+      "title": "The Longest Yard",
+      "rating": "3",
+      "genre": "comedy",
+      "id": 46
+    },
+    {
+      "title": "Star Wars: A New Hope",
+      "rating": "5",
+      "genre": "fantasy",
+      "id": 47
+    },
+    {
+      "title": "The Hobbit",
+      "rating": "4",
+      "genre": "fantasy",
+      "id": 48
+    },
+    {
+      "title": "The Quiet Man",
+      "rating": "4",
+      "genre": "drama",
+      "id": 49
+    },
+    {
+      "title": "Venom",
+      "rating": "4",
+      "genre": "action",
+      "id": 50
+    },
+    {
+      "title": "Cowboy Beboop",
+      "rating": "4",
+      "genre": "drama",
+      "id": 51
+    },
+    {
+      "title": "Shrek",
+      "rating": "5",
+      "genre": "children",
+      "id": 52
+    },
+    {
+      "title": "Big Hero Six",
+      "rating": "4",
+      "genre": "children",
+      "id": 53
+    },
+    {
+      "title": "Wild Wild West",
+      "rating": "4",
+      "genre": "action",
+      "id": 54
+    },
+    {
+      "title": "The Godfather",
+      "rating": "5",
+      "genre": "drama",
+      "id": 55
+    },
+    {
+      "title": "Back to the Future",
+      "rating": "5",
+      "genre": "comedy",
+      "id": 56
+    },
+    {
+      "title": "Hunt For Red October",
+      "rating": "4",
+      "genre": "action",
+      "id": 57
+    },
+    {
+      "title": "Rambo",
+      "rating": "4",
+      "genre": "action",
+      "id": 58
+    },
+    {
+      "title": "Superbad",
+      "rating": "5",
+      "genre": "comedy",
+      "id": 59
     }
   ]
 }
