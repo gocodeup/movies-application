@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <title>My Application</title>
+
         <!-- Google Fonts Script -->
         <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Luckiest+Guy|Notable|Titan+One" rel="stylesheet">
         <!-- Materialize CSS Scripts -->
@@ -10,6 +11,10 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- Custom CSS Scripts -->
         <link rel="stylesheet" href="style.css">
+        <!-- WC3 sort script -->
+        <script src="https://www.w3schools.com/lib/w3.js"></script>
+
+
     </head>
     <body class="light-blue accent-1">
         <div class="container">
@@ -33,23 +38,11 @@
                         <div class="col s4">
                             <label for="newMovieGenre">Enter Movie Genre:</label>
                             <!--<input type="text" placeholder="Movie Genre" id="newMovieGenre">-->
-                            <select id="newMovieGenre" class="browser-default">
-                                <option>Action</option>
-                                <option>Adventure</option>
-                                <option>Comedy</option>
-                                <option>Crime & Gangster</option>
-                                <option>Drama</option>
-                                <option>Epics/Historical</option>
-                                <option>Horror</option>
-                                <option>Musicals / Dance</option>
-                                <option>Science Fiction</option>
-                                <option>War</option>
-                                <option>Westerns</option>
-                            </select><br>
+                            <select id="newMovieGenre" class="browser-default"></select>
+                            <br>
                             <div>
-                                <button class="teal darken-1 waves-effect waves-light btn" type="submit" id="addMovie"disabled>
-                                    <i class="material-icons left">add</i>Movie <!-- why isn't the icon working?! -->
-                                </button>
+                                <button class="teal darken-1 waves-effect waves-light btn" type="submit" id="addMovie" disabled>Add Movie</button>
+                                    <!--<i class="material-icons left">add</i>Movie &lt;!&ndash; why isn't the icon working?! &ndash;&gt;-->
                             </div>
                         </div>
                     </div>
@@ -65,28 +58,31 @@
 
                 <input type="text" hidden id="movieToEditTitle">
                 <input type="text" hidden id="movieToEditRating">
-                <input type="text" hidden id="movieToEditGenre">
+                <!--<input type="text" hidden id="movieToEditGenre">-->
+                <select class="browser-default hide" hidden id="movieToEditGenre"></select>
+                <br>
                 <button class="light-blue darken-1 waves-effect waves-light btn hide" hidden id="submitMovieToEdit" >Submit Movie to edit</button>
             </div>
 
             <div id="movieTable" class="hide">
-                <table class="center sortable" id="sortableTable">
+                <table id="myTable" class="table">
                     <thead>
                         <tr>
-                            <th onclick="sortTable(0)"><h4 id="sortTitle">Movie Title</h4></th>
-                            <th id="sortRating" onclick="sortTable(1)"><h4>Rating</h4></th>
-                            <th id="sortGenre" onclick="sortTable(0)"><h4>Genre</h4></th>
-                            <th><h4>Delete</h4></th>
+                            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(1)')" style="cursor:pointer"><h4>Movie Title</h4></th>
+                            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(1)')" style="cursor:pointer"><h4>Rating</h4></th>
+                            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(1)')" style="cursor:pointer"><h4>Genre</h4></th>
+                            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(1)')" style="cursor:pointer"><h4>Delete</h4></th>
                         </tr>
                     </thead>
                 </table>
             </div>
         </div>
+
         <script src="main.js"></script>
-        <!-- Compiled CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
-        <!-- Compiled JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <!-- Custom JavaScript -->
     </body>
 </html>

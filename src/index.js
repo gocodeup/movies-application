@@ -10,15 +10,28 @@ sayHello('World');
  */
 const {getMovies} = require('./api.js');
 
-
+// Populates movies
 const populateMovies = () => {
     getMovies().then((movies) => {
         $('#codeup').removeClass('hide');
         $('div, form').removeClass('hide');
         $('h1, td, h5, i, option').remove();
+        $('#newMovieGenre').append(
+            `<option>Action</option>
+                <option>Adventure</option>
+                <option>Comedy</option>
+                <option>Crime & Gangster</option>
+                <option>Drama</option>
+                <option>Family</option>
+                <option>Epics/Historical</option>
+                <option>Horror</option>
+                <option>Musicals / Dance</option>
+                <option>Science Fiction</option>
+                <option>War</option>
+                <option>Westerns</option>`);
         movies.forEach(({title, rating, id, genre}) => {
             $(`#ID${id}`).remove();
-            $('table').append(`<tbody id=movie${id}></tbody>`);
+            $('table').append(`<tbody class="item" id=movie${id}></tbody>`);
             $(`#movie${id}`).append( // cleaned up and consolidated the below
                 `<td><h5>${title}</h5></td>
                  <td ><h5 class="rating">${rating}</h5></td>
@@ -26,18 +39,8 @@ const populateMovies = () => {
                  <td><button class="btn-floating btn-large waves-effect waves-light red">
                  <i class="small material-icons" id='ID${id}'>delete_forever</i></button></td>`
             );
-            $('#newMovieGenre').append(
-                `<option>Action</option>
-                <option>Adventure</option>
-                <option>Comedy</option>
-                <option>Crime & Gangster</option>
-                <option>Drama</option>
-                <option>Epics/Historical</option>
-                <option>Horror</option>
-                <option>Musicals / Dance</option>
-                <option>Science Fiction</option>
-            <option>War</option>
-            <option>Westerns</option>`)
+
+            // allows for editing of movies
             $('#moviesToEdit').append(`<option>${title}</option>`);
             $(`#ID${id}`).click(function(e) {
                 //this needs to delete movies
@@ -78,7 +81,20 @@ $('#selectMovieToEdit').click(function (e) {
         });
         $('#movieToEditTitle').removeAttr('hidden').val(selectedMovie[0].title);
         $('#movieToEditRating').removeAttr('hidden').val(selectedMovie[0].rating);
-        $('#movieToEditGenre').removeAttr('hidden').val(selectedMovie[0].genre);
+        $('#movieToEditGenre').removeClass('hide');
+        $('#movieToEditGenre').append(
+            `<option>Action</option>
+            <option>Adventure</option>
+            <option>Comedy</option>
+            <option>Crime & Gangster</option>
+            <option>Drama</option>
+            <option>Family</option>
+            <option>Epics/Historical</option>
+            <option>Horror</option>
+            <option>Musicals / Dance</option>
+            <option>Science Fiction</option>
+            <option>War</option>
+            <option>Westerns</option>`);
         $('#submitMovieToEdit').removeClass('hide');
         $('#submitMovieToEdit').click(function () {
             const url = `./api/movies/${selectedMovie[0].id}`;
@@ -94,7 +110,7 @@ $('#selectMovieToEdit').click(function (e) {
                     console.log(data);
                     $('#movieToEditTitle').attr('hidden',true);
                     $('#movieToEditRating').attr('hidden',true);
-                    $('#movieToEditGenre').attr('hidden',true);
+                    $('#movieToEditGenre').addClass('hide',true);
                     $('#submitMovieToEdit').addClass('hide',true);
                     populateMovies();
                     $('#submitMovieToEdit').off();
@@ -112,19 +128,6 @@ $('body').keyup(function () {
         $('#addMovie').attr('disabled','disabled');
     }
 });
-
-$('#sortRating').click(() => {
-    console.log(populateMovies());
-    // const rating = [];
-    // for (let i = 0; i < $('.rating').get().length; i++){
-    //     rating.push($('.rating').get()[i].innerHTML);
-    // }
-    // console.log(rating);
-    // const sortedRatings = parseInt(rating);
-    // console.log(sortedRatings);
-    // const ratingsAsNumber = parseInt();
-    // console.log(ratingsAsNumber);
-})
 
 $('#addMovie').click(function (e) {
     e.preventDefault();
