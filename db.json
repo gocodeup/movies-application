@@ -3,7 +3,7 @@
     {
       "title": "Thor: Ragnarok",
       "rating": "4",
-      "genre": "action",
+      "genre": "adventure",
       "id": 30
     },
     {
@@ -293,6 +293,66 @@
       "rating": "5",
       "genre": "action",
       "id": 85
+    },
+    {
+      "title": "Rawhead Rex",
+      "rating": "2",
+      "genre": "horror",
+      "id": 86
+    },
+    {
+      "title": "Stepbrothers",
+      "rating": "5",
+      "genre": "comedy",
+      "id": 87
+    },
+    {
+      "title": "Shawshank Redemption",
+      "rating": "5",
+      "genre": "drama",
+      "id": 88
+    },
+    {
+      "title": "It's A wonderful life",
+      "rating": "5",
+      "genre": "family",
+      "id": 89
+    },
+    {
+      "title": "Short Circuit",
+      "rating": "5",
+      "genre": "comedy",
+      "id": 90
+    },
+    {
+      "title": "Bridesmaids",
+      "rating": "5",
+      "genre": "comedy",
+      "id": 91
+    },
+    {
+      "title": "Iraq for Sale",
+      "rating": "4",
+      "genre": "epics/historical",
+      "id": 92
+    },
+    {
+      "title": "Gremlins",
+      "rating": "4",
+      "genre": "comedy",
+      "id": 93
+    },
+    {
+      "title": "The Dark Knight",
+      "rating": "5",
+      "genre": "action",
+      "id": 94
+    },
+    {
+      "title": "Goonies",
+      "rating": "4",
+      "genre": "adventure",
+      "id": 95
     }
   ]
 }

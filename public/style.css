@@ -4,17 +4,23 @@ html, body {
 
 .container1 {
     position: relative;
-    top: 50%;
+    /*top: 50%;*/
     transform: translateY(300%); /* changed to get loading in the center of screen */
     text-align: center;
     font-family: 'Titan One', cursive;
 }
 
-.main-header, label {
+label {
     /*font-family: 'Luckiest Guy', cursive;*/
     /*font-family: 'Titan One', cursive;*/
     /*font-family: 'Notable', sans-serif;*/
     font-family: 'Bungee Inline', cursive;
+    color: white !important;
+}
+.main-header {
+    text-shadow: 4px 4px 5px white;
+    font-family: 'Bungee Inline', cursive;
+
 }
 
 th {
@@ -33,28 +39,25 @@ td {
     display: none;
 }
 
-i {
-    font-size: 30px;
-}
+/*i {*/
+    /*font-size: 30px;*/
+/*}*/
 
 input::-webkit-input-placeholder {
     color: white !important;
 }
 
-body {
-    background-image: url('img/sunny_background.jpg');
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+.brand-logo {
+    font-family: 'Titan One', cursive;
+
 }
 
 #moviePoster {
     width: 100%;
     border: solid black 1px;
-    height: 100vh;
-    color: white;
-    opacity: 0.2;
+    height: 50vh;
+    margin-bottom: 1em;
+    background-image: radial-gradient(circle, dodgerblue, #90a4ae, black);
 }
 
 input{
@@ -62,10 +65,62 @@ input{
 }
 
 #codeup{
-    margin-top: 120px;
+    margin-top: 130px;
     color: black;
 }
 
-h2{
-    opacity: 1;
+body {
+    background-image: linear-gradient(to right, #BFC0BF , #0085CA, #BFC0BF);
+    background-size: cover;
+}
+/*Neon*/
+p {
+    text-align: center;
+    font-size: 7em;
+    margin: 20px 0 20px 0;
+}
+
+a {
+    text-decoration: none;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+p:nth-child(1) a {
+    color: #fff;
+    font-family: 'Bungee Inline', cursive;
+    -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+    -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+    animation: neon1 1.5s ease-in-out infinite alternate;
+}
+
+p:nth-child(1) a:hover {
+    color: #228DFF;
+    -webkit-animation: none;
+    -moz-animation: none;
+    animation: none;
+}
+/*glow for webkit*/
+@-webkit-keyframes neon1 {
+    from {
+        text-shadow: 0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 30px #fff,
+        0 0 40px #228DFF,
+        0 0 70px #228DFF,
+        0 0 80px #228DFF,
+        0 0 100px #228DFF,
+        0 0 150px #228DFF;
+    }
+    to {
+        text-shadow: 0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 15px #fff,
+        0 0 20px #228DFF,
+        0 0 35px #228DFF,
+        0 0 40px #228DFF,
+        0 0 50px #228DFF,
+        0 0 75px #228DFF;
+    }
 }
