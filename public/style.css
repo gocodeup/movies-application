@@ -72,13 +72,12 @@ p:nth-child(1) a:hover {
 
 .brand-logo {
     font-family: 'Titan One', cursive;
-
+    margin-left: 1em;
 }
 
 .main-header {
     text-shadow: 4px 4px 5px white;
     font-family: 'Bungee Inline', cursive;
-
 }
 
 #codeup{
@@ -117,4 +116,54 @@ p:nth-child(1) a:hover {
         0 0 75px #228DFF;
     }
 }
+
+/* Logo Intro Animation */
+.intro {
+    display:inline-block;
+    overflow:hidden;
+    white-space:nowrap;
+    font-family: 'Titan One', cursive;
+    margin-left: 1em;
+    font-size: 30px;
+}
+
+.intro:first-of-type {
+    animation: showup 7s infinite;
+}
+
+.intro:last-of-type {
+    width:0px;
+    animation: reveal 7s infinite;
+}
+
+.intro:last-of-type span {
+    margin-left:-500px;
+    animation: slidein 7s infinite;
+}
+
+@keyframes showup {
+    0% {opacity:0;}
+    20% {opacity:1;}
+    80% {opacity:1;}
+    100% {opacity:0;}
+}
+
+@keyframes slidein {
+    0% { margin-left:-800px; }
+    20% { margin-left:-800px; }
+    35% { margin-left:0px; }
+    100% { margin-left:0px; }
+}
+
+@keyframes reveal {
+    0% {opacity:0;width:0px;}
+    20% {opacity:1;width:0px;}
+    30% {width:500px;}
+    80% {opacity:1;}
+    100% {opacity:0;width:500px;}
+}
+
+/*
+
+ */
 
