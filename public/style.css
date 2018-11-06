@@ -1,26 +1,12 @@
 html, body {
     height: 100%;
 }
-
-.container1 {
-    position: relative;
-    /*top: 50%;*/
-    transform: translateY(300%); /* changed to get loading in the center of screen */
-    text-align: center;
-    font-family: 'Titan One', cursive;
-}
-
 label {
     /*font-family: 'Luckiest Guy', cursive;*/
     /*font-family: 'Titan One', cursive;*/
     /*font-family: 'Notable', sans-serif;*/
     font-family: 'Bungee Inline', cursive;
     color: white !important;
-}
-.main-header {
-    text-shadow: 4px 4px 5px white;
-    font-family: 'Bungee Inline', cursive;
-
 }
 
 th {
@@ -35,38 +21,12 @@ td {
     /*font-family: 'Notable', sans-serif;*/
 }
 
-.hidden{
-    display: none;
-}
-
-/*i {*/
-    /*font-size: 30px;*/
-/*}*/
-
 input::-webkit-input-placeholder {
     color: white !important;
 }
 
-.brand-logo {
-    font-family: 'Titan One', cursive;
-
-}
-
-#moviePoster {
-    width: 100%;
-    border: solid black 1px;
-    height: 50vh;
-    margin-bottom: 1em;
-    background-image: radial-gradient(circle, dodgerblue, #90a4ae, black);
-}
-
 input{
     color: white;
-}
-
-#codeup{
-    margin-top: 130px;
-    color: black;
 }
 
 body {
@@ -101,6 +61,39 @@ p:nth-child(1) a:hover {
     -moz-animation: none;
     animation: none;
 }
+
+.container1 {
+    position: relative;
+    /*top: 50%;*/
+    transform: translateY(300%); /* changed to get loading in the center of screen */
+    text-align: center;
+    font-family: 'Titan One', cursive;
+}
+
+.brand-logo {
+    font-family: 'Titan One', cursive;
+
+}
+
+.main-header {
+    text-shadow: 4px 4px 5px white;
+    font-family: 'Bungee Inline', cursive;
+
+}
+
+#codeup{
+    margin-top: 130px;
+    color: black;
+}
+
+#moviePoster {
+    width: 100%;
+    border: solid black 1px;
+    height: 50vh;
+    margin-bottom: 1em;
+    background-image: radial-gradient(circle, dodgerblue, #90a4ae, black);
+}
+
 /*glow for webkit*/
 @-webkit-keyframes neon1 {
     from {
@@ -124,3 +117,4 @@ p:nth-child(1) a:hover {
         0 0 75px #228DFF;
     }
 }
+

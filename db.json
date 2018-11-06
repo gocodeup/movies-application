@@ -73,12 +73,6 @@
       "id": 44
     },
     {
-      "title": "Thunder Road",
-      "rating": "4",
-      "genre": "drama",
-      "id": 45
-    },
-    {
       "title": "The Longest Yard",
       "rating": "3",
       "genre": "comedy",
@@ -87,7 +81,7 @@
     {
       "title": "Star Wars: A New Hope",
       "rating": "5",
-      "genre": "fantasy",
+      "genre": "science fiction",
       "id": 47
     },
     {
@@ -353,6 +347,12 @@
       "rating": "4",
       "genre": "adventure",
       "id": 95
+    },
+    {
+      "title": "Captain America",
+      "rating": "4",
+      "genre": "action",
+      "id": 96
     }
   ]
 }
