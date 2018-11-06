@@ -31,7 +31,7 @@
       "id": 37
     },
     {
-      "title": "Scorpion King",
+      "title": "The Scorpion King",
       "rating": "4",
       "genre": "action",
       "id": 38
@@ -353,6 +353,12 @@
       "rating": "4",
       "genre": "action",
       "id": 96
+    },
+    {
+      "title": "The Color Purple",
+      "rating": "5",
+      "genre": "drama",
+      "id": 97
     }
   ]
 }
