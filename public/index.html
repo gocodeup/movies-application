@@ -14,19 +14,27 @@
         <!-- WC3 sort script -->
         <script src="https://www.w3schools.com/lib/w3.js"></script>
 
-
-
     </head>
     <body class="light-blue accent-1">
+        <nav class="blue-grey darken-2">
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo">KC & Benny Inc.</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a class="waves-effect waves-light btn blue-grey darken-4">By Title <i class="material-icons left">search</i></a></li>
+                    <li><a class="waves-effect waves-light btn blue-grey darken-4">By Rating <i class="material-icons left">search</i></a></li>
+                    <li><a class="waves-effect waves-light btn blue-grey darken-4">By Genre <i class="material-icons left">search</i></a></li>
+                </ul>
+            </div>
+        </nav>
     <div id="moviePoster" class="hide">
-        <div class="center main-header hide" id="codeup"><h2>KC & Benny's<br>Movie Application</h2></div>
+        <div class="center main-header hide" id="codeup">
+            <P><a>Movie Application</a></P>
+        </div>
     </div>
         <div class="container">
                 <div class="container1" id="container">
                     <h1 id=" center loading">Loading ...</h1>
-                    <p style="display: none">To get started, edit <code>src/index.js</code>.</p>
                 </div>
-
             <div class="row hide">
                 <form class="col s12">
                     <div class="row">
@@ -44,7 +52,7 @@
                             <select id="newMovieGenre" class="browser-default"></select>
                             <br>
                             <div>
-                                <button class="teal darken-1 waves-effect waves-light btn" type="submit" id="addMovie" disabled>Add Movie</button>
+                                <button class="light-blue darken-1 waves-effect waves-light btn" type="submit" id="addMovie" disabled><i class="material-icons left">add</i> Add Movie</button>
                                     <!--<i class="material-icons left">add</i>Movie &lt;!&ndash; why isn't the icon working?! &ndash;&gt;-->
                             </div>
                         </div>
@@ -82,18 +90,8 @@
                 </table>
             </div>
         </div>
+    <script>
 
-        <script src="main.js"></script>
-        <!-- Compiled and minified CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <!-- Custom JavaScript -->
-        <script
-                src="https://code.jquery.com/jquery-2.2.4.js"
-                integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-                crossorigin="anonymous"></script>
-        <script>
             function searchMovieTitle() {
                 console.log('hey');
                 var input, filter, table, tbody, td, i;
@@ -146,6 +144,16 @@
                     }
                 }
             }
-        </script>
+    </script>
+    <script src="main.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script
+            src="https://code.jquery.com/jquery-2.2.4.js"
+            integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+            crossorigin="anonymous"></script>
     </body>
 </html>

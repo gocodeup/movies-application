@@ -15,20 +15,20 @@ const populateMovies = () => {
     getMovies().then((movies) => {
         $('#codeup').removeClass('hide');
         $('div, form').removeClass('hide');
-        $('h1, td, h5, i, option').remove();
+        $('h1, td, h5, option').remove();
         $('#newMovieGenre').append(
             `<option>Action</option>
-                <option>Adventure</option>
-                <option>Comedy</option>
-                <option>Crime & Gangster</option>
-                <option>Drama</option>
-                <option>Family</option>
-                <option>Epics/Historical</option>
-                <option>Horror</option>
-                <option>Musicals / Dance</option>
-                <option>Science Fiction</option>
-                <option>War</option>
-                <option>Westerns</option>`);
+            <option>Adventure</option>
+            <option>Comedy</option>
+            <option>Crime & Gangster</option>
+            <option>Drama</option>
+            <option>Family</option>
+            <option>Epics/Historical</option>
+            <option>Horror</option>
+            <option>Musicals / Dance</option>
+            <option>Science Fiction</option>
+            <option>War</option>
+            <option>Westerns</option>`);
         movies.forEach(({title, rating, id, genre}) => {
             $(`#ID${id}`).remove();
             $('table').append(`<tbody class="item" id=movie${id}></tbody>`);
@@ -43,7 +43,7 @@ const populateMovies = () => {
             // allows for editing of movies
             $('#moviesToEdit').append(`<option>${title}</option>`);
             $(`#ID${id}`).click(function(e) {
-                //this needs to delete movies
+                // Delete movies
                 e.preventDefault();
                 const deleteMovieTitle = {title,rating,id};
                 $.getJSON(`https://api.themoviedb.org/3/search/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query=${title}&callback=?`, function(json) {
@@ -76,7 +76,7 @@ const populateMovies = () => {
 };
 populateMovies();
 
-
+// Edits movies
 $('#selectMovieToEdit').click(function (e) {
     e.preventDefault(e);
     getMovies().then((movies => {
@@ -129,6 +129,7 @@ $('#selectMovieToEdit').click(function (e) {
         });
     }))});
 
+// Removes the disabled button after the certain criteria is met
 $('body').keyup(function () {
     if ($('#newMovieTitle').val()  !== '' &&
         $('#newMovieRating').val() !== '' &&
@@ -139,6 +140,7 @@ $('body').keyup(function () {
     }
 });
 
+// Adds movies
 $('#addMovie').click(function (e) {
     e.preventDefault();
     const newMovieTitle = $('#newMovieTitle').val();
@@ -148,7 +150,7 @@ $('#addMovie').click(function (e) {
         if (json != "Nothing found.") {
             console.log(json.results[0].poster_path);
             $('#moviePoster').css('background-image', `url('http://image.tmdb.org/t/p/w500${json.results[0].poster_path}')`)
-        }})
+        }});
     const newMovie = {title: newMovieTitle, rating: newMovieRating, genre: newMovieGenre};
     const url = './api/movies';
     const options = {
