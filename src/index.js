@@ -14,7 +14,7 @@ const {getMovies} = require('./api.js');
 const populateMovies = () => {
     getMovies().then((movies) => {
         $('#codeup').removeClass('hide');
-        $('div, form').removeClass('hide');
+        $('div, form, nav').removeClass('hide');
         $('h1, td, h5, option').remove();
         $('#newMovieGenre').append(
             `<option>Action</option>
@@ -91,20 +91,25 @@ $('#selectMovieToEdit').click(function (e) {
             }})
         $('#movieToEditTitle').removeAttr('hidden').val(selectedMovie[0].title);
         $('#movieToEditRating').removeAttr('hidden').val(selectedMovie[0].rating);
-        $('#movieToEditGenre').removeClass('hide').val(selectedMovie[0].genre);
+        console.log(selectedMovie[0].genre);
+        $('#movieToEditGenre').removeClass('hide');
         $('#movieToEditGenre').append(
-            `<option>Action</option>
-            <option>Adventure</option>
-            <option>Comedy</option>
-            <option>Crime & Gangster</option>
-            <option>Drama</option>
-            <option>Family</option>
-            <option>Epics/Historical</option>
-            <option>Horror</option>
-            <option>Musicals / Dance</option>
-            <option>Science Fiction</option>
-            <option>War</option>
-            <option>Westerns</option>`);
+            `<option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Crime & Gangster">Crime & Gangster</option>
+            <option value="Drama">Drama</option>
+            <option value="Family">Family</option>
+            <option value="Epics/Historical">Epics/Historical</option>
+            <option value="Horror">Horror</option>
+            <option value="Musicals / Dance">Musicals / Dance</option>
+            <option value="Science Fiction">Science Fiction</option>
+            <option value="War">War</option>
+            <option value="Westerns">Westerns</option>`);
+        $("#movieToEditGenre option").each(function(){
+            if (($(this).text()).toLowerCase() == selectedMovie[0].genre)
+                $(this).attr("selected","selected");
+        });
         $('#submitMovieToEdit').removeClass('hide');
         $('#submitMovieToEdit').click(function () {
             const url = `./api/movies/${selectedMovie[0].id}`;
@@ -171,6 +176,37 @@ $('#addMovie').click(function (e) {
         })
         .catch();
 });
+
+$('#searchTitle').click(()=>{
+    $('.searchMovie').toggleClass('hide').val('');
+    searchMovieTitle();
+    $('.searchGenre').addClass('hide').val('');
+    $('.searchRating').addClass('hide').val('')
+});
+
+$('#searchGenres').click(()=>{
+    $('.searchGenre').toggleClass('hide').val('');
+    searchMovieGenre();
+    $('.searchRating').addClass('hide')
+    $('.searchMovie').addClass('hide')
+});
+
+$('#searchRatings').click(()=>{
+    $('.searchRating').toggleClass('hide').val();
+    searchMovieRating();
+    $('.searchGenre').addClass('hide');
+    $('.searchMovie').addClass('hide');
+});
+
+$('#dotOne').fadeOut().fadeIn();
+
+setTimeout(() => {
+    $('#dotTwo').fadeOut().fadeIn();
+}, 500);
+
+setTimeout(() => {
+    $('#dotThree').fadeOut().fadeIn();
+}, 750);
 
 
 
