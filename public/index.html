@@ -1,17 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>My Application</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="load-screen.css"/>
+    <link rel="stylesheet" href="main.css"/>
 </head>
 <body>
+<div class="container-load">
+    <div class="stuff"></div>
+</div>
 
-    <div class="container">
-        <h1>Hello There!</h1>
-        <p>To get started, edit <code>src/index.js</code>.</p>
+<section class="post-load-container">
+    <div class="container page-display">
+        <div class="row">
+            <div class="col-sm-3 data-column">
+                <div class="add-movie-container">
+                    <div class="add-movie-form-container">
+                        <form action="" method="POST" id="add-movie">
+                            <label for="movie-name">Add a movie</label>
+                            <input type="text" id="movie-name" placeholder="Movie Name">
+                            <label for="movie-rating">How much do you like it</label>
+                            <input type="text" id="movie-rating" placeholder="Movie Rating">
+                            <button type="submit"></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-9">
+                <div class="container">
+                    <div id="movie-container"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script src="/main.js"></script>
+</section>
+
+
+<script src="/main.js"></script>
 </body>
 </html>

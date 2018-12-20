@@ -1,0 +1,12 @@
+.post-load-container {
+    display: none;
+}
+.page-display {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.data-column {
+
+}
