@@ -1,8 +1,13 @@
 module.exports = {
   getMovies: () => {
     return fetch('/api/movies')
-      .then(response => response.json());
+      .then(response => response.json())
   },
+    getMovie: () => {
+      return fetch('/api/movies')
+          .then(response => response.json())
+          .then(response => console.log(response[1]));
+    },
     postMovie: (data) => {
         return fetch("/api/movies",{
             method: "POST",
