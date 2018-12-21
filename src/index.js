@@ -19,16 +19,20 @@ const {
 
 const htmlRenderTableFrom = (html_element, array_of_movies) => {
 
+  const col="column lg-col-25"
+
   let html_table = `<div class="row">` +
-    `<div class="column lg-col-33">ID</div>` +
-    `<div class="column lg-col-33">TITLE</div>` +
-    `<div class="column lg-col-33">RATING</div>` +
+    `<div class="${col}">ID</div>` +
+    `<div class="${col}">TITLE</div>` +
+    `<div class="${col}">RATING</div>` +
+    `<div class="${col}">DELETE</div>` +
     `</div>`;
   array_of_movies.forEach( movie => {
     html_table += `<div class="row">` +
-      `<div class="column lg-col-33">${movie.id}</div>` +
-      `<div class="column lg-col-33">${movie.title}</div>` +
-      `<div class="column lg-col-33">${movie.rating}</div>` +
+      `<div class="${col}">${movie.id}</div>` +
+      `<div class="${col}">${movie.title}</div>` +
+      `<div class="${col}">${movie.rating}</div>` +
+      `<div class="${col}">@DELETE</div>` +
     `</div>`
   });
 
