@@ -17,6 +17,7 @@ const {
 
 // helper functions
 
+/**/
 const htmlRenderTableFrom = (html_element, array_of_movies) => {
 
   const col="column lg-col-25"
@@ -32,7 +33,7 @@ const htmlRenderTableFrom = (html_element, array_of_movies) => {
       `<div class="${col}">${movie.id}</div>` +
       `<div class="${col}">${movie.title}</div>` +
       `<div class="${col}">${movie.rating}</div>` +
-      `<div class="${col}">@DELETE</div>` +
+      `<div class="${col}"><img class="btn-delete" src="img/delete.svg"><img></div>` +
     `</div>`
   });
 
