@@ -1,15 +1,12 @@
 /**
  * es6 modules and imports
  */
-const $ = require('jQuery');
+const $ = require('jquery');
 
 $(document).ready(function(){
-  var remove = $('#loading_wrap').remove()
-  setTimeout(remove, 5000)
+  var remove = $('#loading_wrap').remove();
+  setTimeout(remove, 5000);
 });
-import sayHello from './hello';
-sayHello('World');
-
 /**
  * require style imports
  */
