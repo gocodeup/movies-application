@@ -1,0 +1,145 @@
+* {
+  box-sizing: border-box;
+}
+
+/* CSS applied on elements */
+body {
+  font-family: "Noto Mono";
+  background-color: #f2f2f2;
+  color: #1a1a1a;
+}
+
+nav {
+  font-variant: small-caps;
+}
+
+/* CSS applied on ids */
+
+/* CSS applied on classes */
+.container {
+  margin: 0 auto;
+  width: 80%;
+  max-width: 1200px;
+  display: grid;
+}
+
+.row {
+  width: 100%;
+}
+
+.column {
+  float: left;
+  padding: 10px;
+  /* height: inherit; */
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/*
+    *     *   navigation link classes   *     *     *
+*/
+.nav-link {
+  font-size: 1.5rem;
+}
+
+.nav-link:link {
+  color: #4d4d4d;
+  text-decoration: none;
+}
+
+.nav-link:visited {
+  color: #4d4d4d;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #DBDBEC;
+  text-decoration: none;
+}
+
+.nav-link:active {
+  color: #4d4d4d;
+  text-decoration: none;
+}
+
+.nav-link-panel {
+  height: 86px;
+  border-style: solid;
+  border-width: 2px 2px 0 0;
+  border-color: rgba(0, 0, 0, 0.5);
+  padding: 8px 8px 8px 8px;
+}
+
+.nav-link-panel:hover {
+  border-width: 4px;
+  transform: scale(1.05);
+  background-color:#797997;
+}
+
+.mutable-hide {
+  display: none;
+}
+/*
+    *     *   header classes   *     *     *
+*/
+
+.main-header {
+  width: 100%;
+  text-align: center;
+  margin: 32px 32px 0 0;
+}
+
+.main-header>h1 {
+  font-family: "Liberation Mono";
+  font-size: 3.5rem;
+  font-weight: lighter;
+}
+
+.sub-header {
+  width: 100%;
+  text-align: center;
+  margin: 16px 0 32px 0;
+}
+
+.sub-header>h2 {
+  font-size: 1rem;
+  font-weight: lighter;
+}
+
+/*
+    *     *   shapes   *     *     *
+*/
+.arch {
+  border: 2px solid #000; /* the 'strokes' of the arc */
+  display: inline-block;
+  /* width: 128px; */
+  /* height: 128px; */
+  width: 128px;
+  height: 128px;
+  border-radius: 50%; /* for making the elements 'round' */
+  border-top-color: transparent; /* hiding the top border */
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+}
+
+/* .rotate-45 {
+  transform: rotate(45deg);
+}
+
+.rotate-135 {
+  transform: rotate(135deg);
+}
+
+.rotate-225 {
+  transform: rotate(225deg);
+}
+
+.rotate-315 {
+  transform: rotate(315deg);
+} */

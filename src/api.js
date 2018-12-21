@@ -5,7 +5,14 @@ module.exports = {
   },
   getMovie: (id) => {
     return fetch(`/api/movies/${id}`)
-        .then(response => response.json())
+        .then(response => {
+          if(response.status !== 200){
+            return -1;
+          }
+          else {
+            return response.json();
+          }
+        })
         .then(jsonResponse => console.log(jsonResponse))
         .catch(response => {
             if(response.status !== 200){
