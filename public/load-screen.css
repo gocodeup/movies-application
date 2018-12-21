@@ -13,7 +13,7 @@ html,body{
     color: lightgray;
 }
 
-.stuff{
+.load-screen{
     --size : 200px;
     width : var(--size);
     height : var(--size);
@@ -29,7 +29,7 @@ html,body{
     animation : silly 20s linear infinite;
 }
 
-.stuff:before{
+.load-screen:before{
     position : absolute;
     content  : "";
     width : calc(var(--size)/2);
@@ -42,7 +42,7 @@ html,body{
     animation : nilly 2.5s linear 1s infinite;
 }
 
-.stuff:after{
+.load-screen:after{
     position : absolute;
     content  : "";
     width : calc(var(--size)/3);

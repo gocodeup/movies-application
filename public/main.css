@@ -10,3 +10,6 @@
 .data-column {
 
 }
+#edit-movie {
+    display: none;
+}
