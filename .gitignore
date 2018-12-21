@@ -4,3 +4,6 @@
 node_modules/
 main.js
 *.map
+
+.package.json
+.package-lock.json
