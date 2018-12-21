@@ -8,3 +8,13 @@ html, body {
     transform: translateY(-100%);
     text-align: center;
 }
+#loading_wrap {
+    position:fixed;
+    height:100%;
+    width:100%;
+    overflow:hidden;
+    top:0;
+    left:0;
+    background: black;
+    color: white;
+}

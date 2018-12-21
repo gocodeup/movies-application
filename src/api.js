@@ -6,7 +6,13 @@ module.exports = {
   getMovie: (id) => {
     return fetch(`/api/movies/${id}`)
         .then(response => response.json())
-        .then(jsonResponse => console.log(jsonResponse));
+        .then(jsonResponse => console.log(jsonResponse))
+        .catch(response => {
+            if(response.status !== 200){
+                return Promise.reject(response)
+            }
+            return Promise.resolve(response);
+        });
   },
   postMovie: (data) => {
       return fetch("/api/movies",{

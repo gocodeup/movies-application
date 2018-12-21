@@ -1,6 +1,12 @@
 /**
  * es6 modules and imports
  */
+const $ = require('jQuery');
+
+$(document).ready(function(){
+  var remove = $('#loading_wrap').remove()
+  setTimeout(remove, 5000)
+});
 import sayHello from './hello';
 sayHello('World');
 
@@ -26,17 +32,18 @@ getMovies().then(movies => {
 });
 
 function test_getMovie() {
-  getMovie(3000);
+  getMovie(3213123)
 }
 
 const test_patchMovie = () => {
 
-}
+};
 
 const test_postMovie = () => {
 
-}
+};
 
 const test_deleteMovie = () => {
 
-}
+};
+test_getMovie();
