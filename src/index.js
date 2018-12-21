@@ -11,12 +11,10 @@ const movieBlock = document.getElementById('movie-container');
 let movieNameInput = "";
 $('#movie-name').on('input', (event) => {
     movieNameInput = event.target.value;
-    console.log(movieNameInput);
 });
 let movieRatingInput = "";
 $('#movie-rating').on('input', (event) => {
     movieRatingInput = event.target.value;
-    console.log(movieRatingInput);
 });
 
 // function to create movie divs
