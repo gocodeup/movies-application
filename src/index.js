@@ -31,4 +31,4 @@ getMovies().then(movies => {
 //     $('#addMovie').append()
 //   })
 // };
-getMovie();
+getMovie(2);
