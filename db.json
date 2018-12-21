@@ -9,6 +9,11 @@
       "title": "Star wars",
       "rating": "2",
       "id": 2
+    },
+    {
+      "title": "Star wars",
+      "rating": "k",
+      "id": 3
     }
   ]
 }
