@@ -2,13 +2,10 @@
 const $ = require('jquery');
 
 //import fetch methods from api
-const {getMovies, createMovie, editMovie} = require('./api.js');
-
+const {getMovies, createMovie, editMovie, deleteMovie} = require('./api.js');
 
 //container to add movies to
 const movieBlock = document.getElementById('movie-container');
-
-
 
 //add movie input fields
 let movieNameInput = "";
@@ -24,6 +21,11 @@ $('#movie-rating').on('input', (event) => {
 
 // function to create movie divs
 const movieGenerator = (({title, rating, id}) => {
+    //delete button
+    let deleteButton = document.createElement('button');
+    deleteButton.className = "btn btn-danger";
+    deleteButton.id = id;
+    deleteButton.textContent = "Delete this movie";
     //edit button
     let editButton = document.createElement('button');
     editButton.className = "btn btn-secondary";
@@ -44,7 +46,9 @@ const movieGenerator = (({title, rating, id}) => {
     movieContainer.appendChild(titleDiv);
     movieContainer.appendChild(ratingDiv);
     movieContainer.appendChild(editButton);
+    movieContainer.appendChild(deleteButton);
     movieBlock.prepend(movieContainer);
+
 });
 
 //function to add the created movie to the list
@@ -71,10 +75,7 @@ $('#submit-movie').on('click', (event) => {
     })
 });
 
-
 // edit movie functionality
-
-
 const movieEdit = (movies) => {
     let btnId = null;
     let editedMovieTitle = "";
@@ -103,6 +104,18 @@ const movieEdit = (movies) => {
     });
 };
 
+const movieDelete = (movies) => {
+    let btnId = null;
+    $('html').on('click', '.btn-danger', function (event) {
+        event.preventDefault();
+        btnId = event.target.id;
+        console.log(btnId);
+        let targetedMovie = movies[btnId - 1];
+        console.log(targetedMovie);
+        deleteMovie(targetedMovie, targetedMovie.id);
+        $(`#${targetedMovie.id}`).parent().remove();
+    });
+};
 
 // initial load function
 const cycle = () => {
@@ -112,12 +125,13 @@ const cycle = () => {
         .then((movies) => {
             $('.load-screen').hide();
 
-            $('.post-load-container').show()
+            $('.post-load-container').show();
 
             movies.forEach(({title, rating, id}) => {
                 movieGenerator(({title, rating, id}));
             });
             movieEdit(movies);
+            movieDelete(movies);
 
         }).catch((error) => {
         alert('Oh no! Something went wrong.\nCheck the console for details.')
