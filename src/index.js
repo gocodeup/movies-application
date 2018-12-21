@@ -7,7 +7,13 @@ sayHello('World');
 /**
  * require style imports
  */
-const {getMovies, patchMovie, postMovie, getMovie} = require('./api.js');
+const {
+  getMovies,
+  patchMovie,
+  postMovie,
+  getMovie,
+  deleteMovie
+} = require('./api.js');
 // patchMovie({
 //     "title": "movie",
 //     "rating": "4"
@@ -32,3 +38,9 @@ getMovies().then(movies => {
 //   })
 // };
 getMovie(2);
+
+patchMovie({"title":"some movie", "rating":"3"}, 3);
+
+patchMovie({"title":"Star Wars VII", "rating":"0.5"}, 4);
+
+deleteMovie(4);

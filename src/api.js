@@ -33,5 +33,13 @@ module.exports = {
         .then(response => {
             console.log(response.json());
         })
+  },
+  deleteMovie: (id) => {
+    fetch(`/api/movies/${id}`, {
+        method: "DELETE",
+    })
+    .then(response => {
+      console.log(response.json());
+    })
   }
 };
