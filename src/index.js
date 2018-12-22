@@ -49,29 +49,38 @@ const movieGenerator = (({title, rating, id}) => {
 
 });
 
-//function to add the created movie to the list
-const prependMovie = (movie) => {
-    movieGenerator(movie);
-};
-
 //listener to run add prependMovie function
 $('#submit-movie').on('click', (event) => {
+    //creates whats being sent to the api
     const content = {
         title: movieNameInput,
         rating: movieRatingInput
     };
-    $('.load-screen').show();
+    //runs api post request
     createMovie(content)
-        .then(movie => {
-
-            $('.load-screen').hide();
-            // runs prepending movie addition
-            prependMovie(movie)
+        .then(
+            //display loading screen
+            $('.load-screen').show(),
+            $('#movie-container').hide()
+        )
+        .then(() => {
+            //get the latest movies
+            getMovies()
+                .then((movies) => {
+                    movieBlock.innerHTML = "";
+                    $('.load-screen').hide();
+                    $('#movie-container').show();
+                    console.log(movies);
+                    movies.forEach(({title, rating, id}) => {
+                        movieGenerator(({title, rating, id}));
+                    });
+                })
         })
-    .catch(() => {
-        $('.load-screen').hide();
-    })
+        .catch(() => {
+            $('.load-screen').hide();
+        })
 });
+
 
 // edit movie functionality
 const movieEdit = (movies) => {
@@ -85,38 +94,63 @@ const movieEdit = (movies) => {
         $('#edit-movie').fadeIn();
         $('#edit-movie-name').attr('placeholder', targetedMovie.title).val("");
         $('#edit-movie-rating').attr('placeholder', targetedMovie.rating).val("");
-        $('html').on('click', '#edit-submit-movie', function(event){
+        $('html').on('click', '#edit-submit-movie', function (event) {
             event.preventDefault();
             editedMovieTitle = $('#edit-movie-name').val();
             editedMovieRating = $('#edit-movie-rating').val();
-            editedMovie = { title: editedMovieTitle, rating: editedMovieRating, id: targetedMovie.id};
+            editedMovie = {title: editedMovieTitle, rating: editedMovieRating, id: targetedMovie.id};
             editMovie(editedMovie, targetedMovie.id);
             $(`#${targetedMovie.id}`).parent().remove();
             movieGenerator(editedMovie);
             $('#edit-movie').fadeOut();
         })
-        $('html').on('click', '#cancel-submit-movie', function (event){
+        $('html').on('click', '#cancel-submit-movie', function (event) {
             event.preventDefault();
             $('#edit-movie').fadeOut();
         })
     });
 };
 
-const movieDelete = (movies) => {
-    let btnId = null;
-    $('html').on('click', '.btn-danger', function (event) {
-        event.preventDefault();
-        btnId = event.target.id;
-        console.log(btnId);
-        let targetedMovie = movies[btnId - 1];
-        console.log(targetedMovie);
-        deleteMovie(targetedMovie, targetedMovie.id);
-        $(`#${targetedMovie.id}`).parent().remove();
+//function to be ran inside of event listener
+const movieDelete = (movies, btnId) => {
+    //determining the index of the selected movie
+    let targetedMovieIndex = movies.findIndex(movie => {
+        return movie.id === btnId;
     });
+    //declaring the movie chosen as a variable
+    let targetedMovie = movies[targetedMovieIndex];
+    //running the api request to delete
+    deleteMovie(targetedMovie, targetedMovie.id);
+    //removing the html from the page
+    $(`#${targetedMovie.id}`).parent().remove();
 };
 
+let btnId = null;
+//event listener to fire on delete click
+$('html').on('click', '.btn-danger', function (event) {
+    event.preventDefault();
+    btnId = parseFloat(event.target.id);
+    //running the get movies api request to get the latest movies array
+    getMovies().then(
+        $('.load-screen').show(),
+        $('#movie-container').hide()
+    )
+        .then((movies) => {
+            $('.load-screen').hide();
+            $('#movie-container').show();
+            //wiping the html after page load
+            movieBlock.innerHTML = "";
+            //looping through movies array and displaying most current movies before deleting
+            movies.forEach(({title, rating, id}) => {
+                movieGenerator(({title, rating, id}));
+            });
+            //deleting the selected move from movies array, then removing html within movieDelete
+            movieDelete(movies, btnId);
+        })
+});
+
 // initial load function
-const cycle = () => {
+const initiateMovies = () => {
     getMovies().then(
         $('.load-screen').show()
     )
@@ -129,7 +163,7 @@ const cycle = () => {
                 movieGenerator(({title, rating, id}));
             });
             movieEdit(movies);
-            movieDelete(movies);
+            // movieDelete(movies);
 
         }).catch((error) => {
         alert('Oh no! Something went wrong.\nCheck the console for details.')
@@ -138,6 +172,6 @@ const cycle = () => {
 };
 
 //calling the initial load
-cycle();
+initiateMovies();
 
 
