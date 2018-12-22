@@ -26,7 +26,7 @@ const movieGenerator = (({title, rating, id}) => {
     deleteButton.textContent = "Delete this movie";
     //edit button
     let editButton = document.createElement('button');
-    editButton.className = "btn btn-secondary";
+    editButton.className = "btn btn-secondary edit-button";
     editButton.id = id;
     editButton.textContent = "Edit this movie";
     //whole container
@@ -81,35 +81,59 @@ $('#submit-movie').on('click', (event) => {
         })
 });
 
+let editBtnId = null;
+let editedMovieTitle = "";
+let editedMovieRating = "";
+let editedMovie = {};
 
-// edit movie functionality
-const movieEdit = (movies) => {
-    let btnId = null;
-    let editedMovieTitle = "";
-    let editedMovieRating = "";
-    let editedMovie = {};
-    $('html').on('click', '.btn-secondary', function (event) {
-        btnId = event.target.id;
-        let targetedMovie = movies[btnId - 1];
-        $('#edit-movie').fadeIn();
-        $('#edit-movie-name').attr('placeholder', targetedMovie.title).val("");
-        $('#edit-movie-rating').attr('placeholder', targetedMovie.rating).val("");
-        $('html').on('click', '#edit-submit-movie', function (event) {
-            event.preventDefault();
-            editedMovieTitle = $('#edit-movie-name').val();
-            editedMovieRating = $('#edit-movie-rating').val();
-            editedMovie = {title: editedMovieTitle, rating: editedMovieRating, id: targetedMovie.id};
-            editMovie(editedMovie, targetedMovie.id);
-            $(`#${targetedMovie.id}`).parent().remove();
-            movieGenerator(editedMovie);
-            $('#edit-movie').fadeOut();
-        })
-        $('html').on('click', '#cancel-submit-movie', function (event) {
-            event.preventDefault();
-            $('#edit-movie').fadeOut();
-        })
+const movieEdit = (movies, editBtnId) => {
+    let targetedMovieIndex = movies.findIndex(movie => {
+        return movie.id === editBtnId;
     });
+    let editTargetedMovie = movies[targetedMovieIndex];
+    console.log(editTargetedMovie.rating);
+    $('#edit-movie-name').attr('placeholder', editTargetedMovie.title).val("");
+    $('#edit-movie-rating').attr('placeholder', editTargetedMovie.rating).val("");
 };
+
+$('html').on('click', '.edit-button', function (event) {
+    $('#edit-movie').fadeIn();
+    editBtnId = parseFloat(event.target.id);
+    getMovies()
+        .then((movies) => {
+            movieBlock.innerHTML = "";
+            movies.forEach(({title, rating, id}) => {
+                movieGenerator(({title, rating, id}));
+            });
+            movieEdit(movies, editBtnId);
+
+            //open up submit listener
+            $('html').on('click', '#edit-submit-movie', function (event) {
+                event.preventDefault();
+                // editBtnId = event.target.id;
+                let targetedMovieIndex = movies.findIndex(movie => {
+                    return movie.id === editBtnId;
+                });
+                let editTargetedMovie = movies[targetedMovieIndex];
+                //building object to send to api
+                editedMovieTitle = $('#edit-movie-name').val();
+                editedMovieRating = $('#edit-movie-rating').val();
+                editedMovie = {title: editedMovieTitle, rating: editedMovieRating, id: editTargetedMovie.id};
+                //sending object
+                editMovie(editedMovie, editedMovie.id);
+                //deleting old one from html
+                $(`#${editTargetedMovie.id}`).parent().remove();
+                //making new one wil edited movie
+                movieGenerator(editedMovie);
+                $('#edit-movie').fadeOut();
+            });
+        })
+});
+
+$('html').on('click', '#cancel-submit-movie', function (event) {
+    event.preventDefault();
+    $('#edit-movie').fadeOut();
+})
 
 //function to be ran inside of event listener
 const movieDelete = (movies, btnId) => {
@@ -162,7 +186,7 @@ const initiateMovies = () => {
             movies.forEach(({title, rating, id}) => {
                 movieGenerator(({title, rating, id}));
             });
-            movieEdit(movies);
+            // movieEdit(movies);
             // movieDelete(movies);
 
         }).catch((error) => {

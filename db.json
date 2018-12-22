@@ -9,6 +9,11 @@
       "title": "dafa",
       "rating": "22",
       "id": 2
+    },
+    {
+      "title": "Star wars",
+      "rating": "1",
+      "id": 3
     }
   ]
 }
