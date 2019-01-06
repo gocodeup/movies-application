@@ -14,30 +14,36 @@
 
 <section class="post-load-container">
     <div class="container page-display">
+        <div class="titleHeading">
+            <img src="img/movie%20frog.png" alt="Toad Boy" id="frogLogo">
+            <h1>Toadally <br>Movies</h1>
+        </div>
         <div class="row">
-            <div class="col-sm-3 data-column">
-                <div class="add-movie-container">
-                    <div class="add-movie-form-container">
-                        <form action="" id="add-movie">
-                            <label for="movie-name">Add a movie</label>
-                            <input type="text" id="movie-name" placeholder="Movie Name">
-                            <label for="movie-rating">How much do you like it</label>
-                            <input type="number" id="movie-rating" max="5" placeholder="Movie Rating">
-                            <button type="submit" id="submit-movie" class="btn btn-primary">Send It!</button>
-                        </form>
-                        <form action="" id="edit-movie">
-                            <label for="edit-movie-name">Edit movie</label>
-                            <input type="text" id="edit-movie-name" placeholder="Movie Name">
-                            <label for="edit-movie-rating">How much do you like it</label>
-                            <input type="number" id="edit-movie-rating" max="5" placeholder="Movie Rating">
-                            <button id="edit-submit-movie" class="btn btn-success">We Fear Change</button>
-                            <button id="cancel-submit-movie" class="btn btn-danger">Cancel</button>
-                        </form>
+            <div class="tabEdit">
+                <div class="data-column">
+                    <div class="add-movie-container">
+                        <div class="add-movie-form-container">
+                            <form action="" id="add-movie">
+                                <label for="movie-name">Add a movie</label><br>
+                                <input type="text" id="movie-name" placeholder="Movie Name">
+                                <label for="movie-rating">How much do you like it</label><br>
+                                <input type="number" id="movie-rating" max="5" placeholder="Movie Rating"><br>
+                                <button type="submit" id="submit-movie" class="btn btn-primary">Send It!</button>
+                            </form>
+                            <form action="" id="edit-movie">
+                                <label for="edit-movie-name">Edit movie</label><br>
+                                <input type="text" id="edit-movie-name" placeholder="Movie Name">
+                                <label for="edit-movie-rating">How much do you like it</label><br>
+                                <input type="number" id="edit-movie-rating" max="5" placeholder="Movie Rating"><br>
+                                <button id="edit-submit-movie" class="btn btn-success">We Fear Change</button>
+                                <button id="cancel-submit-movie" class="btn btn-danger">Cancel</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-sm-9">
+            <div class="tabMovies">
                 <div class="container">
                     <div id="movie-container"></div>
                 </div>

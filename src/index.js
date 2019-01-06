@@ -19,6 +19,20 @@ $('#movie-rating').on('input', (event) => {
 
 // function to create movie divs
 const movieGenerator = (({title, rating, id}) => {
+    //whole container
+    let movieContainer = document.createElement('div');
+    movieContainer.className = "movie-container";
+    //movie title
+    let titleDiv = document.createElement('div');
+    titleDiv.className = "title";
+    titleDiv.textContent = `"${title}"`;
+    // sub container
+    let subContainer = document.createElement('div');
+    subContainer.className = "subContainer";
+    //ratings
+    let ratingDiv = document.createElement('div');
+    ratingDiv.textContent = `${rating} out of 5 stars`;
+    ratingDiv.className = "rating";
     //delete button
     let deleteButton = document.createElement('button');
     deleteButton.className = "btn btn-danger";
@@ -29,22 +43,12 @@ const movieGenerator = (({title, rating, id}) => {
     editButton.className = "btn btn-secondary edit-button";
     editButton.id = id;
     editButton.textContent = "Edit this movie";
-    //whole container
-    let movieContainer = document.createElement('div');
-    movieContainer.className = "movie-container";
-    //movie title
-    let titleDiv = document.createElement('div');
-    titleDiv.className = "title";
-    titleDiv.textContent = `"${title}"`;
-    //ratings
-    let ratingDiv = document.createElement('div');
-    ratingDiv.textContent = `${rating} out of 5 stars`;
-    ratingDiv.className = "rating";
     //adding to containers
     movieContainer.appendChild(titleDiv);
-    movieContainer.appendChild(ratingDiv);
-    movieContainer.appendChild(editButton);
-    movieContainer.appendChild(deleteButton);
+    subContainer.appendChild(ratingDiv);
+    subContainer.appendChild(editButton);
+    subContainer.appendChild(deleteButton);
+    movieContainer.appendChild(subContainer);
     movieBlock.prepend(movieContainer);
 
 });
