@@ -1,18 +1,18 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
-      "rating": "3",
+      "title": "",
+      "rating": "",
       "id": 1
     },
     {
-      "title": "Star Wars: A New Hope",
-      "rating": "5",
+      "title": "dafa",
+      "rating": "22",
       "id": 2
     },
     {
-      "title": "Star Wars: A New Hope",
-      "rating": "5",
+      "title": "Star wars",
+      "rating": "1",
       "id": 3
     }
   ]
