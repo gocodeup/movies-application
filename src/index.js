@@ -22,7 +22,10 @@ getMovies().then((movies) => {
                 <td>rating</td>
             </tr>
             <tr>
-                <td><button class="btn btn-secondary remove" id="${id}">Delete</button></td>
+                <td>
+                    <button class="btn btn-secondary remove" id="${id}">Delete</button>
+                    <button class="btn btn-secondary edit" id="${id}">Edit</button>
+                </td>
                 <td>${title}</td>
                 <td>${rating}</td>
             </tr>
