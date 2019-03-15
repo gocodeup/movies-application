@@ -71,21 +71,11 @@ getMovies().then((movies) => {
    console.log("test");
  }
 
-function remove(event){
-   console.log("hi mom");
-   console.log(event);
-   fetch('http://localhost:3000/movies').then((response) => {
-     let data = response.json().then((data) => {
-       for(let i = 0; i < data.length; i++) {
-          buttons[i].onclick = () => {
-            if(buttons[i].id === data[i].id){
-              delete data[i];
-            }
-          }
-       }
-     })
-   })
-
+function remove(event) {
+    fetch('http://localhost:3000/movies/' + event.target.id, {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' }
+        })
 }
 
 
