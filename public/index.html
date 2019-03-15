@@ -16,8 +16,8 @@
         </div>
         <div>
             <form class="formBackground">
-                <h3>Add a New Movie!</h3>
-                <label for="movie-title">Title of Movie</label>
+                <h3>Add Movie to Database</h3>
+                <label for="movie-title">Movie Title</label>
                 <input type="text" id="movie-title">
 
                 <select id="movie-rating">
@@ -28,7 +28,24 @@
                     <option> 1 Star </option>
                 </select>
 
-                <button id="submitMovie">Add to Movie Database</button>
+                <button id="submitMovie">Add</button>
+            </form>
+        </div>
+        <div>
+            <form>
+                <h3>Edit Movie Database</h3>
+                <label for="edit-title">Movie Title</label>
+                <input type="text" id="edit-title">
+
+                <select id="editRating">
+                    <option> 5 Stars </option>
+                    <option> 4 Stars </option>
+                    <option> 3 Stars </option>
+                    <option> 2 Stars </option>
+                    <option> 1 Star </option>
+                </select>
+
+                <button id="editMovie">Edit</button>
             </form>
         </div>
     </div>

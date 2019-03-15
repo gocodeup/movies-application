@@ -13,17 +13,17 @@ const {addMovie} = require('./addMovie.js');
 
 // const showMovies = () => {
   getMovies().then((movies) => {
-    console.log('Here are all the movies:');
+    // console.log('Here are all the movies:');
     let html = "";
     movies.forEach(({title, rating, id}) => {
       html += makeHTML(title, rating, id);
-      console.log(`id#${id} - ${title} - rating: ${rating}`);
+      // console.log(`id#${id} - ${title} - rating: ${rating}`);
     });
 
     $("#movies").html(html);
   }).catch((error) => {
     alert('Oh no! Something went wrong.\nCheck the console for details.')
-    console.log(error);
+    // console.log(error);
   });
 // };
 
@@ -40,7 +40,7 @@ const {addMovie} = require('./addMovie.js');
 
 
 ////////////////////////////////////////
-/////////// TURN BACK ON ///////////////
+//////// ADD MOVIE BUTTON //////////////
 ////////////////////////////////////////
 $('#submitMovie').on('click', (e) => {
   e.preventDefault();
@@ -55,7 +55,6 @@ $('#submitMovie').on('click', (e) => {
   // showMovies();
 
 });
-
 
 
 const getRating = (stars) => {
@@ -81,8 +80,58 @@ const getRating = (stars) => {
   };
 
 
+////////////////////////////////////////
+//////// EDIT MOVIE BUTTON /////////////
+////////////////////////////////////////
+$('#editMovie').on('click', (e) => {
+  e.preventDefault();
+  console.log('Testing');
+  // console.log(getRating($('#movie-rating').val()));
+  // let movieRating = getRating($('#movie-rating').val());
+  // const newMovie = {
+  //   "title": $('#movie-title').val(),
+  //   "rating": movieRating
+  // };
+  // console.log(newMovie);
+  // addMovie(newMovie);
+  // showMovies();
+
+});
+
+const editor = (id) => {
+  fetch(`./api/movies`, {
+    "method": "GET",
+    "headers": {
+      "Content-Type": "application/json"}
+  })
+      .then(response => response.json())
+      .then(movies => {
+          for (let movie of movies) {
+              console.log(movie.id);
+              // if(movie.id === id)
+              //   let returnObj = {
+              //     "title": movie.title,
+              //     "rating": movie.rating
+              //   };
+          }
+  })
+}
+
+// console.log(editor(4));
 
 
+
+////////////////////////////////////////
+//////// DELETE MOVIE BUTTON ///////////
+////////////////////////////////////////
+// const deleteMovie = (id) => {
+//   fetch(`./api/movies/${id}`, {
+//     "method": "DELETE",
+//     "headers": {
+//       "Content-Type": "application/json"}
+//   })
+//       .then(response => JSON.stringify(response));
+// };
 
 
 //////// npm run dev in terminal, then refresh window

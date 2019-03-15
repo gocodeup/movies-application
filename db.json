@@ -44,6 +44,11 @@
       "title": "Happy Gilmore",
       "rating": 3,
       "id": 9
+    },
+    {
+      "title": "Evil Dead",
+      "rating": 4,
+      "id": 10
     }
   ]
 }
