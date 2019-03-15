@@ -3,22 +3,47 @@
 <head>
     <meta charset="UTF-8" />
     <title>My Application</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="/style.css" />-->
 </head>
 <body>
 
-    <div class="container">
-        <h1>Hello There!</h1>
-        <p id="loading"></p>
-        <div id="output">loading.....</div>
-        <form method="post" action="">
-            <input id='movie'>
-            <input id='rating'>
-            <input id="submit" type="submit">
-        </form>
-    </div>
-    
+    <!-- Navbar -->
+    <div class="navbar navbar-primary bg-primary navbar-expand-md">
+        <div class="container">
+            <div class="mx-auto"><h1>Movies</h1></div>
+        </div>
+    </div><br>
 
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto">
+                <div id="output">loading.....</div>
+            </div>
+        </div>
+    </div><br><br>
+
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto">
+                <form method="post" action="">
+                    <label for="movie">Movie</label>
+                    <input id='movie'><br>
+                    <label for="rating">Rating</label>
+                    <input id='rating'><br>
+                    <button class="btn btn-primary"  type="submit">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="editForm"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="./main.js"></script>
 </body>
 </html>
