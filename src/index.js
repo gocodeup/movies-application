@@ -2,6 +2,7 @@
  * es6 modules and imports
  */
 
+
 /**
  * require style imports
  */
@@ -56,8 +57,6 @@ $('#submitMovie').on('click', (e) => {
 
 });
 
-
-
 const getRating = (stars) => {
     switch (stars) {
       case "5 Stars":
@@ -86,3 +85,18 @@ const getRating = (stars) => {
 
 
 //////// npm run dev in terminal, then refresh window
+
+//Loading text while our AJAX request processes
+// $(document).ready(function () {
+//   $(document).ajaxStart(function () {
+//     $("#loading").show();
+//   }).ajaxStop(function () {
+//     $("#loading").hide();
+//   });
+// });
+
+
+
+
+
+
