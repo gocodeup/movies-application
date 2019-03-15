@@ -7,36 +7,45 @@
     <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-<main class="container d-flex h-100">
+<main class="container d-flex h-100 w-100">
 
     <!--SEARCH BAR CODE-->
     <div class="row w-100">
-        <div class="col-3"></div>
-        <div class="col-6 text-center mt-auto mb-auto ml-auto mr-auto w-100">
-            <!--<h3>TEST</h3>-->
+
+        <div class="col-2">
+
+        </div>
+
+        <div class="col-8 text-center mt-auto mb-auto ml-auto mr-auto w-100">
+
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2 search-bar ml-auto" type="search" placeholder="Find a movie..." aria-label="Search">
                 <button class="btn  my-2 my-sm-0 mr-auto" type="submit">Search</button>
             </form>
+
+            <!--BUTTON ROW FOR VIEWING, ADDING, EDITING, DELETING-->
             <div>
-            <button class="btn btn-row">TEST</button>
-            <button class="btn btn-row">TEST</button>
-            <button class="btn btn-row">TEST</button>
-            <button class="btn btn-row">TEST</button>
+            <button class="btn btn-row btn-sm border-left border-right border-dark">View All <span id="down-arrow">&#x25BC;</span></button>
+            <button class="btn btn-row btn-sm border-left border-right border-dark">Add</button>
+            <button class="btn btn-row btn-sm border-left border-right border-dark">Remove</button>
+            <button class="btn btn-row btn-sm border-left border-right border-dark">Delete</button>
+            </div>
+
+            <!--new row for movie info-->
+            <div class="row w-100">
+            <div class="movie-info">
+                <!--Can use this empty div to populate movie data, posters, etc-->
+                <h1>EMPTY DIV</h1>
+            </div>
             </div>
         </div>
 
+        <div class="col-2">
 
+        </div>
 
-        <div class="col-3"></div>
-        <!--<div class="col">-->
-            <!--&lt;!&ndash;<button class="btn">TEST</button>&ndash;&gt;-->
-        <!--</div>-->
     </div>
-    <!--BUTTONS FOR VIEWING MOVIES, ADDING, EDITING, AND DELETING-->
-    <!--<div class="row">-->
 
-    <!--</div>-->
 
 
 </main>

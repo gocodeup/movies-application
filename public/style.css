@@ -27,6 +27,22 @@ html, body {
 
 .btn-row {
     margin: 1em .5em;
+    background-color: transparent;
+    border: none;
+
 }
+
+.border-left .border-right {
+
+}
+
+#down-arrow {
+    font-size: 8px;
+}
+
+/*.movie-info {*/
+    /*margin-top: em;*/
+/*}*/
+
 
 
