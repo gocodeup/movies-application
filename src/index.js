@@ -13,7 +13,7 @@ const {addMovie} = require('./addMovie.js');
 
 // const showMovies = () => {
   getMovies().then((movies) => {
-    // console.log('Here are all the movies:');
+    console.log('Here are all the movies:');
     let html = "";
     movies.forEach(({title, rating, id}) => {
       html += makeHTML(title, rating, id);
@@ -80,25 +80,25 @@ const getRating = (stars) => {
   };
 
 
-////////////////////////////////////////
-//////// EDIT MOVIE BUTTON /////////////
-////////////////////////////////////////
-$('#editMovie').on('click', (e) => {
-  e.preventDefault();
-  console.log('Testing');
-  // console.log(getRating($('#movie-rating').val()));
-  // let movieRating = getRating($('#movie-rating').val());
-  // const newMovie = {
-  //   "title": $('#movie-title').val(),
-  //   "rating": movieRating
-  // };
-  // console.log(newMovie);
-  // addMovie(newMovie);
-  // showMovies();
-
-});
-
-// const editor = (id) => {
+// ////////////////////////////////////////
+// //////// EDIT MOVIE BUTTON /////////////
+// ////////////////////////////////////////
+// $('#editMovie').on('click', (e) => {
+//   e.preventDefault();
+//   console.log('Testing');
+//   // console.log(getRating($('#movie-rating').val()));
+//   // let movieRating = getRating($('#movie-rating').val());
+//   // const newMovie = {
+//   //   "title": $('#movie-title').val(),
+//   //   "rating": movieRating
+//   // };
+//   // console.log(newMovie);
+//   // addMovie(newMovie);
+//   // showMovies();
+//
+// });
+//
+const editor = (id) => {
   fetch(`./api/movies`, {
     "method": "GET",
     "headers": {
@@ -107,17 +107,44 @@ $('#editMovie').on('click', (e) => {
       .then(response => response.json())
       .then(movies => {
           for (let movie of movies) {
-              console.log(movie.id);
-              // if(movie.id === id)
-              //   let returnObj = {
-              //     "title": movie.title,
-              //     "rating": movie.rating
-              //   };
-          }
-  })
-// }
+              // console.log(movie.id);
+              if(movie.id === id) {
+                let returnNewObj = {
+                  "title": movie.title,
+                  "rating": movie.rating
+                };
 
-// console.log(editor(4));
+                let starRating = "";
+                switch (returnNewObj.rating){
+                  case 5:
+                    starRating = "5 Stars";
+                    break;
+                  case 4:
+                    starRating = "4 Stars";
+                    break;
+                  case 3:
+                    starRating = "3 Stars";
+                    break;
+                  case 2:
+                    starRating = "2 Stars";
+                    break;
+                  case 1:
+                    starRating = "1 Star";
+                    break;
+                }
+
+                $('#edit-title').val(returnNewObj.title);
+                $('#edit-rating').val(starRating);
+
+
+              }
+
+          }
+  });
+};
+
+console.log(editor(5));
+
 
 
 
