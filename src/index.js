@@ -15,7 +15,8 @@ getMovies().then((movies) => {
   console.log('Here are all the movies:');
   var output = '';
   movies.forEach(({title, rating, id}) => {
-    output += `<table class="table table-dark table-striped">
+    output += `
+        <table class="table table-dark table-striped">
             <tr>
                 <td>delete,edit</td>
                 <td>title</td>
@@ -23,8 +24,8 @@ getMovies().then((movies) => {
             </tr>
             <tr>
                 <td>
-                    <button class="btn btn-secondary remove" id="${id}">Delete</button>
-                    <button class="btn btn-secondary edit" id="${id}">Edit</button>
+                    <button class="btn btn-dark btn-outline-secondary remove" id="${id}">Delete</button>
+                    <a class="edit" href="#editFrom"><button class="btn btn-dark btn-outline-secondary edit" id="${id}">Edit</button></a>
                 </td>
                 <td>${title}</td>
                 <td>${rating}</td>
@@ -83,10 +84,6 @@ getMovies().then((movies) => {
  //   })
  // }
 
- function test () {
-   console.log("test");
- }
-
 function remove(event) {
     fetch('http://localhost:3000/movies/' + event.target.id, {
             method: 'DELETE',
@@ -96,28 +93,38 @@ function remove(event) {
     setTimeout(reloadTheObjects, 500);
 }
 
+
 function populateEditForm(event) {
     console.log(event.target);
     let html = '';
     getMovies().then((movies) => {
         console.log(movies);
         var output = '';
-            for (let i = 0; i < movies.length; i++) {
-                if (event.target.id == movies[i].id)
-                    document.getElementById('editForm').innerHTML = '<form>' +
-                        '<label for="editMovie">' + 'Change title for: ' + movies[i].title + '</label>\n' +
-                        '<input id="editMovie" placeholder=' + 'title' + '>' +
-                        '<label for="editRating">' + "Change current rating: " + movies[i].rating + '</label>' +
-                        '<input id="editRating" placeholder=' + 'rating' + '>' +
-                        '<input id="editId" type="hidden" value=' + movies[i].id + '>' +
-                        '<input id="editPostSubmit" type="submit">' +
-                        '</form>'
-            }
-            document.getElementById("editPostSubmit").addEventListener('click', editMovieObjects);
+        document.getElementById('postFrom').innerHTML = output;
+        for (let i = 0; i < movies.length; i++) {
+            if (event.target.id == movies[i].id)
+                document.getElementById('postFrom').innerHTML ='<br>' + '<br>' + '<br>' + '<br>' + '<br>' + '<br>' + '<br>' + '<br>' +
+                    '<div class="container">' +
+                        '<div class="row">' +
+                            '<div class="mx-auto">' +
+                                '<form class="form-control">' +
+                                    '<label for="editMovie">' + 'Change title for: ' + movies[i].title + '</label>' +  '<br>' +
+                                    '<input class="form-control" id="editMovie" placeholder=' + 'title' + '>' + '<br>' +
+                                    '<label for="editRating">' + "Change current rating: " + movies[i].rating + '</label>' +  '<br>' +
+                                    '<input class="form-control" id="editRating" placeholder=' + 'rating' + '>' +  '<br>' +
+                                    '<input class="form-control" id="editId" type="hidden" value=' + movies[i].id + '>' + '<br>' +
+                                    '<input class="form-control" id="editPostSubmit" type="submit">' +
+                                '</form>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>'
+        }
+        document.getElementById("editPostSubmit").addEventListener('click', editMovieObjects);
 
 
     })
- }
+}
+
 
 function reloadTheObjects() {
     getMovies().then((movies) => {
