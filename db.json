@@ -1,14 +1,39 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
-      "rating": "4",
+      "title": "star wars",
+      "rating": "5",
       "id": 1
     },
     {
-      "title": "Star Wars: A New Hope",
+      "title": "star wars",
       "rating": "5",
       "id": 2
+    },
+    {
+      "title": "star wars",
+      "rating": "5",
+      "id": 3
+    },
+    {
+      "title": "star wars",
+      "rating": "5",
+      "id": 4
+    },
+    {
+      "title": "star wars",
+      "rating": "5",
+      "id": 5
+    },
+    {
+      "title": "test",
+      "rating": "2",
+      "id": 6
+    },
+    {
+      "title": "testing",
+      "rating": "2",
+      "id": 7
     }
   ]
 }
