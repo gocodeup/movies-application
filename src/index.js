@@ -1,22 +1,14 @@
-// /**
-//  * es6 modules and imports
-//  */
-// import sayHello from './hello';
-// sayHello('Dwight');
+/**
+ * es6 modules and imports
+ */
 
 /**
  * require style imports
  */
 const {getMovies} = require('./api.js');
 const {makeHTML} = require('./htmlMaker.js');
-// const {getRating} = require('./addMovie.js';)
-// const {addMovie} = require('./addMovie.js');
-// import banana from './htmlMaker.js'
-// console.log(banana.makeHTML('test1', 'test2', 'test3'));
+const {addMovie} = require('./addMovie.js');
 
-// console.log(message.newBinding());
-
-// $('#movies').html(makeHTML('hi', 'bye', 'ok'));
 
 
 // const showMovies = () => {
@@ -45,39 +37,27 @@ const {makeHTML} = require('./htmlMaker.js');
 //     .then(response => console.log(response))
 //     .catch(error => console.error(error));
 
-// Add movies to database
-// $("#submitMovie").on('click', (e) => {
-//   e.preventDefault();
-//   console.log('Good Job!');
-//   };
-
-
-
-
-
-
-
-
 
 
 ////////////////////////////////////////
 /////////// TURN BACK ON ///////////////
 ////////////////////////////////////////
-$('#submitMovie').click(function(e) {
+$('#submitMovie').on('click', (e) => {
   e.preventDefault();
   console.log(getRating($('#movie-rating').val()));
-  // let movieRating = getRating($('#movie-rating').val());
-  // const newMovie = {
-  //   "title": $('#movie-title').val(),
-  //   "rating": movieRating
-  // };
-  // addMovie(newMovie);
+  let movieRating = getRating($('#movie-rating').val());
+  const newMovie = {
+    "title": $('#movie-title').val(),
+    "rating": movieRating
+  };
+  console.log(newMovie);
+  addMovie(newMovie);
   // showMovies();
 
 });
-//
-//
-//
+
+
+
 const getRating = (stars) => {
     switch (stars) {
       case "5 Stars":
@@ -99,28 +79,7 @@ const getRating = (stars) => {
         return "undefined"
     }
   };
-//
-//
-// const addMovie = ({title, rating}) => {
-//     let newMovie = { title, rating };
-//     fetch('./api/movies', {
-//       "method": "POST",
-//       "headers": {
-//         "Content-Type": "application/json"},
-//       body: JSON.stringify(newMovie)})
-//         .then(response => JSON.stringify(response));
-//   }
-//   addMovie(newMovie);
-//
-//
-// const makeHTML = (title, rating, id) => {
-//   let html = `<div>`;
-//   html += `<h1>${title}</h1>`;
-//   html += `<h2>${rating}</h2>`;
-//   html += `<h3>${id}</h3>`;
-//   html += `</div>`;
-//   return html;
-// };
+
 
 
 
