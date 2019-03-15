@@ -98,7 +98,7 @@ $('#editMovie').on('click', (e) => {
 
 });
 
-const editor = (id) => {
+// const editor = (id) => {
   fetch(`./api/movies`, {
     "method": "GET",
     "headers": {
@@ -115,7 +115,7 @@ const editor = (id) => {
               //   };
           }
   })
-}
+// }
 
 // console.log(editor(4));
 
