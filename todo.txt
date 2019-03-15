@@ -1,0 +1,25 @@
+PAGE LOAD:
+loading message (animated if possible) *DONE
+ajax request to GET listing of all movies *DONE*
+remove load message/animation and replace with html json response from ajax request *DONE*
+
+Users add movies
+create form to add new movies that has fields for TITLE and RATING *DONE*
+submit form page to make a POST request to /api/movies with info *DONE
+
+Users Edit
+give option to edit an existing movie
+form pre-populated with selected movies details
+ajax request when form is submitted
+
+Delete Movies
+have delete button for each movie that sends a delete request
+
+
+BONUS:
+disable buttons while ajax request is pending
+use modals for create/edit of movies
+add a genre property for every movie
+sort/search movies by rating, title or genre
+animation load screen
+
