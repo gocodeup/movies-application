@@ -11,44 +11,24 @@
       "id": 2
     },
     {
-      "title": "",
-      "rating": 4,
+      "title": "Return of the Doctor",
+      "rating": "3 Stars",
       "id": 3
     },
     {
-      "title": "",
-      "rating": 4,
+      "title": "Tomb Bomber",
+      "rating": "2 1/2 Stars",
       "id": 4
     },
     {
-      "title": "Forrest Gump",
-      "rating": 1,
+      "title": "The Godfather",
+      "rating": "3 1/2 Stars",
       "id": 5
     },
     {
-      "title": "Spaceballs",
-      "rating": 3,
+      "title": "Grease 4",
+      "rating": "Total Bomb!",
       "id": 6
-    },
-    {
-      "title": "Tomb Raider",
-      "rating": 3,
-      "id": 7
-    },
-    {
-      "title": "Look Who's Talking",
-      "rating": 3,
-      "id": 8
-    },
-    {
-      "title": "Happy Gilmore",
-      "rating": 3,
-      "id": 9
-    },
-    {
-      "title": "Evil Dead",
-      "rating": 4,
-      "id": 10
     }
   ]
 }
