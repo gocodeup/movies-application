@@ -2,6 +2,7 @@
  * es6 modules and imports
  */
 
+
 /**
  * require style imports
  */
@@ -56,6 +57,7 @@ $('#submitMovie').on('click', (e) => {
 });
 
 
+
 // ////////////////////////////////////////
 // //////// EDIT MOVIE BUTTON /////////////
 // ////////////////////////////////////////
@@ -98,6 +100,29 @@ const pullMovieData = (id) => {
                   "title": movie.title,
                   "rating": movie.rating
                 };
+
+const getRating = (stars) => {
+    switch (stars) {
+      case "5 Stars":
+        console.log('5');
+        return 5;
+      case "4 Stars":
+        console.log('4');
+        return 4;
+      case "3 Stars":
+        console.log('3');
+        return 3;
+      case "2 Stars":
+        console.log('2');
+        return 2;
+      case "1 Star":
+        console.log('1');
+        return 1;
+      default:
+        return "undefined"
+    }
+  };
+
 
                 $('#edit-title').val(returnNewObj.title);
                 $('#edit-rating').val(returnNewObj.rating);
@@ -149,3 +174,21 @@ const deleteMovie = (id) => {
 /////////// RANDOM NOTES TO MYSELF /////////////////////
 ////////////////////////////////////////////////////////
 //////// type npm run dev in terminal, then refresh window
+
+//////// npm run dev in terminal, then refresh window
+
+//Loading text while our AJAX request processes
+// $(document).ready(function () {
+//   $(document).ajaxStart(function () {
+//     $("#loading").show();
+//   }).ajaxStop(function () {
+//     $("#loading").hide();
+//   });
+// });
+
+
+
+
+
+
+
