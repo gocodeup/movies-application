@@ -9,26 +9,6 @@
       "title": "Star Wars: A New Hope",
       "rating": "5",
       "id": 2
-    },
-    {
-      "title": "Return of the Doctor",
-      "rating": "3 Stars",
-      "id": 3
-    },
-    {
-      "title": "Tomb Bomber",
-      "rating": "2 1/2 Stars",
-      "id": 4
-    },
-    {
-      "title": "The Godfather",
-      "rating": "3 1/2 Stars",
-      "id": 5
-    },
-    {
-      "title": "Grease 4",
-      "rating": "Total Bomb!",
-      "id": 6
     }
   ]
 }
