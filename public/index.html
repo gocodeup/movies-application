@@ -7,9 +7,56 @@
 </head>
 <body>
 
+<<<<<<< Updated upstream
     <div class="container">
         <h1>Hello There!</h1>
         <p>To get started, edit <code>src/index.js</code>.</p>
+=======
+    <div id="loading-thing">
+        <h1>Loading...</h1>
+    </div>
+
+    <div id="loading">TEST!!</div>
+
+    <div class="container page">
+        <h1>Amazing Movie App</h1>
+        <p>Be your own banana.</p>
+
+        <hr>
+
+        <!-----Space for displaying current movies, generated with JS------>
+        <div class="tile" id="current-movie-container">
+            <div id="movie-display">
+                <!-----JS HTML will go here.----->
+                <div class="movieDetails">
+                    <h3 class="title">Movie</h3>
+                    <h2 class="rating">Rating</h2>
+                </div>
+            </div>
+            <div id="button-display">
+                <div class="btn">
+                    <button id="editBtn">Edit</button>
+                    <button id="deleteBtn">Delete</button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-----Tile for adding a new movie----->
+        <div class="tile" id="form-container">
+            <form id="new-movie-form">
+                <h3 id="new-movie-heading">Add Another Movie????</h3>
+
+                <label for="movie-title">Movie Title!</label>
+                <input type="text" id="movie-title"><br>
+
+                <label for="movie-rating">Rating: </label>
+                <input type="text" id="movie-rating"><br>
+
+                <button id="add-movie">Add Movie</button>
+            </form>
+        </div>
+>>>>>>> Stashed changes
     </div>
 
     <script src="./main.js"></script>
