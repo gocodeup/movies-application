@@ -21,29 +21,55 @@
         <hr>
 
         <!-----Space for displaying current movies, generated with JS------>
-        <div class="tile" id="current-movie-container">
+        <div class="larger-space" id="current-movie-container">
             <div id="movie-display">
-                <!-----JS HTML will go here.----->
-                <div class="movieDetails">
-                </div>
+
+                <!-----JS HTML will populate here.----->
+
             </div>
         </div>
 
 
-        <!-----Tile for adding a new movie----->
-        <div class="tile" id="form-container">
-            <form id="new-movie-form">
-                <h3 id="new-movie-heading">Add Another Movie????</h3>
+    <div class="bottom hidden">
+        <hr>
 
-                <label for="movie-title">Movie Title!</label>
-                <input type="text" id="movie-title"><br>
+            <!-----Tile for adding a new movie----->
+            <div class="tile form-container">
+                <form id="new-movie-form">
+                    <h3 id="new-movie-heading">Add Another Movie????</h3>
 
-                <label for="movie-rating">Rating: </label>
-                <input type="text" id="movie-rating"><br>
+                    <label for="movie-title">Movie Title!</label>
+                    <input type="text" id="movie-title"><br>
 
-                <button id="add-movie">Add Movie</button>
-            </form>
-        </div>
+                    <label for="movie-rating">Rating: </label>
+                    <input type="text" id="movie-rating"><br>
+
+                    <button id="add-movie">Add Movie</button>
+                </form>
+            </div>
+
+                <!---This is the place for editing movie data------>
+            <div class="tile form-container">
+                <form id="edit-movie">
+                    <h3 id="edit-movie-heading">EDIT an existing movie????</h3>
+
+                    <label for="movie-id">Enter the movie ID!</label>
+                    <input type="text" id="movie-id"><br>
+
+                    <hr>
+
+                    <label for="movie-title-edit">Edit the Movie Title:</label>
+                    <input type="text" id="movie-title-edit"><br>
+
+                    <label for="movie-rating-edit">Edit the Rating: </label>
+                    <input type="text" id="movie-rating-edit"><br>
+
+                    <button id="edit-movie-button">Edit Movie</button>
+                </form>
+            </div>
+
+    </div>
+
     </div>
     <script src="./main.js"></script>
 </body>

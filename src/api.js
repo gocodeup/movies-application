@@ -21,9 +21,37 @@ module.exports = {
       body: JSON.stringify(newMovie),
     };
     fetch(url, options)
-        .then(/* post was created successfully */)
+        .then(alert("You've added a movie!"))
         .catch(/* handle errors */);
-  }
+  },
+
+  deleteMovie: (jsonMovieID) => {
+    const url = '/api/movies/' + jsonMovieID;
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      // body: JSON.stringify(movie),
+    };
+    fetch(url, options)
+        .then(alert("You have deleted me!"))
+  },
+
+    editMovie: (jsonMovieID, movieTitle, rating) => {
+      const updateMovie = {title: movieTitle, rating: rating};
+      const url = '/api/movies/' + jsonMovieID;
+      const options = {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updateMovie),
+      };
+      fetch(url, options)
+          .then(alert("You have edited me!"))
+
+    }
 
   // deleteMovie: () => {
   //   const movie = {title: "", rating: ""};

@@ -1,19 +1,34 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
-      "rating": "4",
-      "id": 1
-    },
-    {
-      "title": "Star Wars: A New Hope",
-      "rating": "5",
-      "id": 2
-    },
-    {
-      "title": "shrek 2",
-      "rating": "5",
+      "title": "While You Were Sleeping",
+      "rating": "11",
       "id": 3
+    },
+    {
+      "title": "Cars Ran Over My Cat II",
+      "rating": "1",
+      "id": 5
+    },
+    {
+      "title": "Bob Eats a Snail",
+      "rating": "22",
+      "id": 7
+    },
+    {
+      "title": "Aliens: Friendly Dudes Who Use Weapons of Mass Destruction to Express Love",
+      "rating": "1",
+      "id": 8
+    },
+    {
+      "title": "Sleeping Uncle",
+      "rating": "2",
+      "id": 9
+    },
+    {
+      "title": "The Greatest (Most Awesome) Movie Ever",
+      "rating": "1",
+      "id": 10
     }
   ]
 }
