@@ -122,10 +122,4 @@ $(document).on('click', '#edit-movie-button', function(event) {
   });
 });
 
-// $("#deleteBtn").on("click", function () {
-//   alert("click");
-// //  code to send Delete request
-//   deleteMovie().then(() => {
-//
-//   })
 
