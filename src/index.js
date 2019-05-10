@@ -1,7 +1,9 @@
 /**
  * es6 modules and imports
  */
+
 // Loading function
+
 function onReady(callback) {
   let intervalId = window.setInterval(function() {
     if (document.getElementsByTagName('body')[0] !== undefined) {
@@ -20,12 +22,17 @@ onReady(function() {
   setVisible('#loading', false);
 });
 
+
+//===========================================//
+
+
 import sayHello from './hello';
 sayHello('World');
 
 /**
  * require style imports
  */
+
 
 const $ = require('jquery');
 
@@ -41,6 +48,7 @@ getMovies().then((movies) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.');
   console.log(error);
 });
+
 
 const makeHtml = (movies) => {
     let html = "";
@@ -60,9 +68,11 @@ getMovies().then(data => {
 });
 
 // Adds new movie on button click
+
 $('#add-movie').click(function(event){
   //prevents the page from refreshing
   event.preventDefault();
+
 
    //mmmm...store the value of the text inputs into variables
     let movieTitle = $("#movie-title").val();
