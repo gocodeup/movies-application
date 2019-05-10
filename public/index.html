@@ -7,18 +7,30 @@
 </head>
 <body>
 
-    <div id="loading-thing">
-        <h1>Loading...</h1>
-    </div>
 
-    <div id="loading">TEST!!</div>
-
-    <div class="container page">
+    <div class="container-page">
         <h1>Amazing Movie App</h1>
         <p>Be your own banana.</p>
 
+        <!-- Loading image area -->
+        <div id="loading-thing">
+            <!--        <img src="../images/91.gif" alt="">-->
+            <h1>Loading...</h1>
+        </div>
+
         <hr>
 
+        <!-----Space for displaying current movies, generated with JS------>
+        <div class="tile" id="current-movie-container">
+            <div id="movie-display">
+                <!-----JS HTML will go here.----->
+                <div class="movieDetails">
+                </div>
+            </div>
+        </div>
+
+
+        <!-----Tile for adding a new movie----->
         <div class="tile" id="form-container">
             <form id="new-movie-form">
                 <h3 id="new-movie-heading">Add Another Movie????</h3>
@@ -33,7 +45,6 @@
             </form>
         </div>
     </div>
-
     <script src="./main.js"></script>
 </body>
 </html>
