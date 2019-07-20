@@ -1,11 +1,17 @@
+
+
+
 // module.exports = {
 //   getMovies: () => {
-//     return
-    fetch('https://api.themoviedb.org/3/movie/550?api_key=',{headers: {'Authorization':'token ' + tmdbKey}})
-    .then(response => response.json())
-        .then(data => console.log(data));
-  //
-
+//     return fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${omdbKey}`)
+//       .then(response => response.json());
+//   }
 // };
 
+module.exports = {
+  getMovies: () => {
+    return fetch(`http://www.omdbapi.com/?apikey=${omdbKey}&t=batman`)
+        .then(response => response.json());
+  }
+};
 
