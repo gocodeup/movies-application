@@ -1,5 +1,6 @@
 /**
  * es6 modules and imports
+
  */
 import sayHello from './hello';
 sayHello('World');
@@ -8,6 +9,7 @@ sayHello('World');
  * require style imports
  */
 const {getMovies} = require('./api.js');
+
 
 // getMovies().then((movies) => {
 //   console.log('Here are all the movies:');
@@ -19,6 +21,8 @@ const {getMovies} = require('./api.js');
 //   console.log(error);
 // });
 
+
 getMovies()
 // .then(response =>response.json())
 .then(data => console.log(data));
+

@@ -1,5 +1,6 @@
 
 
+
 // module.exports = {
 //   getMovies: () => {
 //     return fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${omdbKey}`)
@@ -13,3 +14,4 @@ module.exports = {
         .then(response => response.json());
   }
 };
+
