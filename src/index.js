@@ -57,8 +57,9 @@ getMovies()
 $('#btn-1').on("click", function (e) {
     e.preventDefault();
     let input = $('#searchText');
-    return fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${omdbKey}&t${input.val()}`)
+    return fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${omdbKey}&t=${input.val()}`)
         .then(response => response.json())
+        .then(data => console.log(data))
 })
 
 

@@ -1,5 +1,5 @@
 
-import description from './index'
+// import description from './index'
 require('./index.js')
 const omdbKey = "aefabb3f";
 
