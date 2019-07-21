@@ -1,6 +1,6 @@
 
 // import description from './index'
-require('./index.js')
+require('./movieSearch.js')
 const omdbKey = "aefabb3f";
 
 module.exports = {

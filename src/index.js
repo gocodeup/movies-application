@@ -32,7 +32,6 @@ const {getMovies} = require('./api.js');
 //     console.log(movieSearch)
 //   }
 // })
-const omdbKey = "aefabb3f";
 // const searchString = ($('#searchText').val());
 // const search = searchString.replace(/\s/g, "");
 
@@ -43,9 +42,10 @@ const omdbKey = "aefabb3f";
 //       // .then(data => console.log(data))
 
 
+const omdbKey = "aefabb3f";
 
-getMovies()
-    .then(data => console.log(data));
+// getMovies()
+//     .then(data => console.log(data));
 
 // $("#log-form").submit(function(e){
 //     e.preventDefault();
@@ -54,13 +54,13 @@ getMovies()
 //     $("#log-form").trigger("reset");
 //     $("#log-output").append(pText).scrollTop(9999999999999999);
 
-$('#btn-1').on("click", function (e) {
-    e.preventDefault();
-    let input = $('#searchText');
-    return fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${omdbKey}&t=${input.val()}`)
-        .then(response => response.json())
-        .then(data => console.log(data))
-})
+// $('#btn-1').on("click", function (e) {
+//     e.preventDefault();
+//     let input = $('#searchText');
+//     return fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${omdbKey}&s=${input.val()}&type=movie&r=json`)
+//         .then(response => response.json())
+//         .then(data => console.log(data))
+// })
 
 
 
