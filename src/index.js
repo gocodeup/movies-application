@@ -33,20 +33,33 @@ const {getMovies} = require('./api.js');
 //   }
 // })
 const omdbKey = "aefabb3f";
-const searchString = ($('#searchText').val());
-const search = searchString.replace(/\s/g, "");
+// const searchString = ($('#searchText').val());
+// const search = searchString.replace(/\s/g, "");
 
-$('#btn-1').on('click', function () {
-  console.log(search);
-  return fetch(`http://www.omdbapi.com/?apikey=${omdbKey}&t${search}`)
-      .then(response => response.json())
-      // .then(data => console.log(data))
+// $('#btn-1').on('click', function () {
+//   console.log(search);
+//   return fetch(`http://www.omdbapi.com/?apikey=${omdbKey}&t${search}`)
+//       .then(response => response.json())
+//       // .then(data => console.log(data))
 })
 
 
-// getMovies()
-//     .then(data => console.log(data));
+getMovies()
+    .then(data => console.log(data));
 
+// $("#log-form").submit(function(e){
+//     e.preventDefault();
+//     let input = $("#log-form-input");
+//     var pText = `<p class="output-p"><span class="output-arrow">-></span>${input.val()}</p>`;
+//     $("#log-form").trigger("reset");
+//     $("#log-output").append(pText).scrollTop(9999999999999999);
+
+$('#btn-1').on("click", function (e) {
+    e.preventDefault();
+    let input = $('#searchText');
+    return fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${omdbKey}&t${input.val()}`)
+        .then(response => response.json())
+})
 
 
 
