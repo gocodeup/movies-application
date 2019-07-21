@@ -41,7 +41,7 @@ const omdbKey = "aefabb3f";
 //   return fetch(`http://www.omdbapi.com/?apikey=${omdbKey}&t${search}`)
 //       .then(response => response.json())
 //       // .then(data => console.log(data))
-})
+
 
 
 getMovies()
