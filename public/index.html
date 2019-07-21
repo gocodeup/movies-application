@@ -6,12 +6,45 @@
     <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-
-    <div class="container">
-        <h1>Hello There!</h1>
-        <p>To get started, edit <code>src/index.js</code>.</p>
-    </div>
+<!--to add movie/rate-->
+<div>
+    <fieldset>
+        <legend>Movie Title:</legend>
+        <input type="text" class="inputTitle" id="inputTitle">
+    </fieldset>
+    <fieldset class="inputRating">
+        <legend>Please rate:</legend>
+        <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+        <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+        <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
+        <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+        <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+    </fieldset>
+    <input type="submit" class="addMovieBtn" id="addMovieBtn">
+</div>
+<!--    <div class="container">-->
+<!--        <h1>Hello There!</h1>-->
+<!--        <p>To get started, edit <code>src/index.js</code>.</p>-->
+<!--    </div>-->
 
     <script src="main.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
