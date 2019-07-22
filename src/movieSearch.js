@@ -31,7 +31,7 @@ $('#btn-1').on("click", function () {
 	})
 		.then(response => response.json())
 		.then((data) => {
-			let movies = data.Search;
+			const movies = data.Search;
 			console.log(movies)
 			console.log(movies[3].Title)
 		})
