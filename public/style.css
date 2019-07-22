@@ -1,14 +1,59 @@
-html, body {
+html {
     height: 100%;
+    width: 100%;
+    position: absolute;
 }
+/*body {*/
+/*    height: 100%;*/
+/*    width: 80%;*/
+/*    margin-left: 20%;*/
+/*    margin-right: 20%;*/
+/*    text-align: center;*/
+/*}*/
+/*.container {*/
+/*    position: relative;*/
+/*    top: 30%;*/
+/*    transform: translateY(-100%);*/
+/*    text-align: center;*/
+/*}*/
 
-.container {
+
+/*.movieTitle {*/
+/*    border: 1px solid black;*/
+/*    height: 20em;*/
+/*    width: 1em;*/
+/*}*/
+
+/*#title1, #title4, #title7 {*/
+/*    margin-left: 10em;*/
+/*    margin-right: 7.5em;*/
+/*}*/
+
+/*#title3, #title6, #title9 {*/
+/*    margin-right: 10em;*/
+/*    margin-left: 7.5em;*/
+/*}*/
+
+/*.movieTitle {*/
+/*    margin-bottom: 2.5em;*/
+/*    margin-top: 2.5em;*/
+/*}*/
+
+.posterImage {
+    /*margin: 10px;*/
+    margin-left: 0px;
     position: relative;
-    top: 50%;
-    transform: translateY(-100%);
-    text-align: center;
+    left: 25%;
+    height: 20em;
+    width: 12.5em;
+    border-right: 1px solid black;
 }
 
+.apiMovieTitle {
+    position: relative;
+    /*text-align: cen/ter;*/
+    left: 40%;
+}
 /*star rating css*/
 .inputRating {
     float:left;
