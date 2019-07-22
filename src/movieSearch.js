@@ -23,14 +23,18 @@ $('#btn-1').on("click", function () {
 			// console.log(movies)
 
 			for (var i = 0; i < 3; i++) {
-						$(`<div class="col-4 movieTitle"><img class="posterImage" src="${movies[i].Poster}"/></div>`).appendTo("#row1");
-				}   for (var i = 3; i < 6; i++) {
-						$(`<div class="col-4 movieTitle"><img class="posterImage" src="${movies[i].Poster}"/></div>`).appendTo("#row2");
-				}   for (var i = 6; i < 9; i++) {
-						$(`<div class="col-4 movieTitle"><img class="posterImage" src="${movies[i].Poster}"/></div>`).appendTo("#row3");
-				}
-			})
+				$(`<div class="col-4 movieTitle" data-target="movieModal"><img class="posterImage" src="${movies[i].Poster}"/><br><span class="apiMovieTitle">${movies[i].Title}<button id="btn-${[i]}" type="button" class="button" data-target="#movieModal" data-toggle="modal"></button></span></div>`).appendTo("#row1");
+			}
+			for (var i = 3; i < 6; i++) {
+				$(`<div class="col-4 movieTitle" data-target="movieModal"><img class="posterImage" src="${movies[i].Poster}"/><br><span class="apiMovieTitle">${movies[i].Title}<button id="btn-${[i]}" type="button" class="button" data-target="#movieModal" data-toggle="modal"></button></span></div>`).appendTo("#row2");
+			}
+			for (var i = 6; i < 9; i++) {
+				$(`<div class="col-4 movieTitle" data-target="movieModal"><img class="posterImage" src="${movies[i].Poster}"/><br><span class="apiMovieTitle">${movies[i].Title}<button id="btn-${[i]}" type="button" class="button" data-target="#movieModal" data-toggle="modal"></button></span></div>`).appendTo("#row3");
+			}
+
 		})
+
+})
 
 
 

@@ -41,9 +41,16 @@ html {
 
 .posterImage {
     margin: 15px;
+    margin-left: 0px;
     position: relative;
     left: 25%;
     height: 20em;
     width: 12.5em;
     border-right: 1px solid black;
+}
+
+.apiMovieTitle {
+    position: relative;
+    /*text-align: cen/ter;*/
+    left: 40%;
 }
