@@ -7,35 +7,33 @@ sayHello('World');
 
 const {getMovies} = require('./api.js');
 
-
-
-
-
-
 const omdbKey = "aefabb3f";
-// var searchedMovie;
 
-// let movies;
-let moviesArr = [];
 
 
 let input = $('#searchText');
 $('#btn-1').on("click", function () {
-	fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${omdbKey}&s=${input.val()}&type=movie`, {
-		type: "GET",
-		data: {
-			Title: "",
-			Year: "",
-			imdbID: ""
-		}
-	})
+	$('#row1').empty();
+	$('#row2').empty();
+	$('#row3').empty();
+	fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${omdbKey}&s=${input.val()}&type=movie`)
 		.then(response => response.json())
 		.then((data) => {
-			const movies = data.Search;
-			console.log(movies)
-			console.log(movies[3].Title)
+			let movies = data.Search
+			// console.log(movies)
+
+			for (var i = 0; i < 3; i++) {
+						$(`<div class="col-4 movieTitle"><img class="posterImage" src="${movies[i].Poster}"/></div>`).appendTo("#row1");
+				}   for (var i = 3; i < 6; i++) {
+						$(`<div class="col-4 movieTitle"><img class="posterImage" src="${movies[i].Poster}"/></div>`).appendTo("#row2");
+				}   for (var i = 6; i < 9; i++) {
+						$(`<div class="col-4 movieTitle"><img class="posterImage" src="${movies[i].Poster}"/></div>`).appendTo("#row3");
+				}
+			})
 		})
-	})
+
+
+
 
 	// let input = $('#searchText');
 	// $('#btn-1').on("click", function () {

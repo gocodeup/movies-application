@@ -18,23 +18,32 @@ html {
 /*}*/
 
 
-.movieTitle {
-    border: 1px solid black;
+/*.movieTitle {*/
+/*    border: 1px solid black;*/
+/*    height: 20em;*/
+/*    width: 1em;*/
+/*}*/
+
+/*#title1, #title4, #title7 {*/
+/*    margin-left: 10em;*/
+/*    margin-right: 7.5em;*/
+/*}*/
+
+/*#title3, #title6, #title9 {*/
+/*    margin-right: 10em;*/
+/*    margin-left: 7.5em;*/
+/*}*/
+
+/*.movieTitle {*/
+/*    margin-bottom: 2.5em;*/
+/*    margin-top: 2.5em;*/
+/*}*/
+
+.posterImage {
+    margin: 15px;
+    position: relative;
+    left: 25%;
     height: 20em;
-    width: 1em;
-}
-
-#title1, #title4, #title7 {
-    margin-left: 10em;
-    margin-right: 7.5em;
-}
-
-#title3, #title6, #title9 {
-    margin-right: 10em;
-    margin-left: 7.5em;
-}
-
-.movieTitle {
-    margin-bottom: 2.5em;
-    margin-top: 2.5em;
+    width: 12.5em;
+    border-right: 1px solid black;
 }
