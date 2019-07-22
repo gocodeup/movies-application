@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 
 import data from './api';
 
@@ -60,27 +58,6 @@ data.deleteMovies(id);
   data.displayFavorites().then(data => postFavorites(data));
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
 /**
  * es6 modules and imports
 
@@ -114,4 +91,3 @@ getMovies().then((movies) => {
 
 
 
->>>>>>> a6aade0d1e24d91b2e445ec3e148528bfb71bb96

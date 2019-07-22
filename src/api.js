@@ -18,27 +18,21 @@ const $ = require('jquery');
 
 
 module.exports = {
-<<<<<<< HEAD
   getMovies: () => {
-       return fetch('/api/movies')
-      .then(response => response.json());
-  }
-=======
-    getMovies:() => {
-        return fetch('/api/movies')
-            .then(response => response.json());
-    },
+      return fetch('/api/movies')
+          .then(response => response.json());
 
-    displayFavorites:() => {
-        return fetch('api/movies')
-            .then(response => response.json())
-        // .then(data => console.log(data[0].title))
-        // console.log(data[0])
-        // .forEach(function (data) {
-        //   console.log(datum);
-        // });
+  },
+      displayFavorites:() => {
+          return fetch('api/movies')
+              .then(response => response.json())
+          // .then(data => console.log(data[0].title))
+          // console.log(data[0])
+          // .forEach(function (data) {
+          //   console.log(datum);
+          // });
 
-    },
+      },
 
     addMovies: () => {
         let title = $('#inputTitle').val();
@@ -59,24 +53,18 @@ module.exports = {
     },
 
     deleteMovies: (id) => {
-        const options = {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        };
-        fetch(`api/movies/${id}`, options)
-            .then(resolved => console.log('deleted movie'))
-            .catch(error => console.log('delete movie error'))
-    }
+              const options = {
+                  method: 'DELETE',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  }
+              };
+              fetch(`api/movies/${id}`, options)
+                  .then(resolved => console.log('deleted movie'))
+                  .catch(error => console.log('delete movie error'))
+          }
 
 
-
-
-
-
-
->>>>>>> 7e619adddc0aac0be73f3ec65d72d601ba234583
 };
 
 
