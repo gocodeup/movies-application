@@ -26,8 +26,15 @@ html {
 
 #title1, #title4, #title7 {
     margin-left: 10em;
+    margin-right: 7.5em;
 }
 
 #title3, #title6, #title9 {
     margin-right: 10em;
+    margin-left: 7.5em;
+}
+
+.movieTitle {
+    margin-bottom: 2.5em;
+    margin-top: 2.5em;
 }
