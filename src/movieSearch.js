@@ -21,17 +21,21 @@ let moviesArr = [];
 
 let input = $('#searchText');
 $('#btn-1').on("click", function () {
-	return fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${omdbKey}&s=${input.val()}&type=movie`)
+	fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${omdbKey}&s=${input.val()}&type=movie`, {
+		type: "GET",
+		data: {
+			Title: "",
+			Year: "",
+			imdbID: ""
+		}
+	})
 		.then(response => response.json())
-		.then(data => {
-			const movies = document.createElement('div');
-				data.forEach(movie => {
-					movies.innerHTML +=
-						`title: ${movie.Title}`
-				})
-			$('title').append(movies)
+		.then((data) => {
+			let movies = data.Search;
+			console.log(movies)
+			console.log(movies[3].Title)
 		})
-})
+	})
 
 	// let input = $('#searchText');
 	// $('#btn-1').on("click", function () {

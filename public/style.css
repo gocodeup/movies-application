@@ -4,9 +4,8 @@ html, body {
 
 .container {
     position: relative;
-    top: 50%;
+    top: 30%;
     transform: translateY(-100%);
     text-align: center;
 }
 
-#poster
