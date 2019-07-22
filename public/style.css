@@ -3,6 +3,10 @@ html {
     width: 100%;
     position: absolute;
 }
+container {
+    width: 95%;
+    margin: 0 auto;
+}
 /*body {*/
 /*    height: 100%;*/
 /*    width: 80%;*/
@@ -38,7 +42,11 @@ html {
 /*    margin-bottom: 2.5em;*/
 /*    margin-top: 2.5em;*/
 /*}*/
-
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 .posterImage {
     height: 20em;
     width: 12.5em;
@@ -48,14 +56,8 @@ html {
 .apiMovieTitle {
     position: relative;
     /*text-align: cen/ter;*/
-    left: 10%;
+    /*left: 10%;*/
 }
-.movieTitle {
-    position: relative;
-    ;
-    /*text-align: center;*/
-}
-
 .col-centered {
     float: none;
     margin: 0 auto;
@@ -67,7 +69,7 @@ html {
     margin: 10px auto;
 }
 span {
-    position: absolute;
+    position: relative;
     margin: 5px;
     padding: 5px;
     width: 140px;
