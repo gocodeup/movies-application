@@ -2,7 +2,6 @@
 
 
 
-const omdbKey ='d60b1c83';
 
 // module.exports = {
 //   getMovies: () => {
@@ -22,35 +21,60 @@ const omdbKey ='d60b1c83';
 const $ = require('jquery');
 
 
-// module.exports = {
-   const getMovies= () => {
-    return fetch('/api/movies')
-        .then(response => response.json());
-  };
+module.exports = {
+    getMovies:() => {
+        return fetch('/api/movies')
+            .then(response => response.json());
+    },
 
+    displayFavorites:() => {
+        return fetch('api/movies')
+            .then(response => response.json())
+        // .then(data => console.log(data[0].title))
+        // console.log(data[0])
+        // .forEach(function (data) {
+        //   console.log(datum);
+        // });
 
-// exports = {
-  const addMovies = () => {
-    let title = $('#inputTitle').val();
-    let rating = $('input:radio[name=rating]:checked').val();
+    },
 
-    // let rating = $('#inputRating').val();
+    addMovies: () => {
+        let title = $('#inputTitle').val();
+        let rating = $('input:radio[name=rating]:checked').val();
+
 
     const addedMovie = {title: title, rating: rating};
     const options = {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(addedMovie),
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(addedMovie),
     };
     fetch('/api/movies', options)
         .then(() => console.log('added the movie'))
         .catch(error => console.log('error'))
-  };
+    },
+
+    deleteMovies: (id) => {
+        const options = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        fetch(`api/movies/${id}`, options)
+            .then(resolved => console.log('deleted movie'))
+            .catch(error => console.log('delete movie error'))
+    }
 
 
-export default {getMovies, addMovies}
+
+
+
+
+
+};
 
 
 
