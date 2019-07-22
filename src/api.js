@@ -2,14 +2,9 @@
 
 
 
-
-
-// module.exports = {
-//   getMovies: () => {
-//     return fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${omdbKey}`)
-//       .then(response => response.json());
-//   }
-// };
+// import description from './index'
+require('./movieSearch.js')
+const omdbKey = "aefabb3f";
 
 //
 // module.exports = {
@@ -23,21 +18,21 @@ const $ = require('jquery');
 
 
 module.exports = {
-    getMovies:() => {
-        return fetch('/api/movies')
-            .then(response => response.json());
-    },
+  getMovies: () => {
+      return fetch('/api/movies')
+          .then(response => response.json());
 
-    displayFavorites:() => {
-        return fetch('api/movies')
-            .then(response => response.json())
-        // .then(data => console.log(data[0].title))
-        // console.log(data[0])
-        // .forEach(function (data) {
-        //   console.log(datum);
-        // });
+  },
+      displayFavorites:() => {
+          return fetch('api/movies')
+              .then(response => response.json())
+          // .then(data => console.log(data[0].title))
+          // console.log(data[0])
+          // .forEach(function (data) {
+          //   console.log(datum);
+          // });
 
-    },
+      },
 
     addMovies: () => {
         let title = $('#inputTitle').val();
@@ -58,22 +53,18 @@ module.exports = {
     },
 
     deleteMovies: (id) => {
-        const options = {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        };
-        fetch(`api/movies/${id}`, options)
-            .then(resolved => console.log('deleted movie'))
-            .catch(error => console.log('delete movie error'))
-    }
-
-
-
-
-
+              const options = {
+                  method: 'DELETE',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  }
+              };
+              fetch(`api/movies/${id}`, options)
+                  .then(resolved => console.log('deleted movie'))
+                  .catch(error => console.log('delete movie error'))
+          }
 
 
 };
+
 
