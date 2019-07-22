@@ -40,10 +40,6 @@ html {
 /*}*/
 
 .posterImage {
-    /*margin: 10px;*/
-    margin-left: 0px;
-    position: relative;
-    left: 25%;
     height: 20em;
     width: 12.5em;
     border-right: 1px solid black;
@@ -52,12 +48,39 @@ html {
 .apiMovieTitle {
     position: relative;
     /*text-align: cen/ter;*/
-    left: 40%;
+    left: 10%;
 }
+.movieTitle {
+    position: relative;
+    ;
+    /*text-align: center;*/
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+    left: 22.5px;
+}
+
+.col-4 {
+    float: none;
+    margin: 10px auto;
+}
+span {
+    position: absolute;
+    margin: 5px;
+    padding: 5px;
+    width: 140px;
+}
+
+
+
+
 /*star rating css*/
 .inputRating {
     float:left;
 }
+
 
 /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t
    follow these rules. Every browser that supports :checked also supports :not(), so
