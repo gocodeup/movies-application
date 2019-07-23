@@ -1,0 +1,3 @@
+
+
+$('#favoriteBtn').on('click', addSearchedMovie());

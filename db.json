@@ -1,19 +1,39 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
+      "title": "Jaws",
       "rating": "3",
-      "id": 1
+      "id": 4
+    },
+    {
+      "title": "Halloween",
+      "rating": "5",
+      "id": 5
     },
     {
       "title": "Suicide Squad",
-      "rating": "3",
-      "id": 3
+      "rating": "5",
+      "id": 6
     },
     {
-      "title": "Jaws",
+      "title": "Toy Story",
+      "rating": "5",
+      "id": 7
+    },
+    {
+      "title": "Batman",
       "rating": "4",
-      "id": 4
+      "id": 8
+    },
+    {
+      "title": "Toy Story 4",
+      "rating": "5",
+      "id": 9
+    },
+    {
+      "title": "Batman v Superman: Dawn of Justice - (2016)",
+      "rating": 5,
+      "id": 10
     }
   ]
 }
