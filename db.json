@@ -24,6 +24,11 @@
       "title": "Batman",
       "rating": "4",
       "id": 8
+    },
+    {
+      "title": "Toy Story 4",
+      "rating": "5",
+      "id": 9
     }
   ]
 }

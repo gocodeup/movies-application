@@ -24,7 +24,7 @@ $(document).ready(function () {
 					<img class="posterImage" src="${movies[i].Poster}"/><br>
 						<span class="apiMovieTitle align-self-center text-center"><br class="text-center">${movies[i].Title}<br>
 							<i class="fas fa-info-circle"></i>
-							<button id="btn-${[i]}" type="button" class="button col-4" data-target="#movieModal" data-toggle="modal">More Info</button>
+							<button id="btn-${[i]}" type="button" class="button col-4 rounded-circle shadow btn-outline-dark" data-target="#movieModal" data-toggle="modal">More Info</button>
 						</span>
 					</div>`).appendTo("#row1");
 			}
@@ -35,7 +35,7 @@ $(document).ready(function () {
 					<img class="posterImage" src="${movies[i].Poster}"/><br>
 						<span class="apiMovieTitle align-self-center text-center"><br>${movies[i].Title}<br>
 							<i class="fas fa-info-circle"></i>
-							<button id="btn-${[i]}" type="button" class="button col-4" data-target="#movieModal" data-toggle="modal">More Info</button>
+							<button id="btn-${[i]}" type="button" class="button col-4 rounded-circle shadow btn-outline-dark" data-target="#movieModal" data-toggle="modal">More Info</button>
 						</span>
 					</div>`).appendTo("#row2");
 			}
@@ -46,7 +46,7 @@ $(document).ready(function () {
 					<img class="posterImage" src="${movies[i].Poster}"/><br>
 						<span class="apiMovieTitle align-self-center text-center"><br>${movies[i].Title}<br>
 							<i class="fas fa-info-circle"></i>
-							<button id="btn-${[i]}" type="button" class="button col-4" data-target="#movieModal" data-toggle="modal">More Info</button>
+							<button id="btn-${[i]}" type="button" class="button col-4 rounded-circle shadow btn-outline-dark" data-target="#movieModal" data-toggle="modal">More Info</button>
 						</span>
 					</div>`).appendTo("#row3");
 			}

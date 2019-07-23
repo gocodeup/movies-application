@@ -6,12 +6,22 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/style.css"/>
     <script src="https://kit.fontawesome.com/0495de1e37.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Atma:500|Fascinate+Inline|Faster+One|Patua+One&display=swap" rel="stylesheet">
+
 </head>
 <body>
+    <header class="row text-center my-3">
+        <div class="col-1">
+        <img class="ml-5" src="https://www.sccpre.cat/mypng/full/74-746681_see-here-movie-clipart-black-and-white-images.png" height="50" width="50" alt="icon">
+        </div>
+        <div class="col-11">
+        <h1 class="mr-5">Explore the World of Film</h1>
+        </div>
+    </header>
     <div class="container">
 
     <div class="row">
-        <div class="col-5 col-centered text-center"><input id="searchText" type="text" placeholder="Movie Title..."><button id="btn1" class="button">Search</button></div>
+        <div class="col-5 col-centered text-center my-3"><input class="rounded border-dark" id="searchText" type="text" placeholder="Movie Title..."><button id="btn1" class="button rounded btn-outline-dark">Search</button></div>
     </div>
         <hr>
             <div id="row1" class="row text-center"></div>
@@ -24,43 +34,51 @@
 
         <hr>
 
+<!--add a movie-->
 
-        <div>
-            <fieldset>
-                <legend>Movie Title:</legend>
-                <input type="text" class="inputTitle" id="inputTitle">
-            </fieldset>
-<!--            <fieldset class="inputRating">-->
-<!--                <legend>Please rate:</legend>-->
-<!--                <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>-->
-<!--                <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>-->
-<!--                <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>-->
-<!--                <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>-->
-<!--                <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>-->
-<!--            </fieldset>-->
-            <div class="rating">
-                <input type="radio" id="star5" name="rating" value="5" />
-                <label class="star" for="star5" title="Awesome" aria-hidden="true"></label>
-                <input type="radio" id="star4" name="rating" value="4" />
-                <label class="star" for="star4" title="Great" aria-hidden="true"></label>
-                <input type="radio" id="star3" name="rating" value="3" />
-                <label class="star" for="star3" title="Very good" aria-hidden="true"></label>
-                <input type="radio" id="star2" name="rating" value="2" />
-                <label class="star" for="star2" title="Good" aria-hidden="true"></label>
-                <input type="radio" id="star1" name="rating" value="1" />
-                <label class="star" for="star1" title="Bad" aria-hidden="true"></label>
+        <div class="row ml-5">
+            <div class="col 3">
+                <fieldset>
+                    <legend>Movie Title:</legend>
+                    <input type="text" class="inputTitle rounded border-dark" id="inputTitle">
+                </fieldset>
             </div>
-            <input type="submit" class="addMovieBtn" id="addMovieBtn" value="Add Movie">
+            <div class="col 6">
+                <fieldset class="inputRating">
+                    <legend>Please rate:</legend>
+                    <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+                    <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+                    <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
+                    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+                    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+                </fieldset>
+            </div>
+    <!--            <div class="rating">-->
+    <!--                <input type="radio" id="star5" name="rating" value="5" />-->
+    <!--                <label class="star" for="star5" title="Awesome" aria-hidden="true"></label>-->
+    <!--                <input type="radio" id="star4" name="rating" value="4" />-->
+    <!--                <label class="star" for="star4" title="Great" aria-hidden="true"></label>-->
+    <!--                <input type="radio" id="star3" name="rating" value="3" />-->
+    <!--                <label class="star" for="star3" title="Very good" aria-hidden="true"></label>-->
+    <!--                <input type="radio" id="star2" name="rating" value="2" />-->
+    <!--                <label class="star" for="star2" title="Good" aria-hidden="true"></label>-->
+    <!--                <input type="radio" id="star1" name="rating" value="1" />-->
+    <!--                <label class="star" for="star1" title="Bad" aria-hidden="true"></label>-->
+    <!--            </div>-->
+            <div class="col 3 my-4">
+                <input type="submit" class="addMovieBtn btn-lg btn-outline-dark" id="addMovieBtn" value="Add Movie">
+            </div>
+            </div>
         </div>
         <!--favorites list-->
 
-        <div class="favoritesList" id="favoritesList"></div>
+        <div class="favoritesList container" id="favoritesList"></div>
 
         <!-- edit/update modal-->
 
         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div class="modal-content" id="editModalContent">
                     <div class="modal-header">
                         <h5 class="modal-title" id="editMovieModal"></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -68,7 +86,7 @@
                         </button>
                     </div>
                     <div class="modal-body" id="editModalBody">
-                        <fieldset>
+                        <fieldset class="text-center">
                             <legend>Movie Title:</legend>
                             <input type="text" class="editTitle" id="editTitle">
                         </fieldset>
@@ -80,19 +98,21 @@
 <!--                            <input type="radio" id="editStar2" name="editRating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>-->
 <!--                            <input type="radio" id="editStar1" name="editRating" value="1" /><label for="star1" title="Sucks big time">1 star</label>-->
 <!--                        </fieldset>-->
-                        <div class="erating">
-                            <input type="radio" id="estar5" name="erating" value="5" />
-                            <label class="star" for="star5" title="Awesome" aria-hidden="true">5</label>
-                            <input type="radio" id="estar4" name="erating" value="4" />
-                            <label class="star" for="star4" title="Great" aria-hidden="true">4</label>
+                        <div class="text-center">
+                        <div class="erating text-center">
+                            <input type="radio" id="estar5" name="erating" value="1" />
+                            <label class="star" for="star5" title="Awesome" aria-hidden="true">1</label>
+                            <input type="radio" id="estar4" name="erating" value="2" />
+                            <label class="star" for="star4" title="Great" aria-hidden="true">2</label>
                             <input type="radio" id="estar3" name="erating" value="3" />
                             <label class="star" for="star3" title="Very good" aria-hidden="true">3</label>
-                            <input type="radio" id="estar2" name="erating" value="2" />
-                            <label class="star" for="star2" title="Good" aria-hidden="true">2</label>
-                            <input type="radio" id="estar1" name="erating" value="1" />
-                            <label class="star" for="star1" title="Bad" aria-hidden="true">1</label>
+                            <input type="radio" id="estar2" name="erating" value="4" />
+                            <label class="star" for="star2" title="Good" aria-hidden="true">4</label>
+                            <input type="radio" id="estar1" name="erating" value="5" />
+                            <label class="star" for="star1" title="Bad" aria-hidden="true">5</label>
                         </div>
                         <input type="submit" class="updateMovieBtn" id="updateMovieBtn" value="Update Movie">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -108,7 +128,7 @@
     <!-- Modal -->
     <div class="modal fade" id="movieModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content" id="displayModalContent">
                 <div class="modal-header">
                     <h5 class="modal-title text-center" id="movieModalLongTitle"></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
