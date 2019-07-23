@@ -4,6 +4,7 @@ import data from './api';
 const $ = require('jquery');
 
 
+
 //displays movies
 
 data.getMovies()
