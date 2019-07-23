@@ -3,6 +3,10 @@ html {
     width: 100%;
     position: absolute;
 }
+container {
+    width: 95%;
+    margin: 0 auto;
+}
 /*body {*/
 /*    height: 100%;*/
 /*    width: 80%;*/
@@ -38,12 +42,12 @@ html {
 /*    margin-bottom: 2.5em;*/
 /*    margin-top: 2.5em;*/
 /*}*/
-
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 .posterImage {
-    /*margin: 10px;*/
-    margin-left: 0px;
-    position: relative;
-    left: 25%;
     height: 20em;
     width: 12.5em;
     border-right: 1px solid black;
@@ -52,68 +56,45 @@ html {
 .apiMovieTitle {
     position: relative;
     /*text-align: cen/ter;*/
-    left: 40%;
+    /*left: 10%;*/
 }
+.col-centered {
+    float: none;
+    margin: 0 auto;
+    left: 22.5px;
+}
+
+.col-4 {
+    float: none;
+    margin: 10px auto;
+}
+span {
+    position: relative;
+    margin: 5px;
+    padding: 5px;
+    width: 140px;
+}
+
+.loadingDiv {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 )
+                url('http://i.stack.imgur.com/FhHRx.gif') 50% 50% no-repeat;
+}
+body.loading .loadingDiv {
+    overflow: hidden;
+}
+body.loading .loadingDiv {
+    display: block;
+}
+
+
 /*star rating css*/
-
-/*.inputRating {*/
-/*    float:left;*/
-/*}*/
-
-/*.inputRating:not(:checked) > input{*/
-/*    position:absolute;*/
-/*    top:-9999px;*/
-/*    clip:rect(0,0,0,0);*/
-/*}*/
-
-/*.inputRating:not(:checked) > label {*/
-/*    float:right;*/
-/*    width:1em;*/
-/*    padding:0 .1em;*/
-/*    overflow:hidden;*/
-/*    white-space:nowrap;*/
-/*    cursor:pointer;*/
-/*    font-size:200%;*/
-/*    line-height:1.2;*/
-/*    color:#ddd;*/
-/*    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);*/
-/*}*/
-
-/*.inputRating:not(:checked) > label:before {*/
-/*    content: '★ ';*/
-/*}*/
-
-/*.inputRating > input:checked ~ label {*/
-/*    color: #f70;*/
-/*    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);*/
-/*}*/
-
-/*.inputRating:not(:checked) > label:hover,*/
-/*.inputRating:not(:checked) > label:hover ~ label {*/
-/*    color: gold;*/
-/*    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);*/
-/*}*/
-
-/*.inputRating > input:checked + label:hover,*/
-/*.inputRating > input:checked + label:hover ~ label,*/
-/*.inputRating > input:checked ~ label:hover,*/
-/*.inputRating > input:checked ~ label:hover ~ label,*/
-/*.inputRating > label:hover ~ input:checked ~ label {*/
-/*    color: #ea0;*/
-/*    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);*/
-/*}*/
-
-/*.inputRating > label:active {*/
-/*    position:relative;*/
-/*    top:2px;*/
-/*    left:2px;*/
-/*}*/
-.rating {
-    margin-top: 40px;
-    border: none;
-    float: left;
-}
-
 .rating > label {
     color: #90A0A3;
     float: right;
