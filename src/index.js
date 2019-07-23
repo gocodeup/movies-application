@@ -27,7 +27,8 @@ function postFavorites(data) {
     html += '<div >';
     html += `<h5 >${rating}</h5>`;
     html += '</div>';
-    html += `<input type="submit" class="delete" id="${id}" value="Delete Movie">`;
+    html += `<input type="submit" class="delete" data-dbid="${id}" value="Delete Movie">`;
+    html += `<input type="submit" data-toggle='modal' data-target="#editModal" class="edit" id="edit" data-dbid="${id}" value="Edit Movie">`;
     html += '</div>'
   }
   $('#favoritesList').html(html);
@@ -41,46 +42,50 @@ function postFavorites(data) {
 $('#addMovieBtn').on('click',function() {
   let title = $('#inputTitle').val();
   // console.log(title);
-  let rating = $('input:radio[name=rating]:checked').val();
-  // console.log($('input:radio[name=rating]:checked').val());
+  let rating = $('input[name="rating"]:checked').val();
+  console.log($('input[name="rating"]:checked').val());
   data.addMovies();
   $('#inputTitle').val('');//resets the input
   Array.from(document.querySelectorAll('input[name="rating"]:checked'), input => input.checked = false);//resets rating
   data.displayFavorites().then(data => postFavorites(data));
 });
 
+// add to favorites button //
+
+$('#favoriteBtn').on('click', function () {
+  let title = $('#movieModalLongTitle').text();
+  console.log(title)
+  data.addSearchedMovie(title);
+  data.displayFavorites().then(data => postFavorites(data));
+})
+
+
 //delete button functionality
 
 $(document).on('click', ".delete", function(){
   // console.log('delete!');
-  let id = $(this).attr('id');
+  let id = $(this).attr('data-dbid');
   // console.log(id);
 data.deleteMovies(id);
   data.displayFavorites().then(data => postFavorites(data));
 });
 
-/**
- * es6 modules and imports
+//edit functionality
 
- */
-import sayHello from './hello';
-sayHello('World');
-
-/**
- * require style imports
- */
-const {getMovies} = require('./api.js');
-
-//
-getMovies().then((movies) => {
-  console.log('Here are all the movies:');
-  movies.forEach(({title, rating, id}) => {
-    console.log(`id#${id} - ${title} - rating: ${rating}`);
-  });
-}).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.')
-  console.log(error);
+$(document).on('click', '.edit', function() {
+  console.log('edit');
+  let id = $(this).attr('data-dbid');//works correctly
+  console.log(id);
+  data.editMovies(id);
 });
+
+$(document).on('click', '.updateMovieBtn', function(){
+  data.displayFavorites().then(data => postFavorites(data))
+
+});
+//
+
+
 
 
 

@@ -5,6 +5,10 @@ import sayHello from './hello';
 sayHello('World');
 const {getMovies} = require('./api.js');
 const omdbKey = "aefabb3f";
+const {displayFavorites} = require('./api.js');
+const {addSearchedMovie} = require('./api.js');
+const {postFavorites} = require('./api.js');
+
 
 // Populates the page with 'Avengers' movies on page load //
 $(document).ready(function () {
@@ -19,7 +23,7 @@ $(document).ready(function () {
 
 
 			// Adds posters, Titles, and Tiny Buttons to Row-1 on Main page //
-			for (var i = 0; i < 3; i++) {
+			for (var i = 0; i < 9; i++) {
 				$(`<div class="col-4 movieTitle center-block align-self-center " data-target="movieModal">
 					<img class="posterImage" src="${movies[i].Poster}"/><br>
 						<span class="apiMovieTitle align-self-center text-center"><br class="text-center">${movies[i].Title}<br>
@@ -29,27 +33,27 @@ $(document).ready(function () {
 					</div>`).appendTo("#row1");
 			}
 
-			// Adds posters, Titles, and Tiny Buttons to Row-2 on Main page //
-			for (var i = 3; i < 6; i++) {
-				$(`<div class="col-4 movieTitle center-block align-self-center" data-target="movieModal">
-					<img class="posterImage" src="${movies[i].Poster}"/><br>
-						<span class="apiMovieTitle align-self-center text-center"><br>${movies[i].Title}<br>
-							<i class="fas fa-info-circle"></i>
-							<button id="btn-${[i]}" type="button" class="button col-4" data-target="#movieModal" data-toggle="modal">More Info</button>
-						</span>
-					</div>`).appendTo("#row2");
-			}
-
-			// Adds posters, Titles, and Tiny Buttons to Row-3 on Main page //
-			for (var i = 6; i < 9; i++) {
-				$(`<div class="col-4 movieTitle center-block align-self-center" data-target="movieModal">
-					<img class="posterImage" src="${movies[i].Poster}"/><br>
-						<span class="apiMovieTitle align-self-center text-center"><br>${movies[i].Title}<br>
-							<i class="fas fa-info-circle"></i>
-							<button id="btn-${[i]}" type="button" class="button col-4" data-target="#movieModal" data-toggle="modal">More Info</button>
-						</span>
-					</div>`).appendTo("#row3");
-			}
+			// // Adds posters, Titles, and Tiny Buttons to Row-2 on Main page //
+			// for (var i = 3; i < 6; i++) {
+			// 	$(`<div class="col-4 movieTitle center-block align-self-center" data-target="movieModal">
+			// 		<img class="posterImage" src="${movies[i].Poster}"/><br>
+			// 			<span class="apiMovieTitle align-self-center text-center"><br>${movies[i].Title}<br>
+			// 				<i class="fas fa-info-circle"></i>
+			// 				<button id="btn-${[i]}" type="button" class="button col-4" data-target="#movieModal" data-toggle="modal">More Info</button>
+			// 			</span>
+			// 		</div>`).appendTo("#row2");
+			// }
+			//
+			// // Adds posters, Titles, and Tiny Buttons to Row-3 on Main page //
+			// for (var i = 6; i < 9; i++) {
+			// 	$(`<div class="col-4 movieTitle center-block align-self-center" data-target="movieModal">
+			// 		<img class="posterImage" src="${movies[i].Poster}"/><br>
+			// 			<span class="apiMovieTitle align-self-center text-center"><br>${movies[i].Title}<br>
+			// 				<i class="fas fa-info-circle"></i>
+			// 				<button id="btn-${[i]}" type="button" class="button col-4" data-target="#movieModal" data-toggle="modal">More Info</button>
+			// 			</span>
+			// 		</div>`).appendTo("#row3");
+			// }
 
 
 
@@ -162,8 +166,9 @@ $(document).ready(function () {
 						$('#movieModalLongTitle').html(movies[8].Title + ' - ' + '(' + movies[8].Year + ')')
 					})
 			})
+
 		})
-})
+	})
 
 
 
@@ -188,7 +193,7 @@ $('#searchText').keypress(function (e) {
 
 
 				// Adds posters, Titles, and Tiny Buttons to Row-1 on Main page //
-				for (var i = 0; i < 3; i++) {
+				for (var i = 0; i < 9; i++) {
 					$(`<div class="col-4 movieTitle center-block align-self-center " data-target="movieModal">
 					<img class="posterImage" src="${movies[i].Poster}"/><br>
 						<span class="apiMovieTitle align-self-center text-center"><br class="text-center">${movies[i].Title}<br>
@@ -198,27 +203,27 @@ $('#searchText').keypress(function (e) {
 					</div>`).appendTo("#row1");
 				}
 
-				// Adds posters, Titles, and Tiny Buttons to Row-2 on Main page //
-				for (var i = 3; i < 6; i++) {
-					$(`<div class="col-4 movieTitle center-block align-self-center" data-target="movieModal">
-					<img class="posterImage" src="${movies[i].Poster}"/><br>
-						<span class="apiMovieTitle align-self-center text-center"><br>${movies[i].Title}<br>
-							<i class="fas fa-info-circle"></i>
-							<button id="btn-${[i]}" type="button" class="button col-4" data-target="#movieModal" data-toggle="modal">More Info</button>
-						</span>
-					</div>`).appendTo("#row2");
-				}
-
-				// Adds posters, Titles, and Tiny Buttons to Row-3 on Main page //
-				for (var i = 6; i < 9; i++) {
-					$(`<div class="col-4 movieTitle center-block align-self-center" data-target="movieModal">
-					<img class="posterImage" src="${movies[i].Poster}"/><br>
-						<span class="apiMovieTitle align-self-center text-center"><br>${movies[i].Title}<br>
-							<i class="fas fa-info-circle"></i>
-							<button id="btn-${[i]}" type="button" class="button col-4" data-target="#movieModal" data-toggle="modal">More Info</button>
-						</span>
-					</div>`).appendTo("#row3");
-				}
+				// // Adds posters, Titles, and Tiny Buttons to Row-2 on Main page //
+				// for (var i = 3; i < 6; i++) {
+				// 	$(`<div class="col-4 movieTitle center-block align-self-center" data-target="movieModal">
+				// 	<img class="posterImage" src="${movies[i].Poster}"/><br>
+				// 		<span class="apiMovieTitle align-self-center text-center"><br>${movies[i].Title}<br>
+				// 			<i class="fas fa-info-circle"></i>
+				// 			<button id="btn-${[i]}" type="button" class="button col-4" data-target="#movieModal" data-toggle="modal">More Info</button>
+				// 		</span>
+				// 	</div>`).appendTo("#row2");
+				// }
+				//
+				// // Adds posters, Titles, and Tiny Buttons to Row-3 on Main page //
+				// for (var i = 6; i < 9; i++) {
+				// 	$(`<div class="col-4 movieTitle center-block align-self-center" data-target="movieModal">
+				// 	<img class="posterImage" src="${movies[i].Poster}"/><br>
+				// 		<span class="apiMovieTitle align-self-center text-center"><br>${movies[i].Title}<br>
+				// 			<i class="fas fa-info-circle"></i>
+				// 			<button id="btn-${[i]}" type="button" class="button col-4" data-target="#movieModal" data-toggle="modal">More Info</button>
+				// 		</span>
+				// 	</div>`).appendTo("#row3");
+				// }
 
 
 
@@ -233,7 +238,15 @@ $('#searchText').keypress(function (e) {
 							let plot = data.Plot
 							$('#modalBody').html(plot.toString())
 							$('#movieModalLongTitle').html(movies[0].Title + ' - ' + '(' + movies[0].Year + ')')
+								//
+								// $('#favoriteBtn').on('click', function () {
+								// 	let title = movies[0].Title;
+								// 	data.addSearchedMovie();
+								// 	data.displayFavorites().then(data => postFavorites(data));
+								// })
 						})
+
+
 				})
 
 				$('#btn-1').on("click", function () {
@@ -332,5 +345,5 @@ $('#searchText').keypress(function (e) {
 						})
 				})
 			})
-	})
+		})
 
