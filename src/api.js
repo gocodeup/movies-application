@@ -53,7 +53,7 @@ module.exports = {
     },
 
 
-    addSearchedMovie: (title) => {
+    addFavoriteMovie: (title) => {
       // let title = $('#movieModalLongTitle').val();
 
       const addedMovie = {title: title, rating: 5};

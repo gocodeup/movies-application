@@ -55,9 +55,12 @@ $('#addMovieBtn').on('click',function() {
 $('#favoriteBtn').on('click', function () {
   let title = $('#movieModalLongTitle').text();
   console.log(title)
-  data.addSearchedMovie(title);
+  data.addFavoriteMovie(title);
   data.displayFavorites().then(data => postFavorites(data));
 })
+
+// rating modal button //
+
 
 
 //delete button functionality
