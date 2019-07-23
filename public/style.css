@@ -2,10 +2,69 @@ html {
     height: 100%;
     width: 100%;
     position: absolute;
+
 }
 container {
     width: 95%;
     margin: 0 auto;
+}
+
+body {
+    background: #ED213A;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: 'Patua One', cursive;
+    text-shadow: 1px 1px darkgoldenrod;
+}
+
+h2 {
+    text-shadow: 1px 1px lightblue;
+}
+
+.rounded-circle, .button, #addMovieBtn, #updateMovieBtn, #editBtn, #rateBtn, #favoriteBtn{
+    color: black;
+    background-color: goldenrod;
+}
+
+#editModalContent{
+    background-image: url("https://thumbs.gfycat.com/SpiffySecretArmedcrab-size_restricted.gif");
+    background-size: cover;
+    background-position: center;
+    color: darkgoldenrod;
+    text-shadow: 2px 2px black;
+}
+
+#displayModalContent{
+    background-image: url("http://www.helmettown.com/cdn/1/1994/938/blank-index-card-template_188968.gif");
+    background-size: cover;
+    background-position: center;
+}
+
+/*@font-face {*/
+/*    font-family: Boomville;*/
+/*    src: url("../src/Boomville_Personal_License/Boomville_OTF/Boomville.otf") format('opentype');*/
+/*}*/
+
+/*header{*/
+/*    font-family: Boomville;*/
+/*}*/
+
+header{
+    font-family: 'Fascinate Inline', cursive;
+    text-shadow: 2px 2px goldenrod;
+}
+
+.movieTitle{
+    font-family: 'Patua One', cursive;
+    font-size: large;
+    text-shadow: 1px 1px darkgoldenrod;
+    font-weight: bolder;
+}
+.card {
+    background-image: url("https://cdn.pixabay.com/photo/2013/03/08/05/28/filmstrip-91434_960_720.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 /*body {*/
 /*    height: 100%;*/
@@ -94,8 +153,6 @@ body.loading .loadingDiv {
 }
 
 
-/*star rating css*/
-
 /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t
    follow these rules. Every browser that supports :checked also supports :not(), so
    it doesn’t make the test unnecessarily selective */
@@ -125,31 +182,34 @@ body.loading .loadingDiv {
 /*    line-height:1.2;*/
 /*    color:#ddd;*/
 /*    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);*/
+
 /*}*/
 
-/*.inputRating:not(:checked) > label:before {*/
-/*    content: '★ ';*/
+/*.rating > label:before {*/
+/*    margin: 5px;*/
+/*    font-size: 2em;*/
+/*    font-family: FontAwesome;*/
+/*    content: "\f005";*/
+/*    display: inline-block;*/
 /*}*/
 
-/*.inputRating > input:checked ~ label {*/
-/*    color: #f70;*/
-/*    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);*/
+/*.rating > input {*/
+/*    display: none;*/
 /*}*/
 
-/*.inputRating:not(:checked) > label:hover,*/
-/*.inputRating:not(:checked) > label:hover ~ label {*/
-/*    color: gold;*/
-/*    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);*/
+/*.rating > input:checked ~ label,*/
+/*.rating:not(:checked) > label:hover,*/
+/*.rating:not(:checked) > label:hover ~ label {*/
+/*    color: #F79426;*/
 /*}*/
 
-/*.inputRating > input:checked + label:hover,*/
-/*.inputRating > input:checked + label:hover ~ label,*/
-/*.inputRating > input:checked ~ label:hover,*/
-/*.inputRating > input:checked ~ label:hover ~ label,*/
-/*.inputRating > label:hover ~ input:checked ~ label {*/
-/*    color: #ea0;*/
-/*    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);*/
+/*.rating > input:checked + label:hover,*/
+/*.rating > input:checked ~ label:hover,*/
+/*.rating > label:hover ~ input:checked ~ label,*/
+/*.rating > input:checked ~ label:hover ~ label {*/
+/*    color: #FECE31;*/
 /*}*/
+
 
 /*.inputRating > label:active {*/
 /*    position:relative;*/
@@ -166,84 +226,58 @@ body.loading .loadingDiv {
     color: #90A0A3;
     float: right;
 }
-
-.rating > label:before {
-    margin: 5px;
-    font-size: 2em;
-    font-family: FontAwesome;
-    content: "\f005";
-    display: inline-block;
+.inputRating {
+    float:left;
 }
 
-.rating > input {
-    display: none;
+.inputRating:not(:checked) > input{
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
 }
 
-.rating > input:checked ~ label,
-.rating:not(:checked) > label:hover,
-.rating:not(:checked) > label:hover ~ label {
-    color: #F79426;
+.inputRating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
 }
 
-.rating > input:checked + label:hover,
-.rating > input:checked ~ label:hover,
-.rating > label:hover ~ input:checked ~ label,
-.rating > input:checked ~ label:hover ~ label {
-    color: #FECE31;
+.inputRating:not(:checked) > label:before {
+    content: '★ ';
 }
 
-/*.inputRating {*/
-/*    float:left;*/
-/*}*/
+.inputRating > input:checked ~ label {
+    color: #f70;
+    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+}
 
-/*.inputRating:not(:checked) > input{*/
-/*    position:absolute;*/
-/*    top:-9999px;*/
-/*    clip:rect(0,0,0,0);*/
-/*}*/
+.inputRating:not(:checked) > label:hover,
+.inputRating:not(:checked) > label:hover ~ label {
+    color: gold;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
 
-/*.inputRating:not(:checked) > label {*/
-/*    float:right;*/
-/*    width:1em;*/
-/*    padding:0 .1em;*/
-/*    overflow:hidden;*/
-/*    white-space:nowrap;*/
-/*    cursor:pointer;*/
-/*    font-size:200%;*/
-/*    line-height:1.2;*/
-/*    color:#ddd;*/
-/*    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);*/
-/*}*/
+.inputRating > input:checked + label:hover,
+.inputRating > input:checked + label:hover ~ label,
+.inputRating > input:checked ~ label:hover,
+.inputRating > input:checked ~ label:hover ~ label,
+.inputRating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
 
-/*.inputRating:not(:checked) > label:before {*/
-/*    content: '★ ';*/
-/*}*/
-
-/*.inputRating > input:checked ~ label {*/
-/*    color: #f70;*/
-/*    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);*/
-/*}*/
-
-/*.inputRating:not(:checked) > label:hover,*/
-/*.inputRating:not(:checked) > label:hover ~ label {*/
-/*    color: gold;*/
-/*    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);*/
-/*}*/
-
-/*.inputRating > input:checked + label:hover,*/
-/*.inputRating > input:checked + label:hover ~ label,*/
-/*.inputRating > input:checked ~ label:hover,*/
-/*.inputRating > input:checked ~ label:hover ~ label,*/
-/*.inputRating > label:hover ~ input:checked ~ label {*/
-/*    color: #ea0;*/
-/*    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);*/
-/*}*/
-
-/*.inputRating > label:active {*/
-/*    position:relative;*/
-/*    top:2px;*/
-/*    left:2px;*/
-/*}*/
+.inputRating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}
 
 /*.editRating {*/
 /*    float:left;*/

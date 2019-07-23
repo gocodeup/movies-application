@@ -20,15 +20,21 @@ function postFavorites(data) {
     let title = data[i].title;
     let rating = data[i].rating;
     let id = data[i].id;
-    html += '<div >';
-    html += '<div >';
-    html += `<h4>${title}</h4>`;
+    html += '<div class="card my-3">';
+    html += '<div class="card-header text-center">';
+    html += `<h2>${title}</h2>`;
     html += '</div>';
-    html += '<div >';
-    html += `<h5 >${rating}</h5>`;
+    html += '<div class="card-body text-center p-3 m-0">';
+    html += `<h5>${rating}</h5>`;
     html += '</div>';
-    html += `<input type="submit" class="delete" data-dbid="${id}" value="Delete Movie">`;
-    html += `<input type="submit" data-toggle='modal' data-target="#editModal" class="edit" id="edit" data-dbid="${id}" value="Edit Movie">`;
+    html += '<div class="row">';
+    html += '<div class="col 6 text-center mb-2">';
+    html += `<input type="submit" class="delete btn-lg btn-danger" data-dbid="${id}" value="Delete Movie">`;
+    html += '</div>';
+    html += '<div class="col 6 text-center mb-2">';
+    html += `<input type="submit" data-toggle='modal' data-target="#editModal" class="edit btn-lg btn-warning" id="edit" data-dbid="${id}" value="Edit Movie">`;
+    html += '</div>';
+    html += '</div>';
     html += '</div>'
   }
   $('#favoritesList').html(html);

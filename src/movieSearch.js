@@ -28,34 +28,10 @@ $(document).ready(function () {
 					<img class="posterImage" src="${movies[i].Poster}"/><br>
 						<span class="apiMovieTitle align-self-center text-center"><br class="text-center">${movies[i].Title}<br>
 							<i class="fas fa-info-circle"></i>
-							<button id="btn-${[i]}" type="button" class="button col-4" data-target="#movieModal" data-toggle="modal">More Info</button>
+							<button id="btn-${[i]}" type="button" class="button col-4 rounded-circle shadow btn-outline-dark" data-target="#movieModal" data-toggle="modal">More Info</button>
 						</span>
 					</div>`).appendTo("#row1");
 			}
-
-			// // Adds posters, Titles, and Tiny Buttons to Row-2 on Main page //
-			// for (var i = 3; i < 6; i++) {
-			// 	$(`<div class="col-4 movieTitle center-block align-self-center" data-target="movieModal">
-			// 		<img class="posterImage" src="${movies[i].Poster}"/><br>
-			// 			<span class="apiMovieTitle align-self-center text-center"><br>${movies[i].Title}<br>
-			// 				<i class="fas fa-info-circle"></i>
-			// 				<button id="btn-${[i]}" type="button" class="button col-4" data-target="#movieModal" data-toggle="modal">More Info</button>
-			// 			</span>
-			// 		</div>`).appendTo("#row2");
-			// }
-			//
-			// // Adds posters, Titles, and Tiny Buttons to Row-3 on Main page //
-			// for (var i = 6; i < 9; i++) {
-			// 	$(`<div class="col-4 movieTitle center-block align-self-center" data-target="movieModal">
-			// 		<img class="posterImage" src="${movies[i].Poster}"/><br>
-			// 			<span class="apiMovieTitle align-self-center text-center"><br>${movies[i].Title}<br>
-			// 				<i class="fas fa-info-circle"></i>
-			// 				<button id="btn-${[i]}" type="button" class="button col-4" data-target="#movieModal" data-toggle="modal">More Info</button>
-			// 			</span>
-			// 		</div>`).appendTo("#row3");
-			// }
-
-
 
 			// Adds Modal Functionality to tbe Buttons //
 			//A look here would obviously be much cleaner, but I can't figure that out //
