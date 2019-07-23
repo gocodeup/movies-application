@@ -7,92 +7,136 @@
     <link rel="stylesheet" href="/style.css"/>
 </head>
 <body>
-<div class="container">
+    <div class="container">
         <div class="row">
             <div class="col-3"></div>
-            <div class="col-3"><h3>Hello There!</h3></div>
+            <div class="col-3"><input id="searchText" type="text"><button id="btn1" class="button">Search</button></div>
             <div class="col-3"></div>
         </div>
-        <div class="row">
-            <div class="col-3"></div>
-            <div class="col-3">To get started, edit <code>src/index.js</code>.</div>
-            <div class="col-3"></div>
-        </div>
+            <hr>
+    <div id="row1" class="row">
+    <!--    <div id="title1" class="col-2 movieTitle"></div>-->
+    <!--    <div id="title2" class="col-2 movieTitle"></div>-->
+    <!--    <div id="title3" class="col-2 movieTitle"></div>-->
+    </div>
     <hr>
-    <div class="row">
-        <div class="col-3"></div>
-        <div class="col-3"><input id="searchText" type="text"><button id="btn1" class="button">Search</button></div>
-        <div class="col-3"></div>
+    <div id="row2" class="row">
+    <!--    <div id="title4" class="col-2 movieTitle"></div>-->
+    <!--    <div id="title5" class="col-2 movieTitle"></div>-->
+    <!--    <div id="title6" class="col-2 movieTitle"></div>-->
+    </div>
+    <hr>
+    <div id="row3" class="row">
+    <!--    <div id="title7" class="col-2 movieTitle"></div>-->
+    <!--    <div id="title8" class="col-2 movieTitle"></div>-->
+    <!--    <div id="title9" class="col-2 movieTitle"></div>-->
     </div>
         <hr>
-<div id="row1" class="row">
-<!--    <div id="title1" class="col-2 movieTitle"></div>-->
-<!--    <div id="title2" class="col-2 movieTitle"></div>-->
-<!--    <div id="title3" class="col-2 movieTitle"></div>-->
-</div>
-<hr>
-<div id="row2" class="row">
-<!--    <div id="title4" class="col-2 movieTitle"></div>-->
-<!--    <div id="title5" class="col-2 movieTitle"></div>-->
-<!--    <div id="title6" class="col-2 movieTitle"></div>-->
-</div>
-<hr>
-<div id="row3" class="row">
-<!--    <div id="title7" class="col-2 movieTitle"></div>-->
-<!--    <div id="title8" class="col-2 movieTitle"></div>-->
-<!--    <div id="title9" class="col-2 movieTitle"></div>-->
-</div>
-    <hr>
 
-    <div>
-        <fieldset>
-            <legend>Movie Title:</legend>
-            <input type="text" class="inputTitle" id="inputTitle">
-        </fieldset>
-        <fieldset class="inputRating">
-            <legend>Please rate:</legend>
-            <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
-            <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
-            <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
-            <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
-            <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
-        </fieldset>
-        <input type="submit" class="addMovieBtn" id="addMovieBtn" value="Add Movie">
-    </div>
-    <!--favorites list-->
-    <div class="favoritesList" id="favoritesList"></div>
+        <div>
+            <fieldset>
+                <legend>Movie Title:</legend>
+                <input type="text" class="inputTitle" id="inputTitle">
+            </fieldset>
+<!--            <fieldset class="inputRating">-->
+<!--                <legend>Please rate:</legend>-->
+<!--                <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>-->
+<!--                <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>-->
+<!--                <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>-->
+<!--                <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>-->
+<!--                <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>-->
+<!--            </fieldset>-->
+            <div class="rating">
+                <input type="radio" id="star5" name="rating" value="5" />
+                <label class="star" for="star5" title="Awesome" aria-hidden="true"></label>
+                <input type="radio" id="star4" name="rating" value="4" />
+                <label class="star" for="star4" title="Great" aria-hidden="true"></label>
+                <input type="radio" id="star3" name="rating" value="3" />
+                <label class="star" for="star3" title="Very good" aria-hidden="true"></label>
+                <input type="radio" id="star2" name="rating" value="2" />
+                <label class="star" for="star2" title="Good" aria-hidden="true"></label>
+                <input type="radio" id="star1" name="rating" value="1" />
+                <label class="star" for="star1" title="Bad" aria-hidden="true"></label>
+            </div>
+            <input type="submit" class="addMovieBtn" id="addMovieBtn" value="Add Movie">
+        </div>
+        <!--favorites list-->
 
+        <div class="favoritesList" id="favoritesList"></div>
 
-    <!--    //Corresponding Modals//-->
+        <!-- edit/update modal-->
 
-    <!-- Modal -->
-    <div class="modal fade" id="movieModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="movieModalLongTitle"></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" id="modalBody">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="editBtn">Edit</button>
-                    <button type="button" class="btn btn-primary" id="rateBtn">Rate</button>
-                    <button type="button" class="btn btn-primary" id="favoriteBtn">Add to Favorites</button>
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editMovieModal"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="editModalBody">
+                        <fieldset>
+                            <legend>Movie Title:</legend>
+                            <input type="text" class="editTitle" id="editTitle">
+                        </fieldset>
+<!--                        <fieldset class="editRating">-->
+<!--                            <legend>Please rate:</legend>-->
+<!--                            <input type="radio" id="editStar5" name="editRating" value="5" /><label for="star5" title="Rocks!">5 stars</label>-->
+<!--                            <input type="radio" id="editStar4" name="editRating" value="4" /><label for="star4" title="Pretty good">4 stars</label>-->
+<!--                            <input type="radio" id="editStar3" name="editRating" value="3" /><label for="star3" title="Meh">3 stars</label>-->
+<!--                            <input type="radio" id="editStar2" name="editRating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>-->
+<!--                            <input type="radio" id="editStar1" name="editRating" value="1" /><label for="star1" title="Sucks big time">1 star</label>-->
+<!--                        </fieldset>-->
+                        <div class="erating">
+                            <input type="radio" id="estar5" name="erating" value="5" />
+                            <label class="star" for="star5" title="Awesome" aria-hidden="true">5</label>
+                            <input type="radio" id="estar4" name="erating" value="4" />
+                            <label class="star" for="star4" title="Great" aria-hidden="true">4</label>
+                            <input type="radio" id="estar3" name="erating" value="3" />
+                            <label class="star" for="star3" title="Very good" aria-hidden="true">3</label>
+                            <input type="radio" id="estar2" name="erating" value="2" />
+                            <label class="star" for="star2" title="Good" aria-hidden="true">2</label>
+                            <input type="radio" id="estar1" name="erating" value="1" />
+                            <label class="star" for="star1" title="Bad" aria-hidden="true">1</label>
+                        </div>
+                        <input type="submit" class="updateMovieBtn" id="updateMovieBtn" value="Update Movie">
+                    </div>
                 </div>
             </div>
         </div>
 
-<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+
+        <!--    //Corresponding Modals//-->
+
+        <!-- Modal -->
+        <div class="modal fade" id="movieModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="movieModalLongTitle"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="modalBody">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="editBtn">Edit</button>
+                        <button type="button" class="btn btn-primary" id="rateBtn">Rate</button>
+                        <button type="button" class="btn btn-primary" id="favoriteBtn">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+
+    <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
 
 
-<!--    <link rel="stylesheet" href="/style.css" />-->
-    </div>
-</div>
+    <!--    <link rel="stylesheet" href="/style.css" />-->
+        </div>
 
+        </div>
     <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>-->
 <!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->

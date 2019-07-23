@@ -64,6 +64,33 @@ module.exports = {
             .catch(error => console.log('delete movie error'))
     },
 
+    editMovies: (id) => {
+        $(document).on('click', '.updateMovieBtn', function() {
+            let title = $('#editTitle').val();
+            console.log(title);
+            let editradios = document.getElementsByName('erating');
+            let editratevalue = () => {
+                for (let i = 0, length = editradios.length; i < length; i++) {
+                    if (editradios[i].checked) {
+                        return editradios[i].value;
+                        break;
+                    }
+                }
+                };
+                    console.log(editratevalue());
+                    let rating = editratevalue();
+         let editMovie = {title: title, rating: rating, id: id};
+        const options = {
+                    method: 'PATCH',
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(editMovie),
+            };
+        fetch(`/api/movies/${id}`, options).then(resolve => console.log('edit movie')).catch(error => console.log('edit error'));
+
+        });
+    },
 
 };
 
