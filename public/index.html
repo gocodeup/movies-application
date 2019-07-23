@@ -11,8 +11,8 @@
 
 
 <div class="container">
-
     <hr>
+
     <div class="row">
         <div class="col-5 col-centered text-center"><input id="searchText" type="text" placeholder="Movie Title..."><button id="btn1" class="button">Search</button></div>
     </div>
@@ -24,34 +24,13 @@
             <div id="row3" class="row text-center"></div>
                 <hr>
 
-
-<!--        <fieldset>-->
-<!--            <legend>Movie Title:</legend>-->
-<!--            <input type="text" class="inputTitle" id="inputTitle" placeholder="Movie Title...">-->
-<!--        </fieldset>-->
-<!--        <fieldset class="inputRating">-->
-<!--            <legend>Please rate:</legend>-->
-<!--            <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>-->
-<!--            <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>-->
-<!--            <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>-->
-<!--            <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>-->
-<!--            <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>-->
-<!--        </fieldset>-->
-<!--        <input type="submit" class="addMovieBtn" id="addMovieBtn" value="Add Movie">-->
     <div>
         <div>
             <fieldset>
                 <legend>Movie Title:</legend>
                 <input type="text" class="inputTitle" id="inputTitle">
             </fieldset>
-<!--            <fieldset class="inputRating">-->
-<!--                <legend>Please rate:</legend>-->
-<!--                <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>-->
-<!--                <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>-->
-<!--                <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>-->
-<!--                <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>-->
-<!--                <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>-->
-<!--            </fieldset>-->
+
             <div class="rating">
                 <input type="radio" id="star5" name="rating" value="5" />
                 <label class="star" for="star5" title="Awesome" aria-hidden="true"></label>
@@ -85,15 +64,13 @@
                         <fieldset>
                             <legend>Movie Title:</legend>
                             <input type="text" class="editTitle" id="editTitle">
+                            <hr>
+                            <legend>Comments:</legend>
+                            <textarea name="comments" id="textarea" cols="55" rows="5"></textarea>
+                            <hr>
+                            <legend>Rating:</legend>
                         </fieldset>
-                <!------ <fieldset class="editRating">-->
-                <!------     <legend>Please rate:</legend>-->
-                <!------     <input type="radio" id="editStar5" name="editRating" value="5" /><label for="star5" title="Rocks!">5 stars</label>-->
-                <!------     <input type="radio" id="editStar4" name="editRating" value="4" /><label for="star4" title="Pretty good">4 stars</label>-->
-                <!------     <input type="radio" id="editStar3" name="editRating" value="3" /><label for="star3" title="Meh">3 stars</label>-->
-                <!------     <input type="radio" id="editStar2" name="editRating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>-->
-                <!------     <input type="radio" id="editStar1" name="editRating" value="1" /><label for="star1" title="Sucks big time">1 star</label>-->
-                <!------ </fieldset>-->
+
                         <div class="erating">
                             <input type="radio" id="estar5" name="erating" value="5" />
                             <label class="star" for="star5" title="Awesome" aria-hidden="true">5</label>
@@ -112,7 +89,9 @@
             </div>
         </div>
     </div>
-                    <!---------------- Modal ---------------->
+
+
+                                                                     <!---------------- Modal ---------------->
                     <div class="modal fade" id="movieModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -126,26 +105,23 @@
                                     ...
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" id="editBtn">Edit</button>
-                                    <button type="button" class="btn btn-primary" id="rateBtn">Rate</button>
-                                    <button type="button" class="btn btn-primary" id="favoriteBtn">Add to Favorites</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="editBtn">Edit</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="rateBtn">Rate</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="favoriteBtn">Add to Favorites</button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
 </div>
-    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>-->
-<!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->
+                                                                            <!--------- Scripts --------->
+
     <script src="./src/loading.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="src/movieKey.js"></script>
-    <!--    <script src="src/index.js"></script>-->
     <script src="./src/movieSearch.js"></script>
-<!--    <script src="./src/addSearchedMovie.js"></script>-->
     <script src="main.js"></script>
 
 </body>
