@@ -2,16 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>My Application</title>
-    <link rel="stylesheet" href="/style.css" />
+    <title>My Movie Application</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="loading"></div>
 
+<!--NAV BAR-->
+<div id="cover">
+    <div class="cover1">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">JV Movies</a>
+            </div>
+        </div>
+    </nav>
+
+    <!--SEARCH FORM-->
     <div class="container">
-        <h1>Hello There!</h1>
-        <p>To get started, edit <code>src/index.js</code>.</p>
+        <div class="jumbotron">
+            <nav>
+                <a class="active" href="index.html">Search</a>
+                <a class="fav" href="favorites.html">Favorites</a>
+            </nav>
+            <form id="searchForm">
+                <input type="text" class="form-control" id="searchText" placeholder="Search Movie">
+            </form>
+        </div>
     </div>
 
-    <script src="./main.js"></script>
+    <!--DISPLAY FOR MOVIES-->
+</div>
+    <div class="container">
+        <div id="result" class="row"></div>
+    </div>
+    </div>
+
+
+<script>
+
+        setTimeout(function () {
+            document.getElementById("loading").style.display = "none";
+        }, 5000);
+
+        function showIt() {
+            document.getElementById("cover").style.visibility = "visible";
+        }
+
+        setTimeout("showIt()", 5000); // after 2 sec
+
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->
+<!--<script src="src/movieKey.js"></script>-->
+<!--&lt;!&ndash;    <script src="src/index.js"></script>&ndash;&gt;-->
+<!--<script src="./src/movieSearch.js"></script>-->
+<!--<script src="./main.js"></script>-->
+
+
+
 </body>
 </html>

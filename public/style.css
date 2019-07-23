@@ -1,10 +1,49 @@
-html, body {
-    height: 100%;
+/*html, body {*/
+/*    height: 100%;*/
+/*}*/
+
+/*.container {*/
+/*    position: relative;*/
+/*    top: 50%;*/
+/*    transform: translateY(-100%);*/
+/*    text-align: center;*/
+/*}*/
+
+#cover {
+    visibility: hidden;
 }
 
-.container {
-    position: relative;
-    top: 50%;
-    transform: translateY(-100%);
+
+
+#loading {
+    background: url('load.gif') no-repeat center center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9999999;
+}
+
+nav > a {
     text-align: center;
+    color: white;
+    position: center;
+    text-transform: uppercase;
+}
+
+.navbar-brand {
+    color: white;
+}
+
+.active {
+    font-size: x-large;
+    color: #EC6159;
+    border-bottom: 2px solid #EC6159;
+}
+
+.fav {
+    font-size: x-large;
+    color: deepskyblue;
+    border-bottom: 2px solid deepskyblue;
 }
