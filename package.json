@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "concurrently 'webpack-dev-server --config webpack.dev.js' 'json-server -d1200 --watch db.json'",
 		"build": "webpack --config webpack.prod.js",
-		"test": "jest"
+		"test": "NODE_ENV=test jest --no-cache"
 	},
 	"keywords": [],
 	"author": "",
@@ -18,15 +18,33 @@
 	"devDependencies": {
 		"@babel/core": "^7.5.5",
 		"@babel/preset-env": "^7.5.5",
+		"babel-eslint": "^10.0.2",
+		"babel-jest": "^24.8.0",
 		"babel-loader": "^8.0.6",
 		"babel-polyfill": "^6.26.0",
 		"concurrently": "^4.1.1",
+		"eslint": "^6.1.0",
 		"jest": "^24.8.0",
 		"json-server": "^0.13.0",
 		"webpack": "^4.37.0",
 		"webpack-cli": "^3.3.6",
 		"webpack-dev-server": "^3.7.2",
 		"webpack-merge": "^4.2.1"
+	},
+	"eslintConfig": {
+		"root": true,
+		"env": {
+			"node": true,
+			"es6": true
+		},
+		"extends": [
+			"eslint:recommended"
+		],
+		"rules": {},
+		"parser": "babel-eslint",
+		"parserOptions": {
+			"ecmaVersion": 6
+		}
 	},
 	"browserslist": [
 		"> 1%",

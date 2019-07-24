@@ -1,6 +1,9 @@
 /*
   This is the Jest syntax of testing. Full description can be found in the README.md  
 */
+import billy from "../../src/hello";
+// the function from this file is marked as the default export.
+// this means that I can rename it whatever I want in this file.
 
 // describe is the parent folder of your test cases. Think of it as a description of the tests you'll run
 // it takes 2 arguments, the name of the test ( string ), and the function it will run
@@ -11,5 +14,11 @@ describe("Example test syntax", () => {
 		// `expect` is the "assertion" part of the process. It will always result in true or false,
 		//otherwise the test wouldn't know it passed or failed.
 		expect(1 + 1).toBe(2); // `toBe` is the standard expectation expression. It is similiar to `===`
+	});
+	// add as many `it` blocks as there are apporpriate tests
+	it("The same name is returned", () => {
+		// expect(1 + 1).toBe(2); // `toBe` is the standard expectation expression. It is similiar to `===`
+		// I'm expecting the output of sayHello to match ( === ) the string in toBe()
+		expect(billy("My name")).toBe("Hello there, My name!");
 	});
 });

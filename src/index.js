@@ -16,16 +16,18 @@ const fetchMovies = async () => {
 		// `await` can only be used inside of `async` functions.
 		// we add `await` before something that will be asynchronus. Something that we have to wait on, before the program can continue executing.
 		const movies = await axios.get("/api/movies");
-		console.log("Here are all the movies:");
+		console.log("Here are all the movies:", movies);
 		// this uses object destructuring to access the properties of each movie
 		// the syntax below is the same as saying movie.title, movie.rating and movie.id
-		movies.forEach(({ title, rating, id }) => {
+		movies.data.forEach(({ title, rating, id }) => {
 			// this is string interpolation, or "back ticks". It allows us to escape the normal string and write JS inside of the "${}"
 			console.log(`id#${id} - ${title} - rating: ${rating}`);
 		});
 		// the `error` argument is the system describing what went wrong
 	} catch (error) {
-		alert("Oh no! Something went wrong.\nCheck the console for details.");
+		console.error(
+			"Oh no! Something went wrong.\nCheck the console for details."
+		);
 		console.log("The error from the try / catch block is: ", error);
 	}
 };
