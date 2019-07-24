@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "concurrently 'webpack-dev-server --config webpack.dev.js' 'json-server -d1200 --watch db.json'",
 		"build": "webpack --config webpack.prod.js",
-		"test": "NODE_ENV=test jest --no-cache"
+		"test": "jest"
 	},
 	"keywords": [],
 	"author": "",
