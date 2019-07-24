@@ -1,6 +1,5 @@
 
 import data from './api';
-
 const $ = require('jquery');
 
 

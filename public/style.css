@@ -16,9 +16,14 @@ body {
     font-family: 'Patua One', cursive;
     text-shadow: 1px 1px darkgoldenrod;
 }
+@font-face {
+    font-family: Boomville;
+    src: url("/src/Boomville_Personal_License/Boomville_OTF/Boomville.otf") format('opentype');
+}
 
 h2 {
     text-shadow: 1px 1px lightblue;
+    font-family: Boomville;
 }
 
 .rounded-circle, .button, #addMovieBtn, #updateMovieBtn, #editBtn, #rateBtn, #favoriteBtn{
@@ -40,15 +45,6 @@ h2 {
     background-position: center;
 }
 
-/*@font-face {*/
-/*    font-family: Boomville;*/
-/*    src: url("../src/Boomville_Personal_License/Boomville_OTF/Boomville.otf") format('opentype');*/
-/*}*/
-
-/*header{*/
-/*    font-family: Boomville;*/
-/*}*/
-
 header{
     font-family: 'Fascinate Inline', cursive;
     text-shadow: 2px 2px goldenrod;
@@ -66,41 +62,7 @@ header{
     background-repeat: no-repeat;
     background-position: center;
 }
-/*body {*/
-/*    height: 100%;*/
-/*    width: 80%;*/
-/*    margin-left: 20%;*/
-/*    margin-right: 20%;*/
-/*    text-align: center;*/
-/*}*/
-/*.container {*/
-/*    position: relative;*/
-/*    top: 30%;*/
-/*    transform: translateY(-100%);*/
-/*    text-align: center;*/
-/*}*/
 
-
-/*.movieTitle {*/
-/*    border: 1px solid black;*/
-/*    height: 20em;*/
-/*    width: 1em;*/
-/*}*/
-
-/*#title1, #title4, #title7 {*/
-/*    margin-left: 10em;*/
-/*    margin-right: 7.5em;*/
-/*}*/
-
-/*#title3, #title6, #title9 {*/
-/*    margin-right: 10em;*/
-/*    margin-left: 7.5em;*/
-/*}*/
-
-/*.movieTitle {*/
-/*    margin-bottom: 2.5em;*/
-/*    margin-top: 2.5em;*/
-/*}*/
 .center-block {
     display: block;
     margin-left: auto;
