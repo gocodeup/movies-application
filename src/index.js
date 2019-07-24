@@ -1,7 +1,7 @@
 /**
  * es6 modules and imports
  */
-// axios is a libary, much like jQuery. It handles `fetching` in addition to other things.
+// axios is a standard and popular libary, much like jQuery. It handles `fetching` in addition to other things related to http requests.
 // Check out the docs for a better explanation.
 import axios from "axios";
 /**
