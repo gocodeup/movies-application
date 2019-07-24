@@ -1,7 +1,7 @@
 /*
   This is the Jest syntax of testing. Full description can be found in the README.md  
 */
-import billy from "../../src/hello";
+import sayHello from "../../src/hello";
 // the function from this file is marked as the default export.
 // this means that I can rename it whatever I want in this file.
 
@@ -19,6 +19,6 @@ describe("Example test syntax", () => {
 	it("The same name is returned", () => {
 		// expect(1 + 1).toBe(2); // `toBe` is the standard expectation expression. It is similiar to `===`
 		// I'm expecting the output of sayHello to match ( === ) the string in toBe()
-		expect(billy("My name")).toBe("Hello there, My name!");
+		expect(sayHello("My name")).toBe("Hello there, My name!");
 	});
 });
