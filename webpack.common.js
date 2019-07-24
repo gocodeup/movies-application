@@ -1,11 +1,12 @@
 // for resolving the absolute path to our project
 const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
-	entry: {
-		polyfill: "babel-polyfill", // needed to utilize async & await / promises
-		app: "./src/index.js" // where our app "starts"
-	},
+	entry: ["babel-polyfill", "./src/index.js"],
+	// needed to utilize async & await / promises
+	// where our app "starts"
+
 	// where to put the transpiled javascript
 	// this file is READ ONLY!!
 	output: {
