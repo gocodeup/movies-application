@@ -1,6 +1,5 @@
 // for resolving the absolute path to our project
 const path = require("path");
-const webpack = require("webpack");
 
 module.exports = {
 	entry: ["babel-polyfill", "./src/index.js"],
