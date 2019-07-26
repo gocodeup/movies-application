@@ -1,16 +1,17 @@
 {
-	"name": "tmp",
+	"name": "movie-project",
 	"version": "1.0.0",
 	"main": "index.js",
 	"scripts": {
 		"dev": "concurrently 'webpack-dev-server --config webpack.dev.js' 'json-server -d1200 --watch db.json'",
 		"build": "webpack --config webpack.prod.js",
+		"eslint": "eslint \"src/**/*.js\" --ignore-pattern node_modules/",
 		"test": "jest"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
-	"description": "",
+	"description": "Codeup movie project for learning more about ES6",
 	"dependencies": {
 		"axios": "^0.19.0",
 		"jquery": "^3.3.1"
@@ -21,6 +22,7 @@
 		"babel-eslint": "^10.0.2",
 		"babel-jest": "^24.8.0",
 		"babel-loader": "^8.0.6",
+		"babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
 		"babel-polyfill": "^6.26.0",
 		"concurrently": "^4.1.1",
 		"eslint": "^6.1.0",
@@ -33,6 +35,9 @@
 	},
 	"eslintConfig": {
 		"root": true,
+		"globals": {
+			"fetch": false
+		},
 		"env": {
 			"node": true,
 			"es6": true
