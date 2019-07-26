@@ -28,21 +28,5 @@ module.exports = {
 				}
 			}
 		]
-	},
-	devServer: {
-		// the dev server is serving the public folder, which contains index.html.
-		// This is just like opening up html in the browser how we've normally done it, with the inclusipon of "hot reloading"
-		// Hot reloading refreshes and re-bundles the code each time changes are detected in the src/ directory.
-		contentBase: path.join(__dirname, "public"),
-		port: 1313,
-		compress: true,
-		watchContentBase: true,
-		// send requests that start with "/api" to our api server
-		proxy: {
-			"/api": {
-				target: "http://localhost:3000",
-				pathRewrite: { "^/api": "" }
-			}
-		}
 	}
 };
