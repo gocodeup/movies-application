@@ -1,9 +1,10 @@
 /**
  * es6 modules and imports
  */
-import sayHello from './hello';
-sayHello('World');
-
+// import sayHello from './hello';
+// sayHello('World');
+const {greeting} = require(`./hello.js`);
+greeting('Ceres');
 /**
  * require style imports
  */
