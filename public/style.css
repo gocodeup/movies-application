@@ -11,9 +11,13 @@ html, body {
     /*min-height: 100%;*/
 }
 
-.my-container {
+.custom-container {
     /*position: relative;*/
     /*top: 50%;*/
     /*transform: translateY(-100%);*/
     text-align: center;
+}
+
+.custom-card {
+    border: 1px solid black;
 }
