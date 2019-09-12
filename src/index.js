@@ -53,9 +53,9 @@ const addNewMovie = () => {
         });
 };
 
-const editMovie = () => {
-    console.log("You clicked an EDIT button.");
 
+const editMovie = (event) => {
+  console.log(event.target.id);
 };
 
 
@@ -65,6 +65,7 @@ displayMovies();
 // Adds a new movie
 $('#newSubmit').click(addNewMovie);
 
-// Edits a movie
-    // You can't use click or on with a dynamically created element -- use this syntax instead.
+
+
+//edit movie button
 $(document).on('click', '.editSubmit', editMovie);
