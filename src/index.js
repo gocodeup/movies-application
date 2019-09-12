@@ -10,9 +10,10 @@ sayHello('World');
 const {getMovies} = require('./api.js');
 
 const makeMovieCard = movie => {
-    let html = `<div>`;
+    let html = `<div class="custom-card">`;
     html += `<div><h3>Rating: ${movie.rating} / 5</h3></div>`;
     html += `<div><h2>${movie.title}</h2></div>`;
+    html += `<div><button class="editSubmit" id="edit-${movie.id}">Edit</button></div>`;
     html += `</div>`;
     return html;
 };
@@ -32,16 +33,10 @@ const displayMovies = () => {
 const addNewMovie = () => {
     const newTitle = $('#newTitle').val();
     const newRating = $('#newRating').val();
-    // console.log(newTitle);
-    // console.log(newRating);
     const newMovie = {
         title: newTitle,
         rating: newRating
     };
-    // console.log(newMovie);
-
-    // const blogPost = {title: 'Ajax Requests', body: 'Are a fun way to use JS!'};
-    // const url = '/posts';
     const url = '/api/movies';
     const options = {
         method: 'POST',
@@ -58,11 +53,18 @@ const addNewMovie = () => {
         });
 };
 
+const editMovie = () => {
+    console.log("You clicked an EDIT button.");
+
+};
 
 
-
-
-
+// Initial call to display movies upon page load
 displayMovies();
 
+// Adds a new movie
 $('#newSubmit').click(addNewMovie);
+
+// Edits a movie
+    // You can't use click or on with a dynamically created element -- use this syntax instead.
+$(document).on('click', '.editSubmit', editMovie);

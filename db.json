@@ -24,6 +24,11 @@
       "title": "A New Test",
       "rating": "3",
       "id": 5
+    },
+    {
+      "title": "Does this still work?",
+      "rating": "5",
+      "id": 6
     }
   ]
 }
