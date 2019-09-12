@@ -23,7 +23,18 @@ function refreshMovies(){
                             <h4 class="card-title"> ${title}</h4>
                             <div class="card-text">
                             Rating: ${rating}
-                                
+                            </div>
+                            <button class="editButton">Edit Movies</button>   
+                            <div class="editBox">
+                              <input class="editMovie" type="text">
+                              <select name="editRating" class="editRating">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                              </select>
+                              <button class="submitMovieEdit">Submit Changes</button>
                             </div>
                         </div>  
                     </div>`;
@@ -31,13 +42,21 @@ function refreshMovies(){
       $('.movies').append(movieItems);
       console.log(title, rating, id);
     });
+    $(".editBox").hide(); // Hide edit input and select on load
 
-  }).catch((error) => {
+    $('.editButton').on('click', function () {
+      // console.log('Fired!')
+      $(this).next().slideToggle();
+    });
+
+
+  })
+    .catch((error) => {
     alert('Oh no! Something went wrong.\nCheck the console for details.');
     console.log(error);
   });
 
-}
+} // End of refreshMovies
 
 refreshMovies(); //Initial call
 
@@ -84,4 +103,8 @@ function modify(){
       .catch( (data) => console.log('Post unsuccessful', data) /* handle errors */);
 
 }
-modify();
+
+
+// $('.btn').on('click',() =>  console.log('FIRE!!!'));
+
+
