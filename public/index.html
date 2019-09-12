@@ -3,13 +3,24 @@
 <head>
     <meta charset="UTF-8" />
     <title>My Application</title>
+<!--    Bootstrap 4-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
 
-    <div class="container">
-        <h1>Hello There!</h1>
-        <p>To get started, edit <code>src/index.js</code>.</p>
+    <div class="container-box">
+        <div class="movies " ></div>
+        <h1 id="loading">Loading...</h1>
+        <input type="text" id="movieTitle">
+        <select name="rating" id="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <button id="btn">Submit </button>
     </div>
 
     <script src="./main.js"></script>

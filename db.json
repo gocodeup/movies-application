@@ -1,7 +1,7 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
+      "title": "Star Wars: A New Hope Directors Cut",
       "rating": "4",
       "id": 1
     },
@@ -9,6 +9,36 @@
       "title": "Star Wars: A New Hope",
       "rating": "5",
       "id": 2
+    },
+    {
+      "title": "Fast And Furious",
+      "rating": "5!",
+      "id": "3"
+    },
+    {
+      "title": "Fast And Furious 2",
+      "rating": "5!",
+      "id": 4
+    },
+    {
+      "title": "IT",
+      "rating": "4",
+      "id": 5
+    },
+    {
+      "title": "IT 2 ",
+      "rating": "3",
+      "id": 6
+    },
+    {
+      "title": "Pulp Fiction",
+      "rating": "4",
+      "id": 7
+    },
+    {
+      "title": "Kill Bill",
+      "rating": "5",
+      "id": 8
     }
   ]
 }
