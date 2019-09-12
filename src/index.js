@@ -13,7 +13,7 @@ const makeMovieCard = movie => {
     let html = `<div class="custom-card">`;
     html += `<div><h3>Rating: ${movie.rating} / 5</h3></div>`;
     html += `<div><h2>${movie.title}</h2></div>`;
-    html += `<div><button class="editSubmit" id="edit-${movie.id}">Edit</button></div>`;
+    html += `<div><button class="editSubmit" id="${movie.id}-edit">Edit</button></div>`;
     html += `</div>`;
     return html;
 };
@@ -55,9 +55,47 @@ const addNewMovie = () => {
 
 
 const editMovie = (event) => {
-  console.log(event.target.id);
-};
+  const clickID = parseInt(event.target.id);
 
+  const editedTitle = "Changed it!";
+  const editedRating = "10";
+  const editedMovie = {
+        title: editedTitle,
+        rating: editedRating
+  };
+
+  const url = `/api/movies/${clickID}`;
+  const options = {
+      method: 'PUT',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(editedMovie)
+  };
+  fetch(url, options)
+      .then(displayMovies)
+      .catch((error) => {
+          alert('Oh no! Something went wrong.\nCheck the console for details.');
+          console.log(error);
+      });
+
+
+        // fetch(apiUrl + "/" + id, {
+        //     method: 'PATCH',
+        //     body: JSON.stringify({
+        //         data
+        //     })
+        // }).then((response) => {
+        //     response.json().then((response) => {
+        //         console.log(response);
+        //     })
+        // }).catch(err => {
+        //     console.error(err)
+        // })
+  // return fetch(`/api/movies/${clickID}`)
+  //       .then(response => response.json())
+  //       .then(data => console.log(data));
+};
 
 // Initial call to display movies upon page load
 displayMovies();
