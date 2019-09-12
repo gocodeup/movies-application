@@ -17,13 +17,26 @@ const makeMovieCard = movie => {
   return html;
 };
 
-getMovies().then((movies) => {
-  $("#viewport").html("");
-  movies.forEach((movie) => {
-    $("#viewport").append(makeMovieCard(movie));
-
+const displayMovies = () => {
+  getMovies().then((movies) => {
+    $("#viewport").html("");
+    movies.forEach((movie) => {
+      $("#viewport").append(makeMovieCard(movie));
+    });
+  }).catch((error) => {
+    alert('Oh no! Something went wrong.\nCheck the console for details.');
+    console.log(error);
   });
-}).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.');
-  console.log(error);
-});
+};
+
+const addNewMovie = () => {
+    const newTitle = $('#newTitle').val();
+    const newRating = $('#newRating').val();
+    console.log(newTitle);
+    console.log(newRating);
+
+};
+// addNewMovie();
+displayMovies();
+
+$('#newSubmit').click(addNewMovie);
