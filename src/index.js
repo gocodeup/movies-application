@@ -10,8 +10,6 @@ sayHello('World');
 const {getMovies} = require('./api.js');
 
 const makeMovieCard = movie => {
- // let  html = `<p>${movie.title}</p>`;
- //  html += `<p>${movie.rating}</p>`;
   let html = `<div>`;
   html += `<div><h3>Rating: ${movie.rating} / 5</h3></div>`;
   html += `<div><h2>${movie.title}</h2></div>`;
