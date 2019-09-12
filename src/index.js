@@ -57,7 +57,8 @@ const addNewMovie = () => {
 const showEditBar = (event) => {
   $('#edit').show();
   const clickID = parseInt(event.target.id);
-  $('#editSubmit').click(() => {
+  console.log(clickID);
+    $('#editSubmit').off().on('click', () => {
 
   const editedTitle = $('#editTitle').val();
   const editedRating = $('#editRating').val();
@@ -65,40 +66,25 @@ const showEditBar = (event) => {
         title: editedTitle,
         rating: editedRating
   };
-
+    console.log(editedMovie);
   const url = `/api/movies/${clickID}`;
-  const options = {
+      console.log(url);
+      const options = {
       method: 'PUT',
       headers: {
           'Content-Type': 'application/json',
       },
       body: JSON.stringify(editedMovie)
   };
-  fetch(url, options)
+      console.log(options);
+      fetch(url, options)
+      .then($("#edit").hide())
       .then(displayMovies)
       .catch((error) => {
           alert('Oh no! Something went wrong.\nCheck the console for details.');
           console.log(error);
       });
   });
-
-
-
-        // fetch(apiUrl + "/" + id, {
-        //     method: 'PATCH',
-        //     body: JSON.stringify({
-        //         data
-        //     })
-        // }).then((response) => {
-        //     response.json().then((response) => {
-        //         console.log(response);
-        //     })
-        // }).catch(err => {
-        //     console.error(err)
-        // })
-  // return fetch(`/api/movies/${clickID}`)
-  //       .then(response => response.json())
-  //       .then(data => console.log(data));
 };
 
 // Initial call to display movies upon page load
