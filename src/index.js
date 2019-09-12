@@ -11,8 +11,8 @@ const {getMovies} = require('./api.js');
 
 const makeMovieCard = movie => {
     let html = `<div class="custom-card">`;
-    html += `<div><h3>Rating: ${movie.rating} / 5</h3></div>`;
-    html += `<div><h2>${movie.title}</h2></div>`;
+    html += `<div><h3 id="${movie.id}-rating">Rating: ${movie.rating} / 5</h3></div>`;
+    html += `<div><h2 id="${movie.id}-title">${movie.title}</h2></div>`;
     html += `<div><button class="editSubmit" id="${movie.id}-edit">Edit</button></div>`;
     html += `</div>`;
     return html;
@@ -55,8 +55,13 @@ const addNewMovie = () => {
 
 
 const showEditBar = (event) => {
-  $('#edit').show();
   const clickID = parseInt(event.target.id);
+  const originalTitle = $(`#${clickID}-title`).html();
+  let originalRating = $(`#${clickID}-rating`).html();
+  originalRating = originalRating.substring(8);
+  console.log(originalRating);
+  $('#editTitle').val(originalTitle);
+  $('#edit').show();
   console.log(clickID);
     $('#editSubmit').off().on('click', () => {
 
