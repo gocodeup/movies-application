@@ -9,7 +9,21 @@
 <body class="container-fluid">
 <div class="row height-100">
     <div class="col-3 control" id="control">
-        Controls go here
+       <h3>Add New Movie</h3>
+        <label for="newTitle">Title: </label>
+        <input name='newTitle' id="newTitle" type="text">
+        <br>
+        <label for="newRating">Rating: </label>
+        <select name="newRating" id="newRating">
+            <option value="0" selected></option>
+            <option value="1">1 / 5</option>
+            <option value="2">2 / 5</option>
+            <option value="3">3 / 5</option>
+            <option value="4">4 / 5</option>
+            <option value="5">5 / 5</option>
+        </select>
+        <br>
+        <button id="newSubmit">Submit</button>
     </div>
 
     <main class="my-container col-9">
