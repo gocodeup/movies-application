@@ -54,11 +54,13 @@ const addNewMovie = () => {
 };
 
 
-const editMovie = (event) => {
+const showEditBar = (event) => {
+  $('#edit').show();
   const clickID = parseInt(event.target.id);
+  $('#editSubmit').click(() => {
 
-  const editedTitle = "Changed it!";
-  const editedRating = "10";
+  const editedTitle = $('#editTitle').val();
+  const editedRating = $('#editRating').val();
   const editedMovie = {
         title: editedTitle,
         rating: editedRating
@@ -78,6 +80,8 @@ const editMovie = (event) => {
           alert('Oh no! Something went wrong.\nCheck the console for details.');
           console.log(error);
       });
+  });
+
 
 
         // fetch(apiUrl + "/" + id, {
@@ -106,4 +110,4 @@ $('#newSubmit').click(addNewMovie);
 
 
 //edit movie button
-$(document).on('click', '.editSubmit', editMovie);
+$(document).on('click', '.editSubmit', showEditBar);
