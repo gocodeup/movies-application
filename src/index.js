@@ -36,20 +36,34 @@ const {getMovies} = require('./api.js');
 
           var page = "";
 
-          movies.forEach(({title, rating, id}) => {
+          movies.forEach(({title, rating, id}, i) => {
             // return $('.movie').append(`id#${id} - ${title} - rating: ${rating}`);
             page += '<tr>';
-            page += `<td>${title}</td>  <td>${rating}</td>  <td>${id}</td> <td id="edit-${id}" class ="editBtn btn btn-info">Edit</td> <td id="delete-${id}" class ="delete btn btn-info">Delete</td>`;
+            page += `<td id="title-${id}">${title}</td>  <td id="rating-${id}">${rating}</td>  <td>${id}</td> <td><button id="edit-${id}" class ="editBtn btn btn-info">Edit</button></td> <td><button id="delete-${id}" class ="deleteBtn btn btn-info">Delete</button></td>`;
             page += '</tr>';
 
           });
 
           $('#contents').html(page);
 
-          $('#edit-${id}').on('click', function(){
-            console.log("edit btn clicked");
-            console.log($(this));
-          });
+          // $(`#edit-${id}`).on('click', function(){
+          //   console.log("edit btn clicked");
+          //   console.log($(this));
+          // });
+
+            $(document).on('click', `.editBtn`, function(event){
+                const editClick = event.target.id;
+
+
+                console.log(editClick);
+            });
+
+            $(document).on('click', `.deleteBtn`, function(event){
+                const deleteClick = event.target.id;
+
+
+                console.log(deleteClick);
+            });
 
 
 
