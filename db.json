@@ -1,25 +1,25 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
-      "rating": "4",
       "id": 1
     },
     {
-      "title": "Star Wars: A New Hope",
-      "rating": "5",
       "id": 2
     },
     {
-      "title": "Joe Dirt",
-      "rating": "5",
+      "title": "anchor man",
+      "rating": "2",
       "id": 3
     },
     {
-      "title": "Joe Dirt Part II",
-      "rating": "1",
+      "title": "hello",
+      "rating": "2",
       "id": 4
+    },
+    {
+      "title": "dhskdd",
+      "rating": "2",
+      "id": 5
     }
-
   ]
 }
