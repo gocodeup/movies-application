@@ -11,19 +11,14 @@
       "id": 2
     },
     {
-      "title": "joe dirt",
+      "title": "Joe Dirt",
       "rating": "5",
       "id": 3
     },
     {
-      "title": "anchorman",
-      "rating": "5",
+      "title": "Joe Dirt Part II",
+      "rating": "1",
       "id": 4
-    },
-    {
-      "title": "hello ",
-      "rating": "234",
-      "id": 5
     }
   ]
 }
