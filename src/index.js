@@ -39,7 +39,7 @@ const {getMovies} = require('./api.js');
           movies.forEach(({title, rating, id}, i) => {
             // return $('.movie').append(`id#${id} - ${title} - rating: ${rating}`);
             page += '<tr>';
-            page += `<td id="title-${id}">${title}</td>  <td id="rating-${id}">${rating}</td>  <td>${id}</td> <td><button id="edit-${id}" class ="editBtn btn btn-info">Edit</button></td> <td><button id="delete-${id}" class ="deleteBtn btn btn-info">Delete</button></td>`;
+            page += `<td id="title-${id}">${title}</td>  <td id="rating-${id}">${rating}</td>  <td>${id}</td> <td><button id="edit-${id}" class ="editBtn btn btn-info" data-toggle="modal" data-target="#exampleModal">Edit</button></td> <td><button id="delete-${id}" class ="deleteBtn btn btn-danger">Delete</button></td>`;
             page += '</tr>';
 
           });
@@ -77,25 +77,16 @@ const {getMovies} = require('./api.js');
 
 updateHTML();
 
-//function to edit movies
-// $('.editBtn').on('click', function(){
-//   console.log("edit btn clicked");
-//   console.log($('this'));
-// });
-
-// $(document).on('click', '.editBtn', function () {
-//   console.log("button clicked");
-// })
-
 // adds movies and makes post request
   let title;
   let rating;
   let movieObject = {};
 
-      $('#add-movie').click(function () {
+      $('.add-movie').click(function () {
+          console.log('movie button clicked');
           title = $('.title-input').val();
           console.log(title);
-          rating = $('.rating-input').val();
+          rating = $('.rating[type=radio][name=rating]:checked').val();
           console.log(rating);
 
           movieObject.title = title;
