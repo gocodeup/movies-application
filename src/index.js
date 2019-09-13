@@ -114,6 +114,29 @@ const deleteMovie = () => {
         });
 };
 
+const filterGenre = () => {
+    const genre = $('#genreFilter').val();
+    console.log(genre);
+    if (genre === "all"){
+        displayMovies();
+    } else {
+        getMovies().then((movies) => {
+            const filteredMovies = movies.filter(movie => movie.genre.includes(genre));
+                // console.log(filteredMovies);
+                return filteredMovies;
+
+        }).then(filteredMovies => {
+            $("#viewport").html("");
+            filteredMovies.forEach((movie) => {
+                $("#viewport").append(makeMovieCard(movie));
+            });
+        })
+            .catch((error) => {
+            alert('Oh no! Something went wrong.\nCheck the console for details.');
+            console.log(error);
+        });
+    }
+};
 // Initial call to display movies upon page load
 displayMovies();
 
@@ -125,3 +148,7 @@ $(document).on('click', '.editSubmit', showEditBar);
 
 // Delete movie button
 $(document).on('click', '.deleteSubmit', deleteMovie);
+
+//filter movies by genre
+$('#genreSubmit').click(filterGenre);
+
