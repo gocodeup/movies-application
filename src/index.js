@@ -10,10 +10,14 @@ sayHello('World');
  */
 const {getMovies} = require('./api.js');
 
+
+
 function refreshMovies(){
   getMovies().then((movies) => {
     $('#loading').html('');
     $('.movies').html('');
+    // Show add movie inputs on load
+    $('.addMovieInputs').css('display', 'block');
 
     console.log('Here are all the movies:');
     movies.forEach(({title, rating, id}) => {
@@ -58,6 +62,7 @@ function refreshMovies(){
                                   </div>
                                   </div>
                                   <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" id="deleteMovieBtn" data-dismiss="modal">Delete Movie</button>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                     <button type="button" id="saveEditBtn" class="btn btn-primary" data-dismiss="modal">Save changes</button>
                                   </div>
@@ -82,12 +87,7 @@ function refreshMovies(){
       $('.movies').append(movieItems);
       console.log(title, rating, id);
     });
-    // $(".editBox").hide(); // Hide edit input and select on load
-    //
-    // $('.editButton').on('click', function () {
-    //   // console.log('Fired!')
-    //   $(this).next().slideToggle();
-    // });
+
     $('.editBtn').on('click', function () {
       let targetedMovieTitle = $(this).parents('.card-body').children('.card-title').text();
       function getIdNumber() {
@@ -104,8 +104,7 @@ function refreshMovies(){
                 // console.log(data[i].id);
                 return data[i].id
               }
-              // console.log(data[i].title);
-              // console.log(targetedMovieTitle.slice(1));
+
             }
         });
 
@@ -120,14 +119,11 @@ function refreshMovies(){
           console.log(movieRating);
           modify(movieTitle, movieRating, idNumber);
 
-            timeRefresh()
-
-
-
-
-        })
+        });
+          $('#deleteMovieBtn').on('click', function () {
+            deleteMovie(idNumber);
+          })
       });
-      // console.log(getIdNumber());
     })
 
 
@@ -138,18 +134,6 @@ function refreshMovies(){
   });
 
 } // End of refreshMovies
-
-$('#saveEditBtn').on('click', function () {
-  console.log(refreshMovies());
-});
-
-function timeRefresh() {
-  setTimeout(function () {
-    refreshMovies()
-
-  }, 2000)
-
-}
 
 refreshMovies(); //Initial call
 
@@ -199,6 +183,21 @@ refreshMovies();
 }
 
 
-// $('.btn').on('click',() =>  console.log('FIRE!!!'));
+function deleteMovie(idNum){
+
+  const url = `/api/movies/${idNum}`;
+  const options = {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+
+  };
+  fetch(url, options)
+      .then( (data) => console.log('Post was successful', data)/* post was created successfully */)
+      .catch( (data) => console.log('Post unsuccessful', data) /* handle errors */);
+
+  refreshMovies();
+}
 
 

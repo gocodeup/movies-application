@@ -11,16 +11,18 @@
 
     <div class="container-box">
         <div class="movies " ></div>
-        <h1 id="loading">Loading...</h1>
-        <input type="text" id="movieTitle">
-        <select name="rating" id="rating">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-        <button id="btn">Submit </button>
+        <div id="loading"><img src="img/Wedges.gif" alt="loading gif"></div>
+        <div class="addMovieInputs">
+            <input class="form-control form-control-sm" type="text" id="movieTitle" placeholder="Add Movie...">
+            <select class="custom-select" name="rating" id="rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <button class=" btn btn-primary" id="btn ">Submit</button>
+        </div>
     </div>
 
 <!--    Bootstrap 4 JS files-->

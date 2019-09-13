@@ -8,3 +8,12 @@ html, body {
     transform: translateY(-100%);
     text-align: center;
 }
+
+.addMovieInputs{
+    display: none;
+}
+
+.card{
+    display: inline-block;
+
+}
