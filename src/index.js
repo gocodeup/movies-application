@@ -87,15 +87,15 @@ updateHTML();
 //   console.log("button clicked");
 // })
 
-// this function added movies
+// adds movies and makes post request
   let title;
   let rating;
   let movieObject = {};
 
       $('#add-movie').click(function () {
-          title = $('#title-input').val();
+          title = $('.title-input').val();
           console.log(title);
-          rating = $('#rating-input').val();
+          rating = $('.rating-input').val();
           console.log(rating);
 
           movieObject.title = title;
