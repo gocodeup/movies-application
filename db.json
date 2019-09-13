@@ -1,24 +1,9 @@
 {
   "movies": [
     {
-      "title": "adfsf",
-      "rating": "2",
-      "id": 1
-    },
-    {
       "title": "This Works Now",
       "rating": "5",
       "id": 2
-    },
-    {
-      "title": "It Still Works",
-      "rating": "5",
-      "id": 3
-    },
-    {
-      "title": "Ninth",
-      "rating": "2",
-      "id": 4
     },
     {
       "title": "Spinal Tap",
