@@ -2,13 +2,12 @@
 // 1. Add genre field to Add New Movie Form
 // 2. Add genre field to Edit Movie Form
 // 3. Display genre info on card
-// 4. Add loading animation
-// 5. Have displayMovies function list out movies by genre
-// 6. Make edit movies form be a modal
-// 7. Make add movies form be a modal
-// 8. Refactor Control Bar to be at top of app
-// 9. Make mobile responsive
-// 10. Make movie cards circular
+// 4. Have displayMovies function list out movies by genre
+// 5. Make edit movies form be a modal
+// 6. Make add movies form be a modal
+// 7. Refactor Control Bar to be at top of app
+// 8. Make mobile responsive
+// 9. Make movie cards circular
 // **. Remove filter button (have filter activate on new value selection)
 // **. Remove blue outline of button clicks
 // **. Change color of select pulldown highlight from blue to red
@@ -52,9 +51,18 @@ const displayMovies = () => {
 const addNewMovie = () => {
     const newTitle = $('#newTitle').val();
     const newRating = $('#newRating').val();
+    // Determine which genre checkboxes are checked
+    const newGenres = [];
+    const selectedGenres = document.getElementsByName('genreSelect');
+    for (const node of selectedGenres) {
+        if (node.checked) {
+            newGenres.push(node.value);
+        }
+    }
     const newMovie = {
         title: newTitle,
-        rating: newRating
+        rating: newRating,
+        genre: newGenres
     };
     const url = '/api/movies';
     const options = {
@@ -167,5 +175,5 @@ $(document).on('click', '.editSubmit', showEditBar);
 $(document).on('click', '.deleteSubmit', deleteMovie);
 
 //filter movies by genre
-$('#genreSubmit').click(filterGenre);
+$('#genreFilter').on('input', filterGenre);
 
