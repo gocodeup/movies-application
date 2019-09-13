@@ -1,5 +1,11 @@
+:root {
+    --nf-red: #DC0012;
+    --nf-light-grey: #A4A4A4;
+}
 html, body {
     height: 100%;
+    background: black;
+    color: white;
 }
 
 .height-100 {
@@ -7,8 +13,24 @@ html, body {
 }
 
 .control {
-    background: lightblue;
-    /*min-height: 100%;*/
+    background: var(--nf-red);
+    color: white;
+    /*text shadow source */
+    /*https://wpshout.com/quick-guides/create-text-outline-css/*/
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+    /*min-width: 200px;*/
+}
+
+.control h3 {
+    text-align: center;
+}
+
+.control button, .control input {
+    border-radius: 5px;
 }
 
 .custom-container {
