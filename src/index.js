@@ -52,7 +52,27 @@ const {getMovies} = require('./api.js');
           // });
 
             $(document).on('click', `.editBtn`, function(event){
+
+                //this editClick variable targets the id attributed to the edit button
                 const editClick = event.target.id;
+
+                //the editId variable console logs as edit-[the dynamic id]
+                // //and needs to be split at the dash to isolate the number
+                //upon being split, an array of two elements is created
+                //at index zero, is the dash, we want the element at index 1
+                //which is the unique ID corresponding to the particular film's
+                //title and rating
+                let editId = editClick.split('-')[1];
+                console.log(editId);
+
+                let titleToEdit =  $(`#title-${editId}`).html();
+                console.log(titleToEdit);
+
+                let ratingToEdit = $(`#rating-${editId}`).html();
+                console.log(ratingToEdit);
+
+
+                $("#editModalTitle").val(titleToEdit);
 
 
                 console.log(editClick);
@@ -105,6 +125,30 @@ updateHTML();
             });
       });
 
+
+//save Edit Info
+$('.saveChanges').click(function () {
+    console.log('movie button clicked');
+    title = $('#editModalTitle').val();
+    console.log(title);
+    rating = $('.rating[type=radio][name=rating]:checked').val();
+    console.log(rating);
+
+    movieObject.title = title;
+    movieObject.rating = rating;
+    console.log(movieObject);
+    fetch("/api/movies", {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(movieObject)
+    }).then(response => response.json())
+        .then( data => {
+            console.log(data);
+            updateHTML()
+        });
+});
 
 
 
