@@ -1,29 +1,24 @@
 {
   "movies": [
     {
-      "title": "Star Wars: A New Hope Directors Cut",
+      "title": "Fast and Furious 2",
       "rating": "4",
       "id": 1
     },
     {
-      "title": "Star Wars: A New Hope",
-      "rating": "5",
+      "title": "Angel Has Fallen",
+      "rating": "2",
       "id": 2
     },
     {
-      "title": "Fast And Furious",
-      "rating": "5!",
+      "title": "Tokyo Drift",
+      "rating": "4",
       "id": "3"
     },
     {
-      "title": "Fast And Furious 2",
-      "rating": "5!",
-      "id": 4
-    },
-    {
       "title": "IT",
-      "rating": "4",
-      "id": 5
+      "rating": "2",
+      "id": 4
     },
     {
       "title": "IT 2 ",
@@ -36,9 +31,29 @@
       "id": 7
     },
     {
-      "title": "Kill Bill",
-      "rating": "5",
+      "title": "Kill Bill 2",
+      "rating": "3",
       "id": 8
+    },
+    {
+      "title": "Bee Movie",
+      "rating": "4",
+      "id": 9
+    },
+    {
+      "title": "Iron Man 2",
+      "rating": "3",
+      "id": 10
+    },
+    {
+      "title": "Baby Driver",
+      "rating": "5",
+      "id": 11
+    },
+    {
+      "title": "Child's Play",
+      "rating": "4",
+      "id": 12
     }
   ]
 }
