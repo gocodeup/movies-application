@@ -1,11 +1,6 @@
 {
   "movies": [
     {
-      "title": "Fast and Furious 2",
-      "rating": "4",
-      "id": 1
-    },
-    {
       "title": "Angel Has Fallen",
       "rating": "2",
       "id": 2
@@ -14,16 +9,6 @@
       "title": "Tokyo Drift",
       "rating": "4",
       "id": "3"
-    },
-    {
-      "title": "IT",
-      "rating": "2",
-      "id": 4
-    },
-    {
-      "title": "IT 2 ",
-      "rating": "3",
-      "id": 6
     },
     {
       "title": "Pulp Fiction",
