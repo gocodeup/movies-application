@@ -10,12 +10,12 @@
 const {getMovies} = require('./api.js');
 
 const makeMovieCard = movie => {
-    let html = `<div class="custom-card">`;
-    html += `<div><h3 id="${movie.id}-rating">Rating: ${movie.rating} / 5</h3></div>`;
-    html += `<div><h2 id="${movie.id}-title">${movie.title}</h2></div>`;
-    html += `<div>`;
-    html += `<button class="editSubmit" id="${movie.id}-edit">Edit</button>`;
-    html += `<button class="deleteSubmit" id="${movie.id}-delete">Delete</button>`;
+    let html = `<div class="custom-card my-4 mx-4">`;
+    html += `<div class="mt-3"><h3 id="${movie.id}-rating">Rating: ${movie.rating} / 5</h3></div>`;
+    html += `<div class="my-4"><h1 class="" id="${movie.id}-title">${movie.title}</h1></div>`;
+    html += `<div class="button-row mb-3">`;
+    html += `<button class="editSubmit mr-5" id="${movie.id}-edit">Edit</button>`;
+    html += `<button class="deleteSubmit ml-5" id="${movie.id}-delete">Delete</button>`;
     html += `</div>`;
     html += `</div>`;
     return html;
@@ -53,7 +53,10 @@ const addNewMovie = () => {
         .catch((error) => {
             alert('Oh no! Something went wrong.\nCheck the console for details.');
             console.log(error);
-        });
+        }).then(() => {
+            $('#newTitle').val("");
+            $('#newRating').val("");
+    })  ;
 };
 
 
