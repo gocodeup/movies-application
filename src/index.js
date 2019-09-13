@@ -55,6 +55,7 @@ const {getMovies} = require('./api.js');
 
                 //this editClick variable targets the id attributed to the edit button
                 const editClick = event.target.id;
+                console.log(editClick);
 
                 //the editId variable console logs as edit-[the dynamic id]
                 // //and needs to be split at the dash to isolate the number
@@ -68,14 +69,19 @@ const {getMovies} = require('./api.js');
                 let titleToEdit =  $(`#title-${editId}`).html();
                 console.log(titleToEdit);
 
+
+                /////PREPOPULATE RATING TO EDIT//////
+
                 let ratingToEdit = $(`#rating-${editId}`).html();
                 console.log(ratingToEdit);
 
 
+
                 $("#editModalTitle").val(titleToEdit);
+                $('#editModalRating').html(ratingToEdit);
 
 
-                console.log(editClick);
+
             });
 
             $(document).on('click', `.deleteBtn`, function(event){
