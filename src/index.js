@@ -55,7 +55,7 @@ const {getMovies} = require('./api.js');
 
                 //this editClick variable targets the id attributed to the edit button
                 const editClick = event.target.id;
-                // console.log(editClick);
+                console.log(editClick);
 
                 //the editId variable console logs as edit-[the dynamic id]
                 // //and needs to be split at the dash to isolate the number
@@ -80,13 +80,14 @@ const {getMovies} = require('./api.js');
 
                 $(document).on('click',".saveChanges", function(){
                     let updatedTitle = $("#editModalTitle").val();
-                    let updateRating = $("#editModalRating" + ratingToEdit).prop('checked', true);
+                    let updateRating = $('.rating[type=radio][name=rating]:checked').val();
                     let updatedMovie = {};
                     console.log(updateRating);
                     console.log(updatedTitle);
                     console.log(editId);
                     updatedMovie.title = updatedTitle;
-                    updatedMovie.rating = updatedRating;
+                    updatedMovie.rating = updateRating;
+                    console.log(updatedMovie);
                     let url = "/api/movies/" + editId;
                     let options = {
                         method: 'PUT',
@@ -104,13 +105,44 @@ const {getMovies} = require('./api.js');
 
                 });
 
-            });
+                $(document).on('click', `.deleteBtn`, function(event){
+                    const deleteClick = event;
+                        console.log(deleteClick);
+
+                    const options = {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                    };
+                    // update database
+                    fetch(`/api/movies/${editId}`, options)
+                        .then(() => {
+                            console.log(`movie ${editId} deleted`);
+                           // updateHTML()
+                        })
+                        .catch(() => {
+                            console.log('error on delete')
+                        });
+
+                //     const deleteClick = event.target.id;
+                //     console.log(deleteClick);
+                //
+                //     let url = `/api/movies/${editId}`;
+                //     let options = {
+                //         method: 'DELETE',
+                //     };
+                //     fetch(url, options)
+                //         .then(response => response.json())
+                //         .then( data => {
+                //             console.log(data);
+                //             updateHTML()
+                //         });
+                //     console.log(deleteClick);
+                });
 
 
 
-            $(document).on('click', `.deleteBtn`, function(event){
-                const deleteClick = event.target.id;
-                // console.log(deleteClick);
             });
 
 
