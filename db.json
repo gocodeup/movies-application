@@ -1,24 +1,34 @@
 {
   "movies": [
     {
-      "title": "This Works Now",
-      "rating": "5",
+      "title": "The Conjuring",
+      "rating": "3",
       "id": 2
     },
     {
-      "title": "Spinal Tap",
-      "rating": "3",
+      "title": "Cabin in the Woods",
+      "rating": "4",
       "id": 5
     },
     {
-      "title": "Changed it!",
-      "rating": "10",
+      "title": "Girls Trip",
+      "rating": "5",
       "id": 6
     },
     {
-      "title": "Beverly is Awesome",
+      "title": "Brain on Fire",
       "rating": "5",
       "id": 7
+    },
+    {
+      "title": "Volver",
+      "rating": "5",
+      "id": 8
+    },
+    {
+      "title": "Shall We ダンス？",
+      "rating": "4",
+      "id": 9
     }
   ]
 }
