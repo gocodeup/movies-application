@@ -1,3 +1,18 @@
+// Feature To-Do List:
+// 1. Add genre field to Add New Movie Form
+// 2. Add genre field to Edit Movie Form
+// 3. Display genre info on card
+// 4. Add loading animation
+// 5. Have displayMovies function list out movies by genre
+// 6. Make edit movies form be a modal
+// 7. Make add movies form be a modal
+// 8. Refactor Control Bar to be at top of app
+// 9. Make mobile responsive
+// 10. Make movie cards circular
+// **. Remove filter button (have filter activate on new value selection)
+// **. Remove blue outline of button clicks
+// **. Change color of select pulldown highlight from blue to red
+
 /**
  * es6 modules and imports
  */
@@ -22,6 +37,7 @@ const makeMovieCard = movie => {
 };
 
 const displayMovies = () => {
+    $("#viewport").html("<img src=\"img/loading.svg\" alt=\"Loading Spinner\">");
     getMovies().then((movies) => {
         $("#viewport").html("");
         movies.forEach((movie) => {
@@ -120,6 +136,7 @@ const filterGenre = () => {
     if (genre === "all"){
         displayMovies();
     } else {
+        $("#viewport").html("<img src=\"img/loading.svg\" alt=\"Loading Spinner\">");
         getMovies().then((movies) => {
             const filteredMovies = movies.filter(movie => movie.genre.includes(genre));
                 // console.log(filteredMovies);
