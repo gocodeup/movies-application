@@ -9,6 +9,19 @@
 <body class="container-fluid">
 <div class="row height-100">
     <div class="col-3 control" id="control">
+        <div id="genre">
+            <h3 class="my-3">Filter by Genre</h3>
+            <label class="mr-2" for="genreFilter">Genre: </label>
+            <select name="genreFilter" id="genreFilter">
+                <option value="all" selected>All</option>
+                <option value="comedy">Comedy</option>
+                <option value="drama">Drama</option>
+                <option value="foreign">Foreign</option>
+                <option value="horror">Horror</option>
+            </select>
+            <br>
+            <button class="mt-2 mb-5" id="genreSubmit">Filter</button>
+        </div>
         <div id="add">
            <h3 class="my-3">Add New Movie</h3>
             <label class="mr-2" for="newTitle">Title: </label>
