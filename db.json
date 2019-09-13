@@ -1,28 +1,13 @@
 {
   "movies": [
     {
-      "title": "adfsf",
-      "rating": "2",
-      "id": 1
-    },
-    {
-      "title": "off",
+      "title": "This Works Now",
       "rating": "5",
       "id": 2
     },
     {
-      "title": "adfsfSCA",
+      "title": "Spinal Tap",
       "rating": "3",
-      "id": 3
-    },
-    {
-      "title": "Ninth",
-      "rating": "2",
-      "id": 4
-    },
-    {
-      "title": "ACDAC",
-      "rating": "4",
       "id": 5
     },
     {
