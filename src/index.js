@@ -30,7 +30,7 @@ const {getMovies} = require('./api.js');
 
   const updateHTML = () => {
     $('#spinner').css('display', 'none');
-    console.log('Here are all the movies:');
+    // console.log('Here are all the movies:');
     getMovies()
         .then((movies) => {
 
@@ -55,7 +55,7 @@ const {getMovies} = require('./api.js');
 
                 //this editClick variable targets the id attributed to the edit button
                 const editClick = event.target.id;
-                console.log(editClick);
+                // console.log(editClick);
 
                 //the editId variable console logs as edit-[the dynamic id]
                 // //and needs to be split at the dash to isolate the number
@@ -64,10 +64,10 @@ const {getMovies} = require('./api.js');
                 //which is the unique ID corresponding to the particular film's
                 //title and rating
                 let editId = editClick.split('-')[1];
-                console.log(editId);
+                // console.log(editId);
 
                 let titleToEdit =  $(`#title-${editId}`).html();
-                console.log(titleToEdit);
+                // console.log(titleToEdit);
 
 
                 /////PREPOPULATE RATING TO EDIT//////
@@ -75,21 +75,45 @@ const {getMovies} = require('./api.js');
                 let ratingToEdit = $(`#rating-${editId}`).html();
                 console.log(ratingToEdit);
 
-
-
                 $("#editModalTitle").val(titleToEdit);
-                $('#editModalRating').html(ratingToEdit);
+                $("#editModalRating" + ratingToEdit).prop('checked', true);
 
+                $(document).on('click',".saveChanges", function(){
+                    let updatedTitle = $("#editModalTitle").val();
+                    let updateRating = $("#editModalRating" + ratingToEdit).prop('checked', true);
+                    let updatedMovie = {};
+                    console.log(updateRating);
+                    console.log(updatedTitle);
+                    console.log(editId);
+                    updatedMovie.title = updatedTitle;
+                    updatedMovie.rating = updatedRating;
+                    let url = "/api/movies/" + editId;
+                    let options = {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(updatedMovie)
+                    };
+                    fetch(url, options)
+                        .then(response => response.json())
+                        .then( data => {
+                            console.log(data);
+                            updateHTML()
+                        });
 
+                });
 
             });
+
+
 
             $(document).on('click', `.deleteBtn`, function(event){
                 const deleteClick = event.target.id;
-
-
-                console.log(deleteClick);
+                // console.log(deleteClick);
             });
+
+
 
 
 
@@ -133,28 +157,28 @@ updateHTML();
 
 
 //save Edit Info
-$('.saveChanges').click(function () {
-    console.log('movie button clicked');
-    title = $('#editModalTitle').val();
-    console.log(title);
-    rating = $('.rating[type=radio][name=rating]:checked').val();
-    console.log(rating);
-
-    movieObject.title = title;
-    movieObject.rating = rating;
-    console.log(movieObject);
-    fetch("/api/movies", {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(movieObject)
-    }).then(response => response.json())
-        .then( data => {
-            console.log(data);
-            updateHTML()
-        });
-});
+// $('.saveChanges').click(function () {
+//     // console.log('movie button clicked');
+//     // title = $('#editModalTitle').val();
+//     // console.log(title);
+//     // rating = $('.rating[type=radio][name=rating]:checked').val();
+//     // console.log(rating);
+//     //
+//     // movieObject.title = title;
+//     // movieObject.rating = rating;
+//     // console.log(movieObject);
+//     fetch("/api/movies", {
+//         method: 'PUT',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(titleToEdit, ratingToEdit)
+//     }).then(response => response.json())
+//         .then( data => {
+//             console.log(data);
+//             updateHTML()
+//         });
+// });
 
 
 
