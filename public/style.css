@@ -1,3 +1,7 @@
+:root {
+    --nf-red: #DC0012;
+    --nf-light-grey: #A4A4A4;
+}
 html, body {
     height: 100%;
 }
@@ -7,8 +11,8 @@ html, body {
 }
 
 .control {
-    background: lightblue;
-    /*min-height: 100%;*/
+    background: var(--nf-red);
+    color: var(--nf-light-grey);
 }
 
 .custom-container {
