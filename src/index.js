@@ -58,11 +58,13 @@ const showEditBar = (event) => {
   const clickID = parseInt(event.target.id);
   const originalTitle = $(`#${clickID}-title`).html();
   let originalRating = $(`#${clickID}-rating`).html();
-  originalRating = originalRating.substring(8);
+  // originalRating = originalRating.substring(8);
+    originalRating = parseInt(originalRating.substring(8)).toString();
   console.log(originalRating);
   $('#editTitle').val(originalTitle);
+  $('#editRating').val(originalRating);
   $('#edit').show();
-  console.log(clickID);
+  // console.log(clickID);
     $('#editSubmit').off().on('click', () => {
 
   const editedTitle = $('#editTitle').val();
@@ -71,9 +73,9 @@ const showEditBar = (event) => {
         title: editedTitle,
         rating: editedRating
   };
-    console.log(editedMovie);
+    // console.log(editedMovie);
   const url = `/api/movies/${clickID}`;
-      console.log(url);
+      // console.log(url);
       const options = {
       method: 'PUT',
       headers: {
@@ -81,7 +83,7 @@ const showEditBar = (event) => {
       },
       body: JSON.stringify(editedMovie)
   };
-      console.log(options);
+      // console.log(options);
       fetch(url, options)
       .then($("#edit").hide())
       .then(displayMovies)
