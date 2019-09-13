@@ -1,7 +1,14 @@
 html, body {
     height: 100%;
+    text-align: center;
 }
-
+body{
+    margin: 0 auto;
+    width: 80%;
+}
+header{
+    margin-top: 4em;
+}
 .container {
     position: relative;
     top: 50%;
@@ -12,8 +19,28 @@ html, body {
 .addMovieInputs{
     display: none;
 }
-
+.container-box{
+    text-align: center;
+    margin-top: 4em;
+}
+.movies{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
 .card{
     display: inline-block;
-
+    width: 15em;
+    margin: 1em;
+}
+.card-body{
+    height: 10em;
+}
+#loading{
+    text-align: center;
+    margin-top: 10em;
+}
+.add-card{
+    width: 18em;
+    height: 13em;
 }
