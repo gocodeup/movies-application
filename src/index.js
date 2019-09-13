@@ -14,7 +14,7 @@ const {getMovies} = require('./api.js');
 
 function refreshMovies(){
   getMovies().then((movies) => {
-    $('#loading').html('');
+    $('#loading').html('').css('display', 'none');
     $('.movies').html('');
     // Show add movie inputs on load
     $('.addMovieInputs').css('display', 'block').css('text-align', 'center');
@@ -24,13 +24,13 @@ function refreshMovies(){
       let movieItems = '';
 
       movieItems += `<div class="card">
-                        <div class="card-body">
+                        <div class="card-body d-flex flex-column align-items-center justify-content-center p-1">
                             <h4 class="card-title"> ${title}</h4>
                             <div class="card-text">
                             Rating: ${rating}
                             </div>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary editBtn" data-toggle="modal" data-target="#exampleModal">
+                            <button type="button" class="btn btn-primary editBtn justify-content-end mt-auto" data-toggle="modal" data-target="#exampleModal">
                               Edit Movie
                             </button>
                             
@@ -39,7 +39,7 @@ function refreshMovies(){
                               <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                   <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Edit Movie</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">&times;</span>
                                     </button>
@@ -47,7 +47,7 @@ function refreshMovies(){
                                   <div class="modal-body">
                                   <p>Edit Movie Title</p>
 <!--                                  input-->
-                                    <input id="editTitle" class="form-control form-control-sm" type="text" placeholder="Movie Title">
+                                    <input id="editTitle" class="form-control form-control-sm" type="text" value="" placeholder="Movie Title">
                                     <p>Edit Movie Raiting</p>
                                     <!--Select-->
                                     <div class="input-group mb-3">
@@ -62,7 +62,7 @@ function refreshMovies(){
                                   </div>
                                   </div>
                                   <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" id="deleteMovieBtn" data-dismiss="modal">Delete Movie</button>
+                                    <button type="button" class="btn btn-danger mr-auto" id="deleteMovieBtn" data-dismiss="modal">Delete Movie</button>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                     <button type="button" id="saveEditBtn" class="btn btn-primary" data-dismiss="modal">Save changes</button>
                                   </div>
@@ -90,6 +90,11 @@ function refreshMovies(){
 
     $('.editBtn').on('click', function () {
       let targetedMovieTitle = $(this).parents('.card-body').children('.card-title').text();
+
+      // Adds movie title to the modal input value
+      $('#editTitle').val(targetedMovieTitle);
+
+
       function getIdNumber() {
         return fetch('api/movies').then(data => {
           return data.json()})

@@ -1,24 +1,19 @@
 {
   "movies": [
     {
-      "title": "Fast and Furious: Tokyo Drift",
-      "rating": "5",
+      "title": " Fast and Furious: Tokyo Drift",
+      "rating": "2",
       "id": "3"
     },
     {
-      "title": "Pulp Fiction",
-      "rating": "4",
+      "title": " Pulp Fiction",
+      "rating": "2",
       "id": 7
     },
     {
       "title": "Kill Bill 2",
       "rating": "3",
       "id": 8
-    },
-    {
-      "title": "Baby Driver",
-      "rating": "5",
-      "id": 11
     }
   ]
 }
