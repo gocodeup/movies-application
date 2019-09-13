@@ -1,13 +1,8 @@
 {
   "movies": [
     {
-      "title": "Angel Has Fallen",
-      "rating": "2",
-      "id": 2
-    },
-    {
-      "title": "Tokyo Drift",
-      "rating": "4",
+      "title": "Fast and Furious: Tokyo Drift",
+      "rating": "5",
       "id": "3"
     },
     {
@@ -21,24 +16,9 @@
       "id": 8
     },
     {
-      "title": "Bee Movie",
-      "rating": "4",
-      "id": 9
-    },
-    {
-      "title": "Iron Man 2",
-      "rating": "3",
-      "id": 10
-    },
-    {
       "title": "Baby Driver",
       "rating": "5",
       "id": 11
-    },
-    {
-      "title": "Child's Play",
-      "rating": "4",
-      "id": 12
     }
   ]
 }

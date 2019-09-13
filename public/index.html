@@ -8,21 +8,30 @@
     <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-
+    <header>
+        <h1>MATT & IZZY'S </h1>
+        <h2>AWESOME MOVIE LIST</h2>
+    </header>
     <div class="container-box">
         <div class="movies " ></div>
         <div id="loading"><img src="img/Wedges.gif" alt="loading gif"></div>
-        <div class="addMovieInputs">
-            <input class="form-control form-control-sm" type="text" id="movieTitle" placeholder="Add Movie...">
-            <select class="custom-select" name="rating" id="rating">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <button class=" btn btn-primary" id="btn ">Submit</button>
-        </div>
+        <span class="addMovieInputs">
+            <div class="card add-card">
+                <div class="card-body">
+                    <label for="movieTitle">Add New Movie</label>
+                    <input class="form-control form-control-sm" type="text" id="movieTitle" placeholder="Add Movie Title...">
+                    <label for="rating">Movie Rating</label>
+                    <select class="custom-select" name="rating" id="rating">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <button class=" btn btn-primary addMovieBtn" id="addMovieBtn ">Submit</button>
+                 </div>
+            </div>
+        </span>
     </div>
 
 <!--    Bootstrap 4 JS files-->

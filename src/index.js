@@ -17,7 +17,7 @@ function refreshMovies(){
     $('#loading').html('');
     $('.movies').html('');
     // Show add movie inputs on load
-    $('.addMovieInputs').css('display', 'block');
+    $('.addMovieInputs').css('display', 'block').css('text-align', 'center');
 
     console.log('Here are all the movies:');
     movies.forEach(({title, rating, id}) => {
@@ -92,23 +92,16 @@ function refreshMovies(){
       let targetedMovieTitle = $(this).parents('.card-body').children('.card-title').text();
       function getIdNumber() {
         return fetch('api/movies').then(data => {
-          return data.json()
-          // console.log(data);
-          //
-        }).then(data => {
-          // data
-
-          for(let i = 0; i < data.length; i++){
-
-              if(data[i].title === targetedMovieTitle.slice(1)){
-                // console.log(data[i].id);
-                return data[i].id
+          return data.json()})
+            .then(data => {
+              for(let i = 0; i < data.length; i++){
+                if(data[i].title === targetedMovieTitle.slice(1)){
+                 return data[i].id
+                }
               }
-
-            }
         });
-
       }
+
       getIdNumber().then( data => {
         let idNumber = data;
 
@@ -126,10 +119,8 @@ function refreshMovies(){
       });
     })
 
-
   }) // End of GetMovies()
     .catch((error) => {
-    alert('Oh no! Something went wrong.\nCheck the console for details.');
     console.log(error);
   });
 
@@ -158,29 +149,26 @@ function newMovie(movieTitle, movieRating) {
   $('#rating').val(''); // Clears out the drop down
 } // End of newMovie()
 
-
-// newMovie($('#movieTitle').val(), $('#rating').val() )
-
+$('.addMovieBtn').on('click',() => newMovie($('#movieTitle').val(), $('#rating').val()) );
 
 
-  $('#btn').on('click',() => newMovie($('#movieTitle').val(), $('#rating').val()) );
 
-function modify(movieTitle, movieRating, idNum){
-  const blogPost = {title: movieTitle, rating: movieRating};
-  const url = `/api/movies/${idNum}`;
-  const options = {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(blogPost),
-  };
-  fetch(url, options)
-      .then( (data) => console.log('Post was successful', data)/* post was created successfully */)
-      .catch( (data) => console.log('Post unsuccessful', data) /* handle errors */);
+  function modify(movieTitle, movieRating, idNum){
+    const blogPost = {title: movieTitle, rating: movieRating};
+    const url = `/api/movies/${idNum}`;
+    const options = {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(blogPost),
+    };
+    fetch(url, options)
+        .then( (data) => console.log('Post was successful', data)/* post was created successfully */)
+        .catch( (data) => console.log('Post unsuccessful', data) /* handle errors */);
 
-refreshMovies();
-}
+    refreshMovies();
+  }
 
 
 function deleteMovie(idNum){
