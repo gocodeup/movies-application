@@ -4,37 +4,62 @@
       "title": "The Conjuring",
       "rating": "3",
       "id": 2,
-      "genre": ["drama", "horror"]
+      "genre": [
+        "drama",
+        "horror"
+      ]
     },
     {
       "title": "Cabin in the Woods",
       "rating": "4",
       "id": 5,
-      "genre": ["comedy", "horror"]
+      "genre": [
+        "comedy",
+        "horror"
+      ]
     },
     {
       "title": "Girls Trip",
       "rating": "5",
       "id": 6,
-      "genre": ["comedy"]
+      "genre": [
+        "comedy"
+      ]
     },
     {
       "title": "Brain on Fire",
       "rating": "5",
       "id": 7,
-      "genre": ["drama"]
+      "genre": [
+        "drama"
+      ]
     },
     {
       "title": "Volver",
       "rating": "5",
       "id": 8,
-      "genre": ["drama", "foreign"]
+      "genre": [
+        "drama",
+        "foreign"
+      ]
     },
     {
       "title": "Shall We ダンス？",
       "rating": "4",
       "id": 9,
-      "genre": ["comedy", "foreign"]
+      "genre": [
+        "comedy",
+        "foreign"
+      ]
+    },
+    {
+      "title": "Fast and the Furious",
+      "rating": "1",
+      "genre": [
+        "comedy",
+        "horror"
+      ],
+      "id": 10
     }
   ]
 }

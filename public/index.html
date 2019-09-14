@@ -4,23 +4,22 @@
     <meta charset="UTF-8" />
     <title>Myflix</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
-<body class="container-fluid">
+<body class="container-fluid" id="custom">
 <div class="row height-100">
     <div class="col-3 control" id="control">
         <div id="genre">
             <h3 class="my-3">Filter by Genre</h3>
             <label class="mr-2" for="genreFilter">Genre: </label>
-            <select name="genreFilter" id="genreFilter">
+            <select name="genreFilter" id="genreFilter" class="mb-5">
                 <option value="all" selected>All</option>
                 <option value="comedy">Comedy</option>
                 <option value="drama">Drama</option>
                 <option value="foreign">Foreign</option>
                 <option value="horror">Horror</option>
             </select>
-            <br>
-            <button class="mt-2 mb-5" id="genreSubmit">Filter</button>
+
         </div>
         <div id="add">
            <h3 class="my-3">Add New Movie</h3>
@@ -36,6 +35,11 @@
                 <option value="4">4 / 5</option>
                 <option value="5">5 / 5</option>
             </select>
+            <br>
+            <input class="genreSelect" type="checkbox" name="genreSelect" value="comedy"> &nbsp;Comedy <br>
+            <input class="genreSelect" type="checkbox" name="genreSelect" value="drama"> &nbsp;Drama <br>
+            <input class="genreSelect" type="checkbox" name="genreSelect" value="foreign"> &nbsp;Foreign <br>
+            <input class="genreSelect" type="checkbox" name="genreSelect" value="horror" id="horror"> &nbsp;Horror <br>
             <br>
             <button class="mt-2 mb-5" id="newSubmit">Submit</button>
         </div>
@@ -61,7 +65,7 @@
     <main class="custom-container col-9">
         <h1 class="red-header">MYFLIX</h1>
         <div id="viewport">
-            <p>Loading...</p>
+            <img src="img/loading.svg" alt="Loading Spinner" class="loading" id="loading">
         </div>
     </main>
 </div>
