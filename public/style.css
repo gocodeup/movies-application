@@ -42,9 +42,6 @@ html, body {
 }
 
 .custom-container {
-    /*position: relative;*/
-    /*top: 50%;*/
-    /*transform: translateY(-100%);*/
     text-align: center;
 }
 
@@ -55,8 +52,11 @@ html, body {
 #viewport {
     display: flex;
     flex-wrap: wrap;
-    /*align-items: center;*/
+    align-items: center;
     margin: auto;
+    justify-content: center;
+    overflow: auto;
+    height: 700px;
 }
 
 .custom-card {

@@ -51,6 +51,16 @@
         "comedy",
         "foreign"
       ]
+
+    },
+    {
+      "title": "Fast and the Furious",
+      "rating": "1",
+      "genre": [
+        "comedy",
+        "horror"
+      ],
+      "id": 10
     }
   ]
 }
