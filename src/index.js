@@ -44,12 +44,42 @@ const {getMovies} = require('./api.js');
 
           });
 
-          $('#contents').html(page);
+            $('#contents').html(page);
 
-          // $(`#edit-${id}`).on('click', function(){
-          //   console.log("edit btn clicked");
-          //   console.log($(this));
-          // });
+            //////////////////adds movies and makes post request/////////////////
+
+
+            let title;
+            let rating;
+            let movieObject = {};
+
+            $('.add-movie').click(function () {
+                console.log('movie button clicked');
+                title = $('.title-input').val();
+                console.log(title);
+                rating = $('.rating[type=radio][name=rating]:checked').val();
+                console.log(rating);
+
+                movieObject.title = title;
+                movieObject.rating = rating;
+                console.log(movieObject);
+                fetch("/api/movies", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(movieObject)
+                }).then(response => response.json())
+                    .then( data => {
+                        console.log(data);
+                        updateHTML()
+                    });
+            });
+
+
+
+
+            //////////////////EDIT BUTTON //////////////////////
 
             $(document).on('click', `.editBtn`, function(event){
 
@@ -78,6 +108,11 @@ const {getMovies} = require('./api.js');
                 $("#editModalTitle").val(titleToEdit);
                 $("#editModalRating" + ratingToEdit).prop('checked', true);
 
+
+
+
+                ///SAVE CHANGES BUTTON IN MODAL///////
+
                 $(document).on('click',".saveChanges", function(){
                     let updatedTitle = $("#editModalTitle").val();
                     let updateRating = $('.rating[type=radio][name=rating]:checked').val();
@@ -100,45 +135,30 @@ const {getMovies} = require('./api.js');
                         .then(response => response.json())
                         .then( data => {
                             console.log(data);
-                            updateHTML()
-                        });
-
+                            updateHTML();
+                        })
                 });
 
+
+                ////DELETE MOVIE////
+
                 $(document).on('click', `.deleteBtn`, function(event){
-                    const deleteClick = event;
-                        console.log(deleteClick);
 
-                    const options = {
+                    //this editClick variable targets the id attributed to the edit button
+                    const deleteClick = event.target.id;
+                    console.log(deleteClick);
+
+                    let url = `/api/movies/${editId}`;
+                    let options = {
                         method: 'DELETE',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
                     };
-                    // update database
-                    fetch(`/api/movies/${editId}`, options)
-                        .then(() => {
-                            console.log(`movie ${editId} deleted`);
-                           // updateHTML()
-                        })
-                        .catch(() => {
-                            console.log('error on delete')
+                    fetch(url, options)
+                        .then(response => response.json())
+                        .then( data => {
+                            console.log(data);
+                            updateHTML()
                         });
-
-                //     const deleteClick = event.target.id;
-                //     console.log(deleteClick);
-                //
-                //     let url = `/api/movies/${editId}`;
-                //     let options = {
-                //         method: 'DELETE',
-                //     };
-                //     fetch(url, options)
-                //         .then(response => response.json())
-                //         .then( data => {
-                //             console.log(data);
-                //             updateHTML()
-                //         });
-                //     console.log(deleteClick);
+                    console.log(deleteClick);
                 });
 
 
@@ -159,58 +179,69 @@ const {getMovies} = require('./api.js');
 
 updateHTML();
 
-// adds movies and makes post request
-  let title;
-  let rating;
-  let movieObject = {};
-
-      $('.add-movie').click(function () {
-          console.log('movie button clicked');
-          title = $('.title-input').val();
-          console.log(title);
-          rating = $('.rating[type=radio][name=rating]:checked').val();
-          console.log(rating);
-
-          movieObject.title = title;
-          movieObject.rating = rating;
-          console.log(movieObject);
-          fetch("/api/movies", {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(movieObject)
-          }).then(response => response.json())
-            .then( data => {
-              console.log(data);
-              updateHTML()
-            });
-      });
 
 
-//save Edit Info
-// $('.saveChanges').click(function () {
-//     // console.log('movie button clicked');
-//     // title = $('#editModalTitle').val();
-//     // console.log(title);
-//     // rating = $('.rating[type=radio][name=rating]:checked').val();
-//     // console.log(rating);
-//     //
-//     // movieObject.title = title;
-//     // movieObject.rating = rating;
-//     // console.log(movieObject);
-//     fetch("/api/movies", {
-//         method: 'PUT',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(titleToEdit, ratingToEdit)
-//     }).then(response => response.json())
-//         .then( data => {
-//             console.log(data);
-//             updateHTML()
-//         });
-// });
+
+ // adds movies and makes post request
+//    let title;
+//    let rating;
+//    let movieObject = {};
+//
+//        $('.add-movie').click(function () {
+//            console.log('movie button clicked');
+//            title = $('.title-input').val();
+//            console.log(title);
+//            rating = $('.rating[type=radio][name=rating]:checked').val();
+//            console.log(rating);
+//
+//            movieObject.title = title;
+//            movieObject.rating = rating;
+//            console.log(movieObject);
+//            fetch("/api/movies", {
+//                method: 'POST',
+//                headers: {
+//                    'Content-Type': 'application/json'
+//                },
+//                body: JSON.stringify(movieObject)
+//            }).then(response => response.json())
+//              .then( data => {
+//                console.log(data);
+//                updateHTML()
+//              });
+//        });
+//
+//
+// save Edit Info
+//  $('.saveChanges').click(function () {
+//      // console.log('movie button clicked');
+//      // title = $('#editModalTitle').val();
+//      // console.log(title);
+//      // rating = $('.rating[type=radio][name=rating]:checked').val();
+//      // console.log(rating);
+//      //
+//      // movieObject.title = title;
+//      // movieObject.rating = rating;
+//      // console.log(movieObject);
+//      fetch("/api/movies", {
+//          method: 'PUT',
+//          headers: {
+//              'Content-Type': 'application/json'
+//          },
+//          body: JSON.stringify(titleToEdit, ratingToEdit)
+//      }).then(response => response.json())
+//          .then( data => {
+//              console.log(data);
+//              updateHTML()
+//          });
+//  });
+
+
+
+
+
+
+
+
 
 
 
