@@ -1,18 +1,43 @@
 {
   "movies": [
     {
-      "title": " Fast and Furious: Tokyo Drift",
-      "rating": "2",
-      "id": "3"
+      "title": " The Fast and the Furious",
+      "rating": "4",
+      "id": 1
     },
     {
-      "title": " Pulp Fiction",
+      "title": "  Fast Five",
+      "rating": "5",
+      "id": 2
+    },
+    {
+      "title": "The Fast and the Furious: Tokyo Drift",
+      "rating": "1",
+      "id": 3
+    },
+    {
+      "title": "Fast and Furious",
       "rating": "2",
+      "id": 4
+    },
+    {
+      "title": "  Fast Five",
+      "rating": "5",
+      "id": 5
+    },
+    {
+      "title": "Fast and Furious 6",
+      "rating": "3",
+      "id": 6
+    },
+    {
+      "title": " Furious 7",
+      "rating": "3",
       "id": 7
     },
     {
-      "title": "Kill Bill 2",
-      "rating": "3",
+      "title": "Fate of the Furious",
+      "rating": "2",
       "id": 8
     }
   ]

@@ -1,9 +1,5 @@
 const $ = require('jquery')
-/**
- * es6 modules and imports
- */
-import sayHello from './hello';
-sayHello('World');
+
 
 /**
  * require style imports
@@ -19,21 +15,21 @@ function refreshMovies(){
     // Show add movie inputs on load
     $('.addMovieInputs').css('display', 'block').css('text-align', 'center');
 
-    console.log('Here are all the movies:');
     movies.forEach(({title, rating, id}) => {
       let movieItems = '';
 
       movieItems += `<div class="card">
                         <div class="card-body d-flex flex-column align-items-center justify-content-center p-1">
                             <h4 class="card-title"> ${title}</h4>
-                            <div class="card-text">
-                            Rating: ${rating}
+                            <div class="mt-auto">
+                                <div class="card-text ">
+                                Rating: ${rating}
+                                </div>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary editBtn justify-content-end" data-toggle="modal" data-target="#exampleModal">
+                                  Edit
+                                </button>
                             </div>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary editBtn justify-content-end mt-auto" data-toggle="modal" data-target="#exampleModal">
-                              Edit Movie
-                            </button>
-                            
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog" role="document">
@@ -48,7 +44,7 @@ function refreshMovies(){
                                   <p>Edit Movie Title</p>
 <!--                                  input-->
                                     <input id="editTitle" class="form-control form-control-sm" type="text" value="" placeholder="Movie Title">
-                                    <p>Edit Movie Raiting</p>
+                                    <p class="edit-rating">Edit Movie Raiting</p>
                                     <!--Select-->
                                     <div class="input-group mb-3">
                                     <select class="custom-select editRating" >
@@ -62,30 +58,17 @@ function refreshMovies(){
                                   </div>
                                   </div>
                                   <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger mr-auto" id="deleteMovieBtn" data-dismiss="modal">Delete Movie</button>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" id="saveEditBtn" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                                    <button type="button" class="btn btn-danger mr-auto btn-size" id="deleteMovieBtn" data-dismiss="modal">Delete Movie</button>
+                                    <button type="button" class="btn btn-secondary btn-size" data-dismiss="modal">Close</button>
+                                    <button type="button" id="saveEditBtn" class="btn btn-primary btn-size" data-dismiss="modal">Save changes</button>
                                   </div>
                                 </div>
                               </div>
                             </div>
-<!--                            <button class="editButton">Edit Movies</button>   -->
-<!--                            <div class="editBox">-->
-<!--                              <input class="editMovie" type="text">-->
-<!--                              <select name="editRating" class="editRating">-->
-<!--                                <option value="1">1</option>-->
-<!--                                <option value="2">2</option>-->
-<!--                                <option value="3">3</option>-->
-<!--                                <option value="4">4</option>-->
-<!--                                <option value="5">5</option>-->
-<!--                              </select>-->
-<!--                              <button class="submitMovieEdit">Submit Changes</button>-->
-<!--                            </div>-->
                         </div>  
                     </div>`;
 
       $('.movies').append(movieItems);
-      console.log(title, rating, id);
     });
 
     $('.editBtn').on('click', function () {
@@ -111,10 +94,8 @@ function refreshMovies(){
         let idNumber = data;
 
         $('#saveEditBtn').on('click', function () {
-          console.log('test');
           let movieTitle = $('#editTitle').val();
           let movieRating = $('.editRating').val();
-          console.log(movieRating);
           modify(movieTitle, movieRating, idNumber);
 
         });
@@ -126,7 +107,6 @@ function refreshMovies(){
 
   }) // End of GetMovies()
     .catch((error) => {
-    console.log(error);
   });
 
 } // End of refreshMovies
