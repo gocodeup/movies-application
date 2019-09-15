@@ -3,16 +3,13 @@
     /**
      * es6 modules and imports
      */
-// import sayHello from './hello';
-// sayHello('World');
+
     const {greeting} = require(`./hello.js`);
     greeting('Ceres');
     /**
      * require style imports
      */
     const {getMovies} = require('./api.js');
-// this function displays the movie selection and hides the spinner upon load
-// Always hide the spinner
 
     // $('#spinner').css('display', 'none');
     // console.log('Here are all the movies:');
@@ -35,9 +32,9 @@
 
                 $('#contents').html(page);
             });
-    }
+    };
     updateHTML();
-                //////////////////adds movies and makes post request/////////////////
+//////////////////adds movies and makes post request/////////////////
 
 
                 let title;
@@ -68,11 +65,11 @@
                 });
 
 
-                //////////////////EDIT BUTTON //////////////////////
+//////////////////EDIT BUTTON //////////////////////
 
                 $(document).on('click', `.editBtn`, function (event) {
 
-                    //this editClick variable targets the id attributed to the edit button
+////////////this editClick variable targets the id attributed to the edit button/////////////
                     const editClick = event.target.id;
                     // console.log(editClick);
 
@@ -88,7 +85,7 @@
                     let titleToEdit = $(`#title-${editId}`).html();
                     // console.log(titleToEdit);
 
-                    /////PREPOPULATE RATING TO EDIT//////
+/////PREPOPULATE RATING TO EDIT////////////////////////////////////
 
                     let ratingToEdit = $(`#rating-${editId}`).html();
                     console.log(ratingToEdit);
@@ -125,7 +122,7 @@
 
 
                             });
-            // this will delete selected movie
+//////////////// this will delete selected movie////////////////////
 
                 $(document).on('click', ".deleteBtn", function (event) {
 
