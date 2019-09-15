@@ -32,38 +32,38 @@ function refreshMovies(){
                             </div>
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Edit Movie</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                                  </div>
-                                  <div class="modal-body">
-                                  <p>Edit Movie Title</p>
-<!--                                  input-->
-                                    <input id="editTitle" class="form-control form-control-sm" type="text" value="" placeholder="Movie Title">
-                                    <p class="edit-rating">Edit Movie Raiting</p>
-                                    <!--Select-->
-                                    <div class="input-group mb-3">
-                                    <select class="custom-select editRating" >
-                                      <option value="0" selected>Choose...</option>
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                      <option value="4">4</option>
-                                      <option value="5">5</option>
-                                    </select>
-                                  </div>
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger mr-auto btn-size" id="deleteMovieBtn" data-dismiss="modal">Delete Movie</button>
-                                    <button type="button" class="btn btn-secondary btn-size" data-dismiss="modal">Close</button>
-                                    <button type="button" id="saveEditBtn" class="btn btn-primary btn-size" data-dismiss="modal">Save changes</button>
-                                  </div>
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Edit Movie</h5>
+                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Edit Movie Title</p>
+                                        <!--input-->
+                                            <input id="editTitle" class="form-control form-control-sm" type="text" value="" placeholder="Movie Title">
+                                            <p class="edit-rating">Edit Movie Raiting</p>
+                                        <!--Select-->
+                                            <div class="input-group mb-3">
+                                                <select class="custom-select editRating" >
+                                                    <option value="0" selected>Choose...</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
+                                            </div>
+                                            </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger mr-auto btn-size" id="deleteMovieBtn" data-dismiss="modal">Delete Movie</button>
+                                            <button type="button" class="btn btn-secondary btn-size" data-dismiss="modal">Close</button>
+                                            <button type="button" id="saveEditBtn" class="btn btn-primary btn-size" data-dismiss="modal">Save changes</button>
+                                         </div>
+                                    </div>
                                 </div>
-                              </div>
                             </div>
                         </div>  
                     </div>`;
