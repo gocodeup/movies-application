@@ -7,6 +7,7 @@ body{
     width: 80%;
     background-color: #C3DFF2;
     color: #82C7D3;
+    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -14,6 +15,7 @@ body{
 header{
     margin-top: 1em;
     color: #538EC4;
+    font-family: 'Rubik Mono One', sans-serif;
 }
 .container {
     position: relative;
@@ -39,7 +41,7 @@ header{
 .card{
     display: inline-block;
     width: 15em;
-    margin: 1em;
+    margin: .7em;
     padding: 1em;
 
 }
@@ -81,6 +83,7 @@ header{
     font-size: .6em;
     line-height: 5px;
     margin-top: .5em;
+    background-color: #538EC4;
 }
 
 #rating-label{
