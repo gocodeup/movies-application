@@ -75,7 +75,7 @@ function refreshMovies(){
       let targetedMovieTitle = $(this).parents('.card-body').children('.card-title').text();
 
       // Adds movie title to the modal input value
-      $('#editTitle').val(targetedMovieTitle);
+      $('#editTitle').val(targetedMovieTitle.trim());
 
 
       function getIdNumber() {
