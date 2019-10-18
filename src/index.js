@@ -7,18 +7,17 @@ const $ = require('jquery')
 const {getMovies} = require('./api.js');
 
 
+function refreshMovies() {
+    getMovies().then((movies) => {
+        $('#loading').html('').css('display', 'none');
+        $('.movies').html('');
+        // Show add movie inputs on load
+        $('.addMovieInputs').css('display', 'block').css('text-align', 'center');
 
-function refreshMovies(){
-  getMovies().then((movies) => {
-    $('#loading').html('').css('display', 'none');
-    $('.movies').html('');
-    // Show add movie inputs on load
-    $('.addMovieInputs').css('display', 'block').css('text-align', 'center');
+        movies.forEach(({title, rating, id}) => {
+            let movieItems = '';
 
-    movies.forEach(({title, rating, id}) => {
-      let movieItems = '';
-
-      movieItems += `<div class="card">
+            movieItems += `<div class="card">
                         <div class="card-body d-flex flex-column align-items-center justify-content-center p-1">
                             <h4 class="card-title"> ${title}</h4>
                             <div class="mt-auto">
@@ -58,7 +57,7 @@ function refreshMovies(){
                                             </div>
                                             </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-danger mr-auto btn-size" id="deleteMovieBtn" data-dismiss="modal">Delete Movie</button>
+                                            <button type="button" class="btn btn-danger mr-auto btn-size" id="deleteMovieBtn">Delete Movie</button>
                                             <button type="button" class="btn btn-secondary btn-size" data-dismiss="modal">Close</button>
                                             <button type="button" id="saveEditBtn" class="btn btn-primary btn-size" data-dismiss="modal">Save changes</button>
                                          </div>
@@ -68,109 +67,116 @@ function refreshMovies(){
                         </div>  
                     </div>`;
 
-      $('.movies').append(movieItems);
-    });
-
-    $('.editBtn').on('click', function () {
-      let targetedMovieTitle = $(this).parents('.card-body').children('.card-title').text();
-
-      // Adds movie title to the modal input value
-      $('#editTitle').val(targetedMovieTitle.trim());
-
-
-      function getIdNumber() {
-        return fetch('api/movies').then(data => {
-          return data.json()})
-            .then(data => {
-              for(let i = 0; i < data.length; i++){
-                if(data[i].title === targetedMovieTitle.slice(1)){
-                 return data[i].id
-                }
-              }
+            $('.movies').append(movieItems);
         });
-      }
 
-      getIdNumber().then( data => {
-        let idNumber = data;
+        $('.editBtn').on('click', function () {
+            let targetedMovieTitle = $(this).parents('.card-body').children('.card-title').text();
 
-        $('#saveEditBtn').on('click', function () {
-          let movieTitle = $('#editTitle').val();
-          let movieRating = $('.editRating').val();
-          modify(movieTitle, movieRating, idNumber);
+            // Adds movie title to the modal input value
+            $('#editTitle').val(targetedMovieTitle.trim());
 
+
+            function getIdNumber() {
+                return fetch('api/movies').then(data => {
+                    return data.json()
+                })
+                    .then(data => {
+                        for (let i = 0; i < data.length; i++) {
+                            if (data[i].title === targetedMovieTitle.slice(1)) {
+                                console.log(data[i].id);
+                                return data[i].id
+                            }
+                        }
+                    });
+            }
+
+            $('#deleteMovieBtn').addClass('disabled');
+            $('#deleteMovieBtn').removeAttr('data-dismiss');
+            getIdNumber().then(data => {
+                let idNumber = data;
+                console.log(idNumber);
+                $('#deleteMovieBtn').removeClass('disabled');
+                $('#deleteMovieBtn').attr('data-dismiss','modal');
+                $('#saveEditBtn').on('click', function () {
+                    let movieTitle = $('#editTitle').val();
+                    let movieRating = $('.editRating').val();
+                    modify(movieTitle, movieRating, idNumber);
+
+                });
+                $('#deleteMovieBtn').on('click', function () {
+                    deleteMovie(idNumber);
+                })
+            });
+        })
+
+    }) // End of GetMovies()
+        .catch((error) => {
         });
-          $('#deleteMovieBtn').on('click', function () {
-            deleteMovie(idNumber);
-          })
-      });
-    })
-
-  }) // End of GetMovies()
-    .catch((error) => {
-  });
 
 } // End of refreshMovies
+
 
 refreshMovies(); //Initial call
 
 function newMovie(movieTitle, movieRating) {
 
-  const blogPost = {title: movieTitle, rating: movieRating};
-  const url = '/api/movies';
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(blogPost),
-  };
-  fetch(url, options)
-      .then( (data) => console.log('Post was successful', data)/* post was created successfully */)
-      .catch( (data) => console.log('Post unsuccessful', data) /* handle errors */);
+    const blogPost = {title: movieTitle, rating: movieRating};
+    const url = '/api/movies';
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(blogPost),
+    };
+    fetch(url, options)
+        .then((data) => console.log('Post was successful', data)/* post was created successfully */)
+        .catch((data) => console.log('Post unsuccessful', data) /* handle errors */);
 
 
-  refreshMovies(); // Updates movies when submit is clicked
-  $('#movieTitle').val(''); // Clears out the input
-  $('#rating').val(''); // Clears out the drop down
+    refreshMovies(); // Updates movies when submit is clicked
+    $('#movieTitle').val(''); // Clears out the input
+    $('#rating').val(''); // Clears out the drop down
 } // End of newMovie()
 
-$('.addMovieBtn').on('click',() => newMovie($('#movieTitle').val(), $('#rating').val()) );
+$('.addMovieBtn').on('click', () => newMovie($('#movieTitle').val(), $('#rating').val()));
 
 
-
-  function modify(movieTitle, movieRating, idNum){
+function modify(movieTitle, movieRating, idNum) {
     const blogPost = {title: movieTitle, rating: movieRating};
     const url = `/api/movies/${idNum}`;
     const options = {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(blogPost),
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(blogPost),
     };
     fetch(url, options)
-        .then( (data) => console.log('Post was successful', data)/* post was created successfully */)
-        .catch( (data) => console.log('Post unsuccessful', data) /* handle errors */);
+        .then((data) => console.log('Post was successful', data)/* post was created successfully */)
+        .catch((data) => console.log('Post unsuccessful', data) /* handle errors */);
 
     refreshMovies();
-  }
+}
 
 
-function deleteMovie(idNum){
+function deleteMovie(idNum) {
 
-  const url = `/api/movies/${idNum}`;
-  const options = {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+        const url = `/api/movies/${idNum}`;
+        const options = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
 
-  };
-  fetch(url, options)
-      .then( (data) => console.log('Post was successful', data)/* post was created successfully */)
-      .catch( (data) => console.log('Post unsuccessful', data) /* handle errors */);
+        };
+        fetch(url, options)
+            .then((data) => console.log('Post was successful', data)/* post was created successfully */)
+            .catch((data) => console.log('Post unsuccessful', data) /* handle errors */);
 
-  refreshMovies();
+        refreshMovies();
+
 }
 
 
