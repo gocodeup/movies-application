@@ -140,7 +140,34 @@ function newMovie(movieTitle, movieRating) {
     $('#rating').val(''); // Clears out the drop down
 } // End of newMovie()
 
-$('.addMovieBtn').on('click', () => newMovie($('#movieTitle').val(), $('#rating').val()));
+
+// console.log($('#movieTitle').val());
+//
+// if ($('#movieTitle').val() === null || $('#rating').val() === null){
+//     $('.addMovieBtn').on('click', () => console.log('null movie input '));
+//     console.log("null movie");
+//
+//
+//
+// }else{
+//      newMovie($('#movieTitle').val(), $('#rating').val()));
+//     $('.addMovieBtn').on('click', () =>
+// }
+
+$('.addMovieBtn').on('click', () => {
+    if($('#movieTitle').val() === ""){
+        console.log('null movie input ');
+        $('#movieTitle').css('border-color', 'red')
+    }else if($('#rating').val() === null ){
+        $('#rating').css('border-color', 'red');
+    }
+    else{
+        newMovie($('#movieTitle').val(), $('#rating').val());
+        $('#movieTitle').css('border-color', '#CED4DA');
+        $('#rating').css('border-color', '#CED4DA');
+
+    }
+});
 
 
 function modify(movieTitle, movieRating, idNum) {
