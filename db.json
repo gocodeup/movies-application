@@ -34,6 +34,21 @@
       "title": " Furious 7",
       "rating": "3",
       "id": 7
+    },
+    {
+      "title": "Cool Movie",
+      "rating": "1",
+      "id": 8
+    },
+    {
+      "title": "cooler movie",
+      "rating": "5",
+      "id": 9
+    },
+    {
+      "title": "asdf",
+      "rating": "3",
+      "id": 10
     }
   ]
 }

@@ -84,18 +84,16 @@ function refreshMovies() {
                     .then(data => {
                         for (let i = 0; i < data.length; i++) {
                             if (data[i].title === targetedMovieTitle.slice(1)) {
-                                console.log(data[i].id);
                                 return data[i].id
                             }
                         }
                     });
             }
-
+            // Disables delete button until id is available
             $('#deleteMovieBtn').addClass('disabled');
             $('#deleteMovieBtn').removeAttr('data-dismiss');
             getIdNumber().then(data => {
                 let idNumber = data;
-                console.log(idNumber);
                 $('#deleteMovieBtn').removeClass('disabled');
                 $('#deleteMovieBtn').attr('data-dismiss','modal');
                 $('#saveEditBtn').on('click', function () {
@@ -140,7 +138,26 @@ function newMovie(movieTitle, movieRating) {
     $('#rating').val(''); // Clears out the drop down
 } // End of newMovie()
 
-$('.addMovieBtn').on('click', () => newMovie($('#movieTitle').val(), $('#rating').val()));
+
+
+$('.addMovieBtn').on('click', () => {
+
+    if($('#movieTitle').val() === "" && $('#rating').val() === null){
+        $('#movieTitle').css('border-color', 'red')
+        $('#rating').css('border-color', 'red');
+    }else if($('#movieTitle').val() === ""){
+        console.log('null movie input ');
+        $('#movieTitle').css('border-color', 'red')
+    }else if($('#rating').val() === null ){
+        $('#rating').css('border-color', 'red');
+    }
+    else{
+        newMovie($('#movieTitle').val(), $('#rating').val());
+        $('#movieTitle').css('border-color', '#CED4DA');
+        $('#rating').css('border-color', '#CED4DA');
+
+    }
+});
 
 
 function modify(movieTitle, movieRating, idNum) {
