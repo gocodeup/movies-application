@@ -5,9 +5,17 @@ html, body {
 body{
     margin: 0 auto;
     width: 80%;
+    background-color: #C3DFF2;
+    color: #82C7D3;
+    font-family: 'Montserrat', sans-serif;
 }
+
+
+
 header{
     margin-top: 1em;
+    color: #538EC4;
+    font-family: 'Rubik Mono One', sans-serif;
 }
 .container {
     position: relative;
@@ -22,6 +30,7 @@ header{
 .container-box{
     text-align: center;
     margin-top: 1em;
+
 }
 .movies{
     display: flex;
@@ -32,8 +41,18 @@ header{
 .card{
     display: inline-block;
     width: 15em;
-    margin: 1em;
+    margin: .7em;
+    padding: 1em;
+
 }
+
+.card:hover{
+    -moz-box-shadow:    3px 3px 5px 6px #538EC4;
+    -webkit-box-shadow: 3px 3px 5px 6px #538EC4;
+    box-shadow:         3px 3px 5px 6px #538EC4;
+
+}
+
 .card-body{
     height: 10em;
 }
@@ -43,10 +62,38 @@ header{
 }
 .add-card{
     width: 18em;
-    height: 13em;
+    height: 13.65em;
 }
 
 .editBtn{
-    /*position: relative;*/
-    /*bottom: -7px;*/
+    height: 2em;
+    width: 6em;
+    font-size: .5em;
+    line-height: 5px;
+    background-color: #538EC4;
+}
+
+.edit-rating{
+    margin-top: 1em;
+}
+
+.addMovieBtn{
+    height: 3em;
+    width: 7em;
+    font-size: .6em;
+    line-height: 5px;
+    margin-top: .5em;
+    background-color: #538EC4;
+}
+
+#rating-label{
+    margin-top: .5em;
+}
+
+.btn-size{
+    height: 2em;
+    width: 8em;
+    font-size: .8em;
+    line-height: 7px;
+    padding: .2em;
 }
