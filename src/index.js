@@ -44,7 +44,7 @@ const displayMovies = () => {
         });
     }).catch((error) => {
         alert('Oh no! Something went wrong.\nCheck the console for details.');
-        console.log(error);
+        // console.log(error);
     });
 };
 
