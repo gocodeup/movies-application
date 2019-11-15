@@ -7,6 +7,7 @@ module.exports = {
     return fetch(`/api/movies/${id}`)
         .then(response => response.json())
   },
+
   createMovie: (movie) => {
     return fetch('/api/movies', {
       method: 'POST',
@@ -15,6 +16,23 @@ module.exports = {
       },
       body: JSON.stringify(movie)
     })
-        .then(response => response.json());
+
   }
-};
+  // patchMovie : (movie, id) => {
+  //   return fetch(`api/books/${id}`, {
+  //     method: 'PATCH',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(movie),
+  //   })
+  // },
+//   deleteMovie : (id) => {
+//     return fetch(`api/movies/${id}`, {
+//       method: 'DELETE',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//     })
+//   }
+// };
