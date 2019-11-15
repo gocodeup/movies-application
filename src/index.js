@@ -20,14 +20,14 @@ getMovies().then((movies) => {
     console.log(`id#${id} - ${title} - rating: ${rating}`);
   });
 }).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.')
+  alert('Oh no! Something went wrong.\nCheck the console for details.');
   console.log(error);
 });
 //get a single book
     getMovie(1)
         .then(movie => {
           console.log("Making a request to a single movie");
-          console.log(`${movie.title} by ${movie.author} - ${book.year}`);
+          console.log(`${movie.title} by ${movie.author} - ${movie.year}`);
         })
         .catch(() => console.log('The important thing is you tried...'));
 
