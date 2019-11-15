@@ -34,7 +34,7 @@ getMovies().then((movies) => {
     </div>`)
   });
 }).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.')
+  alert('Oh no! Something went wrong.\nCheck the console for details.');
   console.log(error);
 });
 
@@ -42,7 +42,7 @@ getMovies().then((movies) => {
     getMovie(1)
         .then(movie => {
           console.log("Making a request to a single movie");
-          console.log(`${movie.title} by ${movie.author} - ${book.year}`);
+          console.log(`${movie.title} by ${movie.author} - ${movie.year}`);
         })
         .catch(() => console.log('The important thing is you tried...'));
 
