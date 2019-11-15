@@ -9,17 +9,21 @@ import $ from 'jquery';
  */
 const {getMovies} = require('./api.js');
 
-getMovies().then((movies) => {
-  console.log('Here are all the movies:');
-  $('body').append('Here are all the movies: ')
-  movies.forEach(({title, rating, id}) => {
-    console.log(`id#${id} - ${title} - rating: ${rating}`);
-    $('body').append(`${title} - rating: ${rating} `);
+$(document).ready(() => {
+  $("main").html("loading...");
+
+  getMovies().then((movies) => {
+    console.log('Here are all the movies:');
+    $("body").html("Here are all the movies:");
+    movies.forEach(({title, rating, id}) => {
+      console.log(`id#${id} - ${title} - rating: ${rating}`);
+      $("body").append(`${title} - rating: ${rating}`);
+    });
+  }).catch((error) => {
+    alert('Oh no! Something went wrong.\nCheck the console for details.')
+    console.log(error);
   });
-}).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.');
-  console.log(error);
-});
+
 
 
 $('#addButton').click(() => {
@@ -28,4 +32,7 @@ $('#addButton').click(() => {
 
 $('#editButton').click(() => {
   $('#modalLabel').html('Edit Movie')
+});
+
+
 });
