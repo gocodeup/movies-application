@@ -11,8 +11,10 @@
 /**
  * require style imports
  */
+const $ = "jquery";
 const {getMovie, getMovies, createMovie, patchMovie, deleteMovie} = require('./api.js');
-
+import 'materialize-css/dist/css/materialize.min.css'
+import 'materialize-css/dist/js/materialize.min.js'
 
 ////////////////////////
 //////GET MOVIES////////
