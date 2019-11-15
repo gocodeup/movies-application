@@ -3,7 +3,7 @@
  */
 import sayHello from './hello';
 sayHello('World');
-
+import $ from 'jquery';
 /**
  * require style imports
  */
