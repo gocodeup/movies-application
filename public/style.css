@@ -1,10 +1,22 @@
-html, body {
-    height: 100%;
+.loader {
+    border-radius: 50%;
+    border: 16px solid blue;
+    border-right-color: green;
+    border-bottom-color: red;
+    border-left-color: pink;
+    width: 120px;
+    height: 120px;
+    position: relative;
+    left: 25%;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
 }
 
-.container {
-    position: relative;
-    top: 50%;
-    transform: translateY(-100%);
-    text-align: center;
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
 }

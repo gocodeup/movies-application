@@ -1,18 +1,24 @@
 /**
  * es6 modules and imports
- */
-import sayHello from './hello';
-sayHello('World');
 
 /**
  * require style imports
  */
-const {getMovies} = require('./api.js');
+import getMovies from './api.js';
 
 getMovies().then((movies) => {
-  console.log('Here are all the movies:');
   movies.forEach(({title, rating, id}) => {
-    console.log(`id#${id} - ${title} - rating: ${rating}`);
+    $('.movieList').append('' +
+        '<div class="card col-3">' +
+        '<img src="" class="poster">' +
+        '<div class="card-body">' +
+        '<h5 class="card-title">' + title + '</h5>' +
+        '<ul class="list-group list-group-flush">' +
+        '<li class="list-group-item">Rating: ' + rating + '</li>' +
+        '<li class="list-group-item">Genre: </li></ul>' +
+        '<div class="card-body">' +
+        '<button type="button" class="editButton">Edit</button>' +
+        '<button type="button" class="deleteButton">Delete</button></div>');
   });
 }).catch((error) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.')
