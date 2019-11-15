@@ -11,10 +11,23 @@
 /**
  * require style imports
  */
-const $ = "jquery";
-const {getMovie, getMovies, createMovie, patchMovie, deleteMovie} = require('./api.js');
+
+const $ = require('jquery');
 import 'materialize-css/dist/css/materialize.min.css'
-import 'materialize-css/dist/js/materialize.min.js'
+import 'materialize-css/dist/js/materialize.js'
+import 'materialize-css/js/sidenav.js'
+import M from 'materialize-css/dist/js/materialize.js'
+
+
+const {getMovie, getMovies, createMovie, patchMovie, deleteMovie} = require('./api.js');
+
+var elems = document.querySelectorAll('.sidenav');
+var instances = M.Sidenav.init(elems);
+
+// $(document).ready(function () {
+// $('.sidenav').sidenav();
+//
+// })
 
 ////////////////////////
 //////GET MOVIES////////

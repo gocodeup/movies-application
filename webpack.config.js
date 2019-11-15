@@ -28,9 +28,15 @@ module.exports = {
             presets: ['env']
           }
         }
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+
       }
     ]
   },
+
 
   // allows us to see how the transpiled js relates to the untranspiled js
   devtool: 'source-map',
