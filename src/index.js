@@ -21,5 +21,10 @@ getMovies().then((movies) => {
 
 $(window).on("load", function(){
   $(".loader").fadeOut(2000);
+  $("#buttonadd").click(function(e){
+    (e).preventDefault();
+      }
+
+  )
 });
 

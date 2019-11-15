@@ -9,6 +9,8 @@ html, body {
     text-align: center;
 }
 
+/* spinner below */
+
 #spinnertest {
     border: 16px solid #f3f3f3; /* Light grey */
     border-top: 16px solid #3498db; /* Blue */
@@ -23,6 +25,9 @@ html, body {
     100% { transform: rotate(360deg); }
 }
 
+/* card below */
 .card {
     width: 15%;
 }
+
+/* addmovie form below */
