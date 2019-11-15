@@ -3,32 +3,121 @@
     {
       "title": "Casablanca",
       "rating": "4",
-      "id": 1
+      "id": 1,
+      "image": "img/casablanca.jpg",
+      "genre": "Romance",
+      "director": "Michael Curtiz",
+      "date": "November 26, 1942",
+      "duration": "102 minutes"
     },
     {
       "title": "Star Wars: A New Hope",
       "rating": "5",
-      "id": 2
+      "id": 2,
+      "image": "img/a-new-hope.jpg",
+      "genre": "Sci-fi",
+      "director": "George Lucas",
+      "date": "May 25, 1977",
+      "duration": "121 minutes"
     },
     {
-      "title": "Star Wars: A Newer Hope",
+      "title": "Star Wars: The Empire Strikes Back",
       "rating": "5",
-      "id": 3
+      "id": 3,
+      "image": "img/empire-strikes-back.jpg",
+      "genre": "Sci-fi",
+      "director": "George Lucas",
+      "date": "May 17, 1980",
+      "duration": "124 minutes"
     },
     {
-      "title": "Star Wars: A Newest Hope",
+      "title": "Star Wars: Return of the Jedi",
       "rating": "5",
-      "id": 4
+      "id": 4,
+      "image": "img/return-of-the-jedi.jpg",
+      "genre": "Sci-fi",
+      "director": "George Lucas",
+      "date": "May 25, 1983",
+      "duration": "135 minutes"
     },
     {
-      "title": "Star Wars: A Hope thats passe",
+      "title": "Star Wars: The Force Awakens",
       "rating": "5",
-      "id": 5
+      "id": 5,
+      "image": "img/force-awakens.jpg",
+      "genre": "Sci-fi",
+      "director": "George Lucas",
+      "date": "December 14, 2015",
+      "duration": "136 minutes"
     },
     {
-      "title": "Star Wars: A New Hope Retold",
+      "title": "Star Wars: The Revenge of the Sith",
       "rating": "5",
-      "id": 6
+      "id": 6,
+      "image": "img/revenge-of-the-sith.jpg",
+      "genre": "Sci-fi",
+      "director": "George Lucas",
+      "date": "May 19, 2005",
+      "duration": "140 minutes"
+    },{
+      "title": "It",
+      "rating": "4",
+      "id": 7,
+      "image": "img/it.jpg",
+      "genre": "Horror",
+      "director": "Tommy Lee Wallace",
+      "date": "November 18, 1990",
+      "duration": "192 minutes"
+    },
+    {
+      "title": "Exorcist",
+      "rating": "5",
+      "id": 8,
+      "image": "img/the-exorcist.jpg",
+      "genre": "Horror",
+      "director": "William Friedkin",
+      "date": "December 26, 1973",
+      "duration": "122 minutes"
+    },
+    {
+      "title": "Romeo and Juliet",
+      "rating": "5",
+      "id": 9,
+      "image": "img/romeo-and-juliet.jpg",
+      "genre": "Romance",
+      "director": "Baz Luhrmann",
+      "date": "October 27, 1996",
+      "duration": "120 minutes"
+    },
+    {
+      "title": "Raiders of the Lost Ark",
+      "rating": "5",
+      "id": 10,
+      "image": "img/raiders-of-the-lost-ark.jpg",
+      "genre": "Adventure",
+      "director": "Stephen Spielberg",
+      "date": "June 12, 1981",
+      "duration": "115 minutes"
+    },
+    {
+      "title": "Halloween",
+      "rating": "5",
+      "id": 11,
+      "image": "img/halloween.png",
+      "genre": "Horror",
+      "director": "John Carpenter",
+      "date": "October 25, 1978",
+      "duration": "91 minutes"
+    },
+    {
+      "title": "Jumanji",
+      "rating": "5",
+      "id": 12,
+      "image": "img/jumanji.jpg",
+      "genre": "Adventure",
+      "director": "Jake Kasdan",
+      "date": "December 11, 2017",
+      "duration": "119 minutes"
     }
   ]
 }
