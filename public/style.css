@@ -19,6 +19,9 @@ html, body {
     height: 120px;
     animation: spin 2s linear infinite;
 }
+#addmovie{
+    width: 25%;
+}
 
 @keyframes spin {
     0% { transform: rotate(0deg); }
