@@ -11,7 +11,7 @@
 /**
  * require style imports
  */
-const {getMovie, getMovies, createMovie} = require('./api.js');
+const {getMovie, getMovies, createMovie, patchMovie, deleteMovie} = require('./api.js');
 
 
 ////////////////////////
@@ -50,11 +50,9 @@ getMovie(1)
 ///////////////////////
 
 createMovie({
-    "title": "Vanilla Sky",
-    "rating": "4"
+
 }).then(getMovies).then((movies) => {
     console.log('Here are all the movies: ');
-    console.log(movies);
     movies.forEach(({title, rating}) => {
         console.log(`title:${title} - rating: ${rating}`);
     });
@@ -71,7 +69,7 @@ createMovie({
 patchMovie({
     "title": "Darjeeling Limited",
     "rating": "5"
-}, 5).then(getMovies).then((movies) => {
+}, 3).then(getMovies).then((movies) => {
     console.log('Here are all the books:');
     movies.forEach(({title, rating}) => {
         console.log(`${title}, ${rating}`);
