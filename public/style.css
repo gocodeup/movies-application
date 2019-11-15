@@ -7,4 +7,10 @@ html, body {
     top: 50%;
     transform: translateY(-100%);
     text-align: center;
+    /*height: 500vh;*/
+}
+
+#searchBar{
+    background-color: lightgreen;
+    width: .3fr;
 }
