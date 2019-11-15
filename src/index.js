@@ -4,7 +4,7 @@
 /**
  * require style imports
  */
-const {getMovies} = require('./api.js');
+const {getMovies, postMovie} = require('./api.js');
 const $ = require("jquery");
 
 getMovies().then((movies) => {
@@ -20,11 +20,16 @@ getMovies().then((movies) => {
 
 
 $(window).on("load", function(){
+  let movie = {};
   $(".loader").fadeOut(2000);
   $("#buttonadd").click(function(e){
     (e).preventDefault();
     console.log($('#movietitle').val());
-    console.log($('#movierating').val());}
+    console.log($('#movierating').val());
+  movie.title = $("#movietitle").val();
+  movie.rating = $("#movierating").val();
+       postMovie(movie);
+      }
 
   )
 });
