@@ -11,51 +11,67 @@ const {getMovie, getMovies, postMovie, patchMovie, deleteMovie} = require('./api
 
 // const {getMovies} = require('./api.js');
 
-getMovies().then((movies) => {
-  console.log('Here are all the movies:');
-  movies.forEach(({title, rating, id}) => {
-    console.log(`id#${id} - ${title} - rating: ${rating}`);
-  });
-}).catch((error) => {
+getMovies().catch((error) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.');
   console.log(error);
 });
-
+let movies = getMovies();
 getMovie(1)
     .then(movie => {
       console.log("Making a request to a single book");
-      console.log(`${movie.title} by ${movie.rating}`);
+      console.log(`Title:${movie.title} Rating: ${movie.rating}`);
     })
     .catch(() => console.log('The important thing is you tried...'));
 
+const THEMOVIES = getMovies(); //.then((variable) => {console.log(variable)});
 
-postMovie({
-  "title": "adsaf",
-  "rating": "dasf"
+// postMovie({
+//   "title": "MOVIE",
+//   "rating": "RATING"
+//
+// }).then(getMovies).catch((error) => {
+//   alert('Oh no! Something went wrong.\nCheck the console for details.');
+//   console.log(error);
+// });
 
-}).then(getMovies).then((movies) => {
-  console.log('Here are all the books:');
-  movies.forEach(({title, rating}) => {
-    console.log(`${title} by ${rating}`);
-  });
-}).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.');
-  console.log(error);
-});
+const showMovies = () => {
+  let div = document.getElementById("container");
+  // div.innerHTML = "";
+  console.log(div);
+  for (let i = 0; i < THEMOVIES.length ;i++){
+    let cont = "<div class='movie-card'>";
+    cont += `<p>Movie title: ${THEMOVIES[i].title}</p>`;
+    cont += `<p>Movie rating: ${THEMOVIES[i].rating}/5`;
+    div.innerHTML += cont;
+  }
+};
+showMovies();
+// deleteMovie(6);
 
-deleteMovie(27).then(postMovie({
-  "title": "Garfield Loses His Feet",
-  "rating": "1"
+//     .then((movies) => {
+//   console.log('Here are all the movies:');
+//   movies.forEach(({title, rating, id}) => {
+//     console.log(`id#${id} - ${title} - rating: ${rating}`);
+//   });
+// });
 
-})).then(getMovies).then((movies) => {
-  console.log('Here are all the books:');
-  movies.forEach(({title, rating}) => {
-    console.log(`${title} by ${rating}`);
-  });
-}).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.');
-  console.log(error);
-});
+// for (let i = 3; i < getMovies(); i++){
+//   deleteMovie([i]).then(getMovies).then((movies) => {
+//     movies.forEach(({title, rating}) => {
+// deleteMovie(4);
+//     });
+
+//.then((movies) => {
+//   console.log('Here are all the books:');
+//   movies.forEach(({title, rating}) => {
+//     console.log(`${title} by ${rating}`);
+//   });
+// })
+//   }).catch((error) => {
+//     alert('Oh no! Something went wrong.\nCheck the console for details.');
+//     console.log(error);
+//   });
+// }
 
 
 // const makeMovie = (title, rating) => {
