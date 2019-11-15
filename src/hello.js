@@ -1,1 +1,1 @@
-export default (name) => console.log(`Hello there, ${name}!`);
+export default (world) => console.log(`Hello there, ${world}!`);
