@@ -6,12 +6,12 @@
  */
 const {getMovies} = require('./api.js');
 const $ = require("jquery");
-require('bootstrap');
 
 getMovies().then((movies) => {
   console.log('Here are all the movies:');
   movies.forEach(({title, rating, id}) => {
-    $('#container').append(`<div>Id is ${id} number and the title is: ${title}, rated: ${rating}</div>`);
+    $('#container').append(`<div class="card"><div class="card-body">Id is ${id} number and the title is: ${title}, rated: ${rating}<br><span class="badge badge-primary">Edit Reel</span><span class="badge badge-danger">Trash Reel</span>
+</div></div>`);
   });
 }).catch((error) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.')
