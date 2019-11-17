@@ -126,6 +126,11 @@ function displayMovies(){
   });
 }
 
+$('#movieImageEdit').change(function () {
+  let file = $(this)[0].files[0].name;
+  $(this).text(file);
+});
+
 //event handler to display loading animations while API is connecting
 $(document).ajaxStart(function () {
   // let html = "<div class='container'><h1><div class='spinner-border' role='status'> <span class='sr-only'>Loading...</span></div></h1></div>";
