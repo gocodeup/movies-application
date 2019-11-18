@@ -19,7 +19,7 @@
     {
       "title": "Ford vs Ferrari",
       "rating": "5",
-      "date": "2019",
+      "date": "",
       "genre": "",
       "description": "American automotive designer Carroll Shelby and fearless British race car driver Ken Miles battle corporate interference, the laws of physics and their own personal demons to build a revolutionary vehicle for the Ford Motor Co. Together, they plan to compete against the race cars of Enzo Ferrari.",
       "id": 3
@@ -27,11 +27,12 @@
     {
       "title": "movie",
       "rating": "2",
+      "date": "2019-11-09",
       "genre": [
-        "Adventure",
-        "Comedy"
+        "Action",
+        "Animation"
       ],
-      "description": "bla bla bla",
+      "description": "bla",
       "image": "",
       "id": 4
     }
