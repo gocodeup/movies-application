@@ -37,6 +37,7 @@ let loadingGIF = document.getElementById("loading");
 let postButton = document.getElementById("create-submit");
 
 function updateMovies() {
+    $.getJSON("http://img.omdbapi.com/?apikey=" + movieKey + "&");
     getMovies().then((result) => {
         $("#loading").toggleClass("hide");
         moviesDiv.innerHTML = "<p> HELLO </p>";
