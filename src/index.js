@@ -4,7 +4,7 @@
 /**
  * require style imports
  */
-const {getMovies, postMovie} = require('./api.js');
+const {getMovies, postMovie, patchMovie} = require('./api.js');
 const $ = require("jquery");
 
 
@@ -34,10 +34,10 @@ $(window).on("load", function(){
        getMovies().then((movies) => {
          $("#container").empty();
          movies.forEach(({title, rating, id}) => {
-           $('#container').append(`<div class="card-img-top">pictures<div class="card"><div class="card-body">title: ${title}, rated: ${rating}<br><span class="badge badge-primary">Edit Reel</span><span class="badge badge-danger">Trash Reel</span>
-</div></div></div>`);
-         })
-    })
+           $('#container').append(`<div class="card" id=${id}><div class="card-img-top">picture placeholder<div class="card-body"><span id="${title}">Title: ${title}</span> rated: ${rating}<br><button class="testbutton">Edit Reel</button></div></div></div>`);
+         });
+         });
+    });
   });
 //  Updating the edit modal dynamically
 
@@ -45,8 +45,31 @@ $(window).on("load", function(){
   $('body').on('click', '.testbutton', function() {
       let buttonclicked = $(this);
       let movietitle = buttonclicked.parent().find("span").attr("id");
-    console.log(movietitle);
-  });
+      $("#edit-text").val(movietitle);
+      $(".modal-title").text(movietitle);
+    let divid = buttonclicked.parent().parent().parent().attr("id");
+      $("#hideid").text(divid);
   });
 
+  $("#ratingchange").click(function(e) {
+    let dbid = $("#hideid").text();
+    let newtitle = $("#edit-text").val();
+    let newrating = $("#editmovierating").val();
+    console.log(dbid);
+    let movie = {
+      "title": newtitle,
+      "rating": newrating
+    };
+    console.log(movie);
+    patchMovie(movie, dbid);
+    $("#container").empty();
+
+    getMovies().then((movies) => {
+      $("#container").empty();
+      movies.forEach(({title, rating, id}) => {
+        $('#container').append(`<div class="card" id=${id}><div class="card-img-top">picture placeholder<div class="card-body"><span id="${title}">Title: ${title}</span> rated: ${rating}<br><button class="testbutton">Edit Reel</button></div></div></div>`);
+      });
+    });
+
+  });
 });
