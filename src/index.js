@@ -10,9 +10,116 @@ sayHello('World');
  * require style imports
  */
 const {getMovies, deleteMovie, patchMovie, getMovie, postMovie} = require('./api.js');
+var allMovies = [];
 var movieEditObject = {};
+var searchTitle;
+var searchDate;
+var searchRating;
+var searchGenre;
 
 displayMovies();
+
+function searchMovies(){
+  let allCards = [];
+  $('.movieCard').show();
+
+  allMovies.forEach(function (movie) {
+
+    if(searchTitle && searchRating && searchDate){
+
+        if((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)){
+
+          if(movie.date === searchDate){
+              if(searchRating !== '6'){
+                if(movie.rating === searchRating){
+                  allCards.push(movie);
+                }
+              }else if(searchRating === '6'){
+                allCards.push(movie);
+              }
+          }
+
+        }
+
+    }else if(searchTitle && searchRating){
+
+        if((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)){
+            if(searchRating !== '6'){
+              if(movie.rating === searchRating){
+                allCards.push(movie);
+              }
+            }else if(searchRating === '6'){
+              allCards.push(movie);
+            }
+        }
+
+    }else if(searchTitle && searchDate){
+
+      if((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)){
+        if(parseFloat(searchDate) === parseFloat(movie.date)){
+            allCards.push(movie);
+        }
+      }
+
+    }else if(searchDate && searchRating){
+
+
+        if(searchRating !== '6'){
+          if((movie.rating === searchRating) && (parseFloat(searchDate) === parseFloat(movie.date))){
+            allCards.push(movie);
+          }
+        }else if(searchRating === '6'&& (parseFloat(searchDate) === parseFloat(movie.date))){
+          allCards.push(movie);
+        }
+
+    }else if(searchTitle){
+
+      if((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)){
+        allCards.push(movie);
+      }
+
+    }else if(searchDate){
+
+      if(parseFloat(searchDate) === parseFloat(movie.date)){
+        allCards.push(movie);
+      }
+
+    }else if(searchRating){
+      if(searchRating !== '6'){
+        if(movie.rating === searchRating){
+          allCards.push(movie);
+        }
+      }else if(searchRating === '6'){
+        allCards.push(movie);
+      }
+    }
+
+  });
+
+  searchTitle = undefined;
+  searchDate = undefined;
+  $('#dateSearch').val("");
+
+ if(allCards.length === 0){
+   console.log("No movies matched criteria");
+ }
+ else{
+   console.log(allCards);
+   console.log(allMovies);
+
+   let results = allMovies.filter(({ id: id1 }) => !allCards.some(({ id: id2 }) => id2 === id1));
+
+   if(results.length > 0){
+     console.log(results);
+     results.forEach(function (result) {
+       $(`#card${result.id}`).toggle();
+     });
+   }
+
+ }
+
+
+}
 
 //event handler to select a movie for editing
 $(document).on('click','.edit_movie', function (e) {
@@ -58,9 +165,6 @@ $(document).on('click','.edit_movie', function (e) {
 
 //event handler for editing the selected movie
 $('#editMovieClick').click(function (e) {
-  //e.preventDefault();
-  // let data = new FormData();
-  // data.append("opmFile",$('#movieImageEdit').files[0]);
 
   let editedMovie = {
     title: $('#movieEditInput').val(),
@@ -81,6 +185,45 @@ $('#editMovieClick').click(function (e) {
   $('#editMovieModal').modal('toggle');
 });
 
+$('#searchClick').click(function (e) {
+  e.preventDefault();
+
+  searchTitle = $('#searchinput').val().toLowerCase();
+
+  searchMovies();
+
+  $('#searchinput').val("");
+  searchTitle = undefined;
+
+
+  // $('#movieContent').html("");
+  // let searchName = $('#searchinput').val().toLowerCase();
+  //
+  // getMovies().then(movies => {
+  //   movies.forEach(({id, title, rating, date, genre, description}) => {
+  //     if (title.substr(0, searchName.length).toLowerCase() === searchName) {
+  //
+  //       let card = createCard(id, title, date, genre, rating, description);
+  //
+  //       $('#movieContent').append(card);
+  //     }
+  //   })
+  // }).catch(error => console.log(error));
+});
+
+$('#dateSearchButton').click(function (e) {
+  e.preventDefault();
+
+  let input = $('#dateSearch').val();
+
+  if((parseFloat(input) > 1900) && (parseFloat(input) < 2099)){
+    searchDate = input;
+    searchMovies();
+  }else {
+    alert("Enter a number between 1900 and 2099");
+  }
+
+});
 
 //event handler to delete a movie
 $(document).on('click', '.delete_movie', function (e) {
@@ -101,59 +244,64 @@ $(document).on('click', '.delete_movie', function (e) {
 });
 
 //function to display movies based on the rating
-function displayMoviesRating(filterRate){
-  $('#movieContent').html("");
-
-  getMovies().then((movies) => {
-    movies.forEach(({id, title, rating, date, genre, description}) => {
-      if(rating === filterRate){
-
-        let card = createCard(id, title, date, genre, rating, description);
-
-        $('#movieContent').append(card);
-      }
-    });
-  }).catch(error => {
-    console.log(`Oh no! Something went wrong. Check the console for details: ${error}`);
-  });
-}
+// function displayMoviesRating(filterRate){
+//   $('#movieContent').html("");
+//
+//   getMovies().then((movies) => {
+//     movies.forEach(({id, title, rating, date, genre, description}) => {
+//       if(rating === filterRate){
+//
+//         let card = createCard(id, title, date, genre, rating, description);
+//
+//         $('#movieContent').append(card);
+//       }
+//     });
+//   }).catch(error => {
+//     console.log(`Oh no! Something went wrong. Check the console for details: ${error}`);
+//   });
+// }
 
 function displayMovies(){
+  allMovies = [];
   getMovies().then((movies) => {
     console.log('Here are all the movies:');
     $('#movieContent').html("");
 
-    movies.forEach(({title, rating, id, date, genre, description}) => {
-      console.log(`id#${id} - ${title} - rating: ${rating}`);
-
-      let card = createCard(id, title, date, genre, rating, description);
+    movies.forEach((movie) => {
+      console.log(`id#${movie.id} - ${movie.title} - rating: ${movie.rating}`);
+      allMovies.push(movie);
+      let card = createCard(movie);
 
       $('#movieContent').append(card);
 
     });
+    searchMovies();
+    console.log(allMovies);
   }).catch((error) => {
     alert('Oh no! Something went wrong.\nCheck the console for details.')
     console.log(error);
   });
+
+
 }
 
 //function to create a card for each movie
-function createCard(id, title, date, genre, rating, description){
-  let editID = `edit${id}`;
+function createCard(movie){
+  let editID = `edit${movie.id}`;
 
-  return `<div class="card mb-3" style="max-width: 540px">
+  return `<div class="card movieCard mb-3" style="max-width: 540px" id="card${movie.id}">
                 <div class="row no-gutters">
                     <div class="col-md-4">
                         <img src="" class="card-img" alt="">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">${title}</h5>
-                            <p class="card-text"><small class="text-muted mr-3">Date: ${date}</small><small class="text-muted mr-3">Genre: ${genre}</small><small class="text-muted">Rating: ${rating}</small></p>
-                            <p class="card-text">${description}</p>
+                            <h5 class="card-title">${movie.title}</h5>
+                            <p class="card-text"><small class="text-muted mr-3">Date: ${movie.date}</small><small class="text-muted mr-3">Genre: ${movie.genre}</small><small class="text-muted">Rating: ${movie.rating}</small></p>
+                            <p class="card-text">${movie.description}</p>
                             <p>
                                 <button type="button" class="btn btn-info edit_movie" data-toggle="modal" data-target="#editMovieModal" id="${editID}">Edit</button>
-                                <button type="submit" class="btn btn-danger delete_movie" id="${id}">Delete</button>
+                                <button type="submit" class="btn btn-danger delete_movie" id="${movie.id}">Delete</button>
                             </p>
                         </div>
                     </div>
@@ -169,9 +317,9 @@ $('#movieImageEdit').change(function () {
 
 //event handler for filter movies by rating
 $('.ratingFilter .dropdown-menu button').click(function () {
-  let ratingFilterId = $(this).val();
-
-  displayMoviesRating(ratingFilterId);
+  searchRating = $(this).val();
+  //displayMoviesRating(searchRating);
+  searchMovies();
 });
 
 //event handler to display loading animations while API is connecting

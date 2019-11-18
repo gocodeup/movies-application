@@ -25,7 +25,23 @@
                 <div class="row">
                     <div class="list-group">
                         <a href="#" class="list-group-item list-group-item-action">Title</a>
-                        <a href="#" class="list-group-item list-group-item-action">Date</a>
+<!--                        <a href="#" class="list-group-item list-group-item-action">Date</a>-->
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Date
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+<!--                                content here-->
+                                <div class="form-group">
+                                    <label for="dateSearch">Date</label>
+                                    <input type="number" min="1900" max="2099" class="form-control" id="dateSearch" placeholder="2019">
+                                </div>
+
+                                <button type="submit" class="btn btn-primary" id="dateSearchButton">Search</button>
+                            </div>
+                        </div>
+
+
                         <a href="#" class="list-group-item list-group-item-action">Genre</a>
 <!--                        <a href="#" class="list-group-item list-group-item-action">Rating</a>-->
 
@@ -39,6 +55,7 @@
                                 <button class="dropdown-item" type="button" value="3">3 Star</button>
                                 <button class="dropdown-item" type="button" value="4">4 Star</button>
                                 <button class="dropdown-item" type="button" value="5">5 Star</button>
+                                <button class="dropdown-item" type="button" value="6">All</button>
                             </div>
                         </div>
 
