@@ -17,8 +17,8 @@ const {getMovie, getMovies, postMovie, patchMovie, deleteMovie} = require('./api
 getMovies().catch((error) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.');
   console.log(error);
-});
-let movies = getMovies();
+});// let movies = getMovies();
+
 getMovie(1)
     .then(movie => {
       console.log("Making a request to a single book");
@@ -26,8 +26,13 @@ getMovie(1)
     })
     .catch(() => console.log('The important thing is you tried...'));
 
+
+let moviesDiv = document.getElementById("container");
+moviesDiv.innerHTML = "<p>loading</p>";
+
 getMovies().then((result) => {
     console.log(result);
+    moviesDiv.innerHTML = "<p> MOVIE </p>";
 });
 
 // const showMovies = () => {
