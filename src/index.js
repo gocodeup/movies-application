@@ -14,10 +14,12 @@ var movieEditObject = {};
 
 displayMovies();
 
+//event handler to select a movie for editing
 $(document).on('click','.edit_movie', function (e) {
   e.preventDefault();
 
-  let idEdit = $(this).attr('id');
+  let idEdit = $(this).attr('id').substring(4,$(this).attr('id').length);
+  alert(idEdit);
   getMovie(idEdit)
       .then(movie => {
         movieEditObject.id = movie.id;
@@ -54,8 +56,11 @@ $(document).on('click','.edit_movie', function (e) {
 
 });
 
+//event handler for editing the selected movie
 $('#editMovieClick').click(function (e) {
   //e.preventDefault();
+  // let data = new FormData();
+  // data.append("opmFile",$('#movieImageEdit').files[0]);
 
   let editedMovie = {
     title: $('#movieEditInput').val(),
@@ -63,16 +68,21 @@ $('#editMovieClick').click(function (e) {
     rating: $('input[name="gridRadios"]:checked').val(),
     genre: "",
     description: $('#movieDescriptionInputEdit').val()
+    //image: data
   };
 
   patchMovie(editedMovie, movieEditObject.id)
-      .then(displayMovies).catch(error => console.log(`There was an error: ${error}`));
+      .then(() => {
+        alert("Movie was edited");
+        displayMovies();
+      }).catch(error => console.log(`There was an error: ${error}`));
 
   //$('#editMovieModal').modal('hide');
   $('#editMovieModal').modal('toggle');
 });
 
 
+//event handler to delete a movie
 $(document).on('click', '.delete_movie', function (e) {
   e.preventDefault();
 
@@ -90,6 +100,24 @@ $(document).on('click', '.delete_movie', function (e) {
 
 });
 
+//function to display movies based on the rating
+function displayMoviesRating(filterRate){
+  $('#movieContent').html("");
+
+  getMovies().then((movies) => {
+    movies.forEach(({id, title, rating, date, genre, description}) => {
+      if(rating === filterRate){
+
+        let card = createCard(id, title, date, genre, rating, description);
+
+        $('#movieContent').append(card);
+      }
+    });
+  }).catch(error => {
+    console.log(`Oh no! Something went wrong. Check the console for details: ${error}`);
+  });
+}
+
 function displayMovies(){
   getMovies().then((movies) => {
     console.log('Here are all the movies:');
@@ -98,8 +126,22 @@ function displayMovies(){
     movies.forEach(({title, rating, id, date, genre, description}) => {
       console.log(`id#${id} - ${title} - rating: ${rating}`);
 
+      let card = createCard(id, title, date, genre, rating, description);
 
-      let card = `<div class="card mb-3" style="max-width: 540px">
+      $('#movieContent').append(card);
+
+    });
+  }).catch((error) => {
+    alert('Oh no! Something went wrong.\nCheck the console for details.')
+    console.log(error);
+  });
+}
+
+//function to create a card for each movie
+function createCard(id, title, date, genre, rating, description){
+  let editID = `edit${id}`;
+
+  return `<div class="card mb-3" style="max-width: 540px">
                 <div class="row no-gutters">
                     <div class="col-md-4">
                         <img src="" class="card-img" alt="">
@@ -110,35 +152,33 @@ function displayMovies(){
                             <p class="card-text"><small class="text-muted mr-3">Date: ${date}</small><small class="text-muted mr-3">Genre: ${genre}</small><small class="text-muted">Rating: ${rating}</small></p>
                             <p class="card-text">${description}</p>
                             <p>
-                                <button type="button" class="btn btn-info edit_movie" data-toggle="modal" data-target="#editMovieModal" id="${id}">Edit</button>
+                                <button type="button" class="btn btn-info edit_movie" data-toggle="modal" data-target="#editMovieModal" id="${editID}">Edit</button>
                                 <button type="submit" class="btn btn-danger delete_movie" id="${id}">Delete</button>
                             </p>
                         </div>
                     </div>
                 </div>
             </div>`;
-      $('#movieContent').append(card);
-
-    });
-  }).catch((error) => {
-    alert('Oh no! Something went wrong.\nCheck the console for details.')
-    console.log(error);
-  });
 }
 
+//function to get name of selected image
 $('#movieImageEdit').change(function () {
-  let file = $(this)[0].files[0].name;
+  let file = $(this).files[0].name;
   $(this).text(file);
+});
+
+//event handler for filter movies by rating
+$('.ratingFilter .dropdown-menu button').click(function () {
+  let ratingFilterId = $(this).val();
+
+  displayMoviesRating(ratingFilterId);
 });
 
 //event handler to display loading animations while API is connecting
 $(document).ajaxStart(function () {
-  // let html = "<div class='container'><h1><div class='spinner-border' role='status'> <span class='sr-only'>Loading...</span></div></h1></div>";
-  // $('#movieContent').html("");
-  // $('#movieContent').append(html);
-  $('.spinner').show();
+  $('.spinner').css('display', 'inline-block');
 });
 //event handler to set display to none to loading animations after the API is already connected
 $(document).ajaxComplete(function (requestName) {
-  $('.spinner').hide();
+  $('.spinner').css('display', 'none');
 });
