@@ -48,53 +48,13 @@ function generateCards(title, rating) {
     let card = ``;
     // for(let i = 0;i < 3; i++) {}
     card += `<div class="card">`;
-    // card += `<img src="..." class="card-img-top" alt="...">`;
+    card += `<img src="..." class="card-img-top" alt="...">`;
     card += `<div class="card-body">`;
-    card += "<p class='card-text'>" + title + " - "+ rating + "</p>";
+    card += `<p class='card-text'>${title}, ${rating}</p>`;
     card += `</div> </div>`;
     moviesDiv.innerHTML = card;
 };
 
-// const showMovies = () => {
-//   let div = document.getElementById("container");
-//   // div.innerHTML = "";
-//   console.log(div);
-//   for (let i = 0; i < movies.length ;i++){
-//     let cont = "<div class='movie-card'>";
-//     cont += `<p>Movie title: ${THEMOVIES[i].title}</p>`;
-//     cont += `<p>Movie rating: ${THEMOVIES[i].rating}/5</p></div>`;
-//     div.innerHTML = cont;
-//     console.log(div.innerHTML);
-//   }
-// };
-
-// showMovies();
-// deleteMovie(6);
-
-//     .then((movies) => {
-//   console.log('Here are all the movies:');
-//   movies.forEach(({title, rating, id}) => {
-//     console.log(`id#${id} - ${title} - rating: ${rating}`);
-//   });
-// });
-
-// for (let i = 3; i < getMovies(); i++){
-//   deleteMovie([i]).then(getMovies).then((movies) => {
-//     movies.forEach(({title, rating}) => {
-// deleteMovie(4);
-//     });
-
-//.then((movies) => {
-//   console.log('Here are all the books:');
-//   movies.forEach(({title, rating}) => {
-//     console.log(`${title} by ${rating}`);
-//   });
-// })
-//   }).catch((error) => {
-//     alert('Oh no! Something went wrong.\nCheck the console for details.');
-//     console.log(error);
-//   });
-// }
 
 // const makeMovie = (title, rating) => {
 //   return {
