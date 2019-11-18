@@ -46,22 +46,24 @@ function updateMovies() {
         }
 
         let deleteButtons = document.getElementsByClassName("delete");
-        //
         console.log(deleteButtons);
-        //
-        // deleteButtons.forEach((item) => {
-        //     item.addEventListener("click", () => {
-        //         // $(this).parent().toggleClass("hide");
-        //         // deleteMovie(parseInt(item.property("id").substr(8)));
-        //     })
-        // });
 
         for (let i = 0; i < deleteButtons.length; i++) {
             deleteButtons[i].addEventListener("click", () => {
                 $(deleteButtons[i]).parent().toggleClass("hide");
-                deleteMovie(parseInt(deleteButtons[i].property("id").substr(8)));
+                deleteMovie(parseInt(deleteButtons[i].getAttribute("id").substr(7)));
             })
         }
+
+        let edit = document.getElementsByClassName("edit");
+        console.log(edit);
+
+        for (let i = 0; i < edit.length; i++) {
+            edit[i].addEventListener("click", () => {
+
+            })
+        }
+
         $("#main").toggleClass("hide");
     });
 }

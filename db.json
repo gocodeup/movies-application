@@ -16,19 +16,24 @@
       "id": 3
     },
     {
-      "title": "Birdemic",
-      "rating": "100000",
+      "title": "trashMovie",
+      "rating": "1",
       "id": 4
     },
     {
-      "title": "12 Angry Men",
-      "rating": "5",
+      "title": "trashMovie",
+      "rating": "1",
       "id": 5
     },
     {
-      "title": "32",
-      "rating": "3",
+      "title": "trashMovie",
+      "rating": "1",
       "id": 6
+    },
+    {
+      "title": "trashMovie",
+      "rating": "1",
+      "id": 7
     }
   ]
 }
