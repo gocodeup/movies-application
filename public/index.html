@@ -18,13 +18,14 @@
 
 
 <div id="content" class="d-flex justify-content-around flex-wrap"></div>
-<div class="card" style="width: 18rem">
-    <form class="noDisplay" id="addMovie">
-        <div class="form-group">
+<div class="justify-content-center d-flex">
+<div class="card cardBackground p-4 noDisplay"  id="addMovie" style="width: 18rem">
+    <form>
+        <div class="form-group text-center">
             <label for="movieTitleInput">Movie Title</label>
             <input type="text" class="form-control" id="movieTitleInput">
         </div>
-        <div class="form-group">
+        <div class="form-group text-center">
             <label for="ratingSelect">Select Rating</label>
             <select class="form-control" id="ratingSelect">
                 <option>1</option>
@@ -34,12 +35,16 @@
                 <option>5</option>
             </select>
         </div>
-        <div class="form-group">
+        <div class="form-group text-center">
             <label for="genreInput">Movie Summary</label>
             <input type="text" class="form-control" id="genreInput">
         </div>
-        <button type="button" class="btn btn-dark" id="addMovieButton">Submit</button>
+        <div class="justify-content-center d-flex">
+            <button type="button" class="btn btn-dark" id="addMovieButton">Submit</button>
+
+        </div>
     </form>
+</div>
         <div class="modal" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">

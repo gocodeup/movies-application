@@ -1,22 +1,16 @@
 {
   "movies": [
     {
-      "title": " Strikes Back",
+      "title": "Boy",
+      "rating": "3",
+      "genre": "ads",
+      "id": 1
+    },
+    {
+      "title": "Bob",
       "rating": "1",
-      "genre": "sda",
-      "id": 3
-    },
-    {
-      "title": "Star Wars: The Force Awakens",
-      "rating": "3",
-      "genre": "old",
-      "id": 8
-    },
-    {
-      "title": "Star Wars: The Last Jedi",
-      "rating": "3",
-      "genre": "old",
-      "id": 9
+      "genre": "",
+      "id": 2
     }
   ]
 }

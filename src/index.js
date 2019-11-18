@@ -1,9 +1,7 @@
 /**
  * es6 modules and imports
  */
-import sayHello from './hello';
 
-sayHello('Codeup');
 
 /**
  * require style imports
@@ -11,72 +9,6 @@ sayHello('Codeup');
 const $ = require('jquery');
 const {getMovie, getMovies, postMovie, patchMovie, deleteMovie} = require('./api.js');
 
-const createMovieContent = () => {
-    getMovies().then((movies) => {
-        $('#loading').hide();
-        $("#addMovie").removeClass('noDisplay');
-        console.log('Here are all the movies:');
-        movies.forEach(({title, rating, id, genre}) => {
-            console.log({title, rating, id});
-            $('#content').append(`<div class="card m-2" style="width: 18rem">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-        <h5 class="card-text text-center">${title}</h5>
-        <p class="card-text text-center">Rating: ${rating}</p>
-        <p class="card-text text-center">${genre}</p>
-        <div class="d-flex justify-content-around">
-            <button class = "btn btn-dark editButton text-center" id="button${id}">Edit Movie</button>
-            <button class="btn btn-dark deleteButton text-center" id="deleteMovie${id}">Delete</button>
-        </div>
-    </div>
-    </div>`)
-        });
-        $('.editButton').on('click', editClick);
-        $('.deleteButton').on('click', deleteClick);
-    }).catch((error) => {
-        alert('Oh no! Something went wrong.\nCheck the console for details.');
-        console.log(error);
-    });
-    return "Movies have been created";
-};
-
-createMovieContent();
-//get all movies
-
-//get a single book
-getMovie(1)
-    .then(movie => {
-        console.log("Making a request to a single movie");
-        console.log(`${movie}`);
-    })
-    .catch(() => console.log('The important thing is you tried...'));
-
-$("#addMovieButton").click(function () {
-    postMovie({
-        "title": $('#movieTitleInput').val(),
-        "rating": $("#ratingSelect").val(),
-        "genre": $("#genreInput").val()
-    }).then(getMovies).then((movies) => {
-        console.log('Here are all the movieeees:');
-        $('#content').html("");
-        movies.forEach(({title, rating, genre}) => {
-            console.log(`${title} rated ${rating}`);
-            $('#content').append(`<div class="card m-2" style="width: 18rem">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-        <h5 class="card-text text-center">${title}</h5>
-        <p class="card-text text-center">Rating: ${rating}</p>
-        <p class="card-text text-center">${genre}</p>
-    </div>
-    </div>`)
-        });
-    }).catch((error) => {
-        alert('Oh no! Something went wrong.\nCheck the console for details.');
-        console.log(error);
-    });
-});
-
-let idEdited;
 
 const editClick = function (e) {
     $("#content").addClass('noDisplay');
@@ -107,12 +39,76 @@ const editClick = function (e) {
         movieSelected = movie;
         $("#movieEditTitle").val(movieSelected.title);
         $("#movieGenreEdit").val(movieSelected.genre);
+        $("#ratingEdit").val(movieSelected.rating);
         $(".modal").show();
     })
         .catch(() => console.log('You fudged up'));
     idEdited = id;
 
 };
+
+const createMovieContent = () => {
+    return new Promise((() => {
+
+        $('#content').html("");
+        getMovies().then((movies) => {
+            if(movies[0] === undefined){
+                $("#addMovie").removeClass('noDisplay');
+            }
+            $('#loading').hide();
+            console.log('Here are all the movies:');
+            movies.forEach(({title, rating, id, genre}) => {
+                let result;
+                console.log({title, rating, id});
+                $.getJSON("https://api.themoviedb.org/3/search/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query=" + title + "&callback=?")
+                    .then(response => {
+                        console.log(`http://image.tmdb.org/t/p/w500/${response.results[0].poster_path}`);
+                        result = `http://image.tmdb.org/t/p/w500/${response.results[0].poster_path}`;
+                        // `http://image.tmdb.org/t/p/w500/${json.results[0].poster_path}`
+                $('#content').append(`<div class="card m-2 cardBackground" style="width: 18rem">
+            <img src="${result}" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-text text-center">${title}</h5>
+            <p class="card-text text-center">Rating: ${rating}</p>
+            <p class="card-text text-center">${genre}</p>
+            <div class="d-flex justify-content-around">
+                <button class = "btn btn-dark editButton text-center" id="button${id}">Edit Movie</button>
+                <button class = "btn btn-dark deleteButton text-center" id="deleteMovie${id}">Delete</button>
+            </div>
+        </div>
+        </div>`)
+            $('.deleteButton').off().on('click', deleteClick);
+            $('.editButton').off().on('click', editClick);
+            $("#addMovie").removeClass('noDisplay');
+                    })});
+        }).catch((error) => {
+            alert('Oh no! Something went wrong.\nCheck the console for details.');
+            console.log(error);
+        });
+    }));
+};
+//get all movies
+createMovieContent();
+
+
+
+
+$("#addMovieButton").click(function () {
+    $("#content").html("");
+    $("#loading").removeClass("noDisplay");
+    $("#addMovie").addClass("noDisplay");
+    postMovie({
+        "title": $('#movieTitleInput').val(),
+        "rating": $("#ratingSelect").val(),
+        "genre": $("#genreInput").val()
+    }).then(getMovies).then(() => {
+        createMovieContent().then(() => {
+            $("#loading").addClass("noDisplay");
+        });});});
+
+let idEdited;
+
+
 
 $("#editSave").click(function () {
     let editedMovie = {
@@ -122,25 +118,24 @@ $("#editSave").click(function () {
         "id": idEdited
     };
     $(".modal").hide();
-    $("#loading").show();
+    $("#loading").removeClass("noDisplay");
     $('#content').html("");
     $("#content").removeClass('noDisplay');
     patchMovie(editedMovie, idEdited).then(() => {
-        createMovieContent().then(() => {
-            $("#loading").hide();
-            $("#addMovie").removeClass("noDisplay");
-        });
+        createMovieContent();
+        $("#loading").addClass("noDisplay");
+        $("#addMovie").removeClass("noDisplay");
     });
 
 });
 
 $(".close").click(function () {
     $(".modal").hide();
-    $("#loading").show();
+    $("#loading").removeClass("noDisplay");
     $('#content').html("");
     $("#content").removeClass('noDisplay');
     createMovieContent().then(() => {
-        $("#loading").hide();
+        $("#loading").addClass("noDisplay");
     });
     $("#addMovie").removeClass("noDisplay");
 
@@ -149,7 +144,7 @@ $(".close").click(function () {
 const deleteClick = function (e) {
     $("#content").addClass('noDisplay');
     $("#addMovie").addClass('noDisplay');
-    $('#loading').show();
+    $('#loading').removeClass("noDisplay");
     let id = e.currentTarget.id;
     if (id.length === 12) {
         id.split('');
@@ -160,6 +155,7 @@ const deleteClick = function (e) {
         bucket.push(id[11]);
         bucket.push(id[12]);
         id = bucket.join('');
+        console.log("option 2 :" + id);
     } else if (id.length === 14) {
         let bucket = [];
         id.split('');
@@ -173,8 +169,9 @@ const deleteClick = function (e) {
         $('#content').html("");
         $("#content").removeClass('noDisplay');
         createMovieContent().then(() => {
-            $("#loading").hide();
+            $("#loading").addClass("noDisplay");
         });
     })
 };
+
 
