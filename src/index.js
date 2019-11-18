@@ -7,12 +7,12 @@
 /**
  * require style imports
  */
-// const {getMovie, getMovies, postMovie, patchMovie, deleteMovie} = require('api.js');
+const {getMovie, getMovies, postMovie, patchMovie, deleteMovie} = require('./api.js');
 
 // import {getMovies, getMovie, postMovie, patchMovie, deleteMovie} from "./api" ;
 // const {getMovies} = require('./api.js');
 
-fetch("api.js").then();
+// fetch("./api.js").then();
 
 getMovies().catch((error) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.');
@@ -26,32 +26,24 @@ getMovie(1)
     })
     .catch(() => console.log('The important thing is you tried...'));
 
-const allMovies = getMovies(); //.then((variable) => {console.log(variable)});
-console.log(allMovies);
+getMovies().then((result) => {
+    console.log(result);
+});
 
-// postMovie({
-//   "title": "MOVIE",
-//   "rating": "RATING"
-//
-// }).then(getMovies).catch((error) => {
-//   alert('Oh no! Something went wrong.\nCheck the console for details.');
-//   console.log(error);
-// });
+// const showMovies = () => {
+//   let div = document.getElementById("container");
+//   // div.innerHTML = "";
+//   console.log(div);
+//   for (let i = 0; i < movies.length ;i++){
+//     let cont = "<div class='movie-card'>";
+//     cont += `<p>Movie title: ${THEMOVIES[i].title}</p>`;
+//     cont += `<p>Movie rating: ${THEMOVIES[i].rating}/5</p></div>`;
+//     div.innerHTML = cont;
+//     console.log(div.innerHTML);
+//   }
+// };
 
-const showMovies = () => {
-  let div = document.getElementById("container");
-  // div.innerHTML = "";
-  console.log(div);
-  for (let i = 0; i < THEMOVIES.length ;i++){
-    let cont = "<div class='movie-card'>";
-    cont += `<p>Movie title: ${THEMOVIES[i].title}</p>`;
-    cont += `<p>Movie rating: ${THEMOVIES[i].rating}/5</p></div>`;
-    div.innerHTML = cont;
-    console.log(div.innerHTML);
-  }
-};
-
-showMovies();
+// showMovies();
 // deleteMovie(6);
 
 //     .then((movies) => {
