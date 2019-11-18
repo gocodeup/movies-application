@@ -34,8 +34,8 @@ $(window).on("load", function(){
          $("#container").empty();
          movies.forEach(({title, rating, id}) => {
            $('#container').append(`<div class="card-img-top">pictures<div class="card"><div class="card-body">Id is ${id} number and the title is: ${title}, rated: ${rating}<br><span class="badge badge-primary">Edit Reel</span><span class="badge badge-danger">Trash Reel</span>
-</div></div></div>`)
-      })
+</div></div></div>`);
+         })
     })
   })
 });
