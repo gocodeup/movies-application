@@ -22,7 +22,7 @@ getMovies().then((movies) => {
 
 $(window).on("load", function(){
   let movie = {};
-  $(".loader").fadeOut(2000);
+  $(".loader").fadeOut(1200);
 
   $("#buttonadd").click(function(e){
     (e).preventDefault();
