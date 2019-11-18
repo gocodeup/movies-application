@@ -16,8 +16,8 @@ module.exports = {
       body: JSON.stringify(movie),
     })
   },
-  patchMovies : (movie, id) => {
-    return fetch(`api/movie/${id}`, {
+  patchMovie : (movie, id) => {
+    return fetch(`api/movies/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
