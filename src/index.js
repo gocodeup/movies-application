@@ -111,7 +111,7 @@ function searchMovies(){
   $('#dateSearch').val("");
 
  if(allCards.length === 0){
-   console.log("No movies matched criteria");
+   // console.log("No movies matched criteria");
  }
  else{
    console.log(allCards);
@@ -150,6 +150,8 @@ $(document).on('click','.edit_movie', function (e) {
         $('#movieEditDate').val(movieEditObject.date);
         $('#genreMultiSelectEdit').val(movieEditObject.genre);
         //update edit genre tags
+        $('#genreListEdit').empty();
+        movieAddObject.genre = [];
         movieEditObject.genre.forEach(genre =>{
           createGenreTag(genre,'genreListEdit');
         });
@@ -283,11 +285,11 @@ $(document).on('click', '.delete_movie', function (e) {
 function displayMovies(){
   allMovies = [];
   getMovies().then((movies) => {
-    console.log('Here are all the movies:');
+    // console.log('Here are all the movies:');
     $('#movieContent').html("");
 
     movies.forEach((movie) => {
-      console.log(`id#${movie.id} - ${movie.title} - rating: ${movie.rating}`);
+      // console.log(`id#${movie.id} - ${movie.title} - rating: ${movie.rating}`);
       allMovies.push(movie);
       let card = createCard(movie);
 
@@ -295,7 +297,7 @@ function displayMovies(){
 
     });
     searchMovies();
-    console.log(allMovies);
+    // console.log(allMovies);
   }).catch((error) => {
     alert('Oh no! Something went wrong.\nCheck the console for details.')
     console.log(error);
@@ -352,11 +354,13 @@ $(document).ajaxComplete(function (requestName) {
 
 $('#addMovieClick').click(function (event) {
   event.preventDefault();
+  console.log($('#movieAddDate').val());
   // event.stopPropagation();
   postMovie({
     title: document.getElementById('movieAddInput').value,
     rating: $('input[name = gridRadios]:checked').val(),
     //id auto generates
+    date: $('#movieAddDate').val(),
     genre: movieAddObject.genre, //function for getting array List of genres
     description: document.getElementById('movieDescriptionInput').value,
     image: document.getElementById('movieImageAdd').value
