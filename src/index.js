@@ -23,12 +23,13 @@ getMovies().then((movies) => {
 $(window).on("load", function(){
   let movie = {};
   $(".loader").fadeOut(2000);
+
   $("#buttonadd").click(function(e){
     (e).preventDefault();
-    console.log($('#movietitle').val());
-    console.log($('#movierating').val());
+  //  Getting values and saving them to post
   movie.title = $("#movietitle").val();
   movie.rating = $("#movierating").val();
+       //Ability to post movies dynamically
        postMovie(movie);
        getMovies().then((movies) => {
          $("#container").empty();
@@ -37,5 +38,11 @@ $(window).on("load", function(){
 </div></div></div>`);
          })
     })
+  });
+//  Updating the edit modal dynamically
+
+  $(".editmodal").click(function (e) {
+    
   })
+
 });
