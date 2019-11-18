@@ -28,7 +28,7 @@ getMovie(1)
 
 
 let moviesDiv = document.getElementById("container");
-moviesDiv.innerHTML = "<p>loading</p>";
+moviesDiv.innerHTML = "<img src='./lookofhope.gif' alt='loading'>";
 
 getMovies().then((result) => {
     console.log(result);
@@ -105,9 +105,23 @@ getMovies().then((result) => {
 function generateCards(title, rating) {
     let card;
     card = "";
+    for(i = 0;i < 3; i++)
     card += `<div class="card">`;
     card += `<img src="..." class="card-img-top" alt="...">`;
     card += `<div class="card-body">`;
     card += `<p class="card-text">$(title) - $(rating)</p>`;
-    card += `"</div> </div>"`;
+    card += `"</div></div>"`;
 }
+
+// getMovies().then((movies) => {
+//     console.log('Here are all the movies:');
+//     movies.forEach(({title, rating}) => {
+//         console.log(`id#${id} - ${title} - rating: ${rating}`);
+//         let newTitle = `${title}`;
+//         let newRating = `${rating}`;
+//         makeCard(newTitle, newRating);
+//     });
+// }).catch((error) => {
+//     alert('Oh no! Something went wrong.\nCheck the console for details.');
+//     console.log(error);
+// });
