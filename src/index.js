@@ -11,29 +11,37 @@ sayHello('Codeup');
 const $ = require('jquery');
 const {getMovie, getMovies, postMovie, patchMovie, deleteMovie} = require('./api.js');
 
-
-//get all movies
-getMovies().then((movies) => {
-    $('#loading').hide();
-    $("#addMovie").removeClass('noDisplay');
-    console.log('Here are all the movies:');
-    movies.forEach(({title, rating, id , genre}) => {
-        console.log({title, rating, id});
-        $('#content').append(`<div class="card m-2" style="width: 18rem">
+const createMovieContent = () => {
+    getMovies().then((movies) => {
+        $('#loading').hide();
+        $("#addMovie").removeClass('noDisplay');
+        console.log('Here are all the movies:');
+        movies.forEach(({title, rating, id, genre}) => {
+            console.log({title, rating, id});
+            $('#content').append(`<div class="card m-2" style="width: 18rem">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
         <h5 class="card-text text-center">${title}</h5>
         <p class="card-text text-center">Rating: ${rating}</p>
         <p class="card-text text-center">${genre}</p>
-        <button class = "btn btn-dark editButton" id="button${id}"></button>
+        <div class="d-flex justify-content-around">
+            <button class = "btn btn-dark editButton text-center" id="button${id}">Edit Movie</button>
+            <button class="btn btn-dark deleteButton text-center" id="deleteMovie${id}">Delete</button>
+        </div>
     </div>
     </div>`)
+        });
+        $('.editButton').on('click', editClick);
+        $('.deleteButton').on('click', deleteClick);
+    }).catch((error) => {
+        alert('Oh no! Something went wrong.\nCheck the console for details.');
+        console.log(error);
     });
-$('.editButton').on('click', btnClassClick);
-}).catch((error) => {
-    alert('Oh no! Something went wrong.\nCheck the console for details.');
-    console.log(error);
-});
+    return "Movies have been created";
+};
+
+createMovieContent();
+//get all movies
 
 //get a single book
 getMovie(1)
@@ -47,7 +55,7 @@ $("#addMovieButton").click(function () {
     postMovie({
         "title": $('#movieTitleInput').val(),
         "rating": $("#ratingSelect").val(),
-        "genre" : $("#genreInput").val()
+        "genre": $("#genreInput").val()
     }).then(getMovies).then((movies) => {
         console.log('Here are all the movieeees:');
         $('#content').html("");
@@ -68,68 +76,105 @@ $("#addMovieButton").click(function () {
     });
 });
 
-var btnClassClick = function(e){
-    alert("Button clicked from class: "+e.currentTarget.id);
+let idEdited;
+
+const editClick = function (e) {
+    $("#content").addClass('noDisplay');
+    $("#addMovie").addClass('noDisplay');
+    $('#loading').show();
+    let id = e.currentTarget.id;
+    if (id.length === 7) {
+        id.split('');
+        id = id[6];
+    } else if (id.length === 8) {
+        let bucket = [];
+        id.split('');
+        bucket.push(id[6]);
+        bucket.push(id[7]);
+        id = bucket.join('');
+    } else if (id.length === 9) {
+        let bucket = [];
+        id.split('');
+        bucket.push(id[6]);
+        bucket.push(id[7]);
+        bucket.push(id[8]);
+        id = bucket.join('');
+    }
+    let movieSelected = {};
+    getMovie(id).then().then(movie => {
+        $("#loading").hide();
+        console.log("Making a request to edit a single movie");
+        movieSelected = movie;
+        $("#movieEditTitle").val(movieSelected.title);
+        $("#movieGenreEdit").val(movieSelected.genre);
+        $(".modal").show();
+    })
+        .catch(() => console.log('You fudged up'));
+    idEdited = id;
+
 };
 
+$("#editSave").click(function () {
+    let editedMovie = {
+        "title": $("#movieEditTitle").val(),
+        "rating": $("#ratingEdit").val(),
+        "genre": $("#movieGenreEdit").val(),
+        "id": idEdited
+    };
+    $(".modal").hide();
+    $("#loading").show();
+    $('#content').html("");
+    $("#content").removeClass('noDisplay');
+    patchMovie(editedMovie, idEdited).then(() => {
+        createMovieContent().then(() => {
+            $("#loading").hide();
+            $("#addMovie").removeClass("noDisplay");
+        });
+    });
 
+});
 
+$(".close").click(function () {
+    $(".modal").hide();
+    $("#loading").show();
+    $('#content').html("");
+    $("#content").removeClass('noDisplay');
+    createMovieContent().then(() => {
+        $("#loading").hide();
+    });
+    $("#addMovie").removeClass("noDisplay");
 
-//davids code
+});
 
-// getMovies().then((movies) => {
-//   console.log('Here are all the movies:');
-//   movies.forEach(({title, rating, id}) => {
-//     console.log(`id#${id} - ${title} - rating: ${rating}`);
-//     getBooks().then((books) => {
-//       console.log('Here are all the books:');
-//       books.forEach(({title, author, year}) => {
-//         console.log(`${title} by ${author} - ${year}`);
-//       });
-//     }).catch((error) => {
-//       alert('Oh no! Something went wrong.\nCheck the console for details.')
-//       alert('Oh no! Something went wrong.\nCheck the console for details.');
-//       console.log(error);
-//     });
-//
-//     getBook(1)
-//         .then(book => {
-//           console.log("Making a request to a single book");
-//           console.log(`${book.title} by ${book.author} - ${book.year}`);
-//         })
-//         .catch(() => console.log('The important thing is you tried...'));
-//
-//
-// patchBook({
-//     "pages": 1201,
-//     "title": "Garfield Learns Python III",
-//     "year": 2023
-// }, 26).then(getBooks).then((books) => {
-//     console.log('Here are all the books:');
-//     books.forEach(({title, author, year}) => {
-//         console.log(`${title} by ${author} - ${year}`);
-//     });
-// }).catch((error) => {
-//     alert('Oh no! Something went wrong.\nCheck the console for details.');
-//     console.log(error);
-// });
-//
-//     deleteBook(27).then(postBook({
-//       "author": "Jim Davis",
-//       "country": "United States",
-//       "imageLink": "images/???.jpg",
-//       "language": "English",
-//       "link": "https://www.amazon.com/Garfield-Loses-His-Feet-Book/dp/0345464672\n",
-//       "pages": 98,
-//       "title": "Garfield Loses His Feet",
-//       "year": 1984
-//     })).then(getBooks).then((books) => {
-//       console.log('Here are all the books:');
-//       books.forEach(({title, author, year}) => {
-//         console.log(`${title} by ${author} - ${year}`);
-//       });
-//     }).catch((error) => {
-//       alert('Oh no! Something went wrong.\nCheck the console for details.');
-//       console.log(error);
-//     });
+const deleteClick = function (e) {
+    $("#content").addClass('noDisplay');
+    $("#addMovie").addClass('noDisplay');
+    $('#loading').show();
+    let id = e.currentTarget.id;
+    if (id.length === 12) {
+        id.split('');
+        id = id[11];
+    } else if (id.length === 13) {
+        let bucket = [];
+        id.split('');
+        bucket.push(id[11]);
+        bucket.push(id[12]);
+        id = bucket.join('');
+    } else if (id.length === 14) {
+        let bucket = [];
+        id.split('');
+        bucket.push(id[11]);
+        bucket.push(id[12]);
+        bucket.push(id[13]);
+        id = bucket.join('');
+    }
+    console.log(id);
+    deleteMovie(id).then(() => {
+        $('#content').html("");
+        $("#content").removeClass('noDisplay');
+        createMovieContent().then(() => {
+            $("#loading").hide();
+        });
+    })
+};
 

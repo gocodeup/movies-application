@@ -1,61 +1,22 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
-      "rating": "4",
-      "genre": "old",
-      "id": 1
-    },
-    {
-      "title": "Star Wars: A New Hope",
-      "rating": "4",
-      "id": 2
-    },
-    {
-      "title": "Star Wars: The Empire Strikes Back",
-      "rating": "5",
+      "title": " Strikes Back",
+      "rating": "1",
+      "genre": "sda",
       "id": 3
-    },
-    {
-      "title": "Star Wars: Return of the Jedi",
-      "rating": "5",
-      "id": 4
-    },
-    {
-      "title": "Star Wars: The Phantom Menace",
-      "rating": "2",
-      "id": 5
-    },
-    {
-      "title": "Star Wars: Attack of the Clones",
-      "rating": "3",
-      "id": 6
-    },
-    {
-      "title": "Star Wars: Revenge of the Sith",
-      "rating": "4",
-      "id": 7
     },
     {
       "title": "Star Wars: The Force Awakens",
       "rating": "3",
+      "genre": "old",
       "id": 8
     },
     {
       "title": "Star Wars: The Last Jedi",
       "rating": "3",
+      "genre": "old",
       "id": 9
-    },
-    {
-      "title": "Harry Potter and the Philosopher's Stone",
-      "rating": "5",
-      "id": 10
-    },
-    {
-      "title": "jnrgdioj",
-      "rating": "3",
-      "genre": "undfsjio",
-      "id": 11
     }
   ]
 }
