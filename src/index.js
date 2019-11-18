@@ -32,7 +32,7 @@ moviesDiv.innerHTML = "<p>loading</p>";
 
 getMovies().then((result) => {
     console.log(result);
-    moviesDiv.innerHTML = "<p> MOVIE </p>";
+    moviesDiv.innerHTML = "<p> HELLO </p>";
 });
 
 // const showMovies = () => {
@@ -101,3 +101,13 @@ getMovies().then((result) => {
 //   },
 //   body: JSON.stringify(makeMovie("LOTR", 6)),
 // }).then().catch(() => {console.log("FUCC")});
+
+function generateCards(title, rating) {
+    let card;
+    card = "";
+    card += `<div class="card">`;
+    card += `<img src="..." class="card-img-top" alt="...">`;
+    card += `<div class="card-body">`;
+    card += `<p class="card-text">$(title) - $(rating)</p>`;
+    card += `"</div> </div>"`;
+}
