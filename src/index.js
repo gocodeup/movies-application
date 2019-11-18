@@ -42,19 +42,36 @@ function updateMovies() {
         moviesDiv.innerHTML = "<p> HELLO </p>";
         moviesDiv.innerHTML = "";
         for (let i = 0; i < result.length; i++) {
-            generateCard(result[i].title, result[i].rating);
+            generateCard(result[i].title, result[i].rating, result[i].id);
         }
 
+        let deleteButtons = document.getElementsByClassName("delete");
+        //
+        console.log(deleteButtons);
+        //
+        // deleteButtons.forEach((item) => {
+        //     item.addEventListener("click", () => {
+        //         // $(this).parent().toggleClass("hide");
+        //         // deleteMovie(parseInt(item.property("id").substr(8)));
+        //     })
+        // });
+
+        for (let i = 0; i < deleteButtons.length; i++) {
+            deleteButtons[i].addEventListener("click", () => {
+                $(deleteButtons[i]).parent().toggleClass("hide");
+                deleteMovie(parseInt(deleteButtons[i].property("id").substr(8)));
+            })
+        }
         $("#main").toggleClass("hide");
     });
 }
 
 updateMovies();
 
-function generateCard(title, rating) {
+function generateCard(title, rating, cardID) {
     let card = ``;
     card += `<div class="card">`;
-    card += `<button class="delete">`;
+    card += `<button class="delete" id="delete-${cardID}">X</button>`;
     card += `<img src="..." class="card-img-top" alt="...">`;
     card += `<div class="card-body">`;
     card += `<p class='card-text'>${title}, ${rating}</p>`;
@@ -67,6 +84,15 @@ postButton.addEventListener("click", () => {
     console.log("success");
     generateCard(document.getElementById("create-title").value, document.getElementById("create-rating").value)
 });
+
+// const ;
+//
+// Array.from("deleteButtons").forEach((item) => {
+//     item.addEventListener("click", () => {
+//         this.parent().addClass("hide");
+//         deleteMovie(parseInt(this.id.substr(8)));
+// });
+// });
 
 const makeMovie = (title, rating) => {
   return {
