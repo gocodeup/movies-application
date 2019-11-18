@@ -19,8 +19,8 @@ const {getMovie, getMovies, postMovie, patchMovie, deleteMovie} = require('./api
 // fetch("./api.js").then();
 
 getMovies().catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.');
-  console.log(error);
+    alert('Oh no! Something went wrong.\nCheck the console for details.');
+    console.log(error);
 });
 
 let movies;
@@ -33,7 +33,6 @@ let moviesDiv = document.getElementById("container");
 let loadingGIF = document.getElementById("loading");
 let postButton = document.getElementById("create-submit");
 
-function updateMovies() {
 function updateListeners() {
     let deleteButtons = document.getElementsByClassName("delete");
     for (let i = 0; i < deleteButtons.length; i++) {
@@ -54,7 +53,6 @@ function updateListeners() {
 }
 
 function updateMovies(load = false) {
-
     getMovies().then((result) => {
         if (load === true) {
             $("#loading").toggleClass("hide");
@@ -90,10 +88,10 @@ postButton.addEventListener("click", () => {
 });
 
 const makeMovie = (title, rating) => {
-  return {
-    "title" : title,
-    "rating" : rating
-  };
+    return {
+        "title" : title,
+        "rating" : rating
+    };
 };
 
 // getMovies().then((movies) => {
