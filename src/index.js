@@ -7,7 +7,11 @@
 /**
  * require style imports
  */
+
+import $ from "jquery";
 const {getMovie, getMovies, postMovie, patchMovie, deleteMovie} = require('./api.js');
+
+
 
 // import {getMovies, getMovie, postMovie, patchMovie, deleteMovie} from "./api" ;
 // const {getMovies} = require('./api.js');
@@ -21,19 +25,35 @@ getMovies().catch((error) => {
 
 getMovie(1)
     .then(movie => {
-      console.log("Making a request to a single book");
       console.log(`Title:${movie.title} Rating: ${movie.rating}`);
     })
     .catch(() => console.log('The important thing is you tried...'));
 
-
 let moviesDiv = document.getElementById("container");
-moviesDiv.innerHTML = "<img src='./lookofhope.gif' alt='loading'>";
+let loadingGIF = document.getElementById("loading");
+
+// moviesDiv.innerHTML = "<img src=" + './public/lookofhope.gif' + " alt='bleh'>";
 
 getMovies().then((result) => {
     console.log(result);
+    // loadingGIF.toggleClass("hide", );
+    $("#loading").toggleClass("hide");
     moviesDiv.innerHTML = "<p> HELLO </p>";
+    generateCards("LOTR", "6");
+    // moviesDiv.toggleClass("hide");
+    $("#container").toggleClass("hide");
 });
+
+function generateCards(title, rating) {
+    let card = ``;
+    // for(let i = 0;i < 3; i++) {}
+    card += `<div class="card">`;
+    // card += `<img src="..." class="card-img-top" alt="...">`;
+    card += `<div class="card-body">`;
+    card += "<p class='card-text'>" + title + " - "+ rating + "</p>";
+    card += `</div> </div>`;
+    moviesDiv.innerHTML = card;
+};
 
 // const showMovies = () => {
 //   let div = document.getElementById("container");
@@ -76,7 +96,6 @@ getMovies().then((result) => {
 //   });
 // }
 
-
 // const makeMovie = (title, rating) => {
 //   return {
 //     "title" : title,
@@ -101,17 +120,6 @@ getMovies().then((result) => {
 //   },
 //   body: JSON.stringify(makeMovie("LOTR", 6)),
 // }).then().catch(() => {console.log("FUCC")});
-
-function generateCards(title, rating) {
-    let card;
-    card = "";
-    for(i = 0;i < 3; i++)
-    card += `<div class="card">`;
-    card += `<img src="..." class="card-img-top" alt="...">`;
-    card += `<div class="card-body">`;
-    card += `<p class="card-text">$(title) - $(rating)</p>`;
-    card += `"</div></div>"`;
-}
 
 // getMovies().then((movies) => {
 //     console.log('Here are all the movies:');
