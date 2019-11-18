@@ -9,50 +9,80 @@ sayHello('World');
 /**
  * require style imports
  */
-const {getMovies, deleteMovie} = require('./api.js');
+const {getMovies, deleteMovie, patchMovie, getMovie} = require('./api.js');
+var movieEditObject = {};
 
 displayMovies();
-// getMovies().then((movies) => {
-//   console.log('Here are all the movies:');
-//   movies.forEach(({title, rating, id}) => {
-//     console.log(`id#${id} - ${title} - rating: ${rating}`);
-//
-//
-//         let card = `<div class="card mb-3" style="max-width: 540px">
-//                 <div class="row no-gutters">
-//                     <div class="col-md-4">
-//                         <img src="" class="card-img" alt="">
-//                     </div>
-//                     <div class="col-md-8">
-//                         <div class="card-body">
-//                             <h5 class="card-title">${title}</h5>
-//                             <p class="card-text"><small class="text-muted mr-3">Date</small><small class="text-muted mr-3">Genre</small><small class="text-muted">Rating: ${rating}</small></p>
-//                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-//                             <p>
-//                                 <button type="submit" class="btn btn-info edit_movie" id="${id}">Edit</button>
-//                                 <button type="submit" class="btn btn-danger delete_movie" id="${id}">Delete</button>
-//                             </p>
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>`;
-//
-//         $('#movieContent').append(card);
-//
-//   });
-// }).catch((error) => {
-//   alert('Oh no! Something went wrong.\nCheck the console for details.')
-//   console.log(error);
-// });
 
-
+//event handler to select a movie for editing
 $(document).on('click','.edit_movie', function (e) {
   e.preventDefault();
 
-  let idEdit = $(this).attr('id');
+  let idEdit = $(this).attr('id').substring(4,$(this).attr('id').length);
   alert(idEdit);
+  getMovie(idEdit)
+      .then(movie => {
+        movieEditObject.id = movie.id;
+        movieEditObject.title = movie.title;
+        movieEditObject.date = movie.date;
+        movieEditObject.genre = movie.genre;
+        movieEditObject.rating = movie.rating;
+        movieEditObject.description = movie.description;
+
+        $('#movieEditInput').val(movieEditObject.title);
+        $('#movieEditDate').val(movieEditObject.date);
+        $('#genreMultiSelectEdit').val(movieEditObject.genre);
+        switch (movieEditObject.rating) {
+          case "1":
+            $('#ratingRadios1e').prop("checked", true);
+            break;
+          case "2":
+            $('#ratingRadios2e').prop("checked", true);
+            break;
+          case "3":
+            $('#ratingRadios3e').prop("checked", true);
+            break;
+          case "4":
+            $('#ratingRadios4e').prop("checked", true);
+            break;
+          case "5":
+            $('#ratingRadios5e').prop("checked", true);
+            break;
+        }
+        $('#movieDescriptionInputEdit').val(movieEditObject.description);
+      })
+      .catch(() => console.log("Error looking at the book."));
+
+
 });
 
+//event handler for editing the selected movie
+$('#editMovieClick').click(function (e) {
+  //e.preventDefault();
+  // let data = new FormData();
+  // data.append("opmFile",$('#movieImageEdit').files[0]);
+
+  let editedMovie = {
+    title: $('#movieEditInput').val(),
+    date: $('#movieEditDate').val(),
+    rating: $('input[name="gridRadios"]:checked').val(),
+    genre: "",
+    description: $('#movieDescriptionInputEdit').val()
+    //image: data
+  };
+
+  patchMovie(editedMovie, movieEditObject.id)
+      .then(() => {
+        alert("Movie was edited");
+        displayMovies();
+      }).catch(error => console.log(`There was an error: ${error}`));
+
+  //$('#editMovieModal').modal('hide');
+  $('#editMovieModal').modal('toggle');
+});
+
+
+//event handler to delete a movie
 $(document).on('click', '.delete_movie', function (e) {
   e.preventDefault();
 
@@ -70,33 +100,34 @@ $(document).on('click', '.delete_movie', function (e) {
 
 });
 
+//function to display movies based on the rating
+function displayMoviesRating(filterRate){
+  $('#movieContent').html("");
+
+  getMovies().then((movies) => {
+    movies.forEach(({id, title, rating, date, genre, description}) => {
+      if(rating === filterRate){
+
+        let card = createCard(id, title, date, genre, rating, description);
+
+        $('#movieContent').append(card);
+      }
+    });
+  }).catch(error => {
+    console.log(`Oh no! Something went wrong. Check the console for details: ${error}`);
+  });
+}
+
 function displayMovies(){
   getMovies().then((movies) => {
     console.log('Here are all the movies:');
     $('#movieContent').html("");
 
-    movies.forEach(({title, rating, id}) => {
+    movies.forEach(({title, rating, id, date, genre, description}) => {
       console.log(`id#${id} - ${title} - rating: ${rating}`);
 
+      let card = createCard(id, title, date, genre, rating, description);
 
-      let card = `<div class="card mb-3" style="max-width: 540px">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="" class="card-img" alt="">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">${title}</h5>
-                            <p class="card-text"><small class="text-muted mr-3">Date</small><small class="text-muted mr-3">Genre</small><small class="text-muted">Rating: ${rating}</small></p>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p>
-                                <button type="submit" class="btn btn-info edit_movie" id="${id}">Edit</button>
-                                <button type="submit" class="btn btn-danger delete_movie" id="${id}">Delete</button>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>`;
       $('#movieContent').append(card);
 
     });
@@ -106,13 +137,48 @@ function displayMovies(){
   });
 }
 
+//function to create a card for each movie
+function createCard(id, title, date, genre, rating, description){
+  let editID = `edit${id}`;
+
+  return `<div class="card mb-3" style="max-width: 540px">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="" class="card-img" alt="">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">${title}</h5>
+                            <p class="card-text"><small class="text-muted mr-3">Date: ${date}</small><small class="text-muted mr-3">Genre: ${genre}</small><small class="text-muted">Rating: ${rating}</small></p>
+                            <p class="card-text">${description}</p>
+                            <p>
+                                <button type="button" class="btn btn-info edit_movie" data-toggle="modal" data-target="#editMovieModal" id="${editID}">Edit</button>
+                                <button type="submit" class="btn btn-danger delete_movie" id="${id}">Delete</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+}
+
+//function to get name of selected image
+$('#movieImageEdit').change(function () {
+  let file = $(this).files[0].name;
+  $(this).text(file);
+});
+
+//event handler for filter movies by rating
+$('.ratingFilter .dropdown-menu button').click(function () {
+  let ratingFilterId = $(this).val();
+
+  displayMoviesRating(ratingFilterId);
+});
+
 //event handler to display loading animations while API is connecting
-$(document).ajaxSend(function () {
-  let html = "<div class='container'><h1><div class='spinner-border' role='status'> <span class='sr-only'>Loading...</span></div></h1></div>";
-  $('#movieContent').html("");
-  $('#movieContent').append(html);
+$(document).ajaxStart(function () {
+  $('.spinner').css('display', 'inline-block');
 });
 //event handler to set display to none to loading animations after the API is already connected
 $(document).ajaxComplete(function (requestName) {
-  $('.spinner-border').css("display", "none");
+  $('.spinner').css('display', 'none');
 });

@@ -4,12 +4,27 @@ module.exports = {
       .then(response => response.json());
   },
 
+  getMovie: (id) => {
+    return fetch(`/api/movies/${id}`)
+        .then(response => response.json());
+  },
+
   deleteMovie: (id) => {
     return fetch(`/api/movies/${id}`,{
       method: 'DELETE',
       headers:{
         'Content-Type': 'application/json',
       },
+    })
+  },
+
+  patchMovie: (movie, id) => {
+    return fetch(`/api/movies/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(movie),
     })
   }
 };
