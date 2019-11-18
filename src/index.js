@@ -54,6 +54,7 @@ updateMovies();
 function generateCard(title, rating) {
     let card = ``;
     card += `<div class="card">`;
+    card += `<button class="delete">`;
     card += `<img src="..." class="card-img-top" alt="...">`;
     card += `<div class="card-body">`;
     card += `<p class='card-text'>${title}, ${rating}</p>`;
@@ -64,7 +65,7 @@ function generateCard(title, rating) {
 postButton.addEventListener("click", () => {
     postMovie(makeMovie(document.getElementById("create-title").value, document.getElementById("create-rating").value));
     console.log("success");
-    updateMovies();
+    generateCard(document.getElementById("create-title").value, document.getElementById("create-rating").value)
 });
 
 const makeMovie = (title, rating) => {
