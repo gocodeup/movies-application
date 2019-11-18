@@ -33,6 +33,7 @@ let moviesDiv = document.getElementById("container");
 let loadingGIF = document.getElementById("loading");
 let postButton = document.getElementById("create-submit");
 
+function updateMovies() {
 function updateListeners() {
     let deleteButtons = document.getElementsByClassName("delete");
     for (let i = 0; i < deleteButtons.length; i++) {
@@ -53,6 +54,7 @@ function updateListeners() {
 }
 
 function updateMovies(load = false) {
+
     getMovies().then((result) => {
         if (load === true) {
             $("#loading").toggleClass("hide");
