@@ -4,7 +4,7 @@
 /**
  * require style imports
  */
-const {getMovies, postMovie} = require('./api.js');
+const {getMovies, postMovie, patchMovie, deleteMovie} = require('./api.js');
 const $ = require("jquery");
 
 
@@ -12,7 +12,7 @@ const $ = require("jquery");
 getMovies().then((movies) => {
   console.log('Here are all the movies:');
   movies.forEach(({title, rating, id}) => {
-    $('#container').append(`<div class="card" id=${id}><div class="card-img-top">picture placeholder<div class="card-body">Id is ${id} number and the title is: ${title}, rated: ${rating}<br><button class="testbutton">Edit Reel</button></div></div></div>`);
+    $('#container').append(`<div class="card" id=${id}><div class="card-img-top">picture placeholder<div class="card-body"><span id="${title}">Title: ${title}</span> rated: ${rating}<br><button class="editbutton">Edit Reel</button><button class="trashbutton">Trash Reel</button></div></div></div>`);
   });
 }).catch((error) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.');
@@ -34,15 +34,56 @@ $(window).on("load", function(){
        getMovies().then((movies) => {
          $("#container").empty();
          movies.forEach(({title, rating, id}) => {
-           $('#container').append(`<div class="card-img-top">pictures<div class="card"><div class="card-body">Id is ${id} number and the title is: ${title}, rated: ${rating}<br><span class="badge badge-primary">Edit Reel</span><span class="badge badge-danger">Trash Reel</span>
-</div></div></div>`);
-         })
-    })
+           $('#container').append(`<div class="card" id=${id}><div class="card-img-top">picture placeholder<div class="card-body"><span id="${title}">Title: ${title}</span> rated: ${rating}<br><button class="editbutton">Edit Reel</button><button class="trashbutton">Trash Reel</button></div></div></div>`);
+         });
+         });
+    });
   });
 //  Updating the edit modal dynamically
 
-  $(".editmodal").click(function (e) {
-    
-  })
+  $(document).ready(function() {
+    $('body').on('click', '.editbutton', function () {
+      let buttonclicked = $(this);
+      let movietitle = buttonclicked.parent().find("span").attr("id");
+      $("#edit-text").val(movietitle);
+      $(".modal-title").text(movietitle);
+      let divid = buttonclicked.parent().parent().parent().attr("id");
+      $("#hideid").text(divid);
+    });
 
-});
+    $("#ratingchange").click(function (e) {
+      let dbid = $("#hideid").text();
+      let newtitle = $("#edit-text").val();
+      let newrating = $("#editmovierating").val();
+      console.log(dbid);
+      let movie = {
+        "title": newtitle,
+        "rating": newrating
+      };
+      patchMovie(movie, dbid);
+      $("#container").empty();
+
+      getMovies().then((movies) => {
+        $("#container").empty();
+        movies.forEach(({title, rating, id}) => {
+          $('#container').append(`<div class="card" id=${id}><div class="card-img-top">picture placeholder<div class="card-body"><span id="${title}">Title: ${title}</span> rated: ${rating}<br><button class="editbutton">Edit Reel</button><button class="trashbutton">Trash Reel</button></div></div></div>`);
+        });
+      });
+    });
+
+    $('body').on('click', '.trashbutton', function () {
+      let buttonclicked = $(this);
+      let divid = buttonclicked.parent().parent().parent().attr("id");
+      let confirmvalue = confirm("Are you sure?");
+      if (confirmvalue === true) {
+        deleteMovie(divid)
+      }
+      ;
+      getMovies().then((movies) => {
+        $("#container").empty();
+        movies.forEach(({title, rating, id}) => {
+          $('#container').append(`<div class="card" id=${id}><div class="card-img-top">picture placeholder<div class="card-body"><span id="${title}">Title: ${title}</span> rated: ${rating}<br><button class="editbutton">Edit Reel</button><button class="trashbutton">Trash Reel</button></div></div></div>`);
+        });
+      });
+    });
+  });
