@@ -1,15 +1,18 @@
 /**
  * es6 modules and imports
  */
-import sayHello from './hello';
-sayHello('World');
+// import sayHello from './hello.js';
+// sayHello('World');
 
 /**
  * require style imports
  */
-const {getMovie, getMovies, postMovie, patchMovie, deleteMovie} = require('./api.js');
+// const {getMovie, getMovies, postMovie, patchMovie, deleteMovie} = require('api.js');
 
+// import {getMovies, getMovie, postMovie, patchMovie, deleteMovie} from "./api" ;
 // const {getMovies} = require('./api.js');
+
+fetch("api.js").then();
 
 getMovies().catch((error) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.');
@@ -23,7 +26,8 @@ getMovie(1)
     })
     .catch(() => console.log('The important thing is you tried...'));
 
-const THEMOVIES = getMovies(); //.then((variable) => {console.log(variable)});
+const allMovies = getMovies(); //.then((variable) => {console.log(variable)});
+console.log(allMovies);
 
 // postMovie({
 //   "title": "MOVIE",
@@ -41,10 +45,12 @@ const showMovies = () => {
   for (let i = 0; i < THEMOVIES.length ;i++){
     let cont = "<div class='movie-card'>";
     cont += `<p>Movie title: ${THEMOVIES[i].title}</p>`;
-    cont += `<p>Movie rating: ${THEMOVIES[i].rating}/5`;
-    div.innerHTML += cont;
+    cont += `<p>Movie rating: ${THEMOVIES[i].rating}/5</p></div>`;
+    div.innerHTML = cont;
+    console.log(div.innerHTML);
   }
 };
+
 showMovies();
 // deleteMovie(6);
 
