@@ -16,19 +16,14 @@
       "id": 3
     },
     {
-      "title": "Birdemic",
-      "rating": "100000",
+      "title": "item",
+      "rating": "2",
       "id": 4
     },
     {
-      "title": "12 Angry Men",
-      "rating": "5",
+      "title": "item",
+      "rating": "2",
       "id": 5
-    },
-    {
-      "title": "32",
-      "rating": "3",
-      "id": 6
     }
   ]
 }

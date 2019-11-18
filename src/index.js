@@ -27,9 +27,6 @@ let movies;
 
 
 getMovie(1)
-    .then(movie => {
-      console.log(`Title:${movie.title} Rating: ${movie.rating}`);
-    })
     .catch(() => console.log('The important thing is you tried...'));
 
 let moviesDiv = document.getElementById("container");
@@ -37,37 +34,44 @@ let loadingGIF = document.getElementById("loading");
 let postButton = document.getElementById("create-submit");
 
 function updateMovies() {
-    $.getJSON("http://img.omdbapi.com/?apikey=" + movieKey + "&");
+function updateListeners() {
+    let deleteButtons = document.getElementsByClassName("delete");
+    for (let i = 0; i < deleteButtons.length; i++) {
+        deleteButtons[i].addEventListener("click", () => {
+            $(deleteButtons[i]).parent().toggleClass("hide");
+            deleteMovie(parseInt(deleteButtons[i].getAttribute("id").substr(7)));
+        })
+    }
+
+    let edit = document.getElementsByClassName("edit");
+    console.log(edit);
+
+    for (let i = 0; i < edit.length; i++) {
+        edit[i].addEventListener("click", () => {
+
+        })
+    }
+}
+
+function updateMovies(load = false) {
+
     getMovies().then((result) => {
-        $("#loading").toggleClass("hide");
-        moviesDiv.innerHTML = "<p> HELLO </p>";
+        if (load === true) {
+            $("#loading").toggleClass("hide");
+        }
+
         moviesDiv.innerHTML = "";
         for (let i = 0; i < result.length; i++) {
             generateCard(result[i].title, result[i].rating, result[i].id);
         }
-
-        let deleteButtons = document.getElementsByClassName("delete");
-        //
-        console.log(deleteButtons);
-        //
-        // deleteButtons.forEach((item) => {
-        //     item.addEventListener("click", () => {
-        //         // $(this).parent().toggleClass("hide");
-        //         // deleteMovie(parseInt(item.property("id").substr(8)));
-        //     })
-        // });
-
-        for (let i = 0; i < deleteButtons.length; i++) {
-            deleteButtons[i].addEventListener("click", () => {
-                $(deleteButtons[i]).parent().toggleClass("hide");
-                deleteMovie(parseInt(deleteButtons[i].property("id").substr(8)));
-            })
+        if (load === true) {
+            $("#main").toggleClass("hide");
         }
-        $("#main").toggleClass("hide");
+        updateListeners();
     });
 }
 
-updateMovies();
+updateMovies(true);
 
 function generateCard(title, rating, cardID) {
     let card = ``;
@@ -82,18 +86,8 @@ function generateCard(title, rating, cardID) {
 
 postButton.addEventListener("click", () => {
     postMovie(makeMovie(document.getElementById("create-title").value, document.getElementById("create-rating").value));
-    console.log("success");
-    generateCard(document.getElementById("create-title").value, document.getElementById("create-rating").value)
+    updateMovies();
 });
-
-// const ;
-//
-// Array.from("deleteButtons").forEach((item) => {
-//     item.addEventListener("click", () => {
-//         this.parent().addClass("hide");
-//         deleteMovie(parseInt(this.id.substr(8)));
-// });
-// });
 
 const makeMovie = (title, rating) => {
   return {
@@ -101,24 +95,6 @@ const makeMovie = (title, rating) => {
     "rating" : rating
   };
 };
-
-// const options = {
-//   method: 'POST',
-//   headers: {
-//     'Content-Type': 'application/json',
-//   },
-//   body: JSON.stringify(movie),
-// };
-
-// console.log(makeMovie("LOTR", 6));
-//
-// fetch("http://localhost:1313/", {
-//   method: 'POST',
-//   headers: {
-//     'Content-Type': 'application/json',
-//   },
-//   body: JSON.stringify(makeMovie("LOTR", 6)),
-// }).then().catch(() => {console.log("FUCC")});
 
 // getMovies().then((movies) => {
 //     console.log('Here are all the movies:');
