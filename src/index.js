@@ -25,7 +25,7 @@ var movieAddObject = {
 var searchTitle;
 var searchDate;
 var searchRating;
-var searchGenre;
+var searchGenre = [];
 
 displayMovies();
 
@@ -33,25 +33,23 @@ function searchMovies(){
   let allCards = [];
   $('.movieCard').show();
 
+  console.log(searchGenre);
   allMovies.forEach(function (movie) {
+    let compare = searchGenre.some(r => movie.genre.includes(r));
 
-    if(searchTitle && searchRating && searchDate){
-
+    if((searchTitle && searchRating && searchDate && compare) || (searchTitle && searchRating && searchDate) ){
         if((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)){
-
           if(movie.date === searchDate){
-              if(searchRating !== '6'){
-                if(movie.rating === searchRating){
-                  allCards.push(movie);
-                }
-              }else if(searchRating === '6'){
+            if(searchRating !== '6'){
+              if(movie.rating === searchRating){
                 allCards.push(movie);
               }
+            }else if(searchRating === '6'){
+              allCards.push(movie);
+            }
           }
-
         }
-
-    }else if(searchTitle && searchRating){
+    }else if((searchTitle && searchRating) || (searchTitle && searchRating && compare)){
 
         if((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)){
             if(searchRating !== '6'){
@@ -63,7 +61,7 @@ function searchMovies(){
             }
         }
 
-    }else if(searchTitle && searchDate){
+    }else if((searchTitle && searchDate) || ((searchTitle && searchDate && compare))){
 
       if((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)){
         if(parseFloat(searchDate) === parseFloat(movie.date)){
@@ -71,7 +69,7 @@ function searchMovies(){
         }
       }
 
-    }else if(searchDate && searchRating){
+    }else if((searchDate && searchRating) || ((searchDate && searchRating && compare))){
 
 
         if(searchRating !== '6'){
@@ -94,7 +92,7 @@ function searchMovies(){
         allCards.push(movie);
       }
 
-    }else if(searchRating){
+    }else if(searchRating || (searchRating && compare)){
       if(searchRating !== '6'){
         if(movie.rating === searchRating){
           allCards.push(movie);
@@ -102,6 +100,9 @@ function searchMovies(){
       }else if(searchRating === '6'){
         allCards.push(movie);
       }
+
+    }else if(compare){
+      allCards.push(movie);
     }
 
   });
@@ -151,7 +152,7 @@ $(document).on('click','.edit_movie', function (e) {
         $('#genreMultiSelectEdit').val(movieEditObject.genre);
         //update edit genre tags
         $('#genreListEdit').empty();
-        movieAddObject.genre = [];
+        //movieAddObject.genre = [];
         movieEditObject.genre.forEach(genre =>{
           createGenreTag(genre,'genreListEdit');
         });
@@ -175,7 +176,7 @@ $(document).on('click','.edit_movie', function (e) {
         }
         $('#movieDescriptionInputEdit').val(movieEditObject.description);
       })
-      .catch(() => console.log("Error looking at the movie."));
+      .catch((error) => console.log("Error looking at the movie." + error));
 
 
 });
@@ -190,7 +191,7 @@ $('#editMovieClick').click(function (e) {
   let editedMovie = {
     title: $('#movieEditInput').val(),
     date: $('#movieEditDate').val(),
-    rating: $('input[name="gridRadios"]:checked').val(),
+    rating: $('input[name="editRadios"]:checked').val(),
     genre: movieAddObject.genre,
     description: $('#movieDescriptionInputEdit').val()
     //image: data
@@ -216,20 +217,6 @@ $('#searchClick').click(function (e) {
   $('#searchinput').val("");
   searchTitle = undefined;
 
-
-  // $('#movieContent').html("");
-  // let searchName = $('#searchinput').val().toLowerCase();
-  //
-  // getMovies().then(movies => {
-  //   movies.forEach(({id, title, rating, date, genre, description}) => {
-  //     if (title.substr(0, searchName.length).toLowerCase() === searchName) {
-  //
-  //       let card = createCard(id, title, date, genre, rating, description);
-  //
-  //       $('#movieContent').append(card);
-  //     }
-  //   })
-  // }).catch(error => console.log(error));
 });
 
 $('#dateSearchButton').click(function (e) {
@@ -243,6 +230,23 @@ $('#dateSearchButton').click(function (e) {
   }else {
     alert("Enter a number between 1900 and 2099");
   }
+
+});
+
+//function for button and get genre search results
+$('#genreSearchButton').click(function (e) {
+  e.preventDefault();
+  searchGenre = [];
+
+  let genreResults = $('#allGenresSearch').children('input:checked').map(function () {
+    return $(this).val();
+  });
+
+  for(let x = 0;  x < genreResults.length; x++){
+    searchGenre.push(genreResults[x]);
+  }
+
+  searchMovies();
 
 });
 
@@ -263,24 +267,6 @@ $(document).on('click', '.delete_movie', function (e) {
   }
 
 });
-
-//function to display movies based on the rating
-// function displayMoviesRating(filterRate){
-//   $('#movieContent').html("");
-//
-//   getMovies().then((movies) => {
-//     movies.forEach(({id, title, rating, date, genre, description}) => {
-//       if(rating === filterRate){
-//
-//         let card = createCard(id, title, date, genre, rating, description);
-//
-//         $('#movieContent').append(card);
-//       }
-//     });
-//   }).catch(error => {
-//     console.log(`Oh no! Something went wrong. Check the console for details: ${error}`);
-//   });
-// }
 
 function displayMovies(){
   allMovies = [];
@@ -309,6 +295,11 @@ function displayMovies(){
 //function to create a card for each movie
 function createCard(movie){
   let editID = `edit${movie.id}`;
+  let genres = "";
+
+  movie.genre.forEach(function (genre) {
+    genres += `<span class="badge badge-pill badge-light">${genre}</span>`;
+  });
 
   return `<div class="card movieCard mb-3" style="max-width: 540px" id="card${movie.id}">
                 <div class="row no-gutters">
@@ -318,7 +309,7 @@ function createCard(movie){
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">${movie.title}</h5>
-                            <p class="card-text"><small class="text-muted mr-3">Date: ${movie.date}</small><small class="text-muted mr-3">Genre: ${movie.genre}</small><small class="text-muted">Rating: ${movie.rating}</small></p>
+                            <p class="card-text"><small class="text-muted mr-3">Date: ${movie.date}</small><small class="text-muted mr-3">Genre: ${genres}</small><small class="text-muted">Rating: ${movie.rating}</small></p>
                             <p class="card-text">${movie.description}</p>
                             <p>
                                 <button type="button" class="btn btn-info edit_movie" data-toggle="modal" data-target="#editMovieModal" id="${editID}">Edit</button>

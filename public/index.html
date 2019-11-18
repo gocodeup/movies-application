@@ -45,8 +45,21 @@
                         </div>
 
 
-                        <a href="#" class="list-group-item list-group-item-action">Genre</a>
-<!--                        <a href="#" class="list-group-item list-group-item-action">Rating</a>-->
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Genre
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <form id="allGenresSearch">
+                                    <input type="checkbox" name="genreSearch" value="Action">Action<br>
+                                    <input type="checkbox" name="genreSearch" value="Adventure">Adventure<br>
+                                    <input type="checkbox" name="genreSearch" value="Animation">Animation<br>
+                                    <input type="checkbox" name="genreSearch" value="Comedy">Comedy<br>
+                                    <input type="checkbox" name="genreSearch" value="Horror">Horror<br>
+                                    <button type="submit" class="btn btn-primary" id="genreSearchButton">Search</button>
+                                </form>
+                            </div>
+                        </div>
 
                         <div class="dropdown ratingFilter">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="ratingDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -232,27 +245,27 @@
                                             <legend class="col-form-label col-sm-2 pt-0">*Rating</legend>
                                             <div class="col-sm-10">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gridRadios" id="ratingRadios1e"
+                                                    <input class="form-check-input" type="radio" name="editRadios" id="ratingRadios1e"
                                                            value="1" required>
                                                     <label class="form-check-label" for="ratingRadios1e">1 star</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gridRadios" id="ratingRadios2e"
+                                                    <input class="form-check-input" type="radio" name="editRadios" id="ratingRadios2e"
                                                            value="2" required>
                                                     <label class="form-check-label" for="ratingRadios2e">2 star</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gridRadios" id="ratingRadios3e"
+                                                    <input class="form-check-input" type="radio" name="editRadios" id="ratingRadios3e"
                                                            value="3" required>
                                                     <label class="form-check-label" for="ratingRadios3e">3 star</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gridRadios" id="ratingRadios4e"
+                                                    <input class="form-check-input" type="radio" name="editRadios" id="ratingRadios4e"
                                                            value="4" required>
                                                     <label class="form-check-label" for="ratingRadios4e">4 star</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gridRadios" id="ratingRadios5e"
+                                                    <input class="form-check-input" type="radio" name="editRadios" id="ratingRadios5e"
                                                            value="5" required>
                                                     <label class="form-check-label" for="ratingRadios5e">5 star</label>
                                                     <div class="invalid-feedback">More example invalid feedback text</div>
