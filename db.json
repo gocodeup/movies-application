@@ -16,24 +16,14 @@
       "id": 3
     },
     {
-      "title": "trashMovie",
-      "rating": "1",
+      "title": "item",
+      "rating": "2",
       "id": 4
     },
     {
-      "title": "trashMovie",
-      "rating": "1",
+      "title": "item",
+      "rating": "2",
       "id": 5
-    },
-    {
-      "title": "trashMovie",
-      "rating": "1",
-      "id": 6
-    },
-    {
-      "title": "trashMovie",
-      "rating": "1",
-      "id": 7
     }
   ]
 }
