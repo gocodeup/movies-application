@@ -1,10 +1,10 @@
 /**
  * es6 modules and imports
  */
-import sayHello from './hello';
+// import sayHello from './hello';
 //import $ from 'jquery';
 
-sayHello('World');
+// sayHello('World');
 
 /**
  * require style imports
@@ -12,6 +12,16 @@ sayHello('World');
 const {getMovies, deleteMovie, patchMovie, getMovie, postMovie} = require('./api.js');
 var allMovies = [];
 var movieEditObject = {};
+
+var movieAddObject = {
+  id: 0,
+  title:'',
+  date:'',
+  genre: [],
+  description:'',
+  rating: 0
+};
+
 var searchTitle;
 var searchDate;
 var searchRating;
@@ -126,7 +136,7 @@ $(document).on('click','.edit_movie', function (e) {
   e.preventDefault();
 
   let idEdit = $(this).attr('id').substring(4,$(this).attr('id').length);
-  alert(idEdit);
+  // alert(idEdit);
   getMovie(idEdit)
       .then(movie => {
         movieEditObject.id = movie.id;
@@ -139,6 +149,11 @@ $(document).on('click','.edit_movie', function (e) {
         $('#movieEditInput').val(movieEditObject.title);
         $('#movieEditDate').val(movieEditObject.date);
         $('#genreMultiSelectEdit').val(movieEditObject.genre);
+        //update edit genre tags
+        movieEditObject.genre.forEach(genre =>{
+          createGenreTag(genre,'genreListEdit');
+        });
+        // createGenreTag($('#genreMultiSelectE').children('option:selected').val(),'genreListEdit')
         switch (movieEditObject.rating) {
           case "1":
             $('#ratingRadios1e').prop("checked", true);
@@ -158,7 +173,7 @@ $(document).on('click','.edit_movie', function (e) {
         }
         $('#movieDescriptionInputEdit').val(movieEditObject.description);
       })
-      .catch(() => console.log("Error looking at the book."));
+      .catch(() => console.log("Error looking at the movie."));
 
 
 });
@@ -166,11 +181,15 @@ $(document).on('click','.edit_movie', function (e) {
 //event handler for editing the selected movie
 $('#editMovieClick').click(function (e) {
 
+  e.preventDefault();
+  // let data = new FormData();
+  // data.append("opmFile",$('#movieImageEdit').files[0]);
+
   let editedMovie = {
     title: $('#movieEditInput').val(),
     date: $('#movieEditDate').val(),
     rating: $('input[name="gridRadios"]:checked').val(),
-    genre: "",
+    genre: movieAddObject.genre,
     description: $('#movieDescriptionInputEdit').val()
     //image: data
   };
@@ -331,33 +350,100 @@ $(document).ajaxComplete(function (requestName) {
   $('.spinner').css('display', 'none');
 });
 
-postMovie({
-  title: document.getElementById('movieAddInput').value,
-  rating: document.getElementsByName('gridRadios').value,
-  id: 5, // need to get the number of movies
-  genre: [], //function for getting array List of genres
-  description: document.getElementById('movieDescriptionInput').value,
-  image: document.getElementById('movieImageAdd').value
-}).then(getMovies).then(movie =>{
-  console.log('all movies:');
-  movie.forEach(({title, rating, id}) =>{
-    console.log(`ID: ${id}, Title: ${title}, Rating: ${rating}`);
+$('#addMovieClick').click(function (event) {
+  event.preventDefault();
+  // event.stopPropagation();
+  postMovie({
+    title: document.getElementById('movieAddInput').value,
+    rating: $('input[name = gridRadios]:checked').val(),
+    //id auto generates
+    genre: movieAddObject.genre, //function for getting array List of genres
+    description: document.getElementById('movieDescriptionInput').value,
+    image: document.getElementById('movieImageAdd').value
+  }).then(getMovies).then(movie =>{
+    $('#addMovieModal').modal('toggle');
+    $('#addMovieModal').find('form')[0].reset();
+    $('#genreListAdd').empty();
+    movieAddObject = {
+      title:'',
+      date:'',
+      genre: [],
+      description:'',
+      rating: 0
+    };
+    console.log('all movies:');
+    movie.forEach(({title, rating, id}) =>{
+      console.log(`ID: ${id}, Title: ${title}, Rating: ${rating}`);
+    });
+  }).then(displayMovies).catch((error) =>{
+    movieAddObject = {
+      title:'',
+      date:'',
+      genre: [],
+      description:'',
+      rating: 0
+    };
+    alert('Oh no! Something went wrong.\nCheck the console for details.');
+    console.log(error);
   });
-}).catch((error) =>{
-  alert('Oh no! Something went wrong.\nCheck the console for details.');
-  console.log(error);
 });
 
-function createGenreTag(genre){
+
+function createGenreTag(genre,idTag){
   // global genre array
-  var globalGenreArray = [];
-  globalGenreArray.push(genre);
-  $('#genreListAdd').append(`<li class ="list-group-item" value="${genre}"> ${genre} <a class="removeGenre">X</a></li>`);
+  if (movieAddObject.genre.includes(genre)){
+    alert('Genre already Added');
+    return movieAddObject.genre;
+  }else {
+    $(`#${idTag}`).append(`<li class ="list-group-item mt-2 mr-2" value="${genre}">${genre} | <span class="removeGenre">x</span></li>`);
+    return movieAddObject.genre.push(genre);
+  }
 }
 
-$('.removeGenre').click(function () {
-  var globalGenreArray = [];
+$('#addGenreButton').click(function () {
+  return createGenreTag($('#genreMultiSelectA').children('option:selected').val(),'genreListAdd');
+});
 
+$('#editGenreButton').click(function () {
+  return createGenreTag($('#genreMultiSelectE').children('option:selected').val(),'genreListEdit');
+});
+
+// $('span').click(function () {
+$('body').on('click', '.removeGenre',function () {
+  let liValue = $(this).parent().text();
+  liValue = liValue.slice(0,liValue.indexOf(" "));
+
+  if (movieAddObject.genre.length === 1){
+    movieAddObject.genre = [];
+  }else {
+    movieAddObject.genre = movieAddObject.genre.filter(function (genre) {
+      return genre !== liValue;
+    });
+  }
 
   $(this).parent('li').remove();
+  return movieAddObject.genre;
+});
+
+
+$('#addMovie').click(function () {
+   movieAddObject = {
+    id: 0,
+    title:'',
+    date:'',
+    genre: [],
+    description:'',
+    rating: 0
+  };
+});
+
+$('.edit_movie').click(function () {
+  movieAddObject = {
+    id: 0,
+    title:'',
+    date:'',
+    genre: [],
+    description:'',
+    rating: 0
+  };
 });
