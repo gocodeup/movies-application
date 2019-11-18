@@ -21,8 +21,10 @@ displayMovies();
 
 function searchMovies(){
   let allCards = [];
+  $('.movieCard').show();
 
   allMovies.forEach(function (movie) {
+
     if(searchTitle && searchRating && searchDate){
 
         if((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)){
@@ -36,13 +38,7 @@ function searchMovies(){
                 allCards.push(movie);
               }
           }
-          else{
-            searchDate = undefined;
-            $('#dateSearch').val("");
-          }
 
-        }else {
-          console.log("no movies matched");
         }
 
     }else if(searchTitle && searchRating){
@@ -55,62 +51,37 @@ function searchMovies(){
             }else if(searchRating === '6'){
               allCards.push(movie);
             }
-            else {
-              allCards.push(movie);
-            }
-        }else {
-          console.log("no movies matched");
         }
 
     }else if(searchTitle && searchDate){
 
       if((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)){
-        if(searchDate === movie.date){
+        if(parseFloat(searchDate) === parseFloat(movie.date)){
             allCards.push(movie);
         }
-        else {
-          searchDate = undefined;
-          $('#dateSearch').val("");
-        }
-      }else {
-        console.log("no movies matched");
       }
+
     }else if(searchDate && searchRating){
 
-      if(movie.date === searchDate){
+
         if(searchRating !== '6'){
-          if(movie.rating === searchRating){
+          if((movie.rating === searchRating) && (parseFloat(searchDate) === parseFloat(movie.date))){
             allCards.push(movie);
           }
-        }else if(searchRating === '6'){
+        }else if(searchRating === '6'&& (parseFloat(searchDate) === parseFloat(movie.date))){
           allCards.push(movie);
         }
-      }
-      else{
-        console.log("no movies matched");
-        searchDate = undefined;
-        $('#dateSearch').val("");
-      }
-
 
     }else if(searchTitle){
 
       if((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)){
         allCards.push(movie);
       }
-      else {
-        console.log("no movies matched");
-      }
 
     }else if(searchDate){
 
-      if(movie.date === searchDate){
+      if(parseFloat(searchDate) === parseFloat(movie.date)){
         allCards.push(movie);
-      }
-      else{
-        console.log("no movies matched");
-        searchDate = undefined;
-        $('#dateSearch').val("");
       }
 
     }else if(searchRating){
@@ -121,14 +92,32 @@ function searchMovies(){
       }else if(searchRating === '6'){
         allCards.push(movie);
       }
-      else {
-        console.log("no movies matched");
-      }
     }
 
   });
 
-  console.log(allCards);
+  searchTitle = undefined;
+  searchDate = undefined;
+  $('#dateSearch').val("");
+
+ if(allCards.length === 0){
+   console.log("No movies matched criteria");
+ }
+ else{
+   console.log(allCards);
+   console.log(allMovies);
+
+   let results = allMovies.filter(({ id: id1 }) => !allCards.some(({ id: id2 }) => id2 === id1));
+
+   if(results.length > 0){
+     console.log(results);
+     results.forEach(function (result) {
+       $(`#card${result.id}`).toggle();
+     });
+   }
+
+ }
+
 
 }
 
@@ -229,7 +218,6 @@ $('#dateSearchButton').click(function (e) {
 
   if((parseFloat(input) > 1900) && (parseFloat(input) < 2099)){
     searchDate = input;
-    alert(typeof searchDate);
     searchMovies();
   }else {
     alert("Enter a number between 1900 and 2099");
@@ -281,26 +269,27 @@ function displayMovies(){
 
     movies.forEach((movie) => {
       console.log(`id#${movie.id} - ${movie.title} - rating: ${movie.rating}`);
-      searchMovies(movie);
       allMovies.push(movie);
       let card = createCard(movie);
 
       $('#movieContent').append(card);
 
     });
-
+    searchMovies();
     console.log(allMovies);
   }).catch((error) => {
     alert('Oh no! Something went wrong.\nCheck the console for details.')
     console.log(error);
   });
+
+
 }
 
 //function to create a card for each movie
 function createCard(movie){
   let editID = `edit${movie.id}`;
 
-  return `<div class="card movieCard mb-3" style="max-width: 540px">
+  return `<div class="card movieCard mb-3" style="max-width: 540px" id="card${movie.id}">
                 <div class="row no-gutters">
                     <div class="col-md-4">
                         <img src="" class="card-img" alt="">
