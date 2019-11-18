@@ -1,17 +1,24 @@
 /**
  * es6 modules and imports
  */
-import sayHello from './hello';
+// import sayHello from './hello';
 //import $ from 'jquery';
 
-sayHello('World');
+// sayHello('World');
 
 /**
  * require style imports
  */
 const {getMovies, deleteMovie, patchMovie, getMovie, postMovie} = require('./api.js');
 var movieEditObject = {};
-
+var movieAddObject = {
+  id: 0,
+  title:'',
+  date:'',
+  genre: [],
+  description:'',
+  rating: 0
+};
 displayMovies();
 
 //event handler to select a movie for editing
@@ -183,33 +190,60 @@ $(document).ajaxComplete(function (requestName) {
   $('.spinner').css('display', 'none');
 });
 
-postMovie({
-  title: document.getElementById('movieAddInput').value,
-  rating: document.getElementsByName('gridRadios').value,
-  id: 5, // need to get the number of movies
-  genre: [], //function for getting array List of genres
-  description: document.getElementById('movieDescriptionInput').value,
-  image: document.getElementById('movieImageAdd').value
-}).then(getMovies).then(movie =>{
-  console.log('all movies:');
-  movie.forEach(({title, rating, id}) =>{
-    console.log(`ID: ${id}, Title: ${title}, Rating: ${rating}`);
+$('#addMovieClick').click(function (event) {
+  event.preventDefault();
+  postMovie({
+    title: document.getElementById('movieAddInput').value,
+    rating: $('input[name = gridRadios]:checked').val(),
+    //id auto generates
+    genre: movieAddObject.genre, //function for getting array List of genres
+    description: document.getElementById('movieDescriptionInput').value,
+    image: document.getElementById('movieImageAdd').value
+  }).then(getMovies).then(movie =>{
+    movieAddObject = {
+      title:'',
+      date:'',
+      genre: [],
+      description:'',
+      rating: 0
+    };
+    console.log('all movies:');
+    movie.forEach(({title, rating, id}) =>{
+      console.log(`ID: ${id}, Title: ${title}, Rating: ${rating}`);
+    });
+  }).catch((error) =>{
+    movieAddObject = {
+      title:'',
+      date:'',
+      genre: [],
+      description:'',
+      rating: 0
+    };
+    alert('Oh no! Something went wrong.\nCheck the console for details.');
+    console.log(error);
   });
-}).catch((error) =>{
-  alert('Oh no! Something went wrong.\nCheck the console for details.');
-  console.log(error);
 });
+
 
 function createGenreTag(genre){
   // global genre array
-  var globalGenreArray = [];
-  globalGenreArray.push(genre);
-  $('#genreListAdd').append(`<li class ="list-group-item" value="${genre}"> ${genre} <a class="removeGenre">X</a></li>`);
+  if (movieAddObject.genre.includes(genre)){
+    alert('Genre already Added');
+    return movieAddObject.genre;
+  }else {
+    $('#genreListAdd').append(`<li class ="list-group-item" value="${genre}"> ${genre} | <a class="removeGenre">x</a></li>`);
+    return movieAddObject.genre.push(genre);
+  }
 }
 
+$('.addGenreButton').click(function () {
+  return createGenreTag($('#genreMultiSelect').children('option:selected').val());
+});
+
+
 $('.removeGenre').click(function () {
-  var globalGenreArray = [];
-
-
+  let liValue = $(this).parent('li').value;
+  movieAddObject.genre.slice(movieAddObject.genre.indexOf(liValue),1);
   $(this).parent('li').remove();
+  return movieAddObject.genre;
 });
