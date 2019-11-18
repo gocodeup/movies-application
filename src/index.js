@@ -19,8 +19,8 @@ const {getMovie, getMovies, postMovie, patchMovie, deleteMovie} = require('./api
 // fetch("./api.js").then();
 
 getMovies().catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.');
-  console.log(error);
+    alert('Oh no! Something went wrong.\nCheck the console for details.');
+    console.log(error);
 });
 
 let movies;
@@ -88,10 +88,10 @@ postButton.addEventListener("click", () => {
 });
 
 const makeMovie = (title, rating) => {
-  return {
-    "title" : title,
-    "rating" : rating
-  };
+    return {
+        "title" : title,
+        "rating" : rating
+    };
 };
 
 // getMovies().then((movies) => {
