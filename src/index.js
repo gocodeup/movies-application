@@ -192,6 +192,7 @@ $(document).ajaxComplete(function (requestName) {
 
 $('#addMovieClick').click(function (event) {
   event.preventDefault();
+  // event.stopPropagation();
   postMovie({
     title: document.getElementById('movieAddInput').value,
     rating: $('input[name = gridRadios]:checked').val(),
@@ -200,6 +201,9 @@ $('#addMovieClick').click(function (event) {
     description: document.getElementById('movieDescriptionInput').value,
     image: document.getElementById('movieImageAdd').value
   }).then(getMovies).then(movie =>{
+    $('#addMovieModal').modal('toggle');
+    $('#addMovieModal').find('form')[0].reset();
+    $('#genreListAdd').empty();
     movieAddObject = {
       title:'',
       date:'',
@@ -211,7 +215,7 @@ $('#addMovieClick').click(function (event) {
     movie.forEach(({title, rating, id}) =>{
       console.log(`ID: ${id}, Title: ${title}, Rating: ${rating}`);
     });
-  }).catch((error) =>{
+  }).then(displayMovies).catch((error) =>{
     movieAddObject = {
       title:'',
       date:'',
@@ -231,7 +235,7 @@ function createGenreTag(genre){
     alert('Genre already Added');
     return movieAddObject.genre;
   }else {
-    $('#genreListAdd').append(`<li class ="list-group-item" value="${genre}"> ${genre} | <a class="removeGenre">x</a></li>`);
+    $('#genreListAdd').append(`<li class ="list-group-item" value="${genre}">${genre} | <span class="removeGenre">x</span></li>`);
     return movieAddObject.genre.push(genre);
   }
 }
@@ -241,9 +245,19 @@ $('.addGenreButton').click(function () {
 });
 
 
-$('.removeGenre').click(function () {
-  let liValue = $(this).parent('li').value;
-  movieAddObject.genre.slice(movieAddObject.genre.indexOf(liValue),1);
+// $('span').click(function () {
+$('body').on('click', '.removeGenre',function () {
+  let liValue = $(this).parent().text();
+  liValue = liValue.slice(0,liValue.indexOf(" "));
+
+  if (movieAddObject.genre.length === 1){
+    movieAddObject.genre = [];
+  }else {
+    movieAddObject.genre = movieAddObject.genre.filter(function (genre) {
+      return genre !== liValue;
+    });
+  }
+
   $(this).parent('li').remove();
   return movieAddObject.genre;
 });
