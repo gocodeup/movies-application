@@ -26,5 +26,14 @@ module.exports = {
       },
       body: JSON.stringify(movie),
     })
+  },
+  postMovie: (movie) =>{
+    return fetch(`/api/movies`,{
+      method: 'POST',
+      headers:{
+        'Content-Type':'application/json',
+      },
+      body: JSON.stringify(movie),
+    })
   }
 };

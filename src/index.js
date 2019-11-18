@@ -9,7 +9,7 @@ sayHello('World');
 /**
  * require style imports
  */
-const {getMovies, deleteMovie, patchMovie, getMovie} = require('./api.js');
+const {getMovies, deleteMovie, patchMovie, getMovie, postMovie} = require('./api.js');
 var allMovies = [];
 var movieEditObject = {};
 var searchTitle;
@@ -329,4 +329,35 @@ $(document).ajaxStart(function () {
 //event handler to set display to none to loading animations after the API is already connected
 $(document).ajaxComplete(function (requestName) {
   $('.spinner').css('display', 'none');
+});
+
+postMovie({
+  title: document.getElementById('movieAddInput').value,
+  rating: document.getElementsByName('gridRadios').value,
+  id: 5, // need to get the number of movies
+  genre: [], //function for getting array List of genres
+  description: document.getElementById('movieDescriptionInput').value,
+  image: document.getElementById('movieImageAdd').value
+}).then(getMovies).then(movie =>{
+  console.log('all movies:');
+  movie.forEach(({title, rating, id}) =>{
+    console.log(`ID: ${id}, Title: ${title}, Rating: ${rating}`);
+  });
+}).catch((error) =>{
+  alert('Oh no! Something went wrong.\nCheck the console for details.');
+  console.log(error);
+});
+
+function createGenreTag(genre){
+  // global genre array
+  var globalGenreArray = [];
+  globalGenreArray.push(genre);
+  $('#genreListAdd').append(`<li class ="list-group-item" value="${genre}"> ${genre} <a class="removeGenre">X</a></li>`);
+}
+
+$('.removeGenre').click(function () {
+  var globalGenreArray = [];
+
+
+  $(this).parent('li').remove();
 });
