@@ -21,7 +21,10 @@ const {getMovie, getMovies, postMovie, patchMovie, deleteMovie} = require('./api
 getMovies().catch((error) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.');
   console.log(error);
-});// let movies = getMovies();
+});
+
+let movies;
+
 
 getMovie(1)
     .then(movie => {
@@ -31,37 +34,45 @@ getMovie(1)
 
 let moviesDiv = document.getElementById("container");
 let loadingGIF = document.getElementById("loading");
+let postButton = document.getElementById("create-submit");
 
-// moviesDiv.innerHTML = "<img src=" + './public/lookofhope.gif' + " alt='bleh'>";
+function updateMovies() {
+    getMovies().then((result) => {
+        $("#loading").toggleClass("hide");
+        moviesDiv.innerHTML = "<p> HELLO </p>";
+        moviesDiv.innerHTML = "";
+        for (let i = 0; i < result.length; i++) {
+            generateCard(result[i].title, result[i].rating);
+        }
 
-getMovies().then((result) => {
-    console.log(result);
-    // loadingGIF.toggleClass("hide", );
-    $("#loading").toggleClass("hide");
-    moviesDiv.innerHTML = "<p> HELLO </p>";
-    generateCards("LOTR", "6");
-    // moviesDiv.toggleClass("hide");
-    $("#container").toggleClass("hide");
-});
+        $("#main").toggleClass("hide");
+    });
+}
 
-function generateCards(title, rating) {
+updateMovies();
+
+function generateCard(title, rating) {
     let card = ``;
-    // for(let i = 0;i < 3; i++) {}
     card += `<div class="card">`;
     card += `<img src="..." class="card-img-top" alt="...">`;
     card += `<div class="card-body">`;
     card += `<p class='card-text'>${title}, ${rating}</p>`;
     card += `</div> </div>`;
-    moviesDiv.innerHTML = card;
+    moviesDiv.innerHTML += card;
 };
 
+postButton.addEventListener("click", () => {
+    postMovie(makeMovie(document.getElementById("create-title").value, document.getElementById("create-rating").value));
+    console.log("success");
+    updateMovies();
+});
 
-// const makeMovie = (title, rating) => {
-//   return {
-//     "title" : title,
-//     "rating" : rating
-//   };
-// };
+const makeMovie = (title, rating) => {
+  return {
+    "title" : title,
+    "rating" : rating
+  };
+};
 
 // const options = {
 //   method: 'POST',
