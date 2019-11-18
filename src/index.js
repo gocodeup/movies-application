@@ -1,9 +1,8 @@
-
-
 /**
  * es6 modules and imports
  */
 import sayHello from './hello';
+
 sayHello('Codeup');
 
 /**
@@ -15,36 +14,64 @@ const {getMovie, getMovies, postMovie, patchMovie, deleteMovie} = require('./api
 
 //get all movies
 getMovies().then((movies) => {
-  $('body').removeClass("loading");
-
-const $ = require('jquery');
-
-
-
-getMovies().then((movies) => {
-  $('#loading').hide();
-
-  console.log('Here are all the movies:');
-  movies.forEach(({title, rating, id}) => {
-    $('#content').append(`<div class="card" style="width: 18rem;">
+    $('#loading').hide();
+    $("#addMovie").removeClass('noDisplay');
+    console.log('Here are all the movies:');
+    movies.forEach(({title, rating, id , genre}) => {
+        console.log({title, rating, id});
+        $('#content').append(`<div class="card m-2" style="width: 18rem">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <h5 class="card-text text-center">${title}</h5>
+        <p class="card-text text-center">Rating: ${rating}</p>
+        <p class="card-text text-center">${genre}</p>
+        <button class = "btn btn-dark editButton" id="button${id}"></button>
     </div>
     </div>`)
-  });
+    });
+$('.editButton').on('click', btnClassClick);
 }).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.');
-  console.log(error);
+    alert('Oh no! Something went wrong.\nCheck the console for details.');
+    console.log(error);
 });
 
 //get a single book
-    getMovie(1)
-        .then(movie => {
-          console.log("Making a request to a single movie");
-          console.log(`${movie.title} by ${movie.author} - ${movie.year}`);
-        })
-        .catch(() => console.log('The important thing is you tried...'));
+getMovie(1)
+    .then(movie => {
+        console.log("Making a request to a single movie");
+        console.log(`${movie}`);
+    })
+    .catch(() => console.log('The important thing is you tried...'));
+
+$("#addMovieButton").click(function () {
+    postMovie({
+        "title": $('#movieTitleInput').val(),
+        "rating": $("#ratingSelect").val(),
+        "genre" : $("#genreInput").val()
+    }).then(getMovies).then((movies) => {
+        console.log('Here are all the movieeees:');
+        $('#content').html("");
+        movies.forEach(({title, rating, genre}) => {
+            console.log(`${title} rated ${rating}`);
+            $('#content').append(`<div class="card m-2" style="width: 18rem">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-text text-center">${title}</h5>
+        <p class="card-text text-center">Rating: ${rating}</p>
+        <p class="card-text text-center">${genre}</p>
+    </div>
+    </div>`)
+        });
+    }).catch((error) => {
+        alert('Oh no! Something went wrong.\nCheck the console for details.');
+        console.log(error);
+    });
+});
+
+var btnClassClick = function(e){
+    alert("Button clicked from class: "+e.currentTarget.id);
+};
+
 
 
 
@@ -72,38 +99,20 @@ getMovies().then((movies) => {
 //         })
 //         .catch(() => console.log('The important thing is you tried...'));
 //
-// // postBook({
-// //   "author": "Jim Davis",
-// //   "country": "United States",
-// //   "imageLink": "images/???.jpg",
-// //   "language": "English",
-// //   "link": "https://www.amazon.com/Garfield-Loses-His-Feet-Book/dp/0345464672\n",
-// //   "pages": 98,
-// //   "title": "Garfield Loses His Feet",
-// //   "year": 1984
-// // }).then(getBooks).then((books) => {
-// //   console.log('Here are all the books:');
-// //   books.forEach(({title, author, year}) => {
-// //     console.log(`${title} by ${author} - ${year}`);
-// //   });
-// // }).catch((error) => {
-// //   alert('Oh no! Something went wrong.\nCheck the console for details.');
-// //   console.log(error);
-// // });
 //
-// // patchBook({
-// //   "pages": 1201,
-// //   "title": "Garfield Learns Python III",
-// //   "year": 2023
-// // }, 26).then(getBooks).then((books) => {
-// //   console.log('Here are all the books:');
-// //   books.forEach(({title, author, year}) => {
-// //     console.log(`${title} by ${author} - ${year}`);
-// //   });
-// // }).catch((error) => {
-// //   alert('Oh no! Something went wrong.\nCheck the console for details.');
-// //   console.log(error);
-// // });
+// patchBook({
+//     "pages": 1201,
+//     "title": "Garfield Learns Python III",
+//     "year": 2023
+// }, 26).then(getBooks).then((books) => {
+//     console.log('Here are all the books:');
+//     books.forEach(({title, author, year}) => {
+//         console.log(`${title} by ${author} - ${year}`);
+//     });
+// }).catch((error) => {
+//     alert('Oh no! Something went wrong.\nCheck the console for details.');
+//     console.log(error);
+// });
 //
 //     deleteBook(27).then(postBook({
 //       "author": "Jim Davis",

@@ -3,6 +3,7 @@
     {
       "title": "Casablanca",
       "rating": "4",
+      "genre": "old",
       "id": 1
     },
     {
@@ -49,6 +50,12 @@
       "title": "Harry Potter and the Philosopher's Stone",
       "rating": "5",
       "id": 10
+    },
+    {
+      "title": "jnrgdioj",
+      "rating": "3",
+      "genre": "undfsjio",
+      "id": 11
     }
   ]
 }

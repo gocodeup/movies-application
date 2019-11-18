@@ -48,4 +48,8 @@ body.loading .modal {
     text-align: center;
 }
 
+.noDisplay{
+    display: none;
+}
+
 

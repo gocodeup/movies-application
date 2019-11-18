@@ -7,8 +7,8 @@ module.exports = {
     return fetch(`/api/movies/${id}`)
         .then(resp => resp.json());
   },
-  postMovies : (movie) => {
-    return fetch('api/books', {
+  postMovie : (movie) => {
+    return fetch('api/movies', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
