@@ -23,10 +23,14 @@ html, body {
     width: .3fr;
 }
 
+
 .footer {
     background-color: #4d594f;
     color: white;
     text-align: center;
     padding: 10px;
     margin-top: 1em;
+}
+.noMatchInfo{
+    display: none;
 }

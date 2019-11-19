@@ -48,7 +48,7 @@
                 <div class="row" id="searchByInput-container">
                     <h3>Search:</h3>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="search" aria-label="search" aria-describedby="basic-addon2" id="searchinput">
+                        <input type="text" class="form-control" placeholder="Title" aria-label="search" aria-describedby="basic-addon2" id="searchinput">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" id="searchClick">Search</button>
                         </div>
@@ -57,8 +57,8 @@
 
                 <div class="row">
                     <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action">Title</a>
-<!--                        <a href="#" class="list-group-item list-group-item-action">Date</a>-->
+                        <button type="button" class="btn btn-secondary" id="resetButton">Reset</button>
+
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Date
@@ -75,8 +75,21 @@
                         </div>
 
 
-                        <a href="#" class="list-group-item list-group-item-action">Genre</a>
-<!--                        <a href="#" class="list-group-item list-group-item-action">Rating</a>-->
+                        <div class="dropdown genreFilter">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Genre
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <form id="allGenresSearch">
+                                    <input type="checkbox" name="genreSearch" value="Action">Action<br>
+                                    <input type="checkbox" name="genreSearch" value="Adventure">Adventure<br>
+                                    <input type="checkbox" name="genreSearch" value="Animation">Animation<br>
+                                    <input type="checkbox" name="genreSearch" value="Comedy">Comedy<br>
+                                    <input type="checkbox" name="genreSearch" value="Horror">Horror<br>
+                                    <button tclass="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="genreSearchButton">Search</button>
+                                </form>
+                            </div>
+                        </div>
 
                         <div class="dropdown ratingFilter">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="ratingDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -262,27 +275,27 @@
                                             <legend class="col-form-label col-sm-2 pt-0">*Rating</legend>
                                             <div class="col-sm-10">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gridRadios" id="ratingRadios1e"
+                                                    <input class="form-check-input" type="radio" name="editRadios" id="ratingRadios1e"
                                                            value="1" required>
                                                     <label class="form-check-label" for="ratingRadios1e">1 star</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gridRadios" id="ratingRadios2e"
+                                                    <input class="form-check-input" type="radio" name="editRadios" id="ratingRadios2e"
                                                            value="2" required>
                                                     <label class="form-check-label" for="ratingRadios2e">2 star</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gridRadios" id="ratingRadios3e"
+                                                    <input class="form-check-input" type="radio" name="editRadios" id="ratingRadios3e"
                                                            value="3" required>
                                                     <label class="form-check-label" for="ratingRadios3e">3 star</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gridRadios" id="ratingRadios4e"
+                                                    <input class="form-check-input" type="radio" name="editRadios" id="ratingRadios4e"
                                                            value="4" required>
                                                     <label class="form-check-label" for="ratingRadios4e">4 star</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gridRadios" id="ratingRadios5e"
+                                                    <input class="form-check-input" type="radio" name="editRadios" id="ratingRadios5e"
                                                            value="5" required>
                                                     <label class="form-check-label" for="ratingRadios5e">5 star</label>
                                                     <div class="invalid-feedback">More example invalid feedback text</div>
@@ -326,6 +339,8 @@
                 </div>
 
                 <div class="row" id="movieContent"></div>
+                <span class="badge badge-pill badge-info noMatchInfo">No movies matched criteria</span>
+                <div id="movieContent"></div>
             </div>
         </div>
 <!--        ROW-->
