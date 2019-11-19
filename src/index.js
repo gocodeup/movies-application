@@ -46,6 +46,7 @@ $(document).ajaxComplete(function (requestName) {
 
 
 //FUNCTION TO SEARCH MOVIES BASED ON CRITERIA
+
 function searchMovies(){
   let allCards = [];
   //show all cards
@@ -53,55 +54,24 @@ function searchMovies(){
   //check if genres has been selected
   let hasGenres = (searchGenre.length > 0);
 
-    allMovies.forEach(function (movie) {
-
-
-//         if (searchTitle && searchRating && searchDate) {
-
-//             if ((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)) {
-
-//                 if (movie.date === searchDate) {
-//                     if (searchRating !== '6') {
-//                         if (movie.rating === searchRating) {
-//                             allCards.push(movie);
-//                         }
-//                     } else if (searchRating === '6') {
-//                         allCards.push(movie);
-//                     }
-//                 }
-
-//             }
-
-//         } else if (searchTitle && searchRating) {
-
-//             if ((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)) {
-//                 if (searchRating !== '6') {
-//                     if (movie.rating === searchRating) {
-//                         allCards.push(movie);
-//                     }
-//                 } else if (searchRating === '6') {
-//                     allCards.push(movie);
-//                 }
-//             }
-
-//         } else if (searchTitle && searchDate) {
+  allMovies.forEach(function (movie) {
 
     let compare = searchGenre.some(r => movie.genre.includes(r));
 
     //if-else statement to compare all possible combinations of search selections
     if(searchTitle && searchRating && searchDate && hasGenres){
-        console.log("1 searchTitle && searchRating && searchDate && compare");
-        if((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)){
-          if(movie.date === searchDate && compare){
-            if(searchRating !== '6'){
-              if(movie.rating === searchRating){
-                allCards.push(movie);
-              }
-            }else if(searchRating === '6'){
+      console.log("1 searchTitle && searchRating && searchDate && compare");
+      if((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)){
+        if(movie.date === searchDate && compare){
+          if(searchRating !== '6'){
+            if(movie.rating === searchRating){
               allCards.push(movie);
             }
+          }else if(searchRating === '6'){
+            allCards.push(movie);
           }
         }
+      }
 
     }else if(searchTitle && searchRating && searchDate){
       console.log("2 searchTitle && searchRating && searchDate");
@@ -135,12 +105,12 @@ function searchMovies(){
       console.log("4 searchDate && searchRating && compare");
 
       if(searchRating !== '6' && compare){
-          if((movie.rating === searchRating) && (parseFloat(searchDate) === parseFloat(movie.date))){
-            allCards.push(movie);
-          }
-        }else if(searchRating === '6'&& (parseFloat(searchDate) === parseFloat(movie.date)) && compare){
+        if((movie.rating === searchRating) && (parseFloat(searchDate) === parseFloat(movie.date))){
           allCards.push(movie);
         }
+      }else if(searchRating === '6'&& (parseFloat(searchDate) === parseFloat(movie.date)) && compare){
+        allCards.push(movie);
+      }
 
 
     }else if(searchTitle && searchDate && hasGenres){
@@ -168,37 +138,22 @@ function searchMovies(){
     }else if(searchTitle && searchDate){
       console.log("7 searchTitle && searchDate");
 
-
-            if ((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)) {
-                if (parseFloat(searchDate) === parseFloat(movie.date)) {
-                    allCards.push(movie);
-                }
-            }
-
-
-//         } else if (searchDate && searchRating) {
-
-
-//             if (searchRating !== '6') {
-//                 if ((movie.rating === searchRating) && (parseFloat(searchDate) === parseFloat(movie.date))) {
-//                     allCards.push(movie);
-//                 }
-//             } else if (searchRating === '6' && (parseFloat(searchDate) === parseFloat(movie.date))) {
-//                 allCards.push(movie);
-//             }
-
-//         } else if (searchTitle) {
+      if((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)){
+        if(parseFloat(searchDate) === parseFloat(movie.date)){
+          allCards.push(movie);
+        }
+      }
 
     }else if(searchDate && searchRating){
       console.log("8 searchDate && searchRating");
 
       if(searchRating !== '6'){
-          if((movie.rating === searchRating) && (parseFloat(searchDate) === parseFloat(movie.date))){
-            allCards.push(movie);
-          }
-        }else if(searchRating === '6'&& (parseFloat(searchDate) === parseFloat(movie.date))){
+        if((movie.rating === searchRating) && (parseFloat(searchDate) === parseFloat(movie.date))){
           allCards.push(movie);
         }
+      }else if(searchRating === '6'&& (parseFloat(searchDate) === parseFloat(movie.date))){
+        allCards.push(movie);
+      }
 
     }else if(searchRating && hasGenres){
       console.log("9 searchRating && compare === true");
@@ -217,43 +172,27 @@ function searchMovies(){
     }else if(searchTitle){
       console.log("10 searchTitle");
 
-
-            if ((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)) {
-                allCards.push(movie);
-            }
-
-
-//         } else if (searchDate) {
+      if((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)){
+        allCards.push(movie);
+      }
 
     }else if(searchDate){
       console.log("11 searchDate");
 
-
-            if (parseFloat(searchDate) === parseFloat(movie.date)) {
-                allCards.push(movie);
-            }
-
-
-//         } else if (searchRating) {
-//             if (searchRating !== '6') {
-//                 if (movie.rating === searchRating) {
-//                     allCards.push(movie);
-//                 }
-//             } else if (searchRating === '6') {
-//                 allCards.push(movie);
-//             }
-//         }
+      if(parseFloat(searchDate) === parseFloat(movie.date)){
+        allCards.push(movie);
+      }
 
     }else if(searchRating){
       console.log("12 searchRating");
 
       if(searchRating !== '6'){
-          if(movie.rating === searchRating){
-            allCards.push(movie);
-          }
-        }else if(searchRating === '6'){
+        if(movie.rating === searchRating){
           allCards.push(movie);
         }
+      }else if(searchRating === '6'){
+        allCards.push(movie);
+      }
 
     }else if(hasGenres){
       console.log("13 compare");
@@ -263,55 +202,34 @@ function searchMovies(){
 
     }
 
+  });
 
-    });
-
-// <<<<<<< robert-branch
-//     searchTitle = undefined;
-//     searchDate = undefined;
-//     $('#dateSearch').val("");
-
-//     if (allCards.length === 0) {
-//         // console.log("No movies matched criteria");
-//     } else {
-//         console.log(allCards);
-//         console.log(allMovies);
-
-//         let results = allMovies.filter(({id: id1}) => !allCards.some(({id: id2}) => id2 === id1));
-
-//         if (results.length > 0) {
-//             console.log(results);
-//             results.forEach(function (result) {
-//                 $(`#card${result.id}`).toggle();
-//             });
-//         }
-// =======
   //reset both title and date search criteria after each search
   searchTitle = undefined;
   searchDate = undefined;
   $('#dateSearch').val("");
 
   //if no criteria met. display message
- if(allCards.length === 0){
-   console.log("No movies matched criteria");
-   $('.noMatchInfo').show(1000);
+  if(allCards.length === 0){
+    console.log("No movies matched criteria");
+    $('.noMatchInfo').show(1000);
 
-   setTimeout(function () {
-     $('.noMatchInfo').hide(1000);
-   }, 3000);
- }
- else{
-   //compare all movies and allCards results for differences
-   let results = allMovies.filter(({ id: id1 }) => !allCards.some(({ id: id2 }) => id2 === id1));
+    setTimeout(function () {
+      $('.noMatchInfo').hide(1000);
+    }, 3000);
+  }
+  else{
+    //compare all movies and allCards results for differences
+    let results = allMovies.filter(({ id: id1 }) => !allCards.some(({ id: id2 }) => id2 === id1));
 
-   if(results.length > 0){
-     results.forEach(function (result) {
-       //toggle cards not being used in search criteria
-       $(`#card${result.id}`).toggle();
-     });
-   }
-
+    if(results.length > 0){
+      results.forEach(function (result) {
+        //toggle cards not being used in search criteria
+        $(`#card${result.id}`).toggle();
+      });
     }
+
+  }
 
 }
 
