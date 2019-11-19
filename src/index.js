@@ -55,7 +55,8 @@ function updateListeners() {
     }
     for (let i = 0; i < submit.length; i++) {
         confirm[i].addEventListener("click", () => {
-            patchMovie(edit[i].parentElement. ) edit[i * 2].value edit[(i * 2) + 1].value
+            console.log({"title" : document.getElementById(`title-${confirm[i].parentElement.id}`), "rating" : document.getElementById(`rating-${confirm[i].parentElement.id}`)});
+            // patchMovie(confirm[i].id, {"title" : document.getElementById(`title-${confirm[i].parentElement.id}`), "rating" : document.getElementById(`rating-${confirm[i].parentElement.id}`)});
         })
     }
 }
