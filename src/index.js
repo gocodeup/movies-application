@@ -236,7 +236,15 @@ function searchMovies() {
 //event handler to select a movie for editing
 $(document).on('click', '.edit_movie', function (e) {
     e.preventDefault();
+    movieAddObject = {
+        title: '',
+        date: '',
+        genre: [],
+        description: '',
+        rating: undefined
+    };
     $('#editForm').trigger('reset');
+    $('#editMovieClick').attr("disabled", false);
     let idEdit = $(this).attr('id').substring(4, $(this).attr('id').length);
     // alert(idEdit);
     getMovie(idEdit)
@@ -334,9 +342,16 @@ $('#editMovieClick').click(function (e) {
 
 // <<<<<<< robert-branch
     e.preventDefault();
+    if (document.getElementById('movieEditInput').value === '') {
+        return alert("Error: input a Title");
+    }else if ($('input[name = editRadios]:checked').val() === undefined) {
+        return alert("Error: give the movie a rating");
+    }else {
+        $("#editMovieClick").attr("disabled", true);
+    }
     // let data = new FormData();
     // data.append("opmFile",$('#movieImageEdit').files[0]);
-    console.log($('#movieImageEdit').val());
+    // console.log($('#movieImageEdit').val());
     // var fileName = $('#movieImageEdit').val().split("\\").pop();
     // console.log(fileName);
     // movieEditObject.image = fileName;
@@ -625,9 +640,10 @@ $('#addMovieClick').click(function (event) {
     event.preventDefault();
     if (document.getElementById('movieAddInput').value === '') {
         return alert("Error: input a Title");
-    }
-    if ($('input[name = gridRadios]:checked').val() === undefined) {
+    }else if ($('input[name = gridRadios]:checked').val() === undefined) {
         return alert("Error: give the movie a rating");
+    }else {
+        $("#addMovieClick").attr("disabled", true);
     }
     // disableSubmit('addMovieClick');
     // console.log($('#movieAddDate').val());
@@ -728,24 +744,11 @@ $('#addMovie').click(function () {
         description: '',
         rating: undefined
     };
-    // document.getElementById('movieAddInput').value = movieAddObject.title;
-    // $('#movieAddDate').val('');
-    // $('#genreListAdd').empty();
     $('#addForm').trigger('reset');
-
+    $('#addMovieClick').attr("disabled", false);
 
 });
 
-$('.edit_movie').click(function () {
-    // $('#editForm').trigger('reset');
-    movieAddObject = {
-        title: '',
-        date: '',
-        genre: [],
-        description: '',
-        rating: undefined
-    };
-});
 
 
 // $(".custom-file-input").on("change", function() {
@@ -754,4 +757,5 @@ $('.edit_movie').click(function () {
 //   // movieEditObject.image = fileName.value.replace("C:\\fakepath\\", "");
 //   $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
 // });
-
+// $("#btnSubmit").attr("disabled", true);
+// $('#btnSubmit').attr("disabled", false);
