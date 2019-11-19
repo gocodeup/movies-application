@@ -44,21 +44,19 @@ function updateListeners() {
 
     let editButtons = document.getElementsByClassName("edit-button");
     let edit = document.getElementsByClassName("edit");
+    let confirm = document.getElementsByClassName("edit-confirm");
     console.log(edit);
     for (let i = 0; i < edit.length; i++) {
         editButtons[i].addEventListener("click", () => {
-            if (editing === true) {
-                editing = false;
-                for (let i = 0; i < edit.length; i + 2) {
-                    //patchMovie(edit[i].getAttribute("value"), edit[i + 1].getAttribute("value")); //edit[i];
-                }
-            }
-            else {
-                editing = true;
-                for (let i = 0; i < edit.length; i++) {
-                    edit[i].toggleAttribute("readonly");
-                }
-            }
+            edit[i * 2].toggleAttribute("readonly");
+            edit[(i * 2) + 1].toggleAttribute("readonly");
+
+        })
+    }
+    for (let i = 0; i < submit.length; i++) {
+        confirm[i].addEventListener("click", () => {
+            console.log({"title" : document.getElementById(`title-${confirm[i].parentElement.id}`), "rating" : document.getElementById(`rating-${confirm[i].parentElement.id}`)});
+            // patchMovie(confirm[i].id, {"title" : document.getElementById(`title-${confirm[i].parentElement.id}`), "rating" : document.getElementById(`rating-${confirm[i].parentElement.id}`)});
         })
     }
 }
@@ -87,7 +85,8 @@ function generateCard(title, rating, cardID) {
     let card = ``;
     card += `<div class="card" id="${cardID}">`;
     card += `<button class="delete" id="delete-${cardID}">X</button>`;
-    // card += ``;
+    card += `<button class="edit-button" id="edit-${cardID}">Edit</button>`;
+    card += `<button class="confirm" id="confirm-${cardID}">Confirm changes</button>`;
     card += `<img src="..." class="card-img-top" alt="...">`;
     card += `<div class="card-body">`;
     card += `<input readonly type="text" class="edit titles" id="card-title-${cardID}" value="${title}">`;
@@ -101,7 +100,7 @@ postButton.addEventListener("click", () => {
     updateMovies();
 });
 
-patchMovie();
+// patchMovie();
 
 const makeMovie = (title, rating) => {
     return {
