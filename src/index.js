@@ -39,7 +39,6 @@ const editClick = function (e) {
         console.log("Making a request to edit a single movie");
         movieSelected = movie;
         $("#movieEditTitle").val(movieSelected.title);
-        $("#movieGenreEdit").val(movieSelected.genre);
         $("#ratingEdit").val(movieSelected.rating);
         $(".modal").show();
     })
@@ -58,23 +57,34 @@ const createMovieContent = () => {
             }
             $('#loading').hide();
             console.log('Here are all the movies:');
-            movies.forEach(({title, rating, id, genre}) => {
+            movies.forEach(({title, rating, id}) => {
                 let result;
+                let releaseDate;
+                let summary;
+                let actualTitle;
+                let actualRating;
                 console.log({title, rating, id});
                 $.getJSON("https://api.themoviedb.org/3/search/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query=" + title + "&callback=?")
                     .then(response => {
-                        console.log(`http://image.tmdb.org/t/p/w500/${response.results[0].poster_path}`);
                         result = `http://image.tmdb.org/t/p/w500/${response.results[0].poster_path}`;
+                        releaseDate = `${response.results[0].release_date}`;
+                        summary = `${response.results[0].overview}`;
+                        actualTitle = `${response.results[0].title}`;
+                        actualRating= `${response.results[0].vote_average}`;
+                        console.log(releaseDate);
+                        console.log(summary);
                         // `http://image.tmdb.org/t/p/w500/${json.results[0].poster_path}`
-                $('#content').append(`<div class="card m-2 cardBackground" style="width: 18rem">
+                $('#content').append(`<div class="card m-2 cardBackground d-flex" style="width: 18rem">
             <img src="${result}" class="card-img-top" alt="...">
-            <div class="card-body">
-            <h5 class="card-text text-center">${title}</h5>
-            <p class="card-text text-center">Rating: ${rating}</p>
-            <p class="card-text text-center">${genre}</p>
-            <div class="d-flex justify-content-around">
-                <button class = "btn btn-dark editButton text-center" id="button${id}">Edit Movie</button>
-                <button class = "btn btn-dark deleteButton text-center" id="deleteMovie${id}">Delete</button>
+            <div class="card-body roboto">
+            <h5 class="card-text text-center">${actualTitle}</h5>
+            <p class="card-text text-center mt-4">Score: ${actualRating}</p>
+            <p class="card-text text-center">Released: ${releaseDate}</p>
+            <p class="card-text text-center">${summary}</p>
+            <p class="card-text text-center mb-5">Personal Rating: ${rating}</p>
+            <div class="" id="buttonGroup">
+                <button class = "btn btn-dark editButton text-center mr-3" id="button${id}">Edit Movie</button>
+                <button class = "btn btn-dark deleteButton text-center ml-3" id="deleteMovie${id}">Delete</button>
             </div>
         </div>
         </div>`)
@@ -98,14 +108,13 @@ $("#addMovieButton").click(function () {
     $("#content").html("");
     $("#loading").show();
     $("#addMovie").hide();
-    if($('#movieTitleInput').val().trim() === "" || $("#genreInput").val().trim() === ""){
+    if($('#movieTitleInput').val().trim() === ""){
         createMovieContent().then(() => {
             $("#loading").hide();})
     }else{
     postMovie({
         "title": $('#movieTitleInput').val(),
         "rating": $("#ratingSelect").val(),
-        "genre": $("#genreInput").val()
     }).then(getMovies).then(() => {
         createMovieContent().then(() => {
             $("#loading").hide();}
@@ -123,10 +132,9 @@ $("#editSave").click(function () {
     let editedMovie = {
         "title": $("#movieEditTitle").val(),
         "rating": $("#ratingEdit").val(),
-        "genre": $("#movieGenreEdit").val(),
         "id": idEdited
     };
-    if(editedMovie.title.trim() === "" || editedMovie.genre.trim() === ""){
+    if(editedMovie.title.trim() === ""){
         createMovieContent().then(() => {
             $("#loading").hide();
         });

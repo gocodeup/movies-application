@@ -9,14 +9,33 @@
     color: #f7f7f7;
 }
 
+.roboto{
+    font-family: 'Roboto', sans-serif;
+}
+
+#buttonGroup{
+    position: absolute;
+    bottom: 10px;
+    right: 40px;
+}
+
+.playfair{
+    font-family: 'Playfair Display', serif;
+}
+
 html, body {
     height: 100%;
     background-color:  #8b98aa;
 }
 .jumbotron{
     color: #df2238;
+    background-image: url("img/audience.jpg");
+    background-size: cover;
+    opacity: 75%;
+    height: 329px;
 
 }
+
 
 .container {
     position: relative;
@@ -63,6 +82,12 @@ body.loading .modal {
 
 .noDisplay{
     display: none!important;
+}
+
+#addMovie{
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 

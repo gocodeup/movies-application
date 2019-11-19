@@ -3,8 +3,52 @@
     {
       "title": "El Camino",
       "rating": "2",
-      "genre": "Netflix",
       "id": 1
+    },
+    {
+      "title": "Pets",
+      "rating": "4",
+      "id": 2
+    },
+    {
+      "title": "Star Wars",
+      "rating": "8",
+      "id": 3
+    },
+    {
+      "title": "Terminator 2",
+      "rating": "8",
+      "id": 4
+    },
+    {
+      "title": "Predator",
+      "rating": "8",
+      "id": 5
+    },
+    {
+      "title": "Full Metal Jacket",
+      "rating": "8",
+      "id": 6
+    },
+    {
+      "title": "Apocalypse Now",
+      "rating": "8",
+      "id": 7
+    },
+    {
+      "title": "Braveheart",
+      "rating": "8",
+      "id": 8
+    },
+    {
+      "title": "Joker",
+      "rating": "8",
+      "id": 9
+    },
+    {
+      "title": "No Country for Old Men",
+      "rating": "8",
+      "id": 10
     }
   ]
 }
