@@ -541,7 +541,7 @@ $('#resetButton').click(function (e) {
     searchTitle = undefined;
     searchDate = undefined;
     $('#dateSearch').val("");
-    searchRating = 6;
+    searchRating = undefined;
     searchGenre = [];
 
     displayMovies();
