@@ -38,6 +38,10 @@ footer{
     /*margin: auto;*/
 }
 
+.card-img-top>img {
+    height: 200px;
+}
+
 #container {
     display: flex;
     justify-self: center;
@@ -79,7 +83,6 @@ footer{
     border-radius: 5%;
 }
 .card-body{
-    margin-top: 125px;
     text-align: center;
 }
 #addmovie{

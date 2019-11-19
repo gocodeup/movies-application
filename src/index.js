@@ -4,21 +4,22 @@
 /**
  * require style imports
  */
-const {getMovies, postMovie, patchMovie, deleteMovie} = require('./api.js');
+const {getMovies, postMovie, patchMovie, deleteMovie, movieDBToken, searchMovieAPI} = require('./api.js');
 const $ = require("jquery");
 
 
 
-getMovies().then((movies) => {
-  console.log('Here are all the movies:');
+getMovies()
+.then((movies) => {
   movies.forEach(({title, rating, id}) => {
-    $('#container').append(`<div class="card" id=${id}><div class="card-img-top text-center">picture placeholder<div class="card-body"><span id="${title}">Title: ${title}</span><br>rated: ${rating}<br><button class="editbutton btn-info">Edit Reel</button><br><button class="trashbutton btn-danger">Trash Reel</button></div></div></div>`);
-  });
-}).catch((error) => {
+    let movieobj = {title, rating, id};
+    searchMovieAPI(movieobj)
+  })
+})
+.catch((error) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.');
   console.log(error);
 });
-
 
 $(window).on("load", function(){
   let movie = {};
@@ -34,9 +35,10 @@ $(window).on("load", function(){
        getMovies().then((movies) => {
          $("#container").empty();
          movies.forEach(({title, rating, id}) => {
-           $('#container').append(`<div class="card" id=${id}><div class="card-img-top">picture placeholder<div class="card-body"><span id="${title}">Title: ${title}</span> rated: ${rating}<br><button class="editbutton">Edit Reel</button><button class="trashbutton">Trash Reel</button></div></div></div>`);
+           let movieobj = {title, rating, id};
+           searchMovieAPI(movieobj)
          });
-         });
+       });
     });
   });
 //  Updating the edit modal dynamically
@@ -66,7 +68,8 @@ $(window).on("load", function(){
       getMovies().then((movies) => {
         $("#container").empty();
         movies.forEach(({title, rating, id}) => {
-          $('#container').append(`<div class="card" id=${id}><div class="card-img-top">picture placeholder<div class="card-body"><span id="${title}">Title: ${title}</span> rated: ${rating}<br><button class="editbutton">Edit Reel</button><button class="trashbutton">Trash Reel</button></div></div></div>`);
+          let movieobj = {title, rating, id};
+          searchMovieAPI(movieobj)
         });
       });
     });
@@ -82,8 +85,11 @@ $(window).on("load", function(){
       getMovies().then((movies) => {
         $("#container").empty();
         movies.forEach(({title, rating, id}) => {
-          $('#container').append(`<div class="card" id=${id}><div class="card-img-top">picture placeholder<div class="card-body"><span id="${title}">Title: ${title}</span> rated: ${rating}<br><button class="editbutton">Edit Reel</button><button class="trashbutton">Trash Reel</button></div></div></div>`);
+          let movieobj = {title, rating, id};
+          searchMovieAPI(movieobj)
         });
       });
     });
+
+
   });
