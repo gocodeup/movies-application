@@ -16,7 +16,7 @@ getMovie : (id) => {
     body: JSON.stringify(movie),
   })
 },
-    patchMovie : (movie, id) => {
+    patchMovie : (id, movie) => {
   return fetch(`api/movies/${id}`, {
     method: 'PATCH',
     headers: {
