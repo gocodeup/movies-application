@@ -11,8 +11,9 @@
 </head>
 <body>
 <!--NAV BAR **************************************-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Movies Catalog</a>
+<!--navbar-light bg-light-->
+<nav class="navbar navbar-expand-lg" id="nav-Bar">
+    <a class="navbar-brand text-white" href="#">Movies Catalog</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -21,46 +22,41 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">I'm Feeling Lucky</a>
+                <a class="nav-link disabled text-white" href="#" tabindex="-1" aria-disabled="true">I'm Feeling Lucky</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link disabled" href="#">Browser<span class="sr-only">(current)</span></a>
+                <a class="nav-link disabled text-light" href="#">Browser<span class="sr-only">(current)</span></a>
             </li>
 
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <a class="mr-sm-2 text-secondary"><i class="fa fa-user"></i> Sign Up</a>
+            <a class="mr-sm-2 text-light"><i class="fa fa-user"></i> Sign Up</a>
 
-            <!--            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
-            <!--            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
         </form>
     </div>
 </nav>
 <!--**********************************************-->
-    <div class="container-fluid" id="main-page">
+    <div class="container-fluid no-gutter" id="main-page">
         <div class="row" id="main-row">
 <!--            SEARCH BAR ******************************************************-->
             <div class="col-3 pl-3" id="searchBar">
-                <div class="row">
-                    <button id="addMovie" class="btn btn-primary" data-toggle="modal" data-target="#addMovieModal" data-backdrop="static"
-                            data-keyboard="false" >Add Movie</button>
-                </div>
-                <div class="row" id="searchByInput-container">
+
+                <div class="row mx-2 my-1" id="searchByInput-container">
                     <h3>Search:</h3>
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Title" aria-label="search" aria-describedby="basic-addon2" id="searchinput">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="searchClick">Search</button>
+                            <button class="btn btn-outline-dark" type="button" id="searchClick">Search</button>
                         </div>
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row mx-2">
                     <div class="list-group">
-                        <button type="button" class="btn btn-secondary" id="resetButton">Reset</button>
+                        <button type="button" class="btn btn-secondary my-1 sameButtonWidth" id="resetButton">Reset</button>
 
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="dropdown my-1">
+                            <button class="btn btn-secondary dropdown-toggle sameButtonWidth" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Date
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -75,8 +71,8 @@
                         </div>
 
 
-                        <div class="dropdown genreFilter">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="dropdown genreFilter my-1">
+                            <button class="btn btn-secondary dropdown-toggle sameButtonWidth" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Genre
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -91,8 +87,8 @@
                             </div>
                         </div>
 
-                        <div class="dropdown ratingFilter">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="ratingDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="dropdown ratingFilter my-1">
+                            <button class="btn btn-secondary dropdown-toggle sameButtonWidth" type="button" id="ratingDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Rating
                             </button>
                             <div class="dropdown-menu" aria-labelledby="ratingDropdownMenu">
@@ -104,7 +100,10 @@
                                 <button class="dropdown-item" type="button" value="6">All</button>
                             </div>
                         </div>
-
+                        <div class="row">
+                            <button id="addMovie" class="btn btn-secondary my-2 mx-3 sameButtonWidth" data-toggle="modal" data-target="#addMovieModal" data-backdrop="static"
+                                    data-keyboard="false" >Add Movie</button>
+                        </div>
                     </div>
                 </div>
 
@@ -113,14 +112,14 @@
                      aria-labelledby="addMovieModalTitle" aria-hidden="true">
                     <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document" id="addModal">
                         <div class="modal-content">
-                            <div class="modal-header">
+                            <div class="modal-header modalHeaderCustom">
                                 <h5 class="modal-title" id="addMovieModalTitle">Add Movie</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="close CloseCustom" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body" id="addFormModal">
-                                <form>
+                            <div class="modal-body modalBodyCustom" id="addFormModal">
+                                <form id="addForm">
                                     <div class="form-group row">
                                         <label for="movieAddInput" class="col-sm-2 col-form-label">*Title </label>
                                         <div class="col-sm-10">
@@ -145,7 +144,7 @@
                                                     <option value="Horror">Horror</option>
                                                 </select>
                                                 <div class="input-group-append">
-                                                    <button class="btn btn-outline-secondary" id="addGenreButton" type="button">Add Genre</button>
+                                                    <button class="btn btn-outline-dark" id="addGenreButton" type="button">Add Genre</button>
                                                 </div>
                                             </div>
                                             <!--                            **********************************************-->
@@ -211,8 +210,6 @@
                         </div>
                     </div>
                 </div>
-
-
 <!--                **************************************************-->
 
                 <!-- edit Modal-->
@@ -220,14 +217,14 @@
                      aria-labelledby="addMovieModalTitle" aria-hidden="true">
                     <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document" id="editModal">
                         <div class="modal-content">
-                            <div class="modal-header">
+                            <div class="modal-header modalHeaderCustom">
                                 <h5 class="modal-title" id="editMovieModalTitle">Edit Movie</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="close CloseCustom" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body" id="editFormModal">
-                                <form>
+                            <div class="modal-body modalBodyCustom" id="editFormModal">
+                                <form id="editForm">
                                     <div class="form-group row">
                                         <label for="movieEditInput" class="col-sm-2 col-form-label">*Title </label>
                                         <div class="col-sm-10">
@@ -252,7 +249,7 @@
                                                     <option value="Horror">Horror</option>
                                                 </select>
                                                 <div class="input-group-append">
-                                                    <button class="btn btn-outline-secondary" id="editGenreButton" type="button">Add Genre</button>
+                                                    <button class="btn btn-outline-dark" id="editGenreButton" type="button">Add Genre</button>
                                                 </div>
                                             </div>
                                             <!--                            **********************************************-->
@@ -332,7 +329,7 @@
             </div>
 <!--            MOVIES **********************************************************-->
             <div class="col-9" id="moviesColumn">
-                <div class="container spinner" id="loadMovies">
+                <div class="container spinner text-light" id="loadMovies">
                     <h1><div class="spinner-border" role="status">
                         <span class="sr-only">Loading...</span>
                     </div></h1>
@@ -343,16 +340,16 @@
             </div>
         </div>
 <!--        ROW-->
-        <div class="row">
-            <footer class="footer col-12">
-                COPYRIGHT
-                <i class="fa fa-copyright"></i>
-                MovieCatalog.com
-            </footer>
+
         </div>
     </div>
 <!--    CONTAINER-FLUID-->
-
+<div class="row no-gutter">
+    <footer class="footer col-12">
+        COPYRIGHT
+        <i class="fa fa-copyright"></i>
+        MovieCatalog.com
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
