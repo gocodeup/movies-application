@@ -14,3 +14,7 @@ html, body {
     background-color: lightgreen;
     width: .3fr;
 }
+
+.noMatchInfo{
+    display: none;
+}

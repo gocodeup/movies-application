@@ -11,15 +11,15 @@
     {
       "title": "Star Wars: A New Hope",
       "rating": "5",
-      "date": "",
+      "date": "1985-09-13T00:00:00.000Z",
       "genre": [],
       "description": "",
       "id": 2
     },
     {
       "title": "Ford vs Ferrari",
-      "rating": "5",
-      "date": "",
+      "rating": "4",
+      "date": null,
       "genre": [
         "Action",
         "Animation"
