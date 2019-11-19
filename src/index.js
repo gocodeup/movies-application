@@ -9,10 +9,11 @@
 const $ = require('jquery');
 const {getMovie, getMovies, postMovie, patchMovie, deleteMovie} = require('./api.js');
 
+$("#addMovie").hide();
 
 const editClick = function (e) {
-    $("#content").addClass('noDisplay');
-    $("#addMovie").addClass('noDisplay');
+    $("#content").addClass("noDisplay");
+    $("#addMovie").hide();
     $('#loading').show();
     let id = e.currentTarget.id;
     if (id.length === 7) {
@@ -53,7 +54,7 @@ const createMovieContent = () => {
         $('#content').html("");
         getMovies().then((movies) => {
             if(movies[0] === undefined){
-                $("#addMovie").removeClass('noDisplay');
+                $("#addMovie").show();
             }
             $('#loading').hide();
             console.log('Here are all the movies:');
@@ -79,7 +80,7 @@ const createMovieContent = () => {
         </div>`)
             $('.deleteButton').off().on('click', deleteClick);
             $('.editButton').off().on('click', editClick);
-            $("#addMovie").removeClass('noDisplay');
+            $("#addMovie").show();
                     })});
         }).catch((error) => {
             alert('Oh no! Something went wrong.\nCheck the console for details.');
@@ -95,56 +96,65 @@ createMovieContent();
 
 $("#addMovieButton").click(function () {
     $("#content").html("");
-    $("#loading").removeClass("noDisplay");
-    $("#addMovie").addClass("noDisplay");
+    $("#loading").show();
+    $("#addMovie").hide();
+    if($('#movieTitleInput').val().trim() === "" || $("#genreInput").val().trim() === ""){
+        createMovieContent().then(() => {
+            $("#loading").hide();})
+    }else{
     postMovie({
         "title": $('#movieTitleInput').val(),
         "rating": $("#ratingSelect").val(),
         "genre": $("#genreInput").val()
     }).then(getMovies).then(() => {
         createMovieContent().then(() => {
-            $("#loading").addClass("noDisplay");
-        });});});
+            $("#loading").hide();}
+        );});}});
 
 let idEdited;
 
 
 
 $("#editSave").click(function () {
+    $("#loading").show();
+    $(".modal").hide();
+    $('#content').html("");
+    $("#content").removeClass("noDisplay");
     let editedMovie = {
         "title": $("#movieEditTitle").val(),
         "rating": $("#ratingEdit").val(),
         "genre": $("#movieGenreEdit").val(),
         "id": idEdited
     };
-    $(".modal").hide();
-    $("#loading").removeClass("noDisplay");
-    $('#content').html("");
-    $("#content").removeClass('noDisplay');
-    patchMovie(editedMovie, idEdited).then(() => {
-        createMovieContent();
-        $("#loading").addClass("noDisplay");
-        $("#addMovie").removeClass("noDisplay");
-    });
-
+    if(editedMovie.title.trim() === "" || editedMovie.genre.trim() === ""){
+        createMovieContent().then(() => {
+            $("#loading").hide();
+        });
+    }
+    else{
+        patchMovie(editedMovie, idEdited).then(() => {
+            createMovieContent().then(() => {
+                $("#loading").hide();
+            });
+        });
+    }
 });
 
 $(".close").click(function () {
     $(".modal").hide();
-    $("#loading").removeClass("noDisplay");
+    $("#loading").show();
     $('#content').html("");
-    $("#content").removeClass('noDisplay');
+    $("#content").removeClass("noDisplay");
     createMovieContent().then(() => {
-        $("#loading").addClass("noDisplay");
+        $("#loading").hide();
     });
-    $("#addMovie").removeClass("noDisplay");
 
 });
 
 const deleteClick = function (e) {
-    $("#content").addClass('noDisplay');
-    $("#addMovie").addClass('noDisplay');
-    $('#loading').removeClass("noDisplay");
+    $("#content").addClass("noDisplay");
+    $("#addMovie").hide();
+    $('#loading').show();
     let id = e.currentTarget.id;
     if (id.length === 12) {
         id.split('');
@@ -167,9 +177,9 @@ const deleteClick = function (e) {
     console.log(id);
     deleteMovie(id).then(() => {
         $('#content').html("");
-        $("#content").removeClass('noDisplay');
+        $("#content").removeClass("noDisplay");
         createMovieContent().then(() => {
-            $("#loading").addClass("noDisplay");
+            $("#loading").hide();
         });
     })
 };

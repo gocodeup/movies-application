@@ -1,16 +1,10 @@
 {
   "movies": [
     {
-      "title": "Boy",
-      "rating": "3",
-      "genre": "ads",
+      "title": "El Camino",
+      "rating": "2",
+      "genre": "Netflix",
       "id": 1
-    },
-    {
-      "title": "Bob",
-      "rating": "1",
-      "genre": "",
-      "id": 2
     }
   ]
 }

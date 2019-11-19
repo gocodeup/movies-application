@@ -19,7 +19,7 @@
 
 <div id="content" class="d-flex justify-content-around flex-wrap"></div>
 <div class="justify-content-center d-flex">
-<div class="card cardBackground p-4 noDisplay"  id="addMovie" style="width: 18rem">
+<div class="card cardBackground p-4"  id="addMovie" style="width: 18rem">
     <form>
         <div class="form-group text-center">
             <label for="movieTitleInput">Movie Title</label>
@@ -55,15 +55,15 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <input type="text" id="movieEditTitle">
-                            <select class="form-control" id="ratingEdit">
+                            <input type="text" id="movieEditTitle" required>
+                            <select class="form-control" id="ratingEdit" required>
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
                                 <option>4</option>
                                 <option>5</option>
                             </select>
-                            <input type="text" id="movieGenreEdit">
+                            <input type="text" id="movieGenreEdit" required>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" id="editSave">Save changes</button>
