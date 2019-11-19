@@ -1,8 +1,6 @@
 /**
  * es6 modules and imports
  */
-// import sayHello from './hello.js';
-// sayHello('World');
 
 /**
  * require style imports
@@ -10,13 +8,6 @@
 
 import $ from "jquery";
 const {getMovie, getMovies, postMovie, patchMovie, deleteMovie} = require('./api.js');
-
-
-
-// import {getMovies, getMovie, postMovie, patchMovie, deleteMovie} from "./api" ;
-// const {getMovies} = require('./api.js');
-
-// fetch("./api.js").then();
 
 getMovies().catch((error) => {
     alert('Oh no! Something went wrong.\nCheck the console for details.');
@@ -44,19 +35,17 @@ function updateListeners() {
 
     let editButtons = document.getElementsByClassName("edit-button");
     let edit = document.getElementsByClassName("edit");
-    let confirm = document.getElementsByClassName("edit-confirm");
-    console.log(edit);
-    for (let i = 0; i < edit.length; i++) {
+    let confirm = document.getElementsByClassName("confirm");
+    // console.log(editButtons);
+    for (let i = 0; i < editButtons.length; i++) {
         editButtons[i].addEventListener("click", () => {
             edit[i * 2].toggleAttribute("readonly");
             edit[(i * 2) + 1].toggleAttribute("readonly");
-
         })
     }
-    for (let i = 0; i < submit.length; i++) {
+    for (let i = 0; i < confirm.length; i++) {
         confirm[i].addEventListener("click", () => {
-            console.log({"title" : document.getElementById(`title-${confirm[i].parentElement.id}`), "rating" : document.getElementById(`rating-${confirm[i].parentElement.id}`)});
-            // patchMovie(confirm[i].id, {"title" : document.getElementById(`title-${confirm[i].parentElement.id}`), "rating" : document.getElementById(`rating-${confirm[i].parentElement.id}`)});
+            patchMovie(parseInt(confirm[i].id.substr(8)), {"title" : document.getElementById(`card-title-${parseInt(confirm[i].id.substr(8))}`).value, "rating" : document.getElementById(`card-rating-${parseInt(confirm[i].id.substr(8))}`).value});
         })
     }
 }
@@ -100,50 +89,9 @@ postButton.addEventListener("click", () => {
     updateMovies();
 });
 
-// patchMovie();
-
 const makeMovie = (title, rating) => {
     return {
         "title" : title,
         "rating" : rating
     };
 };
-
-
-// $('.editMovie').on('click', function (event) {
-//     cardID = $(this).attr("id");
-//
-//
-//     console.log(cardID);
-//     $("#saveEdit").on('click', function (event) {
-//         patchMovie(
-//             {
-//                 "title": $("#editMovieTitle").val(),
-//                 "rating": $("#editMovieRating").val()
-//             },
-//             cardID).then(getMovies).then((movies) => {
-//             console.log('Here are all the movies:');
-//             movies.forEach(({title, rating}) => {
-//                 console.log(`${title} ${rating}`);
-//             });
-//         }).catch((error) => {
-//             alert('Oh no! Something went wrong.\nCheck the console for details.');
-//             console.log(error);
-//         });
-//     })
-// });
-
-
-
-// getMovies().then((movies) => {
-//     console.log('Here are all the movies:');
-//     movies.forEach(({title, rating}) => {
-//         console.log(`id#${id} - ${title} - rating: ${rating}`);
-//         let newTitle = `${title}`;
-//         let newRating = `${rating}`;
-//         makeCard(newTitle, newRating);
-//     });
-// }).catch((error) => {
-//     alert('Oh no! Something went wrong.\nCheck the console for details.');
-//     console.log(error);
-// });
