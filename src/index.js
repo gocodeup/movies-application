@@ -238,7 +238,15 @@ function searchMovies() {
 //event handler to select a movie for editing
 $(document).on('click', '.edit_movie', function (e) {
     e.preventDefault();
+    movieAddObject = {
+        title: '',
+        date: '',
+        genre: [],
+        description: '',
+        rating: undefined
+    };
     $('#editForm').trigger('reset');
+    $('#editMovieClick').attr("disabled", false);
     let idEdit = $(this).attr('id').substring(4, $(this).attr('id').length);
     // alert(idEdit);
     getMovie(idEdit)
@@ -288,9 +296,16 @@ $('#editMovieClick').click(function (e) {
 
 // <<<<<<< robert-branch
     e.preventDefault();
+    if (document.getElementById('movieEditInput').value === '') {
+        return alert("Error: input a Title");
+    }else if ($('input[name = editRadios]:checked').val() === undefined) {
+        return alert("Error: give the movie a rating");
+    }else {
+        $("#editMovieClick").attr("disabled", true);
+    }
     // let data = new FormData();
     // data.append("opmFile",$('#movieImageEdit').files[0]);
-    console.log($('#movieImageEdit').val());
+    // console.log($('#movieImageEdit').val());
     // var fileName = $('#movieImageEdit').val().split("\\").pop();
     // console.log(fileName);
     // movieEditObject.image = fileName;
@@ -431,7 +446,7 @@ function createCard(movie, url){
                         <div class="card-body>
                             <h5 class="card-title">${movie.title}</h5>
                             <p class="card-text"><small class="text-muted mr-3">Date: ${movie.date}</small><small class="text-muted">Rating: ${movie.rating}</small><br><small class="text-muted mr-3">Genre: ${genres}</small></p>
-                            <p class="card-text">${movie.description}</p>
+                            <p class="card-text cardDescription">${movie.description}</p>
                             <p>
                                 <button type="button" class="btn btn-info edit_movie" data-toggle="modal" data-target="#editMovieModal" id="${editID}">Edit</button>
                                 <button type="submit" class="btn btn-danger delete_movie" id="${movie.id}">Delete</button>
@@ -457,9 +472,10 @@ $('#addMovieClick').click(function (event) {
     event.preventDefault();
     if (document.getElementById('movieAddInput').value === '') {
         return alert("Error: input a Title");
-    }
-    if ($('input[name = gridRadios]:checked').val() === undefined) {
+    }else if ($('input[name = gridRadios]:checked').val() === undefined) {
         return alert("Error: give the movie a rating");
+    }else {
+        $("#addMovieClick").attr("disabled", true);
     }
 
     postMovie({
@@ -558,11 +574,12 @@ $('#addMovie').click(function () {
         description: '',
         rating: undefined
     };
-  
-    $('#addForm').trigger('reset');
 
+    $('#addForm').trigger('reset');
+    $('#addMovieClick').attr("disabled", false);
 
 });
+
 
 $('.edit_movie').click(function () {
     movieAddObject = {
@@ -573,4 +590,5 @@ $('.edit_movie').click(function () {
         rating: undefined
     };
 });
+
 
