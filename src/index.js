@@ -10,7 +10,9 @@
  * require style imports
  */
 
-const {getMovies, deleteMovie, patchMovie, getMovie, postMovie} = require('./api.js');
+const {getMovies, deleteMovie, patchMovie, getMovie, postMovie, getImage} = require('./api.js');
+const movieDbKey = require('./keys');
+
 //VARIABLE TO HOLD ALL MOVIES IN JSN DB
 var allMovies = [];
 
@@ -506,76 +508,57 @@ $(document).on('click', '.delete_movie', function (e) {
 });
 
 
-// <<<<<<< robert-branch
+
 function displayMovies() {
-    allMovies = [];
-    getMovies().then((movies) => {
-        // console.log('Here are all the movies:');
+        allMovies = [];
+        getMovies().then((movies) => {
+
         $('#loadMovies').remove();
         $('#movieContent').html("");
 
         movies.forEach((movie) => {
-            // console.log(`id#${movie.id} - ${movie.title} - rating: ${movie.rating}`);
-            allMovies.push(movie);
-            let card = createCard(movie);
-// =======
-// //FUNCTION TO DISPLAY ALL MOVIES IN THE JSON DB
-// function displayMovies(){
-//   allMovies = [];
 
-//   getMovies().then((movies) => {
-//     $('#movieContent').html("");
+            getImage(movie.title).then(img => {
+                let url = "";
+                if(img.Poster === undefined){
+                    url = "";
+                }
+                else{
+                    url = img.Poster;
+                }
 
-//     movies.forEach((movie) => {
-//       allMovies.push(movie);
-//       let card = createCard(movie);
-// >>>>>>> master
+                allMovies.push(movie);
+                let card = createCard(movie, url);
+                $('#movieContent').append(card);
 
-            $('#movieContent').append(card);
+            }).catch(error => console.log(error));
+
 
         });
-        searchMovies();
-        // console.log(allMovies);
-    }).catch((error) => {
-        alert('Oh no! Something went wrong.\nCheck the console for details.');
-        console.log(error);
-    });
-// <<<<<<< robert-branch
-// =======
 
-//   }).catch((error) => {
-//     alert('Oh no! Something went wrong.\nCheck the console for details.')
-//     console.log(error);
-//   });
-// >>>>>>> master
-
-
+        }).catch((error) => {
+            alert('Oh no! Something went wrong.\nCheck the console for details.');
+            console.log(error);
+        });
 }
 
-// <<<<<<< robert-branch
-// //function to create a card for each movie
-// function createCard(movie) {
-//     let editID = `edit${movie.id}`;
-// =======
 //FUNCTION TO CREATE A CARD FOR EACH MOVIE SELECTED
-function createCard(movie){
-  let editID = `edit${movie.id}`;
-  let genres = "";
-
-  movie.genre.forEach(function (genre) {
-    genres += `<span class="badge badge-pill badge-light">${genre}</span>`;
-  });
-// >>>>>>> master
+function createCard(movie, url){
+    let editID = `edit${movie.id}`;
+    let genres = "";
+    movie.genre.forEach(function (genre) {
+        genres += `<span class="badge badge-pill badge-light">${genre}</span>`;
+    });
 
     return `<div class="card movieCard m-3" style="width:500px" id="card${movie.id}">
                 <div class="row no-gutters">
                     <div class="col-md-2">
-                        <img src="" class="card-img" alt="">
+                        <img src="${url}" class="card-img" alt="">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">${movie.title}</h5>
-                            <p class="card-text"><small class="text-muted mr-3">Date: ${movie.date}</small><small class="text-muted">Rating: ${movie.rating}</small><br><small class="text-muted mr-3">Genre: ${movie.genre}</small></p>
+                            <p class="card-text"><small class="text-muted mr-3">Date: ${movie.date}</small><small class="text-muted">Rating: ${movie.rating}</small><br><small class="text-muted mr-3">Genre: ${genres}</small></p>
                             <p class="card-text">${movie.description}</p>
                             <p>
                                 <button type="button" class="btn btn-info edit_movie" data-toggle="modal" data-target="#editMovieModal" id="${editID}">Edit</button>
@@ -585,45 +568,19 @@ function createCard(movie){
                     </div>
                 </div>
             </div>`;
+
+
 }
 
-//function to get name of selected image
-// <<<<<<< robert-branch
-// $('#movieImageEdit').change(function () {
-//     let file = $(this).files[0].name;
-//     $(this).text(file);
-// });
-// =======
-// $('#movieImageEdit').change(function () {
-//   let file = $(this).files[0].name;
-//   $(this).text(file);
-// });
-// >>>>>>> master
 
 //EVENT HANDLER TO GET RATING SEARCH CRITERIA
 $('.ratingFilter .dropdown-menu button').click(function () {
-// <<<<<<< robert-branch
-//     searchRating = $(this).val();
-//     //displayMoviesRating(searchRating);
-//     searchMovies();
-// });
-
-// //event handler to display loading animations while API is connecting
-// $(document).ajaxStart(function () {
-//     $('.spinner').css('display', 'inline-block');
-// });
-// //event handler to set display to none to loading animations after the API is already connected
-// $(document).ajaxComplete(function (requestName) {
-//     $('.spinner').css('display', 'none');
-// });
-
-// =======
   searchRating = $(this).val();
   searchMovies();
 });
 
 //CLICK EVENT TO ADD A MOVIE TO JSON FILE
-// >>>>>>> master
+
 $('#addMovieClick').click(function (event) {
     event.preventDefault();
     console.log($('#movieAddDate').val());
@@ -736,11 +693,3 @@ $('.edit_movie').click(function () {
         rating: 0
     };
 });
-
-
-// $(".custom-file-input").on("change", function() {
-//   var fileName = $(this).val().split("\\").pop();
-//   movieEditObject.image = fileName;
-//   // movieEditObject.image = fileName.value.replace("C:\\fakepath\\", "");
-//   $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-// });
