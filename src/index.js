@@ -32,7 +32,7 @@ getMovie(1)
 let moviesDiv = document.getElementById("container");
 let loadingGIF = document.getElementById("loading");
 let postButton = document.getElementById("create-submit");
-
+let editing = true;
 function updateListeners() {
     let deleteButtons = document.getElementsByClassName("delete");
     for (let i = 0; i < deleteButtons.length; i++) {
@@ -42,12 +42,23 @@ function updateListeners() {
         })
     }
 
+    let editButtons = document.getElementsByClassName("edit-button");
     let edit = document.getElementsByClassName("edit");
     console.log(edit);
-
     for (let i = 0; i < edit.length; i++) {
-        edit[i].addEventListener("click", () => {
-
+        editButtons[i].addEventListener("click", () => {
+            if (editing === true) {
+                editing = false;
+                for (let i = 0; i < edit.length; i + 2) {
+                    //patchMovie(edit[i].getAttribute("value"), edit[i + 1].getAttribute("value")); //edit[i];
+                }
+            }
+            else {
+                editing = true;
+                for (let i = 0; i < edit.length; i++) {
+                    edit[i].toggleAttribute("readonly");
+                }
+            }
         })
     }
 }
@@ -74,12 +85,13 @@ updateMovies(true);
 function generateCard(title, rating, cardID) {
     // $.getJSON(`http://img.omdbapi.com/?apikey=742f6ef9&`);
     let card = ``;
-    card += `<div class="card">`;
+    card += `<div class="card" id="${cardID}">`;
     card += `<button class="delete" id="delete-${cardID}">X</button>`;
-    // card += `<button><p class="editMovie" id="${id}"></p></button>`;
+    // card += ``;
     card += `<img src="..." class="card-img-top" alt="...">`;
     card += `<div class="card-body">`;
-    card += `<p class='card-text'>${title}, ${rating}</p>`;
+    card += `<input readonly type="text" class="edit titles" id="card-title-${cardID}" value="${title}">`;
+    card += `<input readonly type="text" class="edit ratings" id="card-rating-${cardID}" value="${rating}">`;
     card += `</div> </div>`;
     moviesDiv.innerHTML += card;
 };
@@ -88,6 +100,8 @@ postButton.addEventListener("click", () => {
     postMovie(makeMovie(document.getElementById("create-title").value, document.getElementById("create-rating").value));
     updateMovies();
 });
+
+patchMovie();
 
 const makeMovie = (title, rating) => {
     return {
