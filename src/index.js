@@ -446,7 +446,7 @@ function createCard(movie, url){
                         <div class="card-body">
                             <h5 class="card-title">${movie.title}</h5>
                             <p class="card-text"><small class="text-muted mr-3">Date: ${movie.date}</small><small class="text-muted">Rating: ${movie.rating}</small><br><small class="text-muted mr-3">Genre: ${genres}</small></p>
-                            <p class="card-text">${movie.description}</p>
+                            <p class="card-text cardDescription">${movie.description}</p>
                             <p>
                                 <button type="button" class="btn btn-info edit_movie" data-toggle="modal" data-target="#editMovieModal" id="${editID}">Edit</button>
                                 <button type="submit" class="btn btn-danger delete_movie" id="${movie.id}">Delete</button>

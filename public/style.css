@@ -53,3 +53,8 @@ html, body {
 .sameButtonWidth{
     width: 120px;
 }
+
+.cardDescription{
+    height: 70px;
+    overflow-y: auto;
+}
