@@ -10,7 +10,9 @@
  * require style imports
  */
 
-const {getMovies, deleteMovie, patchMovie, getMovie, postMovie} = require('./api.js');
+const {getMovies, deleteMovie, patchMovie, getMovie, postMovie, getImage} = require('./api.js');
+const movieDbKey = require('./keys');
+
 //VARIABLE TO HOLD ALL MOVIES IN JSN DB
 var allMovies = [];
 
@@ -287,54 +289,6 @@ $(document).on('click', '.edit_movie', function (e) {
             $('#movieDescriptionInputEdit').val(movieEditObject.description);
         })
         .catch(() => console.log("Error looking at the movie."));
-
-// //EVENT HANDLER TO CREATE MOVIE EDIT OBJECT
-// $(document).on('click','.edit_movie', function (e) {
-//   e.preventDefault();
-
-//   let idEdit = $(this).attr('id').substring(4,$(this).attr('id').length);
-//   // alert(idEdit);
-//   getMovie(idEdit)
-//       .then(movie => {
-//         movieEditObject.id = movie.id;
-//         movieEditObject.title = movie.title;
-//         movieEditObject.date = movie.date;
-//         movieEditObject.genre = movie.genre;
-//         movieEditObject.rating = movie.rating;
-//         movieEditObject.description = movie.description;
-
-//         $('#movieEditInput').val(movieEditObject.title);
-//         $('#movieEditDate').val(movieEditObject.date);
-//         $('#genreMultiSelectEdit').val(movieEditObject.genre);
-//         //update edit genre tags
-//         $('#genreListEdit').empty();
-//         //movieAddObject.genre = [];
-//         movieEditObject.genre.forEach(genre =>{
-//           createGenreTag(genre,'genreListEdit');
-//         });
-//         // createGenreTag($('#genreMultiSelectE').children('option:selected').val(),'genreListEdit')
-//         switch (movieEditObject.rating) {
-//           case "1":
-//             $('#ratingRadios1e').prop("checked", true);
-//             break;
-//           case "2":
-//             $('#ratingRadios2e').prop("checked", true);
-//             break;
-//           case "3":
-//             $('#ratingRadios3e').prop("checked", true);
-//             break;
-//           case "4":
-//             $('#ratingRadios4e').prop("checked", true);
-//             break;
-//           case "5":
-//             $('#ratingRadios5e').prop("checked", true);
-//             break;
-//         }
-//         $('#movieDescriptionInputEdit').val(movieEditObject.description);
-//       })
-//       .catch((error) => console.log("Error looking at the movie." + error));
-
-
 });
 
 //EVENT HANDLER TO EDIT THE SELECTED MOVIE AND SUBMIT CHANGES
@@ -371,47 +325,7 @@ $('#editMovieClick').click(function (e) {
             alert("Movie was edited");
             displayMovies();
         }).catch(error => console.log(`There was an error: ${error}`));
-// =======
-// //   e.preventDefault();
 
-// //   let movieDate = $('#movieEditDate').val();
-// //   // let editDate = new Date();
-// //   //     let month, year = new Date;
-// //   // //alert(typeof movieDate.getDate());
-// //   // if(!movieDate){
-// //   //   editDate.setUTCDate(1);
-// //   //   editDate.setUTCMonth(0);
-// //   //   editDate.setUTCFullYear(movieDate.getFullYear());
-// //   // }
-// //   //
-// //   // alert(editDate);
-
-
-// //   let editedMovie = {
-// //     title: $('#movieEditInput').val(),
-// //     date: movieDate,
-// //     rating: $('input[name="editRadios"]:checked').val(),
-// //     //genre: movieAddObject.genre,
-// //     description: $('#movieDescriptionInputEdit').val()
-// //     //image: data
-// //   };
-
-// //   patchMovie(editedMovie, movieEditObject.id)
-// //       .then(() => {
-// //         alert("Movie was edited");
-// //         displayMovies();
-// //       }).catch(error => console.log(`There was an error: ${error}`));
-
-// //   //$('#editMovieModal').modal('hide');
-// //   $('#editMovieModal').modal('toggle');
-// // });
-
-// // //CLICK EVENT FOR TITLE SEARCH CRITERIA
-// // $('#searchClick').click(function (e) {
-// //   e.preventDefault();
-// >>>>>>> master
-
-    //$('#editMovieModal').modal('hide');
     $('#editMovieModal').modal('toggle');
 });
 
@@ -420,35 +334,14 @@ $('#searchClick').click(function (e) {
 
     searchTitle = $('#searchinput').val().toLowerCase();
 
-// <<<<<<< robert-branch
     searchMovies();
 
     $('#searchinput').val("");
     searchTitle = undefined;
 
-
-    // $('#movieContent').html("");
-    // let searchName = $('#searchinput').val().toLowerCase();
-    //
-    // getMovies().then(movies => {
-    //   movies.forEach(({id, title, rating, date, genre, description}) => {
-    //     if (title.substr(0, searchName.length).toLowerCase() === searchName) {
-    //
-    //       let card = createCard(id, title, date, genre, rating, description);
-    //
-    //       $('#movieContent').append(card);
-    //     }
-    //   })
-    // }).catch(error => console.log(error));
 });
 
 
-//need to update **************************************
-// =======
-// });
-
-//CLICK EVENT FOR DATE SEARCH CRITERIA
-// >>>>>>> master
 $('#dateSearchButton').click(function (e) {
     e.preventDefault();
 
@@ -464,23 +357,6 @@ $('#dateSearchButton').click(function (e) {
 });
 //***************************************************
 
-// <<<<<<< robert-branch
-// //event handler to delete a movie
-// $(document).on('click', '.delete_movie', function (e) {
-//     e.preventDefault();
-
-//     let decision = confirm("Are you sure you want to Delete this movie?");
-
-//     if (decision) {
-
-//         let idErase = $(this).attr('id');
-
-//         deleteMovie(idErase).then(displayMovies).catch(error => {
-//             alert('Wait. Something went wrong. Check console for details');
-//             console.log(error);
-//         });
-//     }
-// =======
 //CLICK EVENT TO GET SEARCH GENRES CRITERIA
 $('#genreSearchButton').click(function (e) {
     e.preventDefault();
@@ -518,76 +394,58 @@ $(document).on('click', '.delete_movie', function (e) {
 });
 
 
-// <<<<<<< robert-branch
+
 function displayMovies() {
-    allMovies = [];
-    getMovies().then((movies) => {
-        // console.log('Here are all the movies:');
+        allMovies = [];
+        getMovies().then((movies) => {
+
         $('#loadMovies').remove();
         $('#movieContent').html("");
 
         movies.forEach((movie) => {
-            // console.log(`id#${movie.id} - ${movie.title} - rating: ${movie.rating}`);
-            allMovies.push(movie);
-            let card = createCard(movie);
-// =======
-// //FUNCTION TO DISPLAY ALL MOVIES IN THE JSON DB
-// function displayMovies(){
-//   allMovies = [];
 
-//   getMovies().then((movies) => {
-//     $('#movieContent').html("");
+            getImage(movie.title).then(img => {
+                let url = "";
+                if(img.Poster === undefined){
+                    url = "";
+                }
+                else{
+                    url = img.Poster;
+                }
 
-//     movies.forEach((movie) => {
-//       allMovies.push(movie);
-//       let card = createCard(movie);
-// >>>>>>> master
+                allMovies.push(movie);
+                let card = createCard(movie, url);
+                $('#movieContent').append(card);
 
-            $('#movieContent').append(card);
+            }).catch(error => console.log(error));
+
 
         });
-        searchMovies();
-        // console.log(allMovies);
-    }).catch((error) => {
-        alert('Oh no! Something went wrong.\nCheck the console for details.');
-        console.log(error);
-    });
-// <<<<<<< robert-branch
-// =======
 
-//   }).catch((error) => {
-//     alert('Oh no! Something went wrong.\nCheck the console for details.')
-//     console.log(error);
-//   });
-// >>>>>>> master
-
-
+        }).catch((error) => {
+            alert('Oh no! Something went wrong.\nCheck the console for details.');
+            console.log(error);
+        });
 }
 
-// <<<<<<< robert-branch
-// //function to create a card for each movie
-// function createCard(movie) {
-//     let editID = `edit${movie.id}`;
-// =======
 //FUNCTION TO CREATE A CARD FOR EACH MOVIE SELECTED
-function createCard(movie) {
+
+function createCard(movie, url){
     let editID = `edit${movie.id}`;
     let genres = "";
-
     movie.genre.forEach(function (genre) {
         genres += `<span class="badge badge-pill badge-light">${genre}</span>`;
     });
-// >>>>>>> master
-
+  
     return `<div class="card movieCard m-3" style="width:500px" id="card${movie.id}">
                 <div class="row no-gutters">
                     <div class="col-md-2">
-                        <img src="" class="card-img" alt="">
+                        <img src="${url}" class="card-img" alt="">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">${movie.title}</h5>
-                            <p class="card-text"><small class="text-muted mr-3">Date: ${movie.date}</small><small class="text-muted">Rating: ${movie.rating}</small><br><small class="text-muted mr-3">Genre: ${movie.genre}</small></p>
+                            <p class="card-text"><small class="text-muted mr-3">Date: ${movie.date}</small><small class="text-muted">Rating: ${movie.rating}</small><br><small class="text-muted mr-3">Genre: ${genres}</small></p>
                             <p class="card-text">${movie.description}</p>
                             <p>
                                 <button type="button" class="btn btn-info edit_movie" data-toggle="modal" data-target="#editMovieModal" id="${editID}">Edit</button>
@@ -597,45 +455,19 @@ function createCard(movie) {
                     </div>
                 </div>
             </div>`;
+
+
 }
 
-//function to get name of selected image
-// <<<<<<< robert-branch
-// $('#movieImageEdit').change(function () {
-//     let file = $(this).files[0].name;
-//     $(this).text(file);
-// });
-// =======
-// $('#movieImageEdit').change(function () {
-//   let file = $(this).files[0].name;
-//   $(this).text(file);
-// });
-// >>>>>>> master
 
 //EVENT HANDLER TO GET RATING SEARCH CRITERIA
 $('.ratingFilter .dropdown-menu button').click(function () {
-// <<<<<<< robert-branch
-//     searchRating = $(this).val();
-//     //displayMoviesRating(searchRating);
-//     searchMovies();
-// });
-
-// //event handler to display loading animations while API is connecting
-// $(document).ajaxStart(function () {
-//     $('.spinner').css('display', 'inline-block');
-// });
-// //event handler to set display to none to loading animations after the API is already connected
-// $(document).ajaxComplete(function (requestName) {
-//     $('.spinner').css('display', 'none');
-// });
-
-// =======
-    searchRating = $(this).val();
-    searchMovies();
+  searchRating = $(this).val();
+  searchMovies();
 });
 
 //CLICK EVENT TO ADD A MOVIE TO JSON FILE
-// >>>>>>> master
+
 $('#addMovieClick').click(function (event) {
     event.preventDefault();
     if (document.getElementById('movieAddInput').value === '') {
@@ -744,18 +576,21 @@ $('#addMovie').click(function () {
         description: '',
         rating: undefined
     };
+
     $('#addForm').trigger('reset');
     $('#addMovieClick').attr("disabled", false);
 
 });
 
 
+$('.edit_movie').click(function () {
+    movieAddObject = {
+        title: '',
+        date: '',
+        genre: [],
+        description: '',
+        rating: undefined
+    };
+});
 
-// $(".custom-file-input").on("change", function() {
-//   var fileName = $(this).val().split("\\").pop();
-//   movieEditObject.image = fileName;
-//   // movieEditObject.image = fileName.value.replace("C:\\fakepath\\", "");
-//   $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-// });
-// $("#btnSubmit").attr("disabled", true);
-// $('#btnSubmit').attr("disabled", false);
+

@@ -9,17 +9,17 @@
       "id": 1
     },
     {
-      "title": "Star Wars: A New Hope",
+      "title": "Star Wars: Episode IV - A New Hope",
       "rating": "5",
-      "date": "1985-09-13T00:00:00.000Z",
+      "date": "",
       "genre": [],
       "description": "",
       "id": 2
     },
     {
-      "title": "Ford vs Ferrari",
+      "title": "Ford v Ferrari",
       "rating": "4",
-      "date": null,
+      "date": "",
       "genre": [
         "Action",
         "Animation"
@@ -39,20 +39,15 @@
       "id": 4
     },
     {
-      "title": "movie: the vanished",
+      "title": "The Lego Movie",
       "rating": "3",
       "date": "",
-      "genre": [],
+      "genre": [
+        "Comedy",
+        "Adventure"
+      ],
       "description": "",
       "id": 5
-    },
-    {
-      "title": "movie 3",
-      "rating": "1",
-      "date": "",
-      "genre": [],
-      "description": "",
-      "id": 6
     }
   ]
 }

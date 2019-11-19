@@ -1,3 +1,5 @@
+const movieDbKey = require('./keys');
+
 module.exports = {
     getMovies: () => {
         return fetch('/api/movies')
@@ -35,5 +37,11 @@ module.exports = {
             },
             body: JSON.stringify(movie),
         })
+    },
+
+    getImage: (name) => {
+        return fetch(`http://www.omdbapi.com/?apikey=${movieDbKey.movieDbKey}&t=${name}`)
+            .then(response => response.json());
     }
 };
+
