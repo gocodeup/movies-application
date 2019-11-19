@@ -19,8 +19,18 @@ footer{
     margin-left: 2%;
     background-color: #570000;
     color: white;
-    padding: 1em
-;
+    padding: 1em;
+}
+#sign-up-box{
+    display: flex;
+    width: 30%;
+    border: dotted goldenrod 4px;
+    margin-left: 68%;
+    margin-top: 5%;
+    background-color: #570000;
+    color: white;
+    padding: 1em;
+
 }
 .carousel-caption {
     margin-right: 40%;
