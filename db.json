@@ -28,16 +28,31 @@
       "id": 3
     },
     {
-      "title": "movie",
-      "rating": "2",
-      "date": "2019-11-09",
+      "title": "movie 2: electric bogaloo",
+      "rating": "4",
+      "date": "2017-03-01",
       "genre": [
         "Action",
-        "Animation"
+        "Comedy"
       ],
       "description": "bla",
-      "image": "",
       "id": 4
+    },
+    {
+      "title": "movie",
+      "rating": "3",
+      "date": "",
+      "genre": [],
+      "description": "",
+      "id": 5
+    },
+    {
+      "title": "movie 3",
+      "rating": "1",
+      "date": "",
+      "genre": [],
+      "description": "",
+      "id": 6
     }
   ]
 }
