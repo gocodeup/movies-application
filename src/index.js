@@ -425,10 +425,10 @@ function createCard(movie, url){
     return `<div class="card movieCard m-3" style="width:500px" id="card${movie.id}">
                 <div class="row no-gutters">
                     <div class="col-md-2">
-                        <img src="${url}" class="card-img" alt="">
+                        <img src="${url}" class="card-img rounded mx-auto" alt="">
                     </div>
                     <div class="col-md-8">
-                        <div class="card-body">
+                        <div class="card-body>
                             <h5 class="card-title">${movie.title}</h5>
                             <p class="card-text"><small class="text-muted mr-3">Date: ${movie.date}</small><small class="text-muted">Rating: ${movie.rating}</small><br><small class="text-muted mr-3">Genre: ${genres}</small></p>
                             <p class="card-text">${movie.description}</p>
@@ -461,9 +461,7 @@ $('#addMovieClick').click(function (event) {
     if ($('input[name = gridRadios]:checked').val() === undefined) {
         return alert("Error: give the movie a rating");
     }
-    // disableSubmit('addMovieClick');
-    // console.log($('#movieAddDate').val());
-    // event.stopPropagation();
+
     postMovie({
         title: document.getElementById('movieAddInput').value,
         rating: $('input[name = gridRadios]:checked').val(),
