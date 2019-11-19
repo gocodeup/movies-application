@@ -37,199 +37,198 @@ displayMovies();
 
 //event handler to display loading animations while API is connecting
 $(document).ajaxStart(function () {
-  $('.spinner').css('display', 'inline-block');
+    $('.spinner').css('display', 'inline-block');
 });
 //event handler to set display to none to loading animations after the API is already connected
 $(document).ajaxComplete(function (requestName) {
-  $('.spinner').css('display', 'none');
+    $('.spinner').css('display', 'none');
 });
 
 
 //FUNCTION TO SEARCH MOVIES BASED ON CRITERIA
 
-function searchMovies(){
-  let allCards = [];
-  //show all cards
-  $('.movieCard').show();
-  //check if genres has been selected
-  let hasGenres = (searchGenre.length > 0);
+function searchMovies() {
+    let allCards = [];
+    //show all cards
+    $('.movieCard').show();
+    //check if genres has been selected
+    let hasGenres = (searchGenre.length > 0);
 
-  allMovies.forEach(function (movie) {
+    allMovies.forEach(function (movie) {
 
-    let compare = searchGenre.some(r => movie.genre.includes(r));
+        let compare = searchGenre.some(r => movie.genre.includes(r));
 
-    //if-else statement to compare all possible combinations of search selections
-    if(searchTitle && searchRating && searchDate && hasGenres){
-      console.log("1 searchTitle && searchRating && searchDate && compare");
-      if((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)){
-        if(movie.date === searchDate && compare){
-          if(searchRating !== '6'){
-            if(movie.rating === searchRating){
-              allCards.push(movie);
+        //if-else statement to compare all possible combinations of search selections
+        if (searchTitle && searchRating && searchDate && hasGenres) {
+            console.log("1 searchTitle && searchRating && searchDate && compare");
+            if ((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)) {
+                if (movie.date === searchDate && compare) {
+                    if (searchRating !== '6') {
+                        if (movie.rating === searchRating) {
+                            allCards.push(movie);
+                        }
+                    } else if (searchRating === '6') {
+                        allCards.push(movie);
+                    }
+                }
             }
-          }else if(searchRating === '6'){
-            allCards.push(movie);
-          }
-        }
-      }
 
-    }else if(searchTitle && searchRating && searchDate){
-      console.log("2 searchTitle && searchRating && searchDate");
+        } else if (searchTitle && searchRating && searchDate) {
+            console.log("2 searchTitle && searchRating && searchDate");
 
-      if((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)){
-        if(movie.date === searchDate){
-          if(searchRating !== '6'){
-            if(movie.rating === searchRating){
-              allCards.push(movie);
+            if ((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)) {
+                if (movie.date === searchDate) {
+                    if (searchRating !== '6') {
+                        if (movie.rating === searchRating) {
+                            allCards.push(movie);
+                        }
+                    } else if (searchRating === '6') {
+                        allCards.push(movie);
+                    }
+                }
             }
-          }else if(searchRating === '6'){
-            allCards.push(movie);
-          }
+
+        } else if (searchTitle && searchRating && hasGenres) {
+            console.log("3 searchTitle && searchRating && compare");
+
+            if ((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)) {
+                if (searchRating !== '6') {
+                    if (movie.rating === searchRating && compare) {
+                        allCards.push(movie);
+                    }
+                } else if (searchRating === '6' && compare) {
+                    allCards.push(movie);
+                }
+            }
+
+        } else if (searchDate && searchRating && hasGenres) {
+            console.log("4 searchDate && searchRating && compare");
+
+            if (searchRating !== '6' && compare) {
+                if ((movie.rating === searchRating) && (parseFloat(searchDate) === parseFloat(movie.date))) {
+                    allCards.push(movie);
+                }
+            } else if (searchRating === '6' && (parseFloat(searchDate) === parseFloat(movie.date)) && compare) {
+                allCards.push(movie);
+            }
+
+
+        } else if (searchTitle && searchDate && hasGenres) {
+            console.log("5 searchTitle && searchDate && compare");
+
+            if ((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)) {
+                if (parseFloat(searchDate) === parseFloat(movie.date) && compare) {
+                    allCards.push(movie);
+                }
+            }
+
+        } else if (searchTitle && searchRating) {
+            console.log("6 searchTitle && searchRating");
+
+            if ((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)) {
+                if (searchRating !== '6') {
+                    if (movie.rating === searchRating) {
+                        allCards.push(movie);
+                    }
+                } else if (searchRating === '6') {
+                    allCards.push(movie);
+                }
+            }
+
+        } else if (searchTitle && searchDate) {
+            console.log("7 searchTitle && searchDate");
+
+            if ((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)) {
+                if (parseFloat(searchDate) === parseFloat(movie.date)) {
+                    allCards.push(movie);
+                }
+            }
+
+        } else if (searchDate && searchRating) {
+            console.log("8 searchDate && searchRating");
+
+            if (searchRating !== '6') {
+                if ((movie.rating === searchRating) && (parseFloat(searchDate) === parseFloat(movie.date))) {
+                    allCards.push(movie);
+                }
+            } else if (searchRating === '6' && (parseFloat(searchDate) === parseFloat(movie.date))) {
+                allCards.push(movie);
+            }
+
+        } else if (searchRating && hasGenres) {
+            console.log("9 searchRating && compare === true");
+
+            if (compare) {
+                if (searchRating !== '6') {
+                    if (movie.rating === searchRating) {
+                        allCards.push(movie);
+                    }
+                } else if (searchRating === '6') {
+                    allCards.push(movie);
+                }
+            }
+
+
+        } else if (searchTitle) {
+            console.log("10 searchTitle");
+
+            if ((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)) {
+                allCards.push(movie);
+            }
+
+        } else if (searchDate) {
+            console.log("11 searchDate");
+
+            if (parseFloat(searchDate) === parseFloat(movie.date)) {
+                allCards.push(movie);
+            }
+
+        } else if (searchRating) {
+            console.log("12 searchRating");
+
+            if (searchRating !== '6') {
+                if (movie.rating === searchRating) {
+                    allCards.push(movie);
+                }
+            } else if (searchRating === '6') {
+                allCards.push(movie);
+            }
+
+        } else if (hasGenres) {
+            console.log("13 compare");
+            if (compare) {
+                allCards.push(movie);
+            }
+
         }
-      }
 
-    }else if(searchTitle && searchRating && hasGenres){
-      console.log("3 searchTitle && searchRating && compare");
+    });
 
-      if((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)){
-        if(searchRating !== '6'){
-          if(movie.rating === searchRating && compare){
-            allCards.push(movie);
-          }
-        }else if(searchRating === '6' && compare){
-          allCards.push(movie);
+    //reset both title and date search criteria after each search
+    searchTitle = undefined;
+    searchDate = undefined;
+    $('#dateSearch').val("");
+
+    //if no criteria met. display message
+    if (allCards.length === 0) {
+        console.log("No movies matched criteria");
+        $('.noMatchInfo').show(1000);
+
+        setTimeout(function () {
+            $('.noMatchInfo').hide(1000);
+        }, 3000);
+    } else {
+        //compare all movies and allCards results for differences
+        let results = allMovies.filter(({id: id1}) => !allCards.some(({id: id2}) => id2 === id1));
+
+        if (results.length > 0) {
+            results.forEach(function (result) {
+                //toggle cards not being used in search criteria
+                $(`#card${result.id}`).toggle();
+            });
         }
-      }
-
-    }else if(searchDate && searchRating && hasGenres){
-      console.log("4 searchDate && searchRating && compare");
-
-      if(searchRating !== '6' && compare){
-        if((movie.rating === searchRating) && (parseFloat(searchDate) === parseFloat(movie.date))){
-          allCards.push(movie);
-        }
-      }else if(searchRating === '6'&& (parseFloat(searchDate) === parseFloat(movie.date)) && compare){
-        allCards.push(movie);
-      }
-
-
-    }else if(searchTitle && searchDate && hasGenres){
-      console.log("5 searchTitle && searchDate && compare");
-
-      if((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)){
-        if(parseFloat(searchDate) === parseFloat(movie.date) && compare){
-          allCards.push(movie);
-        }
-      }
-
-    }else if(searchTitle && searchRating){
-      console.log("6 searchTitle && searchRating");
-
-      if((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)){
-        if(searchRating !== '6'){
-          if(movie.rating === searchRating){
-            allCards.push(movie);
-          }
-        }else if(searchRating === '6'){
-          allCards.push(movie);
-        }
-      }
-
-    }else if(searchTitle && searchDate){
-      console.log("7 searchTitle && searchDate");
-
-      if((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)){
-        if(parseFloat(searchDate) === parseFloat(movie.date)){
-          allCards.push(movie);
-        }
-      }
-
-    }else if(searchDate && searchRating){
-      console.log("8 searchDate && searchRating");
-
-      if(searchRating !== '6'){
-        if((movie.rating === searchRating) && (parseFloat(searchDate) === parseFloat(movie.date))){
-          allCards.push(movie);
-        }
-      }else if(searchRating === '6'&& (parseFloat(searchDate) === parseFloat(movie.date))){
-        allCards.push(movie);
-      }
-
-    }else if(searchRating && hasGenres){
-      console.log("9 searchRating && compare === true");
-
-      if(compare){
-        if(searchRating !== '6'){
-          if(movie.rating === searchRating){
-            allCards.push(movie);
-          }
-        }else if(searchRating === '6'){
-          allCards.push(movie);
-        }
-      }
-
-
-    }else if(searchTitle){
-      console.log("10 searchTitle");
-
-      if((movie.title.substr(0, searchTitle.length).toLowerCase() === searchTitle)){
-        allCards.push(movie);
-      }
-
-    }else if(searchDate){
-      console.log("11 searchDate");
-
-      if(parseFloat(searchDate) === parseFloat(movie.date)){
-        allCards.push(movie);
-      }
-
-    }else if(searchRating){
-      console.log("12 searchRating");
-
-      if(searchRating !== '6'){
-        if(movie.rating === searchRating){
-          allCards.push(movie);
-        }
-      }else if(searchRating === '6'){
-        allCards.push(movie);
-      }
-
-    }else if(hasGenres){
-      console.log("13 compare");
-      if(compare){
-        allCards.push(movie);
-      }
 
     }
-
-  });
-
-  //reset both title and date search criteria after each search
-  searchTitle = undefined;
-  searchDate = undefined;
-  $('#dateSearch').val("");
-
-  //if no criteria met. display message
-  if(allCards.length === 0){
-    console.log("No movies matched criteria");
-    $('.noMatchInfo').show(1000);
-
-    setTimeout(function () {
-      $('.noMatchInfo').hide(1000);
-    }, 3000);
-  }
-  else{
-    //compare all movies and allCards results for differences
-    let results = allMovies.filter(({ id: id1 }) => !allCards.some(({ id: id2 }) => id2 === id1));
-
-    if(results.length > 0){
-      results.forEach(function (result) {
-        //toggle cards not being used in search criteria
-        $(`#card${result.id}`).toggle();
-      });
-    }
-
-  }
 
 }
 
@@ -237,7 +236,7 @@ function searchMovies(){
 //event handler to select a movie for editing
 $(document).on('click', '.edit_movie', function (e) {
     e.preventDefault();
-
+    $('#editForm').trigger('reset');
     let idEdit = $(this).attr('id').substring(4, $(this).attr('id').length);
     // alert(idEdit);
     getMovie(idEdit)
@@ -328,7 +327,6 @@ $(document).on('click', '.edit_movie', function (e) {
 //       .catch((error) => console.log("Error looking at the movie." + error));
 
 
-
 });
 
 //EVENT HANDLER TO EDIT THE SELECTED MOVIE AND SUBMIT CHANGES
@@ -338,11 +336,11 @@ $('#editMovieClick').click(function (e) {
     e.preventDefault();
     // let data = new FormData();
     // data.append("opmFile",$('#movieImageEdit').files[0]);
-  console.log($('#movieImageEdit').val());
-  // var fileName = $('#movieImageEdit').val().split("\\").pop();
-  // console.log(fileName);
-  // movieEditObject.image = fileName;
-  let editedMovie = {
+    console.log($('#movieImageEdit').val());
+    // var fileName = $('#movieImageEdit').val().split("\\").pop();
+    // console.log(fileName);
+    // movieEditObject.image = fileName;
+    let editedMovie = {
         title: $('#movieEditInput').val(),
         date: $('#movieEditDate').val(),
         rating: $('input[name="gridRadios"]:checked').val(),
@@ -372,7 +370,6 @@ $('#editMovieClick').click(function (e) {
 // //   // }
 // //   //
 // //   // alert(editDate);
-
 
 
 // //   let editedMovie = {
@@ -471,36 +468,36 @@ $('#dateSearchButton').click(function (e) {
 // =======
 //CLICK EVENT TO GET SEARCH GENRES CRITERIA
 $('#genreSearchButton').click(function (e) {
-  e.preventDefault();
-  searchGenre = [];
+    e.preventDefault();
+    searchGenre = [];
 
-  let genreResults = $('#allGenresSearch').children('input:checked').map(function () {
-    return $(this).val();
-  });
+    let genreResults = $('#allGenresSearch').children('input:checked').map(function () {
+        return $(this).val();
+    });
 
-  for(let x = 0;  x < genreResults.length; x++){
-    searchGenre.push(genreResults[x]);
-  }
+    for (let x = 0; x < genreResults.length; x++) {
+        searchGenre.push(genreResults[x]);
+    }
 
-  searchMovies();
+    searchMovies();
 
 });
 
 //EVENT HANDLER TO DELETE A MOVIE
 $(document).on('click', '.delete_movie', function (e) {
-  e.preventDefault();
-  let idErase = $(this).attr('id');
+    e.preventDefault();
+    let idErase = $(this).attr('id');
 
-  getMovie(idErase).then(movie => {
-    let decision = confirm(`Are you sure you want to Delete "${movie.title}" movie?`);
+    getMovie(idErase).then(movie => {
+        let decision = confirm(`Are you sure you want to Delete "${movie.title}" movie?`);
 
-    if(decision){
-      deleteMovie(idErase).then(displayMovies).catch(error => {
-        alert('Wait. Something went wrong. Check console for details');
-        console.log(error);
-      });
-    }
-  }).catch(error => console.log(error));
+        if (decision) {
+            deleteMovie(idErase).then(displayMovies).catch(error => {
+                alert('Wait. Something went wrong. Check console for details');
+                console.log(error);
+            });
+        }
+    }).catch(error => console.log(error));
 // >>>>>>> master
 
 });
@@ -558,13 +555,13 @@ function displayMovies() {
 //     let editID = `edit${movie.id}`;
 // =======
 //FUNCTION TO CREATE A CARD FOR EACH MOVIE SELECTED
-function createCard(movie){
-  let editID = `edit${movie.id}`;
-  let genres = "";
+function createCard(movie) {
+    let editID = `edit${movie.id}`;
+    let genres = "";
 
-  movie.genre.forEach(function (genre) {
-    genres += `<span class="badge badge-pill badge-light">${genre}</span>`;
-  });
+    movie.genre.forEach(function (genre) {
+        genres += `<span class="badge badge-pill badge-light">${genre}</span>`;
+    });
 // >>>>>>> master
 
     return `<div class="card movieCard m-3" style="width:500px" id="card${movie.id}">
@@ -618,15 +615,22 @@ $('.ratingFilter .dropdown-menu button').click(function () {
 // });
 
 // =======
-  searchRating = $(this).val();
-  searchMovies();
+    searchRating = $(this).val();
+    searchMovies();
 });
 
 //CLICK EVENT TO ADD A MOVIE TO JSON FILE
 // >>>>>>> master
 $('#addMovieClick').click(function (event) {
     event.preventDefault();
-    console.log($('#movieAddDate').val());
+    if (document.getElementById('movieAddInput').value === '') {
+        return alert("Error: input a Title");
+    }
+    if ($('input[name = gridRadios]:checked').val() === undefined) {
+        return alert("Error: give the movie a rating");
+    }
+    // disableSubmit('addMovieClick');
+    // console.log($('#movieAddDate').val());
     // event.stopPropagation();
     postMovie({
         title: document.getElementById('movieAddInput').value,
@@ -645,7 +649,7 @@ $('#addMovieClick').click(function (event) {
             date: '',
             genre: [],
             description: '',
-            rating: 0
+            rating: undefined
         };
         console.log('all movies:');
         movie.forEach(({title, rating, id}) => {
@@ -657,7 +661,7 @@ $('#addMovieClick').click(function (event) {
             date: '',
             genre: [],
             description: '',
-            rating: 0
+            rating: undefined
         };
         alert('Oh no! Something went wrong.\nCheck the console for details.');
         console.log(error);
@@ -686,15 +690,15 @@ $('#editGenreButton').click(function () {
 
 //BUTTON TO RESET ALL SEARCH CRITERIA AND DISPLAY ALL MOVIES
 $('#resetButton').click(function (e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  searchTitle = undefined;
-  searchDate = undefined;
-  $('#dateSearch').val("");
-  searchRating = 6;
-  searchGenre = [];
+    searchTitle = undefined;
+    searchDate = undefined;
+    $('#dateSearch').val("");
+    searchRating = 6;
+    searchGenre = [];
 
-  displayMovies();
+    displayMovies();
 });
 
 // $('span').click(function () {
@@ -716,24 +720,30 @@ $('body').on('click', '.removeGenre', function () {
 
 
 $('#addMovie').click(function () {
+    // resetSubmit('addMovieClick');
     movieAddObject = {
-        id: 0,
         title: '',
         date: '',
         genre: [],
         description: '',
-        rating: 0
+        rating: undefined
     };
+    // document.getElementById('movieAddInput').value = movieAddObject.title;
+    // $('#movieAddDate').val('');
+    // $('#genreListAdd').empty();
+    $('#addForm').trigger('reset');
+
+
 });
 
 $('.edit_movie').click(function () {
+    // $('#editForm').trigger('reset');
     movieAddObject = {
-        id: 0,
         title: '',
         date: '',
         genre: [],
         description: '',
-        rating: 0
+        rating: undefined
     };
 });
 
@@ -744,3 +754,4 @@ $('.edit_movie').click(function () {
 //   // movieEditObject.image = fileName.value.replace("C:\\fakepath\\", "");
 //   $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
 // });
+
