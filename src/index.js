@@ -72,9 +72,11 @@ function updateMovies(load = false) {
 updateMovies(true);
 
 function generateCard(title, rating, cardID) {
+    // $.getJSON(`http://img.omdbapi.com/?apikey=742f6ef9&`);
     let card = ``;
     card += `<div class="card">`;
     card += `<button class="delete" id="delete-${cardID}">X</button>`;
+    // card += `<button><p class="editMovie" id="${id}"></p></button>`;
     card += `<img src="..." class="card-img-top" alt="...">`;
     card += `<div class="card-body">`;
     card += `<p class='card-text'>${title}, ${rating}</p>`;
@@ -93,6 +95,32 @@ const makeMovie = (title, rating) => {
         "rating" : rating
     };
 };
+
+
+// $('.editMovie').on('click', function (event) {
+//     cardID = $(this).attr("id");
+//
+//
+//     console.log(cardID);
+//     $("#saveEdit").on('click', function (event) {
+//         patchMovie(
+//             {
+//                 "title": $("#editMovieTitle").val(),
+//                 "rating": $("#editMovieRating").val()
+//             },
+//             cardID).then(getMovies).then((movies) => {
+//             console.log('Here are all the movies:');
+//             movies.forEach(({title, rating}) => {
+//                 console.log(`${title} ${rating}`);
+//             });
+//         }).catch((error) => {
+//             alert('Oh no! Something went wrong.\nCheck the console for details.');
+//             console.log(error);
+//         });
+//     })
+// });
+
+
 
 // getMovies().then((movies) => {
 //     console.log('Here are all the movies:');
