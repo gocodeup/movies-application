@@ -11,7 +11,6 @@
 </head>
 <body>
 <!--NAV BAR **************************************-->
-<!--navbar-light bg-light-->
 <nav class="navbar navbar-expand-lg" id="nav-Bar">
     <a class="navbar-brand text-white" href="#">Movies Catalog</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -40,7 +39,7 @@
         <div class="row" id="main-row">
 <!--            SEARCH BAR ******************************************************-->
             <div class="col-3 pl-3" id="searchBar">
-
+<!--                search by title-->
                 <div class="row mx-2 my-1" id="searchByInput-container">
                     <h3>Search:</h3>
                     <div class="input-group mb-3">
@@ -50,17 +49,17 @@
                         </div>
                     </div>
                 </div>
-
+<!--                reset search-->
                 <div class="row mx-2">
                     <div class="list-group">
                         <button type="button" class="btn btn-secondary my-1 sameButtonWidth" id="resetButton">Reset</button>
-
+<!--                search by date-->
                         <div class="dropdown my-1">
                             <button class="btn btn-secondary dropdown-toggle sameButtonWidth" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Date
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-<!--                                content here-->
+
                                 <div class="form-group mx-2">
                                     <label for="dateSearch">Date</label>
                                     <input type="number" min="1900" max="2099" class="form-control" id="dateSearch" placeholder="2019">
@@ -70,7 +69,7 @@
                             </div>
                         </div>
 
-
+<!--                        search by genre-->
                         <div class="dropdown genreFilter my-1">
                             <button class="btn btn-secondary dropdown-toggle sameButtonWidth" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Genre
@@ -94,7 +93,7 @@
                                 </form>
                             </div>
                         </div>
-
+<!--                        search by Rating-->
                         <div class="dropdown ratingFilter my-1">
                             <button class="btn btn-secondary dropdown-toggle sameButtonWidth" type="button" id="ratingDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Rating
