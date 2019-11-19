@@ -1,6 +1,5 @@
 html, body {
-    background-color: lightblue;
-    height: 100%;
+
 }
 
 .container {
@@ -12,4 +11,38 @@ html, body {
 
 .hide {
     display: none;
+}
+
+#loading {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    display: flex;
+    text-align: center;
+    justify-content: left;
+
+}
+
+#create-title {
+    height: 20px;
+    width: 150px;
+    justify-content: space-evenly;
+}
+
+#create-rating {
+    height: 20px;
+    width: 150px;
+    justify-content: space-evenly;
+}
+
+.card {
+
+
 }
