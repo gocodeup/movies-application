@@ -12,9 +12,9 @@ h1{
     font-family: 'Courgette', cursive;
 
 }
-footer{
+#form-container{
     display: flex;
-    width: 30%;
+    max-width: 30%;
     border: dotted goldenrod 4px;
     margin-left: 2%;
     background-color: #570000;
@@ -22,11 +22,8 @@ footer{
     padding: 1em;
 }
 #sign-up-box{
-    display: flex;
-    width: 30%;
     border: dotted goldenrod 4px;
-    margin-left: 68%;
-    margin-top: 5%;
+    margin-left: 50%;
     background-color: #570000;
     color: white;
     padding: 1em;
