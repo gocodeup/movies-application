@@ -1,10 +1,6 @@
 /**
  * es6 modules and imports
  */
-// import sayHello from './hello';
-//import $ from 'jquery';
-
-// sayHello('World');
 
 /**
  * require style imports
@@ -293,8 +289,6 @@ $(document).on('click', '.edit_movie', function (e) {
 
 //EVENT HANDLER TO EDIT THE SELECTED MOVIE AND SUBMIT CHANGES
 $('#editMovieClick').click(function (e) {
-
-// <<<<<<< robert-branch
     e.preventDefault();
     if (document.getElementById('movieEditInput').value === '') {
         return alert("Error: input a Title");
@@ -303,21 +297,12 @@ $('#editMovieClick').click(function (e) {
     }else {
         $("#editMovieClick").attr("disabled", true);
     }
-    // let data = new FormData();
-    // data.append("opmFile",$('#movieImageEdit').files[0]);
-    // console.log($('#movieImageEdit').val());
-    // var fileName = $('#movieImageEdit').val().split("\\").pop();
-    // console.log(fileName);
-    // movieEditObject.image = fileName;
     let editedMovie = {
         title: $('#movieEditInput').val(),
         date: $('#movieEditDate').val(),
         rating: $('input[name="gridRadios"]:checked').val(),
         genre: movieAddObject.genre,
         description: $('#movieDescriptionInputEdit').val()
-        // image: document.getElementById('#movieImageEdit').files[0].fileName
-        // image: fileName
-        // image: $('#movieImageEdit').val()
     };
 
     patchMovie(editedMovie, movieEditObject.id)
@@ -329,6 +314,7 @@ $('#editMovieClick').click(function (e) {
     $('#editMovieModal').modal('toggle');
 });
 
+//search on button with id searchClick
 $('#searchClick').click(function (e) {
     e.preventDefault();
 
@@ -341,7 +327,7 @@ $('#searchClick').click(function (e) {
 
 });
 
-
+//function to search by date
 $('#dateSearchButton').click(function (e) {
     e.preventDefault();
 
@@ -389,12 +375,10 @@ $(document).on('click', '.delete_movie', function (e) {
             });
         }
     }).catch(error => console.log(error));
-// >>>>>>> master
-
 });
 
 
-
+//function to display all movies (for movie API)
 function displayMovies() {
         allMovies = [];
         getMovies().then((movies) => {
@@ -418,8 +402,6 @@ function displayMovies() {
                 $('#movieContent').append(card);
 
             }).catch(error => console.log(error));
-
-
         });
 
         }).catch((error) => {
@@ -514,7 +496,7 @@ $('#addMovieClick').click(function (event) {
     });
 });
 
-
+//to create and hold the genre tags within the add and edit forms
 function createGenreTag(genre, idTag) {
     // global genre array
     if (movieAddObject.genre.includes(genre)) {
@@ -526,10 +508,12 @@ function createGenreTag(genre, idTag) {
     }
 }
 
+//add button click for ADD
 $('#addGenreButton').click(function () {
     return createGenreTag($('#genreMultiSelectA').children('option:selected').val(), 'genreListAdd');
 });
 
+//add button click for EDIT
 $('#editGenreButton').click(function () {
     return createGenreTag($('#genreMultiSelectE').children('option:selected').val(), 'genreListEdit');
 });
@@ -547,7 +531,7 @@ $('#resetButton').click(function (e) {
     displayMovies();
 });
 
-// $('span').click(function () {
+//function to Remove the genre tags (dynamic click event)
 $('body').on('click', '.removeGenre', function () {
     let liValue = $(this).parent().text();
     liValue = liValue.slice(0, liValue.indexOf(" "));
@@ -564,7 +548,7 @@ $('body').on('click', '.removeGenre', function () {
     return movieAddObject.genre;
 });
 
-
+//reset form function for add
 $('#addMovie').click(function () {
     // resetSubmit('addMovieClick');
     movieAddObject = {
@@ -580,7 +564,7 @@ $('#addMovie').click(function () {
 
 });
 
-
+//reset form function for add
 $('.edit_movie').click(function () {
     movieAddObject = {
         title: '',
