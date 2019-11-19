@@ -1,7 +1,11 @@
-:root{
-    --blue : #8b98aa;
-    --red : #df2238;
-    --darkGrey : #252e34;
+
+body.loading .modal {
+    overflow: hidden;
+}
+
+html, body {
+    height: 100%;
+    background-color:  #8b98aa;
 }
 
 .cardBackground{
@@ -13,29 +17,18 @@
     font-family: 'Roboto', sans-serif;
 }
 
-#buttonGroup{
-    position: absolute;
-    bottom: 10px;
-    right: 40px;
-}
 
 .playfair{
     font-family: 'Playfair Display', serif;
 }
 
-html, body {
-    height: 100%;
-    background-color:  #8b98aa;
-}
 .jumbotron{
     color: #df2238;
     background-image: url("img/audience.jpg");
     background-size: cover;
     opacity: 75%;
     height: 329px;
-
 }
-
 
 .container {
     position: relative;
@@ -43,12 +36,10 @@ html, body {
     transform: translateY(-100%);
     text-align: center;
 }
+.noDisplay{
+    display: none!important;
+}
 
-/* Start by setting display:none to make this hidden.
-   Then we position it in relation to the viewport window
-   with position:fixed. Width, height, top and left speak
-   for themselves. Background we set to 80% white with
-   our animation centered, and no-repeating */
 .modal {
     display:    none;
     position:   fixed;
@@ -60,19 +51,12 @@ html, body {
     background: rgba( 255, 255, 255, .8 );
 }
 
-/* When the body has the loading class, we turn
-   the scrollbar off with overflow:hidden */
-body.loading .modal {
-    overflow: hidden;
-}
-
 
 #loading {
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
+    top: 100px;
+    position: absolute;
     display: block;
     opacity: 0.7;
     background-color: #fff;
@@ -80,9 +64,6 @@ body.loading .modal {
     text-align: center;
 }
 
-.noDisplay{
-    display: none!important;
-}
 
 #addMovie{
     position: absolute;
@@ -91,3 +72,8 @@ body.loading .modal {
 }
 
 
+#buttonGroup{
+    position: absolute;
+    bottom: 10px;
+    right: 40px;
+}
