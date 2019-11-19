@@ -10,7 +10,23 @@ html, body {
     /*height: 500vh;*/
 }
 
+#main-page{
+    min-height: 89vh;
+}
+
+#main-row{
+    height: 89vh;
+}
+
 #searchBar{
     background-color: lightgreen;
     width: .3fr;
+}
+
+.footer {
+    background-color: #4d594f;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 1em;
 }

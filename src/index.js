@@ -294,6 +294,7 @@ function displayMovies() {
     allMovies = [];
     getMovies().then((movies) => {
         // console.log('Here are all the movies:');
+        $('#loadMovies').remove();
         $('#movieContent').html("");
 
         movies.forEach((movie) => {
@@ -307,7 +308,7 @@ function displayMovies() {
         searchMovies();
         // console.log(allMovies);
     }).catch((error) => {
-        alert('Oh no! Something went wrong.\nCheck the console for details.')
+        alert('Oh no! Something went wrong.\nCheck the console for details.');
         console.log(error);
     });
 
@@ -318,15 +319,15 @@ function displayMovies() {
 function createCard(movie) {
     let editID = `edit${movie.id}`;
 
-    return `<div class="card movieCard mb-3" style="max-width: 540px" id="card${movie.id}">
+    return `<div class="card movieCard m-3" style="width:500px" id="card${movie.id}">
                 <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="${movie.image}" class="card-img" alt="">
+                    <div class="col-md-2">
+                        <img src="" class="card-img" alt="">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">${movie.title}</h5>
-                            <p class="card-text"><small class="text-muted mr-3">Date: ${movie.date}</small><small class="text-muted mr-3">Genre: ${movie.genre}</small><small class="text-muted">Rating: ${movie.rating}</small></p>
+                            <p class="card-text"><small class="text-muted mr-3">Date: ${movie.date}</small><small class="text-muted">Rating: ${movie.rating}</small><br><small class="text-muted mr-3">Genre: ${movie.genre}</small></p>
                             <p class="card-text">${movie.description}</p>
                             <p>
                                 <button type="button" class="btn btn-info edit_movie" data-toggle="modal" data-target="#editMovieModal" id="${editID}">Edit</button>
@@ -370,8 +371,8 @@ $('#addMovieClick').click(function (event) {
         //id auto generates
         date: $('#movieAddDate').val(),
         genre: movieAddObject.genre,
-        description: document.getElementById('movieDescriptionInput').value,
-        image: document.getElementById('movieImageAdd').value
+        description: document.getElementById('movieDescriptionInput').value
+        // image: document.getElementById('movieImageAdd').value
     }).then(getMovies).then(movie => {
         $('#addMovieModal').modal('toggle');
         $('#addMovieModal').find('form')[0].reset();

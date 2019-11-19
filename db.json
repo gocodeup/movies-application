@@ -33,8 +33,23 @@
         "Comedy"
       ],
       "description": "bla",
-      "image": "",
       "id": 4
+    },
+    {
+      "title": "movie",
+      "rating": "3",
+      "date": "",
+      "genre": [],
+      "description": "",
+      "id": 5
+    },
+    {
+      "title": "movie 3",
+      "rating": "1",
+      "date": "",
+      "genre": [],
+      "description": "",
+      "id": 6
     }
   ]
 }
