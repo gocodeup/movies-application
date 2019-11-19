@@ -28,17 +28,6 @@
       "id": 3
     },
     {
-      "title": "movie 2: electric bogaloo",
-      "rating": "4",
-      "date": "2017-03-01",
-      "genre": [
-        "Action",
-        "Comedy"
-      ],
-      "description": "bla",
-      "id": 4
-    },
-    {
       "title": "The Lego Movie",
       "rating": "3",
       "date": "",
@@ -48,6 +37,16 @@
       ],
       "description": "",
       "id": 5
+    },
+    {
+      "title": "The Terminator",
+      "rating": "5",
+      "date": "1984-10-26",
+      "genre": [
+        "Action"
+      ],
+      "description": "In 1984, a human soldier is tasked to stop an indestructible cyborg killing machine, both sent from 2029, from executing a young woman, whose unborn son is the key to humanity's future salvation",
+      "id": 6
     }
   ]
 }
