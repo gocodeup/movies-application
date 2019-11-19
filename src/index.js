@@ -12,7 +12,7 @@ const $ = require("jquery");
 getMovies().then((movies) => {
   console.log('Here are all the movies:');
   movies.forEach(({title, rating, id}) => {
-    $('#container').append(`<div class="card" id=${id}><div class="card-img-top">picture placeholder<div class="card-body"><span id="${title}">Title: ${title}</span> rated: ${rating}<br><button class="editbutton">Edit Reel</button><button class="trashbutton">Trash Reel</button></div></div></div>`);
+    $('#container').append(`<div class="card" id=${id}><div class="card-img-top text-center">picture placeholder<div class="card-body"><span id="${title}">Title: ${title}</span><br>rated: ${rating}<br><button class="editbutton btn-info">Edit Reel</button><br><button class="trashbutton btn-danger">Trash Reel</button></div></div></div>`);
   });
 }).catch((error) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.');
