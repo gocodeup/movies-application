@@ -13,8 +13,10 @@ html, body {
     height: 100%;
     background-color:  #8b98aa;
 }
+.jumbotron{
+    color: #df2238;
 
-
+}
 
 .container {
     position: relative;
