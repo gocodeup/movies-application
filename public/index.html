@@ -61,12 +61,12 @@
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
 <!--                                content here-->
-                                <div class="form-group">
+                                <div class="form-group mx-2">
                                     <label for="dateSearch">Date</label>
                                     <input type="number" min="1900" max="2099" class="form-control" id="dateSearch" placeholder="2019">
                                 </div>
 
-                                <button type="submit" class="btn btn-primary" id="dateSearchButton">Search</button>
+                                <button type="submit" class="btn btn-primary mx-2" id="dateSearchButton">Search</button>
                             </div>
                         </div>
 
@@ -76,13 +76,21 @@
                                 Genre
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <form id="allGenresSearch">
-                                    <input type="checkbox" name="genreSearch" value="Action">Action<br>
-                                    <input type="checkbox" name="genreSearch" value="Adventure">Adventure<br>
-                                    <input type="checkbox" name="genreSearch" value="Animation">Animation<br>
-                                    <input type="checkbox" name="genreSearch" value="Comedy">Comedy<br>
-                                    <input type="checkbox" name="genreSearch" value="Horror">Horror<br>
-                                    <button tclass="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="genreSearchButton">Search</button>
+                                <form class="ml-2" id="allGenresSearch">
+                                    <input type="checkbox" name="genreSearch" value="Action"> Action<br>
+                                    <input type="checkbox" name="genreSearch" value="Adventure"> Adventure<br>
+                                    <input type="checkbox" name="genreSearch" value="Animation"> Animation<br>
+                                    <input type="checkbox" name="genreSearch" value="Comedy"> Comedy<br>
+                                    <input type="checkbox" name="genreSearch" value="Documentary"> Documentary<br>
+                                    <input type="checkbox" name="genreSearch" value="Drama"> Drama<br>
+                                    <input type="checkbox" name="genreSearch" value="Fantasy"> Fantasy<br>
+                                    <input type="checkbox" name="genreSearch" value="Horror"> Horror<br>
+                                    <input type="checkbox" name="genreSearch" value="Mystery"> Mystery<br>
+                                    <input type="checkbox" name="genreSearch" value="Thriller"> Thriller<br>
+                                    <input type="checkbox" name="genreSearch" value="Romance"> Romance<br>
+                                    <input type="checkbox" name="genreSearch" value="Sci-Fi"> Sci-Fi<br>
+                                    <input type="checkbox" name="genreSearch" value="Western"> Western<br>
+                                    <button class="btn btn-primary" type="button" data-toggle="dropdown" id="genreSearchButton">Search</button>
                                 </form>
                             </div>
                         </div>
