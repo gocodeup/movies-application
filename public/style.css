@@ -1,5 +1,7 @@
 html, body {
-
+    background-image: url("lights.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container {
@@ -24,25 +26,65 @@ html, body {
 }
 
 h1 {
+    color: lightblue;
     display: flex;
     text-align: center;
-    justify-content: left;
+    justify-content: center;
 
 }
 
-#create-title {
-    height: 20px;
-    width: 150px;
-    justify-content: space-evenly;
+#main {
+
 }
 
-#create-rating {
+.nav {
+    color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 6px;
+}
+
+.addMovie {
+    display: flex;
     height: 20px;
     width: 150px;
-    justify-content: space-evenly;
+    justify-items: center;
 }
 
 .card {
+    height: 250px;
+    width: 250px;
+    margin: 8px;
+    background-color: brown;
+    border-radius: 10px;
+}
 
+.container {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 
+.delete {
+    height: 25px;
+    width: 25px;
+    border-radius: 10px;
+}
+
+.edit-button {
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+}
+
+.confirm {
+    /*height: 40px;*/
+    /*width: 40px;*/
+    border-radius: 10px;
+}
+
+.edit {
+    border-radius: 10px;
 }

@@ -70,17 +70,16 @@ function updateMovies(load = false) {
 updateMovies(true);
 
 function generateCard(title, rating, cardID) {
-    // $.getJSON(`http://img.omdbapi.com/?apikey=742f6ef9&`);
     let card = ``;
     card += `<div class="card" id="${cardID}">`;
-    card += `<button class="delete" id="delete-${cardID}">X</button>`;
-    card += `<button class="edit-button" id="edit-${cardID}">Edit</button>`;
-    card += `<button class="confirm" id="confirm-${cardID}">Confirm changes</button>`;
-    card += `<img src="..." class="card-img-top" alt="...">`;
     card += `<div class="card-body">`;
     card += `<input readonly type="text" class="edit titles" id="card-title-${cardID}" value="${title}">`;
     card += `<input readonly type="text" class="edit ratings" id="card-rating-${cardID}" value="${rating}">`;
-    card += `</div> </div>`;
+    card += `</div>`;
+    card += `<button class="delete" id="delete-${cardID}">X</button>`;
+    card += `<button class="edit-button" id="edit-${cardID}">Edit</button>`;
+    card += `<button class="confirm" id="confirm-${cardID}">Confirm changes</button>`;
+    card += `</div>`;
     moviesDiv.innerHTML += card;
 };
 
