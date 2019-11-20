@@ -1,25 +1,18 @@
 /**
  * es6 modules and imports
  */
-
 /**
  * require style imports
  */
-
 import $ from "jquery";
 const {getMovie, getMovies, postMovie, patchMovie, deleteMovie} = require('./api.js');
-
 getMovies().catch((error) => {
     alert('Oh no! Something went wrong.\nCheck the console for details.');
     console.log(error);
 });
-
 let movies;
-
-
 getMovie(1)
     .catch(() => console.log('The important thing is you tried...'));
-
 let moviesDiv = document.getElementById("container");
 let loadingGIF = document.getElementById("loading");
 let postButton = document.getElementById("create-submit");
@@ -32,11 +25,9 @@ function updateListeners() {
             deleteMovie(parseInt(deleteButtons[i].getAttribute("id").substr(7)));
         })
     }
-
     let editButtons = document.getElementsByClassName("edit-button");
     let edit = document.getElementsByClassName("edit");
     let confirm = document.getElementsByClassName("confirm");
-    // console.log(editButtons);
     for (let i = 0; i < editButtons.length; i++) {
         editButtons[i].addEventListener("click", () => {
             edit[i * 2].toggleAttribute("readonly");
@@ -49,13 +40,11 @@ function updateListeners() {
         })
     }
 }
-
 function updateMovies(load = false) {
     getMovies().then((result) => {
         if (load === true) {
             $("#loading").toggleClass("hide");
         }
-
         moviesDiv.innerHTML = "";
         for (let i = 0; i < result.length; i++) {
             generateCard(result[i].title, result[i].rating, result[i].id);
@@ -66,9 +55,7 @@ function updateMovies(load = false) {
         updateListeners();
     });
 }
-
 updateMovies(true);
-
 function generateCard(title, rating, cardID) {
     // $.getJSON(`http://img.omdbapi.com/?apikey=742f6ef9&`);
     let card = ``;
@@ -83,12 +70,10 @@ function generateCard(title, rating, cardID) {
     card += `</div> </div>`;
     moviesDiv.innerHTML += card;
 };
-
 postButton.addEventListener("click", () => {
     postMovie(makeMovie(document.getElementById("create-title").value, document.getElementById("create-rating").value));
     updateMovies();
 });
-
 const makeMovie = (title, rating) => {
     return {
         "title" : title,
