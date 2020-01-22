@@ -1,13 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>My Application</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+
     <div class="container" id="main-container">
         <h1 id="loading-h1">Loading...</h1>
+
+    </div>
+
+    <div class="add-movie"  id="plusMovie" align="center">
+
+
+
+        <!---- your movie form should add a movie with fields for movie title and rating/submit button/ edit an existing movie/movie details/delete button---->
+       <form id="movie-form">
+        <div class="form-group">
+            <h1 id ="movie-header">Movies</h1>
+           Add Movie <input type="text"><br>
+            <label id="movie-label" for="movie-rating">Rate Movie</label>
+            <select class="form-control" id="movie-rating">
+                <option value="1">&#x265B;</option>
+                <option value="2">&#x265B; &#x265B;</option>
+                <option value="3">&#x265B; &#x265B; &#x265B;</option>
+                <option value="4">&#x265B;&#x265B;&#x265B;&#x265B;</option>
+                <option value="5">&#x265B;&#x265B;&#x265B;&#x265B;&#x265B;</option>
+            </select>
+            <button id="submit-button">Submit</button>
+        </div>
+       </form>
+
+
+
+
+
+
+
     </div>
     <script src="./main.js"></script>
 </body>

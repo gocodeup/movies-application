@@ -5,7 +5,7 @@ const {getMovies} = require('./api.js');
 getMovies()
     .then((movies) => {
       // console.log('Here are all the movies:');
-      $('#main-container').empty();
+      $('#loading-h1').remove();
       let i = 1
       movies.forEach(({title, rating, id}) => {
 
