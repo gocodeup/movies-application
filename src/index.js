@@ -19,7 +19,9 @@ getMovies().then((movies) => {
   alert('Oh no! Something went wrong.Check the console for details.');
   console.log(error);
 });
-$('.center').hide().fadeIn(4000);
+
 $('.container').hide().fadeIn(3000);
+$('.center').hide();
+
 
 
