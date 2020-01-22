@@ -13,14 +13,17 @@ sayHello('World');
  */
 const {getMovies} = require('./api.js');
 
-getMovies().then((movies) => {
-    console.log('Here are all the movies:');
-    movies.forEach(({title, rating, id}) => {
-        console.log(`id#${id} - ${title} - rating: ${rating}`);
+
+$('#submit').click(function() {
+    getMovies().then((movies) => {
+        // console.log('Here are all the movies:');
+        movies.forEach(({title, rating, id}) => {
+            $('#movies').append(`${id} - ${title} - rating: ${rating}, `);
+        });
+    }).catch((error) => {
+        alert('Oh no! Something went wrong.\nCheck the console for details.');
+        console.log(error);
     });
-}).catch((error) => {
-    alert('Oh no! Something went wrong.\nCheck the console for details.');
-    console.log(error);
 });
 
 // loader------------------------------
@@ -40,8 +43,8 @@ function removeLoader() {
 
 
 // $.ajax("db.json").done(function(data){
-//   $('#submit').click(function(){
-//     $('#movies').html(`<h1> hello</h1>`)
-//   });
+  // $('#submit').click(function(){
+  //   $('#movies').html(`<h1> hello</h1>`)
+  // });
 // }
 
