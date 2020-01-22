@@ -1,3 +1,4 @@
+const $ = require('jquery');
 /**
  * es6 modules and imports
  */
@@ -15,6 +16,10 @@ getMovies().then((movies) => {
     console.log(`id#${id} - ${title} - rating: ${rating}`);
   });
 }).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.')
+  alert('Oh no! Something went wrong.Check the console for details.');
   console.log(error);
 });
+$('.center').hide().fadeIn(4000);
+$('.container').hide().fadeIn(3000);
+
+
