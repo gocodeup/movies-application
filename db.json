@@ -7,8 +7,28 @@
     },
     {
       "title": "Star Wars: A New Hope",
-      "rating": "5",
+      "rating": "3",
       "id": 2
+    },
+    {
+      "title": "Home Alone",
+      "rating": "4",
+      "id": 1
+    },
+    {
+      "title": "Bambi",
+      "rating": "5",
+      "id": 1
+    },
+    {
+      "title": "The Lion King",
+      "rating": "1",
+      "id": 1
+    },
+    {
+      "title": "It",
+      "rating": "3",
+      "id": 1
     }
   ]
 }
