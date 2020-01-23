@@ -1,5 +1,5 @@
 import './style.scss'
-import {$} from './index'
+import $ from 'jquery'
 export default () => {
 
 
