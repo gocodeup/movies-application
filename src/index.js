@@ -1,7 +1,7 @@
 //modules required
 const $ = require('jquery');
 const {getMovies} = require('./api.js');
-
+// const {movieData} = require('./api.js');
 getMovies()
     .then((movies) => {
       // console.log('Here are all the movies:');
@@ -15,7 +15,11 @@ getMovies()
       });
       return movies;
     })
+
+
     .catch((error) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.')
   console.log(error);
 });
+
+
