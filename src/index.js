@@ -50,7 +50,7 @@ generateTable();
 $('#submit-button').on("click", function (e) {
     e.preventDefault();
 
-    if ($('#movie-title-input').val() !== "" && $('#movie-rating-input option:selected').val() !== "") {
+    if ($('#movie-title-input').val() !== "") {
 
         let title = $('#movie-title-input').val();
         let rating = $('#movie-rating-input').val();
