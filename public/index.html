@@ -9,39 +9,39 @@
 </head>
 <body>
 
-    <div class="container" id="main-container">
-        <h1 id="loading-h1">Loading...</h1>
+<div class="container" id="main-container">
+    <h1 id="loading-h1">Loading...</h1>
 
-    </div>
+</div>
 
-    <div class="add-movie"  id="plusMovie" align="center">
+<div class="add-movie container-fluid" id="plusMovie" align="center">
 
 
-
-        <!---- your movie form should add a movie with fields for movie title and rating/submit button/ edit an existing movie/movie details/delete button---->
-       <form id="movie-form">
+    <!---- your movie form should add a movie with fields for movie title and rating/submit button/ edit an existing movie/movie details/delete button---->
+    <form id="movie-form">
         <div class="form-group">
-            <h1 id ="movie-header">Movies</h1>
-           Add Movie <input type="text"><br>
-            <label id="movie-label" for="movie-rating">Rate Movie</label>
-            <select class="form-control" id="movie-rating">
-                <option value="1">&#x265B;</option>
-                <option value="2">&#x265B; &#x265B;</option>
-                <option value="3">&#x265B; &#x265B; &#x265B;</option>
-                <option value="4">&#x265B;&#x265B;&#x265B;&#x265B;</option>
-                <option value="5">&#x265B;&#x265B;&#x265B;&#x265B;&#x265B;</option>
-            </select>
-            <button id="submit-button">Submit</button>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Add A CRUDy Movie</span>
+                </div>
+                <div class="container-fluid">
+                <input type="text" aria-label="First name" class="form-control">
+                    <select class="form-control" id="movie-rating">
+                        <option value="undefined">Rating</option>
+                        <option value="1">&#x265B;</option>
+                        <option value="2">&#x265B; &#x265B;</option>
+                        <option value="3">&#x265B; &#x265B; &#x265B;</option>
+                        <option value="4">&#x265B; &#x265B; &#x265B; &#x265B;</option>
+                        <option value="5">&#x265B; &#x265B; &#x265B; &#x265B; &#x265B;</option>
+                    </select>
+                    <button id="submit-button">Submit</button>
+                </div>
+            </div>
         </div>
-       </form>
+    </form>
 
 
-
-
-
-
-
-    </div>
-    <script src="./main.js"></script>
+</div>
+<script src="./main.js"></script>
 </body>
 </html>
