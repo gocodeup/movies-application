@@ -3,12 +3,58 @@
     {
       "title": "Casablanca",
       "rating": "4",
+      "description": "movie words",
+      "category": "movie category",
       "id": 1
     },
     {
       "title": "Star Wars: A New Hope",
       "rating": "5",
+      "description": "movie words",
+      "category": "movie category",
       "id": 2
+    },
+    {
+      "title": "Other Movie 3",
+      "rating": "5",
+      "description": "movie words",
+      "category": "movie category",
+      "id": 3
+    },
+    {
+      "title": "Other Movie 4",
+      "rating": "5",
+      "description": "movie words",
+      "category": "movie category",
+      "id": 4
+    },
+    {
+      "title": "Other Movie 5",
+      "rating": "5",
+      "description": "movie words",
+      "category": "movie category",
+      "id": 5
+    },
+    {
+      "title": "Other Movie 6",
+      "rating": "5",
+      "description": "movie words",
+      "category": "movie category",
+      "id": 6
+    },
+    {
+      "title": "Other Movie 7",
+      "rating": "5",
+      "description": "movie words",
+      "category": "movie category",
+      "id": 7
+    },
+    {
+      "title": "Other Movie 8",
+      "rating": "5",
+      "description": "movie words",
+      "category": "movie category",
+      "id": 8
     }
   ]
 }
