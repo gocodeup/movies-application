@@ -1,19 +1,21 @@
 import './style.scss'
 import {$} from './index'
 export default () => {
-    let $body = $("body");
-    $(document).on({
-        ajaxStart: function () {
-            $body.addClass("loading");
-        },
-        ajaxStop: function () {
-            $body.removeClass("loading");
-        }
-    });
+   const myLoader = () => {
+       let $body = $("body");
+        $body.addClass("loading");
+
+   };
+   setInterval(myLoader, 1200)
+
+    const removeLoader = () => {
+       let $body = $("body");
+    $body.removeClass("loading");
+   clearInterval(myLoader)
+   }
+removeLoader()
+
 }
-
-
-
 
 
 
