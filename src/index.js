@@ -20,8 +20,12 @@ getMovies().then((movies) => {
   console.log(error);
 });
  //functionality for the loading pane//
-let loader1 = $('.container').hide().show(8000).hide(8000);
-let loader2 = $('.center').hide().show(8000).hide(8000);
+
+$(document).ready(function () {
+  let loader1 = $('.container').hide().show(8000).hide(8000);
+  let loader2 = $('.center').hide().show(8000).hide(8000);
+});
+
 
 
 
