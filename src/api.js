@@ -54,11 +54,12 @@ module.exports = {
         return fetch(`https://api.themoviedb.org/3/movie/${movieID}?api_key=${THE_MOVIE_DB_API_KEY}&language=en-US`)
             .then((response) => response.json());
     },
-    updateCRUDyDB: (inputObj) => {
+    updateCRUDyDBFromTheMovieDB: (inputObj, rating) => {
         let data = {
             title: inputObj['title'],
             overview: inputObj['overview'],
-            genre: inputObj["genres"][0]["name"]
+            genre: inputObj["genres"][0]["name"],
+            rating: rating
         };
         // let data = {username: inputObj}
         return fetch(`/api/movies`,  {
@@ -72,7 +73,34 @@ module.exports = {
             .then((data) => {
                 console.log('Success:', data);
             })
+    },
+    updateCRUDyDBFromUser: (data) => {
+        return fetch(`/api/movies`,  {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('Success:', data);
+            })
+    },
+    refreshMovies: () => {
+        $('#main-container').html(`<h1 id="loading-h1">Loading...</h1>`);
+        return fetch('/api/movies')
+            .then(response => response.json())
+            .then((movies) => {
+                let i = 1
+                $('#loading-h1').remove();
+                movies.forEach(({title, overview, genre, rating, id}) => {
+                    $('#main-container').append(`<div class="movie-container" id="movie-container-${i}">${title} ${overview} ${genre} ${rating} ${id}</div>`)
+                    i++;
+                });
+            })
     }
+
 };
 
 

@@ -3,42 +3,16 @@
     {
       "title": "Casablanca",
       "rating": "4",
+      "overview": "thing",
+      "genre": "thing",
       "id": 1
     },
     {
       "title": "Star Wars: A New Hope",
+      "overview": "thing",
+      "genre": "thing",
       "rating": "5",
       "id": 2
-    },
-    {
-      "title": "Star Wars: Episode I - The Phantom Menace",
-      "overview": "Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi.",
-      "genre": "Adventure",
-      "id": 3
-    },
-    {
-      "title": "Star Wars: Episode I - The Phantom Menace",
-      "overview": "Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi.",
-      "genre": "Adventure",
-      "id": 4
-    },
-    {
-      "title": "Star Wars: Episode I - The Phantom Menace",
-      "overview": "Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi.",
-      "genre": "Adventure",
-      "id": 5
-    },
-    {
-      "title": "Star Wars: Episode I - The Phantom Menace",
-      "overview": "Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi.",
-      "genre": "Adventure",
-      "id": 6
-    },
-    {
-      "title": "Star Wars: Episode I - The Phantom Menace",
-      "overview": "Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi.",
-      "genre": "Adventure",
-      "id": 7
     }
   ]
 }
