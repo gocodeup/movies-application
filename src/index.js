@@ -7,19 +7,37 @@ import sayHello from './hello';
 
 sayHello('World');
 
-const {getMovies, addMovie} = require('./api.js');
+const {getMovies, addMovie, deleteMovie, editMovie, getMovie} = require('./api.js');
 
 function refreshMovies() {
     getMovies().then((movies) => {
         $('.movies').html('');
         movies.forEach(({title, rating, id}) => {
-            let movieItems = '';
-            movieItems += `Rating: ${rating} Title: ${title} Id:${id}`;
-            $('.movies').append(movieItems);
+            // let movieItems = '';
+            //
+            // movieItems += `Rating: ${rating} Title: ${title} Id:${id}`;
+            // $('.movies').append(movieItems);
+            $('.movies').append(`<div class="delete">Rating: ${rating} Title: ${title} Id:${id}<button value="${id}" class="delete">Delete</button></div>`);
+
+
+            // $(movieItems).click(() => {
+            //
+            //     $(this).css("visibility", 'hidden')
+            //
+            //
+            // });
+
         });
     })
         .catch((error) => {
         });
+
+
+    $('.movies').on('click', '.delete', function (event){
+        let deleteId = $(event.target).val();
+        deleteMovie(deleteId);
+        refreshMovies();
+    });
 }
 
 $('#addMovie').click(() => {
@@ -30,6 +48,14 @@ $('#addMovie').click(() => {
     // look up inputs
     addMovie(title, rating, genre);
 });
+
+
+
+
+
+
+
+
 
 refreshMovies();
 
