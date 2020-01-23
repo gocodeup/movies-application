@@ -39,11 +39,11 @@ $('#addMovie').click(() => {
   addMovie(title, rating, genre);
 });
 
-$('#deleteMovie').click(() => {
-  let movieId = $('#deleteId').val();
-  deleteMovie(movieId);
-  renderMovies();
-});
+// $('#deleteMovie').click(() => {
+//   let movieId = $('#deleteId').val();
+//   deleteMovie(movieId);
+//   renderMovies();
+// });
 
 $('#movies').on('click', '.delete', function (event){
   let deleteId = $(event.target).val();
@@ -63,7 +63,6 @@ $('#movies').on('click', '.delete', function (event){
 //   console.log(error);
 // });
 
-console.log(getMovie(1));
 
 
 //Function for loading screen
