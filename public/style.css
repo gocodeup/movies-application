@@ -10,10 +10,10 @@ html, body {
     /*text-align: center;*/
 }
 
+
 .form-container {
-   display: inherit;
+    display: inherit;
     /*top: 50%;*/
     /*transform: translateY(-100%);*/
     text-align: center;
 }
-
