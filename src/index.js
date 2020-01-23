@@ -11,26 +11,29 @@ const $ = require('jquery');
  */
 const {getMovies, getMovie} = require('./api.js');
 
+let $movies = $('#movies');
+
+
 getMovies().then((movies) => {
   $('.movie-database').html('Here are all the movies:');
-  movies.forEach(({title, rating, id}) => {
-    $('.main-container').append(`id#${id} - ${title} - rating: ${rating} `);
+  movies.forEach(({title, rating, id, genre}) => {
+    $movies.append(`<div class="card"><div><ul class="list-group list-group-flush"><li>ID: ${id}</li><li>Title: ${title}</li><li>Rating: ${rating}</li><li>Genre: ${genre}</li><li><button class="btn-dark delete" value="${id}">DELETE</button></li></ul></div></div>`)
   });
 }).catch((error) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.')
   console.log(error);
 });
 
-getMovie().then((movies) => {
-  $('.movie-database').html('Here is your search:');
-  movies(({title, rating, id}) => {
-    $('.main-container').html(`id#${id} - ${title} - rating: ${rating} `);
-  });
-
-}).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.')
-  console.log(error);
-});
+// getMovie().then((movies) => {
+//   $('.movie-database').html('Here is your search:');
+//   movies(({title, rating, id}) => {
+//     $('.main-container').html(`id#${id} - ${title} - rating: ${rating} `);
+//   });
+//
+// }).catch((error) => {
+//   alert('Oh no! Something went wrong.\nCheck the console for details.')
+//   console.log(error);
+// });
 
 console.log(getMovie(1));
 
