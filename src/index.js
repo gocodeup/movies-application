@@ -20,9 +20,9 @@ const generateTable = () => {
         // console.log('Here are all the movies:');
         movies.forEach(({title, rating, id}) => {
             console.log(`id#${id} - ${title} - rating: ${rating}`);
-            //renders movie and rating in table rows
+           //renders movie and rating in table rows
             movieTable += `<tr><td id="row-title">${title}</td><td id="row-rating">${rating}</td>`;
-            movieTable += `<td id="row-button">` + `</td></tr>`
+            movieTable += `<td id="row-button">X</td></tr>`
             // add table edit and delete
             ;
         });
@@ -40,31 +40,30 @@ const generateTable = () => {
 generateTable();
 
 //Submit form
-$('#submit-button').on("click", function (e) {
+$('#submit-button').click((e) => {
     e.preventDefault();
-
+    console.log("clicked");
     if ($('#movie-title-input').val() !== "") {
 
         let title = $('#movie-title-input').val();
         let rating = $('#movie-rating-input').val();
         let movie = {
             title: title,
-            rating: rating,
+            rating: rating
         };
 
         const url = '/api/movies';
         const options = {
-            method: 'post',
+            method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify({title, rating}),
-        };
+            body: JSON.stringify(movie),
+       };
         fetch(url, options).then((response) => {
-            response.json();
+            console.log(response.json());
         }).then(() => {
             generateTable();
         });
     }
 });
-
