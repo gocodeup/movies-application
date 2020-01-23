@@ -18,8 +18,17 @@ module.exports = {
     rules: [
       {
         // any file that ends with '.js'
-        test: /\.js$/,
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          "css-loader",
+          "sass-loader"
+       ]
+      },
+
         // except those in "node_modules"
+      {
+        test: /\.js$/,
         exclude: /node_modules/,
         // transform with babel
         use: {

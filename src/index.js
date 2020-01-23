@@ -1,14 +1,27 @@
+
+export const $ = require('jquery');
+
+
+/**
+ * es6 modules and imports
+ */
+import sayHello from './hello.js';
 import $ from 'jquery'
 /**
  * es6 modules and imports
  */
 import sayHello from './hello';
 
-sayHello('World');
+
 
 /**
  * require style imports
  */
+
+
+
+sayHello();
+
 import {getMovies} from './api';
 
 // import loadingGifMain from './hello';
@@ -74,3 +87,4 @@ $('#submit-button').on("click", function (e) {
         });
     }
 });
+
