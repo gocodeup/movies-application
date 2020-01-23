@@ -11,13 +11,20 @@ const $ = require('jquery');
  */
 const {getMovies, addMovie, getMovie, editMovie, deleteMovie} = require('./api.js');
 
-let $movies = $('#movies');
-
+function renderMovies() {
+  $('#movies').html('');
+  getMovies().then((movies) => {
+    $('#movies').html('');
+    movies.forEach(({title, rating, id, genre}) => {
+      $('#movies').append(`<div class="card h-100"><div class="card-body"><p>Id: ${id}</p><p>Title: ${title}</p><p>Rating: ${rating}</p><p>Genre: ${genre}</p><button id="deleteButton" class="btn-dark delete" value="${id}">Delete</button></div></div>`)
+    });
+  })
+}
 
 getMovies().then((movies) => {
   $('.movie-database').html('Here are all the movies:');
   movies.forEach(({title, rating, id, genre}) => {
-    $movies.append(`<div class="card h-100"><div class="card-body"><p>Id: ${id}</p><p>Title: ${title}</p><p>Rating: ${rating}</p><p>Genre: ${genre}</p><button class="btn-dark delete" value="${id}">DELETE</button></div></div>`)
+    $('#movies').append(`<div class="card h-100"><div class="card-body"><p>Id: ${id}</p><p>Title: ${title}</p><p>Rating: ${rating}</p><p>Genre: ${genre}</p><button id="deleteButton" class="btn-dark delete" value="${id}">Delete</button></div></div>`)
   });
 }).catch((error) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.')
@@ -25,9 +32,26 @@ getMovies().then((movies) => {
 });
 
 $('#addMovie').click(() => {
+  let title = $('#inputTitle').val();
+  let rating = $('#inputRating').val();
+  let genre = $('#inputGenre').val();
   // look up inputs
-  addMovie("Terminator", 7, "western");
+  addMovie(title, rating, genre);
 });
+
+$('#deleteMovie').click(() => {
+  let movieId = $('#deleteId').val();
+  deleteMovie(movieId);
+  renderMovies();
+});
+
+$('#movies').on('click', '.delete', function (event){
+  let deleteId = $(event.target).val();
+  deleteMovie(deleteId);
+  renderMovies();
+});
+
+
 // getMovie().then((movies) => {
 //   $('.movie-database').html('Here is your search:');
 //   movies(({title, rating, id}) => {

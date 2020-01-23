@@ -26,7 +26,7 @@ module.exports = {
   },
   deleteMovie: (id) => {
     return fetch(`/api/movies/${id}`, {
-      method: 'DELETE'
+      method: 'DELETE', headers: {'Content-Type': 'application/json'}
     })
   }
 };
