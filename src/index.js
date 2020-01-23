@@ -25,17 +25,17 @@ getMovies()
   alert('Oh no! Something went wrong.\nCheck the console for details.')
   console.log(error);
 });
-getOMDB("Ninja Turtles")
-    .then(response => console.log(response));
-// searchTheMovieDBID("Star Wars The Phantom Menace")
-//     // .then(response => console.log(response))
-//     .then(response => {
-//         return response['results'][0];
-//     })
-//     .then(response => searchMovie(response))
-//     // .then(response => console.log(response))
-//     .then(response => updateCRUDyDB(response))
-updateCRUDyDB('cat');
+// getOMDB("Ninja Turtles")
+//     .then(response => console.log(response));
+searchTheMovieDBID("Star Wars The Phantom Menace")
+    // .then(response => console.log(response))
+    .then(response => {
+        return response['results'][0];
+    })
+    .then(response => searchMovie(response))
+    // .then(response => console.log(response))
+    .then(response => updateCRUDyDB(response))
+// updateCRUDyDB('cat');
 
 
 

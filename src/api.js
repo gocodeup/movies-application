@@ -55,16 +55,16 @@ module.exports = {
             .then((response) => response.json());
     },
     updateCRUDyDB: (inputObj) => {
-        // let data = {
-        //     title: inputObj['title'],
-        //     overview: inputObj['overview'],
-        //     genre: inputObj["genres"][0]["name"]
-        // };
-        let data = {username: "user"}
+        let data = {
+            title: inputObj['title'],
+            overview: inputObj['overview'],
+            genre: inputObj["genres"][0]["name"]
+        };
+        // let data = {username: inputObj}
         return fetch(`/api/movies`,  {
             method: 'POST', // or 'PUT'
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(data),
         })

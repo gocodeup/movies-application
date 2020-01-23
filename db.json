@@ -1,44 +1,72 @@
 {
   "movies": [
     {
-      "Title": "Casablanca",
-      "Year": "1942",
-      "Rated": "PG",
-      "Released": "23 Jan 1943",
-      "Runtime": "102 min",
-      "Genre": "Drama, Romance, War",
-      "Director": "Michael Curtiz",
-      "Writer": "Julius J. Epstein (screenplay), Philip G. Epstein (screenplay), Howard Koch (screenplay), Murray Burnett (play), Joan Alison (play)",
-      "Actors": "Humphrey Bogart, Ingrid Bergman, Paul Henreid, Claude Rains",
-      "Plot": "A cynical American expatriate struggles to decide whether or not he should help his former lover and her fugitive husband escape French Morocco.",
-      "Language": "English, French, German, Italian",
-      "Country": "USA",
-      "Awards": "Won 3 Oscars. Another 5 wins & 9 nominations.",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BY2IzZGY2YmEtYzljNS00NTM5LTgwMzUtMzM1NjQ4NGI0OTk0XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg",
-      "Ratings": [
-        {
-          "Source": "Internet Movie Database",
-          "Value": "8.5/10"
-        },
-        {
-          "Source": "Rotten Tomatoes",
-          "Value": "98%"
-        },
-        {
-          "Source": "Metacritic",
-          "Value": "100/100"
-        }
-      ],
-      "Metascore": "100",
-      "imdbRating": "8.5",
-      "imdbVotes": "491,758",
-      "imdbID": "tt0034583",
-      "Type": "movie",
-      "DVD": "15 Feb 2000",
-      "BoxOffice": "N/A",
-      "Production": "Warner Bros. Pictures",
-      "ID": 1,
-      "UserRating": 4
+      "title": "Casablanca",
+      "rating": "4",
+      "id": 1
+    },
+    {
+      "title": "Star Wars: A New Hope",
+      "rating": "5",
+      "id": 2
+    },
+    {
+      "username": "cat",
+      "id": 3
+    },
+    {
+      "title": "Star Wars: Episode I - The Phantom Menace",
+      "overview": "Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi.",
+      "genre": "Adventure",
+      "id": 4
+    },
+    {
+      "title": "Star Wars: Episode I - The Phantom Menace",
+      "overview": "Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi.",
+      "genre": "Adventure",
+      "id": 5
+    },
+    {
+      "title": "Star Wars: Episode I - The Phantom Menace",
+      "overview": "Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi.",
+      "genre": "Adventure",
+      "id": 6
+    },
+    {
+      "title": "Star Wars: Episode I - The Phantom Menace",
+      "overview": "Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi.",
+      "genre": "Adventure",
+      "id": 7
+    },
+    {
+      "title": "Star Wars: Episode I - The Phantom Menace",
+      "overview": "Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi.",
+      "genre": "Adventure",
+      "id": 8
+    },
+    {
+      "title": "Star Wars: Episode I - The Phantom Menace",
+      "overview": "Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi.",
+      "genre": "Adventure",
+      "id": 9
+    },
+    {
+      "title": "Star Wars: Episode I - The Phantom Menace",
+      "overview": "Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi.",
+      "genre": "Adventure",
+      "id": 10
+    },
+    {
+      "title": "Star Wars: Episode I - The Phantom Menace",
+      "overview": "Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi.",
+      "genre": "Adventure",
+      "id": 11
+    },
+    {
+      "title": "Star Wars: Episode I - The Phantom Menace",
+      "overview": "Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi.",
+      "genre": "Adventure",
+      "id": 12
     }
   ]
 }
