@@ -72,7 +72,6 @@ module.exports = {
             .then((data) => {
                 console.log('Success:', data);
             })
-            // .then(response => response.json())
     }
 };
 
