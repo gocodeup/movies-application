@@ -11,22 +11,31 @@ sayHello('World');
 /**
  * require style imports
  */
-const {getMovies} = require('./api.js');
+const {getMovies, addMovies, getMovie, editMovie, deleteMovie} = require('./api.js');
 
+let $movies = $('#movies');
 
-$('#submit').click(function() {
-    getMovies().then((movies) => {
-        console.log('Here are all the movies:');
-        movies.forEach(({title, rating, id}) => {
-            $('#movies').append(`${id} - ${title} - rating: ${rating}, `);
-        });
-    }).catch((error) => {
-        alert('Oh no! Something went wrong.\nCheck the console for details.');
-        console.log(error);
+getMovies().then((movies) => {
+    // console.log('Here are all the movies:');
+    movies.forEach(({title, rating, id}) => {
+        $movies.append(`<li class="list-group-item"> id#${id} - ${title} - rating: ${rating}</li>`);
+        // console.log(`id#${id} - ${title} - rating: ${rating}`);
     });
+}).catch((error) => {
+    alert('Oh no! Something went wrong.\nCheck the console for details.');
+    console.log(error);
 });
 
-var movieSearch = document.getElementById('userInput');
+
+$('#movieSearch').keyup(function() {
+    let movieName = $("#movieSearch").val();
+    console.log(movieName);
+    // let found = movies.find(function (element){
+    //     return element;
+    // })
+});
+
+// let userSearch = $("#movieSearch").val();
 
 
 // loader------------------------------
