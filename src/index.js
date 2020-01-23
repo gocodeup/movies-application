@@ -1,6 +1,8 @@
 //modules required
 const $ = require('jquery');
+const OMDB_API_KEY = require('./keys.js');
 const {getMovies} = require('./api.js');
+const {getOMDB} = require('./api.js');
 // const {movieData} = require('./api.js');
 getMovies()
     .then((movies) => {
@@ -15,11 +17,12 @@ getMovies()
       });
       return movies;
     })
-
-
     .catch((error) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.')
   console.log(error);
 });
+getOMDB("Bad Boys")
+    .then(response => console.log(response));
+
 
 
