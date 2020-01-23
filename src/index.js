@@ -20,8 +20,8 @@ const generateTable = () => {
         // console.log('Here are all the movies:');
         movies.forEach(({title, rating, id}) => {
             console.log(`id#${id} - ${title} - rating: ${rating}`);
-            //renders movie and rating in table rows
-            movieTable += `<tr><td id="row-title">${title}</td><td id="row-rating">${rating}</td>`;
+           //renders movie and rating in table rows
+            movieTable += `<tr><td id="row-title">${title}</td><td id="row-rating">${rating}<div>X</div></td>`;
             movieTable += `<td id="row-button">` + `</td></tr>`
             // add table edit and delete
             ;
