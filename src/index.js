@@ -9,7 +9,7 @@ const $ = require('jquery');
 /**
  * require style imports
  */
-const {getMovies, getMovie} = require('./api.js');
+const {getMovies, addMovie, getMovie, editMovie, deleteMovie} = require('./api.js');
 
 let $movies = $('#movies');
 
@@ -24,6 +24,10 @@ getMovies().then((movies) => {
   console.log(error);
 });
 
+$('#addMovie').click(() => {
+  // look up inputs
+  addMovie("Terminator", 7, "western");
+});
 // getMovie().then((movies) => {
 //   $('.movie-database').html('Here is your search:');
 //   movies(({title, rating, id}) => {

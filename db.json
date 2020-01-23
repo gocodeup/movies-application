@@ -89,7 +89,18 @@
       "rating": "2",
       "id": 15,
       "genre": "science-fiction"
+    },
+    {
+      "title": "Terminator",
+      "rating": 7,
+      "genre": "western",
+      "id": 16
+    },
+    {
+      "title": "Terminator",
+      "rating": 7,
+      "genre": "western",
+      "id": 17
     }
-
   ]
 }
