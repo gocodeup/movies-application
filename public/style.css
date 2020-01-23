@@ -3,10 +3,17 @@ html, body {
 }
 
 .container {
-    position: relative;
-    top: 50%;
-    transform: translateY(-100%);
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    /*top: 50%;*/
+    /*transform: translateY(-100%);*/
+    /*text-align: center;*/
 }
 
+.form-container {
+   display: inherit;
+    /*top: 50%;*/
+    /*transform: translateY(-100%);*/
+    text-align: center;
+}
 
