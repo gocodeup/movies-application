@@ -1,19 +1,22 @@
 import './style.scss'
 import {$} from './index'
 export default () => {
+
+
    const myLoader = () => {
        let $body = $("body");
-        $body.addClass("loading");
+        $body.removeClass("loading");
 
    };
-   setInterval(myLoader, 1200)
 
-    const removeLoader = () => {
+   const removeLoader = () => {
        let $body = $("body");
-    $body.removeClass("loading");
+    $body.toggleClass("loading");
    clearInterval(myLoader)
-   }
-removeLoader()
+   };
+
+   setTimeout(myLoader, 1200);
+    removeLoader();
 
 }
 
