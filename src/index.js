@@ -18,6 +18,28 @@ function deleteThis() {
             }
         }).then(() => {
             generateTable();
+       });
+    });
+}
+function editThis() {
+    $('.row-edit').on("click", function () {
+        let title = $('#movie-title-input').val();
+        let rating = $('#movie-rating-input').val();
+        let movie = {
+            title: title,
+            rating: rating
+        };
+        let id = $(this).attr('data-id');
+        console.log('edit clicked');
+        console.log(id);
+        fetch(`/api/movies/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(movie)
+        }).then(() => {
+            generateTable();
         });
     });
 }
@@ -47,6 +69,7 @@ const generateTable = () => {
         movieTable += '</table>';
         // adds fetched table info to HTML
         $('.container').html(movieTable);
+        editThis();
         deleteThis();
 
     })
