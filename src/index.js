@@ -20,7 +20,7 @@ const generateTable = () => {
         // console.log('Here are all the movies:');
         movies.forEach(({title, rating, id}) => {
             console.log(`id#${id} - ${title} - rating: ${rating}`);
-           //renders movie and rating in table rows
+            //renders movie and rating in table rows
             movieTable += `<tr><td id="row-title">${title}</td><td id="row-rating">${rating}</td>`;
             movieTable += `<td id="row-button"><i class="fas fa-edit" id="row-edit"></i> <i class="fas fa-trash-alt" id="row-delete"></i></td></tr>`
             // add table edit and delete
@@ -59,7 +59,7 @@ $('#submit-button').click((e) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(movie),
-       };
+        };
         fetch(url, options).then((response) => {
             console.log(response.json());
         }).then(() => {
@@ -92,3 +92,14 @@ $('#submit-button').click((e) => {
 //         generateTable();
 //     });
 // });
+
+
+$('#row-delete').click(() => {
+    getMovies().then((movies) => {
+        console.log('delete clicked');
+        const url = `/api/movies/${movies.id}`;
+        const options = {method: 'DELETE',};
+        fetch(url, options).then((response) => response.json())
+            .then(() => generateTable())
+    });
+});
