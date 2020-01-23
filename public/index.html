@@ -9,38 +9,41 @@
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+<nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a id="brand-link" class="navbar-brand" href="#">Navbar</a>
+
+    <button id="nav-toggle" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+    <div id="nav-collapse" class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul id="ul-nav" class="navbar-nav mr-auto">
+            <li id="home-li" class="nav-item active">
+                <a id="home-anchor"class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+            <li id="create-li" class="nav-item">
+                <a id="create-anchor" class="nav-link" href="#">Create</a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            <li id="disable-li" class="nav-item">
+                <a id="disable-anchor" class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <form id="form" class="form-inline my-2 my-lg-0">
+            <input id="search-id" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button id="search-button" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li id="dropdown" class="nav-item dropdown">
+            <a id="dropdown-anchor" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Dropdown
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
+            <div id="dropmenu" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a id="action-drop-anchor" class="dropdown-item" href="#">Action</a>
+                <a id="another-action" class="dropdown-item" href="#">Another action</a>
+                <div id="divider" class="dropdown-divider"></div>
+                <a id="something" class="dropdown-item" href="#">Something else here</a>
             </div>
         </li>
     </div>
