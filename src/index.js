@@ -1,4 +1,5 @@
 import $ from 'jquery'
+<<<<<<< Updated upstream
 /**
  * es6 modules and imports
  */
@@ -9,6 +10,13 @@ sayHello('World');
 /**
  * require style imports
  */
+=======
+
+import sayHello from './hello';
+
+sayHello();
+
+>>>>>>> Stashed changes
 import {getMovies} from './api';
 
 // import loadingGifMain from './hello';
@@ -16,7 +24,7 @@ import {getMovies} from './api';
 const generateTable = () => {
     getMovies().then((movies) => {
         // Add table to container
-        let movieTable = '<table class="movies highlight centered" id="movie-list">';
+        let movieTable = '<table class="movies" id="movie-list">';
         movieTable += '<thead>';
         movieTable += '<tr>';
         movieTable += '<th>Movie</th>';
