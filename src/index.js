@@ -6,6 +6,22 @@ sayHello();
 
 import {getMovies} from './api';
 
+let deleteThis = () => {
+    $('.row-delete').on("click", () => {
+        console.log('delete clicked');
+        let id = $(this).attr('data-id');
+
+        fetch(`/api/movies/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(() => {
+            generateTable();
+        });
+    });
+};
+
 const generateTable = () => {
     getMovies().then((movies) => {
         // Add table to container
@@ -21,24 +37,28 @@ const generateTable = () => {
         movies.forEach(({title, rating, id}) => {
             console.log(`id#${id} - ${title} - rating: ${rating}`);
             //renders movie and rating in table rows
-            movieTable += `<tr><td id="row-title">${title}</td><td id="row-rating">${rating}</td>`;
-            movieTable += `<td data-id="${id}" id="row-button"><i class="fas fa-edit row-edit"></i> <i data-id="${id}" class="fas fa-trash-alt row-delete" ></i></td></tr>`
+            movieTable += `<tr><td data-id="${id}" id="row-title">${title}</td><td data-id="${id}" id="row-rating">${rating}</td>`;
+            movieTable += `<td><i data-id="${id}" class="fas fa-edit row-edit"></i> <i data-id="${id}" class="fas fa-trash-alt row-delete" ></i></td></tr>`
             // add table edit and delete
 
         });
+
         //closes table after content is rendered
         movieTable += '</table>';
         // adds fetched table info to HTML
         $('.container').html(movieTable)
+        deleteThis();
 
     })
         .catch((error) => {
-            alert('Oh no! Something went wrong.\nCheck the console for details.')
+            alert('Oh no! Something went wrong.\nCheck the console for details.');
             console.log(error);
         })
 };
-generateTable();
 
+
+
+generateTable();
 //Submit form
 $('#submit-button').click((e) => {
     e.preventDefault();
@@ -69,29 +89,7 @@ $('#submit-button').click((e) => {
 });
 
 //Delete button
-$('.container').on("click", '.row-delete', () => {
-    console.log('delete clicked');
-    let id = $(this).attr('data-id');
-    let url = `/api/movies/${id}`;
-    let options = {
-       method: 'DELETE',
-        headers: {
-           'Content-Type': 'application/json'
-        },
-   };
-    fetch(url, options)
-    .then(() => {
-        generateTable();
-    });
-});
 
 
-// $('#row-delete').click(() => {
-//     getMovies().then((movies) => {
-//         console.log('delete clicked');
-//         const url = `/api/movies/${movies.id}`;
-//         const options = {method: 'DELETE',};
-//         fetch(url, options).then((response) => response.json())
-//             .then(() => generateTable())
-//     });
-// });
+
+
