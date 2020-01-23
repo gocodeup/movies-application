@@ -1,30 +1,10 @@
-
-export const $ = require('jquery');
-
-
-/**
- * es6 modules and imports
- */
-import sayHello from './hello.js';
 import $ from 'jquery'
-/**
- * es6 modules and imports
- */
-import sayHello from './hello';
 
-
-
-/**
- * require style imports
- */
-
-
+import sayHello from './hello.js';
 
 sayHello();
 
 import {getMovies} from './api';
-
-// import loadingGifMain from './hello';
 
 const generateTable = () => {
     getMovies().then((movies) => {
