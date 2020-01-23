@@ -6,11 +6,11 @@ sayHello();
 
 import {getMovies} from './api';
 
-let deleteThis = () => {
-    $('.row-delete').on("click", () => {
-        console.log('delete clicked');
+function deleteThis() {
+    $('.row-delete').on("click", function () {
         let id = $(this).attr('data-id');
-
+        console.log('delete clicked');
+        console.log(id);
         fetch(`/api/movies/${id}`, {
             method: 'DELETE',
             headers: {
@@ -20,7 +20,7 @@ let deleteThis = () => {
             generateTable();
         });
     });
-};
+}
 
 const generateTable = () => {
     getMovies().then((movies) => {
@@ -37,7 +37,7 @@ const generateTable = () => {
         movies.forEach(({title, rating, id}) => {
             console.log(`id#${id} - ${title} - rating: ${rating}`);
             //renders movie and rating in table rows
-            movieTable += `<tr><td data-id="${id}" id="row-title">${title}</td><td data-id="${id}" id="row-rating">${rating}</td>`;
+            movieTable += `<tr><td id="row-title">${title}</td><td id="row-rating">${rating}</td>`;
             movieTable += `<td><i data-id="${id}" class="fas fa-edit row-edit"></i> <i data-id="${id}" class="fas fa-trash-alt row-delete" ></i></td></tr>`
             // add table edit and delete
 
@@ -46,7 +46,7 @@ const generateTable = () => {
         //closes table after content is rendered
         movieTable += '</table>';
         // adds fetched table info to HTML
-        $('.container').html(movieTable)
+        $('.container').html(movieTable);
         deleteThis();
 
     })

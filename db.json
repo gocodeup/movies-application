@@ -1,11 +1,6 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
-      "rating": "4",
-      "id": 1
-    },
-    {
       "title": "Star Wars: A New Hope",
       "rating": "5",
       "id": 2
@@ -29,46 +24,6 @@
       "title": "The Matrix",
       "rating": "4",
       "id": 6
-    },
-    {
-      "title": "The Matrix Reloaded",
-      "rating": "3",
-      "id": 7
-    },
-    {
-      "title": "The Matrix 3",
-      "rating": "3",
-      "id": 8
-    },
-    {
-      "title": "Test",
-      "rating": "one",
-      "id": 9
-    },
-    {
-      "title": "Test",
-      "rating": "one",
-      "id": 10
-    },
-    {
-      "title": "Hercules",
-      "rating": "four",
-      "id": 11
-    },
-    {
-      "title": "Friday",
-      "rating": "4",
-      "id": 12
-    },
-    {
-      "title": "next friday",
-      "rating": "1",
-      "id": 13
-    },
-    {
-      "title": "Test",
-      "rating": "4",
-      "id": 14
     }
   ]
 }
