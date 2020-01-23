@@ -22,9 +22,9 @@ const generateTable = () => {
             console.log(`id#${id} - ${title} - rating: ${rating}`);
             //renders movie and rating in table rows
             movieTable += `<tr><td id="row-title">${title}</td><td id="row-rating">${rating}</td>`;
-            movieTable += `<td id="row-button"><i class="fas fa-edit" id="row-edit"></i> <i class="fas fa-trash-alt" id="row-delete"></i></td></tr>`
+            movieTable += `<td data-id="${id}" id="row-button"><i class="fas fa-edit row-edit"></i> <i data-id="${id}" class="fas fa-trash-alt row-delete" ></i></td></tr>`
             // add table edit and delete
-            ;
+
         });
         //closes table after content is rendered
         movieTable += '</table>';
@@ -68,38 +68,30 @@ $('#submit-button').click((e) => {
     }
 });
 
-// function deleteID(url, id) {
-//     return fetch(`${url}/${id}`, {method: 'DELETE'}).then(response => response.json())
-// }
-//
-//
-// //Delete button
-// $('#row-delete').click(() => {
-//     console.log('delete clicked');
-//     const url = '/api/movies/';
-//
-//     const options = {
-//         method: 'DELETE',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(id),
-//     };
-//     fetch(url, options).then((response) => {
-//     })
-//     deleteID()
-//     .then(() => {
-//         generateTable();
-//     });
-// });
-
-
-$('#row-delete').click(() => {
-    getMovies().then((movies) => {
-        console.log('delete clicked');
-        const url = `/api/movies/${movies.id}`;
-        const options = {method: 'DELETE',};
-        fetch(url, options).then((response) => response.json())
-            .then(() => generateTable())
+//Delete button
+$('.container').on("click", '.row-delete', () => {
+    console.log('delete clicked');
+    let id = $(this).attr('data-id');
+    let url = `/api/movies/${id}`;
+    let options = {
+       method: 'DELETE',
+        headers: {
+           'Content-Type': 'application/json'
+        },
+   };
+    fetch(url, options)
+    .then(() => {
+        generateTable();
     });
 });
+
+
+// $('#row-delete').click(() => {
+//     getMovies().then((movies) => {
+//         console.log('delete clicked');
+//         const url = `/api/movies/${movies.id}`;
+//         const options = {method: 'DELETE',};
+//         fetch(url, options).then((response) => response.json())
+//             .then(() => generateTable())
+//     });
+// });
