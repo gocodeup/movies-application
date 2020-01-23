@@ -9,6 +9,9 @@ sayHello('World');
  */
 import {getMovies} from './api.js';
 
+// import loadingGifMain from './hello';
+
+
 getMovies().then((movies) => {
   console.log('Here are all the movies:');
   movies.forEach(({title, rating, id}) => {

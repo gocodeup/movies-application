@@ -9,6 +9,16 @@
       "title": "Star Wars: A New Hope",
       "rating": "5",
       "id": 2
+    },
+    {
+      "title": "Avatar",
+      "rating": "3",
+      "id": 3
+    },
+    {
+      "title": "The Sandlot",
+      "rating": "4",
+      "id": 4
     }
   ]
 }
