@@ -35,7 +35,7 @@ getOMDB("Ninja Turtles")
 //     .then(response => searchMovie(response))
 //     // .then(response => console.log(response))
 //     .then(response => updateCRUDyDB(response))
-updateCRUDyDB('cat');
+// updateCRUDyDB('cat');
 
 
 
