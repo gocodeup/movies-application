@@ -1,14 +1,95 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
-      "rating": "4",
-      "id": 1
+      "title": "John Wick",
+      "rating": "5",
+      "id": 1,
+      "genre": "action"
     },
     {
       "title": "Star Wars: A New Hope",
       "rating": "5",
-      "id": 2
+      "id": 2,
+      "genre": "science fiction"
+    },
+    {
+      "title": "IT",
+      "rating": "4",
+      "id": 3,
+      "genre": "horror"
+    },
+    {
+      "title": "The Notebook",
+      "rating": "2",
+      "id": 4,
+      "genre": "romance"
+    },
+    {
+      "title": "Old School",
+      "rating": "4",
+      "id": 5,
+      "genre": "comedy"
+    },
+    {
+      "title": "Grown Ups",
+      "rating": "2",
+      "id": 6,
+      "genre": "comedy"
+    },
+    {
+      "title": "The Hobbit: An Unexpected Journey",
+      "rating": "1",
+      "id": 7,
+      "genre": "fantasy"
+    },
+    {
+      "title": "Toy Story",
+      "rating": "5",
+      "id": 8,
+      "genre": "animation"
+    },
+    {
+      "title": "Princess Mononoke",
+      "rating": "5",
+      "id": 9,
+      "genre": "anime"
+    },
+    {
+      "title": "Howl's Moving Castle",
+      "rating": "5",
+      "id": 10,
+      "genre": "anime"
+    },
+    {
+      "title": "The Magnificent Seven",
+      "rating": "3",
+      "id": 11,
+      "genre": "western"
+    },
+    {
+      "title": "Catwoman",
+      "rating": "1",
+      "id": 12,
+      "genre": "action"
+    },
+    {
+      "title": "Harry Potter and the Sorcerer's Stone",
+      "rating": "4",
+      "id": 13,
+      "genre": "fantasy"
+    },
+    {
+      "title": "Aladdin",
+      "rating": "1",
+      "id": 14,
+      "genre": "live-action"
+    },
+    {
+      "title": "Jurassic World: Fallen Kingdom",
+      "rating": "2",
+      "id": 15,
+      "genre": "science-fiction"
     }
+
   ]
 }

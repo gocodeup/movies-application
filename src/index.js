@@ -21,6 +21,12 @@ getMovies().then((movies) => {
   console.log(error);
 });
 
+
+
+
+
+
+//Function for loading screen
 $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
 $(window).on('load', function(){
   setTimeout(removeLoader, 2000); //wait for page load PLUS two seconds.
