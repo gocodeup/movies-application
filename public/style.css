@@ -4,12 +4,11 @@ html, body {
 
 .container {
     position: relative;
-    margin-top: 25%;
+    /*margin-top: 100%;*/
     top: 50%;
     transform: translateY(-100%);
     text-align: center;
 }
-
 
 .loader {
     color: #ffffff;
