@@ -3,7 +3,7 @@
  */
 import sayHello from './hello';
 sayHello('World');
-
+const $ = require('jquery');
 /**
  * require style imports
  */
@@ -15,7 +15,7 @@ getMovies().then((movies) => {
     console.log(`id#${id} - ${title} - rating: ${rating} - ${genre}`);
   });
 }).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.')
+  alert('Oh no! Something went wrong.Check the console for details.');
   console.log(error);
 });
 
@@ -32,3 +32,9 @@ $('#refresh').click(function () {
   $('#insertProducts').html("");
   refresh()
 })
+
+$(document).ready(function () {
+  let loader1 = $('.container').hide().show(8000).hide(8000);
+  let loader2 = $('.center').hide().show(8000).hide(8000);
+
+}());
