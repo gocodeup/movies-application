@@ -18,7 +18,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div id="nav-collapse" class="collapse navbar-collapse">
-        <ul id="ul-nav" class="navbar-nav mr-auto">
+        <ul id="ul-nav" class="navbar-nav m-auto">
             <li id="create-li" class="nav-item">
                 <button id="create-button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-button-modal">Create</button>
                 <!-- Modal -->
@@ -59,8 +59,45 @@
                     </div>
                 </div>
             </li>
-            <li id="review-li" class="nav-item">
-                <a id="review-anchor" class="nav-link" href="#">Review</a>
+            <li id="read-li" class="nav-item">
+                <button id="read-button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#read-button-modal">Read</button>
+                <!-- Modal -->
+                <div id="read-button-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div id="read-modal-dialog" class="modal-dialog modal-dialog-centered" role="document">
+                        <div id="read-modal-content" class="modal-content">
+                            <div id="read-modal-header" class="modal-header">
+                                <h5 id="read-modal-title" class="modal-title">Read The Movie Database!</h5>
+                                <button id="read-modal-close-button" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="false">&times;</span>
+                                </button>
+                            </div>
+                            <div id="read-modal-body" class="modal-body">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="create-movie-title-input">Movie Title</label>
+                                            <input type="text" class="form-control" id="read-movie-title-input">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="select-rating">Rating</label>
+                                            <select id="read-rating" class="form-control">
+                                                <option value="1" selected>⭐</option>
+                                                <option value="2">⭐⭐</option>
+                                                <option value="3">⭐⭐⭐</option>
+                                                <option value="4">⭐⭐⭐⭐</option>
+                                                <option value="5">⭐⭐⭐⭐⭐</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button id="read-with-the-movie-db" type="button" class="btn btn-primary" data-dismiss="modal">Create With The Movie DB .Org</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </li>
             <li id="update-li" class="nav-item">
                 <a id="update-anchor" class="nav-link" href="#">Update</a>
@@ -70,20 +107,6 @@
             </li>
             <li id="why-li" class="nav-item">
                 <a id="why-anchor" class="nav-link" href="#">-whY</a>
-            </li>
-        </ul>
-        <form id="form" class="form-inline my-2 my-lg-0">
-            <input id="search-id" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button id="search-button" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-        <ul id="filter-ul">
-            <li class="nav-item dropdown" id="filter-li">
-                <a id="filter-anchor" class="nav-link dropdown-toggle btn btn-outline-success" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter</a>
-                <div id="filter-dropdown" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a id="filter-anchor-alphabetical"class="dropdown-item" href="#">Alphabetical</a>
-                    <a id="filter-anchor-genre"class="dropdown-item" href="#">Genre</a>
-                    <a id="filter-anchor-rating"class="dropdown-item" href="#">Rating</a>
-                </div>
             </li>
         </ul>
     </div>
