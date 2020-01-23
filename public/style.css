@@ -8,6 +8,7 @@ html, body {
     transform: translateY(-100%);
     text-align: center;
 }
+/*styling for page loader*/
 .loader {
     border-radius: 50%;
     border-left: 16px solid beige;
@@ -20,7 +21,7 @@ html, body {
     z-index: 1;
     width: 160px;
     height: 160px;
-    margin: -75px 0 0 -75px;
+    margin: -300px 0 0 -100px;
     border-top: 16px solid #3498db;
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
@@ -31,9 +32,16 @@ html, body {
 }
 
 @-webkit-keyframes animatebottom {
-    from { bottom:-100px; opacity:0 }
-    to { bottom:0px; opacity:1 }
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+    to {
+        bottom: 0px;
+        opacity: 1
+    }
+}
 
-.center{
-    text-align: center;
+.load-title,.load-p{
+    font-family: 'Bangers', cursive;
 }

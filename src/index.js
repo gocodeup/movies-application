@@ -19,9 +19,10 @@ getMovies().then((movies) => {
   alert('Oh no! Something went wrong.Check the console for details.');
   console.log(error);
 });
+ //functionality for the loading pane//
+let loader1 = $('.container').hide().show(8000).hide(8000);
+let loader2 = $('.center').hide().show(8000).hide(8000);
 
-$('.container').hide().fadeIn(3000);
-$('.center').hide();
 
 
 
