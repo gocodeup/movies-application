@@ -9,7 +9,7 @@ const $ = require('jquery');
 /**
  * require style imports
  */
-const {getMovies} = require('./api.js');
+const {getMovies, getMovie} = require('./api.js');
 
 getMovies().then((movies) => {
   $('.movie-database').html('Here are all the movies:');
@@ -21,9 +21,18 @@ getMovies().then((movies) => {
   console.log(error);
 });
 
+getMovie().then((movies) => {
+  $('.movie-database').html('Here is your search:');
+  movies(({title, rating, id}) => {
+    $('.main-container').html(`id#${id} - ${title} - rating: ${rating} `);
+  });
 
+}).catch((error) => {
+  alert('Oh no! Something went wrong.\nCheck the console for details.')
+  console.log(error);
+});
 
-
+console.log(getMovie(1));
 
 
 //Function for loading screen
