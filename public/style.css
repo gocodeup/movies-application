@@ -1,5 +1,6 @@
 html, body {
     height: 100%;
+    background-color: darkgray;
 }
 
 .container {
@@ -10,4 +11,13 @@ html, body {
 }
 ul{
     list-style-type: none;
+    display:table;
+    width:100%
+}
+li{
+    display:table-cell;
+}
+#loader {
+position: page;
+z-index: 1;
 }
