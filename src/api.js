@@ -17,10 +17,11 @@ module.exports = {
       method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(newMovie)
     })
   },
-  editMovie: (id, movie) => {
-    console.log(movie.id);
+  editMovie: (id, title, rating, genre) => {
+    let editMovie = {title:title,rating:rating, genre:genre};
+    // console.log(editMovie);
     return fetch(`/api/movies/${id}`, {
-      method: 'PATCH', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(movie)
+      method: 'PATCH', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(editMovie)
     })
 
   },

@@ -70,3 +70,7 @@
 .list-group {
     list-style: none;
 }
+
+.hidden {
+    display: none;
+}
