@@ -1,6 +1,6 @@
 //modules required
 const $ = require('jquery');
-const {updateCRUDyDBFromUser, refreshMovies, searchRapidApiMovieDB, getRapidApiMovieID, idSearchRapidApiMovieDB, updateCRUDyDBFromRapid} = require('./api.js');
+const {updateCRUDyDBFromUser, refreshMovies, searchRapidApiMovieDB, getRapidApiMovieID, idSearchRapidApiMovieDB, updateCRUDyDBFromRapid, readFromCRUDyDB} = require('./api.js');
 
 
 refreshMovies();
@@ -91,6 +91,14 @@ $('#confirm-create-submit-button').click(function() {
         })
         .then(result => refreshMovies())
 });
+//READ
+$('#read-data-button').click(function() {
+    readFromCRUDyDB($('#read-movie-title-input').val(), $('#read-rating-select').val(), $('#read-genre-input').val(), $('#read-id-input').val());
+    $('#read-movie-title-input').val('');
+    $('#read-rating-select').val('');
+    $('#read-genre-input').val('');
+    $('#read-id-input').val('');
+})
 
 
 

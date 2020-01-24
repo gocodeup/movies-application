@@ -106,7 +106,52 @@ module.exports = {
                 console.log('Success:', data);
             })
     },
-
+    readFromCRUDyDB: (inputTitle, inputRating, inputGenre, inputID) => {
+        $('#main-container').html(`<h1 id="loading-h1">Loading...</h1>`);
+        return fetch('/api/movies')
+            .then(response => response.json())
+            .then((movies) => {
+                let filteredArr = [];
+                let i = 1;
+                let filteredParamArr = [];
+                let inputParamArr = [
+                    {Title: inputTitle}, {Rating: inputRating}, {Genre: inputGenre}, {id: inputID}
+                ];
+                inputParamArr.forEach(param => {
+                    console.log(param);
+                    console.log(Object.values(param));
+                    let paramArr = Object.values(param);
+                    let testParam = paramArr.join('');
+                    if (testParam !== '') {
+                        filteredParamArr.push(param);
+                    }
+                });
+                let filteredMoviesArr = [];
+                filteredParamArr.forEach(param => {
+                    let paramKey = Object.keys(param).join('');
+                    let paramValue = Object.values(param).join(' ');
+                    movies.filter(movie => {
+                        for (const property in movie) {
+                            console.log(paramKey);
+                            console.log(paramValue);
+                            console.log(property);
+                            console.log(movie[`${property}`])
+                            if (property === paramKey && movie[`${property}`] === paramValue) {
+                                console.log("In if");
+                                filteredMoviesArr.push(movie);
+                            }
+                        }
+                    })
+                })
+                console.log(filteredMoviesArr);
+                return filteredMoviesArr;
+            })
+        // $('#loading-h1').remove();
+        // filteredArr.forEach(({Title, Overview, Year, Rated, Genre, Image, Website, imdbRating, Rating, id}) => {
+        //     $('#main-container').append(`<div class="movie-container" id="movie-container-${i}">${Title}, ${Overview}, ${Year}, ${Rated}, ${Genre}, ${Image}, ${Website}, ${imdbRating}, ${Rating}, ${id}</div>`)
+        //     i++;
+        // });
+    }
 };
 
 
