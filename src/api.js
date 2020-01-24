@@ -10,17 +10,9 @@ module.exports = {
             method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(newMovie)
         })
     },
-    // getMovie : (id) =>  {
-    //   console.log(id);
-    //   return fetch (`/api/movies/${id}`, {
-    //     method: 'GET'
-    //   })
-    //       .then(data => data.json())
-    // },
     editMovie: (title, rating, genre) => {
-        // console.log(movie.id);
-      let editMovie = {title: title, rating: rating, genre: genre, id: id};
-        return fetch('/api/movies', {
+        let editMovie = {title: title, rating: rating, genre: genre};
+        return fetch(`/api/movies/`, {
             method: 'PATCH', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(editMovie)
         })
     },

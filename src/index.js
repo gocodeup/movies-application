@@ -7,7 +7,7 @@ import sayHello from './hello';
 
 sayHello('World');
 
-const {getMovies, addMovie, deleteMovie, editMovie, getMovie} = require('./api.js');
+const {getMovies, addMovie, deleteMovie, editMovie,} = require('./api.js');
 
 function refreshMovies() {
     getMovies().then((movies) => {
