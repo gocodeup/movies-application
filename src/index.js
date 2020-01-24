@@ -17,7 +17,7 @@ function refreshMovies() {
             //
             // movieItems += `Rating: ${rating} Title: ${title} Id:${id}`;
             // $('.movies').append(movieItems);
-            $('.movies').append(`<div class="delete">Rating: ${rating} Title: ${title} Id:${id}<button value="${id}" class="delete">Delete</button></div>`);
+            $('.movies').append(`<div class="delete edit">Rating: ${rating} Title: ${title} Id:${id}<button value="${id}" class="delete">Delete</button><button value="${id}" class="edit">Edit</button></div>`);
 
 
             // $(movieItems).click(() => {
@@ -38,6 +38,13 @@ function refreshMovies() {
         deleteMovie(deleteId);
         refreshMovies();
     });
+
+    $('.movies').on('click', '.edit', function (event) {
+        let editId = $(event.target).val();
+        editMovie(editId);
+        refreshMovies();
+    });
+
 }
 
 $('#addMovie').click(() => {
@@ -49,14 +56,13 @@ $('#addMovie').click(() => {
 });
 
 
-$('#editMovie').click(() => {
-    let editTitle = $('#editTitle').val();
-    let editRating = $('#editRating').val();
-    let editGenre = $('#editGenre').val();
-    // look up inputs
-    editMovie(editTitle, editRating, editGenre);
-});
-
+// $('#editMovie').click(() => {
+//     let editTitle = $('#editTitle').val();
+//     let editRating = $('#editRating').val();
+//     let editGenre = $('#editGenre').val();
+//     // look up inputs
+//     editMovie(editTitle, editRating, editGenre);
+// });
 
 
 refreshMovies();
