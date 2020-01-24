@@ -56,7 +56,7 @@
                     <div id="read-modal-dialog" class="modal-dialog modal-dialog-centered" role="document">
                         <div id="read-modal-content" class="modal-content">
                             <div id="read-modal-header" class="modal-header">
-                                <h5 id="read-modal-title" class="modal-title">Read The Movie Database!</h5>
+                                <h5 id="read-modal-title" class="modal-title">Read The Movie Database By Using These Parameters!</h5>
                                 <button id="read-modal-close-button" type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="false">&times;</span>
                                 </button>
@@ -65,18 +65,29 @@
                                 <form>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="create-movie-title-input">Movie Title</label>
+                                            <label for="read-movie-title-input">Movie Title</label>
                                             <input type="text" class="form-control" id="read-movie-title-input">
                                         </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="select-rating">Rating</label>
+                                        <div class="form-group col-md-6">
+                                            <label for="read-rating">Rating</label>
                                             <select id="read-rating" class="form-control">
-                                                <option value="1" selected>⭐</option>
+                                                <option value="" selected>N/A</option>
+                                                <option value="1">⭐</option>
                                                 <option value="2">⭐⭐</option>
                                                 <option value="3">⭐⭐⭐</option>
                                                 <option value="4">⭐⭐⭐⭐</option>
                                                 <option value="5">⭐⭐⭐⭐⭐</option>
                                             </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="read-genre-input">Genre</label>
+                                            <input type="text" class="form-control" id="read-genre-input">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="read-id-input">ID</label>
+                                            <input type="text" class="form-control" id="read-id-input">
                                         </div>
                                     </div>
                                 </form>
