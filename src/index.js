@@ -1,6 +1,6 @@
 //modules required
 const $ = require('jquery');
-const {updateCRUDyDBFromUser, refreshMovies, searchRapidApiMovieDB, getRapidApiMovieID, idSearchRapidApiMovieDB, updateCRUDyDBFromRapid, readFromCRUDyDB} = require('./api.js');
+const {updateCRUDyDBFromUser, refreshMovies, searchRapidApiMovieDB, getRapidApiMovieID, idSearchRapidApiMovieDB, updateCRUDyDBFromRapid, readFromCRUDyDB, deleteEntry} = require('./api.js');
 
 
 refreshMovies();
