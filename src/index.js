@@ -1,16 +1,6 @@
 //modules required
 const $ = require('jquery');
-// const {OMDB_API_KEY} = require('./keys.js');
-// const {THE_MOVIE_DB_API_KEY} = require('./keys.js');
-// const {getMovies} = require('./api.js');
-// const {getOMDB} = require('./api.js');
-// const {searchTheMovieDBID} = require('./api.js');
-// const {searchMovie} = require('./api.js');
-// const {updateCRUDyDBFromTheMovieDB} = require('./api.js');
-// const {updateCRUDyDBFromUser} = require('./api.js');
-// const {refreshMovies} = require('./api.js');
-// const {searchRapidApiMovieDB} = require('./api.js');
-const {searchTheMovieDBID, searchMovie, updateCRUDyDBFromTheMovieDB, updateCRUDyDBFromUser, refreshMovies, searchRapidApiMovieDB, getRapidApiMovieID, idSearchRapidApiMovieDB, updateCRUDyDBFromRapid} = require('./api.js');
+const {updateCRUDyDBFromUser, refreshMovies, searchRapidApiMovieDB, getRapidApiMovieID, idSearchRapidApiMovieDB, updateCRUDyDBFromRapid} = require('./api.js');
 
 
 refreshMovies();
@@ -46,30 +36,7 @@ $('#custom-create-submit-button').click(function() {
     updateCRUDyDBFromUser(inputObj)
         .then(response => refreshMovies());
 });
-//TheMovieDB Create
-// $('#create-with-the-movie-db').click(function() {
-//     if (!$('#select-rating').val()) {
-//         alert('Please select a rating.');
-//         return;
-//     }
-//     if (!$('#create-movie-title-input').val()) {
-//         alert('Please input a movie title.');
-//         return;
-//     }
-//     let rating = $('#select-rating').val();
-//     searchTheMovieDBID($('#create-movie-title-input').val())
-//         // .then(response => console.log(response))
-//         .then(response => {
-//             return response['results'][0];
-//         })
-//         .then(response => searchMovie(response))
-//         // .then(response => console.log(response))
-//         .then(response => updateCRUDyDBFromTheMovieDB(response, rating))
-//         .then(response => refreshMovies())
-//     $('#select-rating').val('');
-//     $('#create-movie-title-input').val('');
-//
-// });
+
 // RapidAPICreate
 let globalSearchArr;
 $('#create-with-the-movie-db').click(function() {
@@ -78,8 +45,6 @@ $('#create-with-the-movie-db').click(function() {
         alert('Please input a movie title.');
         return;
     }
-
-    console.log($('#create-movie-title-input').val())
     searchRapidApiMovieDB($('#create-movie-title-input').val())
         // .then(response => console.log(response))
         .then(searchArr => {
@@ -111,57 +76,13 @@ $('#confirm-create-submit-button').click(function() {
             return updateCRUDyDBFromRapid(result, rating)
         })
         .then(result => refreshMovies())
-})
-
-
-
-
-
-// searchRapidApiMovieDB("Star Wars")
-//     .then(result => getRapidApiMovieID(result, "Star Wars: Episode V - The Empire Strikes Back"))
-//     .then(result => idSearchRapidApiMovieDB(result))
-
-
-
-
-//more just in case
-
-//     .then(response => searchMovie(response))
-//     // .then(response => console.log(response))
-//     .then(response => updateCRUDyDBFromTheMovieDB(response, rating))
-//     .then(response => refreshMovies())
-// $('#select-rating').val('');
-// $('#create-movie-title-input').val('');
+});
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-//just in case
-// getOMDB("Ninja Turtles")
-//     .then(response => console.log(response));
-// searchTheMovieDBID("Star Wars The Phantom Menace")
-//     // .then(response => console.log(response))
-//     .then(response => {
-//         return response['results'][0];
-//     })
-//     .then(response => searchMovie(response))
-//     // .then(response => console.log(response))
-//     .then(response => updateCRUDyDB(response))
-// getOMDB("Ninja Turtles")
-//
 
 
 

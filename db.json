@@ -23,6 +23,18 @@
       "imdbRating": "8.6",
       "Rating": "4",
       "id": 2
+    },
+    {
+      "Title": "The Lord of the Rings: The Fellowship of the Ring",
+      "Overview": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+      "Year": "2001",
+      "Rated": "PG-13",
+      "Genre": "Adventure, Drama, Fantasy",
+      "Image": "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_SX300.jpg",
+      "Website": "N/A",
+      "imdbRating": "8.8",
+      "Rating": "4",
+      "id": 3
     }
   ]
 }
