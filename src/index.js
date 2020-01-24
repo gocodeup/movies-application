@@ -41,7 +41,6 @@ function refreshMovies() {
 }
 
 $('#addMovie').click(() => {
-
     let title = $('#inputTitle').val();
     let rating = $('#inputRating').val();
     let genre = $('#inputGenre').val();
@@ -50,10 +49,13 @@ $('#addMovie').click(() => {
 });
 
 
-
-
-
-
+$('#editMovie').click(() => {
+    let editTitle = $('#editTitle').val();
+    let editRating = $('#editRating').val();
+    let editGenre = $('#editGenre').val();
+    // look up inputs
+    editMovie(editTitle, editRating, editGenre);
+});
 
 
 
