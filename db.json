@@ -19,6 +19,16 @@
       "title": "Bambi",
       "rating": "5",
       "id": 4
+    },
+    {
+      "title": "The Lion King",
+      "rating": "1",
+      "id": 5
+    },
+    {
+      "title": "It",
+      "rating": "3",
+      "id": 6
     }
   ]
 }

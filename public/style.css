@@ -1,5 +1,12 @@
 html, body {
+    margin-top: 15em;
     height: 100vh;
+}
+
+#form1 {
+
+    display:none;
+
 }
 
 .container {

@@ -12,21 +12,18 @@ const {getMovies, addMovie, deleteMovie, editMovie, getMovie} = require('./api.j
 function refreshMovies() {
     getMovies().then((movies) => {
         $('.movies').html('');
+
         movies.forEach(({title, rating, id}) => {
+
             // let movieItems = '';
             //
             // movieItems += `Rating: ${rating} Title: ${title} Id:${id}`;
             // $('.movies').append(movieItems);
-            $('.movies').append(`<div class="delete edit">Rating: ${rating} Title: ${title} Id:${id}<button value="${id}" class="delete">Delete</button><button value="${id}" class="edit">Edit</button></div>`);
-
-
-            // $(movieItems).click(() => {
-            //
-            //     $(this).css("visibility", 'hidden')
-            //
-            //
-            // });
-
+            $('.movies').append(`<div class="delete edit">Rating: ${rating} Title: ${title} Id:${id}<button value="${id}" class="delete">Delete</button></div> `);
+            $('.movies').append(`<div><button type="button" class="formButton">Toggle Form!</button></div>`);
+        });
+        $(".formButton").click(function() {
+            $("#form1").toggle();
         });
     })
         .catch((error) => {
@@ -39,11 +36,12 @@ function refreshMovies() {
         refreshMovies();
     });
 
-    $('.movies').on('click', '.edit', function (event) {
-        let editId = $(event.target).val();
-        editMovie(editId);
-        refreshMovies();
-    });
+    // $('.movies').on('click', '.edit', function (event) {
+    //     let editId = $(event.target).val();
+    //     editMovie(editId);
+    //     refreshMovies();
+    // });
+
 
 }
 
@@ -57,6 +55,7 @@ $('#addMovie').click(() => {
 
 
 // $('#editMovie').click(() => {
+//
 //     let editTitle = $('#editTitle').val();
 //     let editRating = $('#editRating').val();
 //     let editGenre = $('#editGenre').val();
@@ -64,9 +63,8 @@ $('#addMovie').click(() => {
 //     editMovie(editTitle, editRating, editGenre);
 // });
 
-  $(".edit").click(function() {
-    $("#editingMovie").toggle();
-  });
+
+
 
 refreshMovies();
 
