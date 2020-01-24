@@ -2,6 +2,8 @@ html, body {
     /*margin-top: 15em;*/
     /*height: 100vh;*/
     background-color: white;
+    font-family: "American Typewriter";
+
 }
 .center{
     text-align: center;
@@ -12,6 +14,9 @@ html, body {
 form, div{
     font-size: 1.12em;
 }
+button{
+    width: 8%;
+}
 #form1 {
 
     display:none;
@@ -20,9 +25,10 @@ form, div{
 ul{
     list-style-type: none;
 }
-.border{
+hr{
     border-bottom: solid black 1px;
-    padding-bottom: 1em;
+    /*padding-bottom: .7em;*/
+    width: 75%;
 }
 .container {
 /*    position: relative;*/

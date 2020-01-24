@@ -15,10 +15,10 @@ function refreshMovies() {
 
         movies.forEach(({title, rating, id}) => {
 
-            $('.movies').append(`<div class="border"></div><div class="delete edit"><ul>
-<li>Rating: ${rating}</li> <li>Title: ${title}</li>  <li>Id:${id}</li><button value="${id}" class="delete">Delete</button>
-</ul></div> `);
-            $('.movies').append(`<div class="edit"><button type="button" value="${id}" class="formButton">Edit</button></div></div>`);
+            $('.movies').append(`</div><ul class="delete">
+<li>Title: ${title}, Rating: ${rating}, Id:${id} </li><button value="${id}" class="delete">Delete</button>
+</ul> `);
+            $('.movies').append(`<div class="edit"><button type="button" value="${id}" class="formButton">Edit</button></div><hr>`);
         });
         $(".formButton").click(function() {
             $("#form1").toggle();
