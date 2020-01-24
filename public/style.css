@@ -28,3 +28,7 @@ ul {
     max-height: 60rem;
     overflow: auto;
 }
+
+#custom .cust-card {
+    border: 3px solid black;
+}
