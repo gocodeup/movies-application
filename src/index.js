@@ -64,6 +64,9 @@ $('#addMovie').click(() => {
 //     editMovie(editTitle, editRating, editGenre);
 // });
 
+  $(".edit").click(function() {
+    $("#editingMovie").toggle();
+  });
 
 refreshMovies();
 
