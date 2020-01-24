@@ -11,3 +11,11 @@ html, body {
 ul {
     list-style: none;
 }
+#ul-nav li {
+    padding: 0 5rem;
+}
+
+#ul-nav button {
+    padding: 1rem 3rem;
+    border-radius: .5rem;
+}
