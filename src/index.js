@@ -4,7 +4,11 @@ const {updateCRUDyDBFromUser, refreshMovies, searchRapidApiMovieDB, getRapidApiM
 
 
 refreshMovies();
-
+$('#custom-create-button').click(function() {
+    if($('#create-movie-title-input').val()) {
+        $('#create-movie-title-input-inner').val($('#create-movie-title-input').val())
+    }
+})
 //custom create
 $('#custom-create-submit-button').click(function() {
     if (!$('#create-movie-title-input-inner').val()) {
@@ -19,20 +23,30 @@ $('#custom-create-submit-button').click(function() {
         alert('Please input a genre.');
         return;
     }
-    if (!$('#select-rating-inner').val()) {
+    if (!$('#rating-select').val()) {
         alert('Please select a rating.');
         return;
     }
     let inputObj = {
-        title: $('#create-movie-title-input-inner').val(),
-        overview: $('#overview-input').val(),
-        genre: $('#genre-input').val(),
-        rating: $('#select-rating-inner').val()
+        Title: $('#create-movie-title-input-inner').val(),
+        Overview: $('#overview-input').val(),
+        Year: $('#year-input').val(),
+        Rated: $('#mpaa-rating-input').val(),
+        Genre: $('#genre-input').val(),
+        Image: $('#img-url-input').val(),
+        Website: $('#overview-input').val(),
+        imdbRating: $('#imdb-rating-input').val(),
+        Rating: $('#rating-select').val()
     }
     $('#create-movie-title-input-inner').val('');
     $('#overview-input').val('');
+    $('#year-input').val('');
+    $('#mpaa-rating-input').val('');
     $('#genre-input').val('');
-    $('#select-rating-inner').val('');
+    $('#img-url-input').val('');
+    $('#overview-input').val('');
+    $('#imdb-rating-input').val('');
+    $('#rating-select').val('');
     updateCRUDyDBFromUser(inputObj)
         .then(response => refreshMovies());
 });

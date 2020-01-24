@@ -42,7 +42,7 @@
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#create-button-modal-inner">Custom Create</button>
+                                <button id="custom-create-button" type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#create-button-modal-inner">Custom Create</button>
                                 <button id="create-with-the-movie-db" type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#confirm-button-modal-inner">Create With RapidAPI Movies DB</button>
                             </div>
                         </div>
@@ -120,19 +120,45 @@
                             <label for="create-movie-title-input">Movie Title</label>
                             <input type="text" class="form-control" id="create-movie-title-input-inner">
                         </div>
-                        <div class="form-group col-md-4">
-                            <label for="genre-input">Genre</label>
-                            <input type="text" class="form-control" id="genre-input">
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="select-movie">Rating</label>
-                            <select id="select-movie" class="form-control">
+                        <div class="form-group col-md-6">
+                            <label for="rating-select">Rate It</label>
+                            <select id="rating-select" class="form-control">
                                 <option value="1" selected>⭐</option>
                                 <option value="2">⭐⭐</option>
                                 <option value="3">⭐⭐⭐</option>
                                 <option value="4">⭐⭐⭐⭐</option>
                                 <option value="5">⭐⭐⭐⭐⭐</option>
                             </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="genre-input">Genre</label>
+                            <input type="text" class="form-control" id="genre-input">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="year-input">Year</label>
+                            <input type="text" class="form-control" id="year-input">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="mpaa-rating-input">MPAA Rating</label>
+                            <input type="text" class="form-control" id="mpaa-rating-input">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="imdb-rating-input">imdbRating</label>
+                            <input type="text" class="form-control" id="imdb-rating-input">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="website-url-input">Website URL</label>
+                            <input type="text" class="form-control" id="website-url-input">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="image-url-input">Image Url</label>
+                            <input type="text" class="form-control" id="image-url-input">
                         </div>
                     </div>
                     <div class="form-row">
