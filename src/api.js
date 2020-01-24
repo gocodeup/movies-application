@@ -19,7 +19,7 @@ module.exports = {
     // },
     editMovie: (title, rating, genre) => {
         // console.log(movie.id);
-      let editMovie = {title: title, rating: rating, genre: genre};
+      let editMovie = {title: title, rating: rating, genre: genre, id: id};
         return fetch('/api/movies', {
             method: 'PATCH', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(editMovie)
         })
