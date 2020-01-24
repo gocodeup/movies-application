@@ -83,12 +83,6 @@
       "rating": "1",
       "id": 14,
       "genre": "live-action"
-    },
-    {
-      "title": "Casino",
-      "rating": "5",
-      "genre": "drama",
-      "id": 15
     }
   ]
 }
