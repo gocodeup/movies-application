@@ -58,6 +58,18 @@
       "imdbRating": "6.9",
       "Rating": "4",
       "id": 5
+    },
+    {
+      "Title": "Star Trek: First Contact",
+      "Overview": "The Borg travel back in time intent on preventing Earth's first contact with an alien species. Captain Picard and his crew pursue them to ensure that Zefram Cochrane makes his maiden flight reaching warp speed.",
+      "Year": "1996",
+      "Rated": "PG-13",
+      "Genre": "Action, Adventure, Drama, Sci-Fi, Thriller",
+      "Image": "https://m.media-amazon.com/images/M/MV5BYTllZjRkY2QtYTJlMy00ZTMxLWE0YWQtMWMwYzY2YTM3YzRjXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg",
+      "Website": "N/A",
+      "imdbRating": "7.6",
+      "Rating": "1",
+      "id": 6
     }
   ]
 }
