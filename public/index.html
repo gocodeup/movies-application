@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css"/>
     <script src="https://kit.fontawesome.com/ed020a3921.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body id="custom">
 
 <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light">
     <a id="brand-link" class="navbar-brand" href="#">CRUDy-Movies</a>
@@ -112,9 +112,10 @@
         </ul>
     </div>
 </nav>
-<div class="container" id="main-container">
-    <h1 id="loading-h1">Loading...</h1>
-</div>
+<!--START OF CARDS-->
+<!--JQUERY DOES THE MAGIC OF FILLING CARDS IN-->
+<div id="append-me" class="row ml-4 mt-5"></div>
+<!--END OF CARDS-->
 <div id="create-button-modal-inner" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div id="create-modal-inner-dialog" class="modal-dialog modal-dialog-centered" role="document">
         <div id="create-modal-inner-content" class="modal-content">

@@ -46,6 +46,54 @@
       "imdbRating": "9.8",
       "Rating": "1",
       "id": 4
+    },
+    {
+      "Title": "Solo: A Star Wars Story",
+      "Overview": "During an adventure into the criminal underworld, Han Solo meets his future co-pilot Chewbacca and encounters Lando Calrissian years before joining the Rebellion.",
+      "Year": "2018",
+      "Rated": "PG-13",
+      "Genre": "Action, Adventure, Sci-Fi",
+      "Image": "https://m.media-amazon.com/images/M/MV5BOTM2NTI3NTc3Nl5BMl5BanBnXkFtZTgwNzM1OTQyNTM@._V1_SX300.jpg",
+      "Website": "N/A",
+      "imdbRating": "6.9",
+      "Rating": "4",
+      "id": 5
+    },
+    {
+      "Title": "Star Trek: First Contact",
+      "Overview": "The Borg travel back in time intent on preventing Earth's first contact with an alien species. Captain Picard and his crew pursue them to ensure that Zefram Cochrane makes his maiden flight reaching warp speed.",
+      "Year": "1996",
+      "Rated": "PG-13",
+      "Genre": "Action, Adventure, Drama, Sci-Fi, Thriller",
+      "Image": "https://m.media-amazon.com/images/M/MV5BYTllZjRkY2QtYTJlMy00ZTMxLWE0YWQtMWMwYzY2YTM3YzRjXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg",
+      "Website": "N/A",
+      "imdbRating": "7.6",
+      "Rating": "1",
+      "id": 6
+    },
+    {
+      "Title": "Jumanji: Welcome to the Jungle",
+      "Overview": "Four teenagers are sucked into a magical video game, and the only way they can escape is to work together to finish the game.",
+      "Year": "2017",
+      "Rated": "PG-13",
+      "Genre": "Action, Adventure, Comedy, Fantasy",
+      "Image": "https://m.media-amazon.com/images/M/MV5BODQ0NDhjYWItYTMxZi00NTk2LWIzNDEtOWZiYWYxZjc2MTgxXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+      "Website": "N/A",
+      "imdbRating": "6.9",
+      "Rating": "3",
+      "id": 7
+    },
+    {
+      "Title": "Austin Powers: International Man of Mystery",
+      "Overview": "A 1960s secret agent is brought out of cryofreeze to oppose his greatest enemy in the 1990s, where his social attitudes are glaringly out of place.",
+      "Year": "1997",
+      "Rated": "PG-13",
+      "Genre": "Adventure, Comedy",
+      "Image": "https://m.media-amazon.com/images/M/MV5BMTRhZTY0MDItY2I1Yi00MGE3LTk1ZDEtMjA0ZGZhNDQyNGU0XkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_SX300.jpg",
+      "Website": "N/A",
+      "imdbRating": "7.0",
+      "Rating": "4",
+      "id": 8
     }
   ]
 }

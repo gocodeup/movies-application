@@ -19,3 +19,16 @@ ul {
     padding: 1rem 3rem;
     border-radius: .5rem;
 }
+#custom img {
+    max-width: 25rem;
+}
+
+#custom .cust-col {
+    max-width: 25rem;
+    max-height: 60rem;
+    overflow: auto;
+}
+
+#custom .cust-card {
+    border: 3px solid black;
+}

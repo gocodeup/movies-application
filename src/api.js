@@ -2,15 +2,13 @@
 const {RAPID_API_MOVIE_DB_API_KEY} = require('./keys');
 module.exports = {
     refreshMovies: () => {
-        $('#main-container').html(`<h1 id="loading-h1">Loading...</h1>`);
+        $('#append-me').html(`<h1 id="loading-h1">Loading...</h1>`);
         return fetch('/api/movies')
             .then(response => response.json())
             .then((movies) => {
-                let i = 1
                 $('#loading-h1').remove();
                 movies.forEach(({Title, Overview, Year, Rated, Genre, Image, Website, imdbRating, Rating, id}) => {
-                    $('#main-container').append(`<div class="movie-container" id="movie-container-${i}">${Title}, ${Overview}, ${Year}, ${Rated}, ${Genre}, ${Image}, ${Website}, ${imdbRating}, ${Rating}, ${id}</div>`)
-                    i++;
+                    $('#append-me').append(`<div class="col-md-4 col-lg-4 mt-2 mb-2 cust-col"><div id="card-${id}" class="card cust-card"><img id="img-${id}" class="img-thumbnail" src="${Image}" alt="Card image cap"><div class="card-body"><h5 id="movie-title-${id}" class="card-title">${Title}</h5><p id="movie-overview-${id}" class="card-text">${Overview}</p></div><ul id="attributes-ul-${id}" class="list-group list-group-flush"><li class="list-group-item">Your Rating: ${Rating}</li><li class="list-group-item">Year: ${Year}</li><li class="list-group-item">Genre: ${Genre}</li><li class="list-group-item">MPAA Rating: ${Rated}</li><li class="list-group-item">Website: ${Website}</li><li class="list-group-item">IMDb&#174; Rating: ${imdbRating}</li><li class="list-group-item">CRUDy-Movies ID: ${id}</li></ul><div class="card-body"><button id="card-{id}-delete-button" type="button" class="btn btn-danger card-delete-button ml-4 mr-4" data-dismiss="modal" data-toggle="modal" data-target="#create-button-modal-inner">Delete Entry</button><button id="card-${id}-edit-button" type="button" class="btn btn-success card-update-button ml-4" data-dismiss="modal" data-toggle="modal" data-target="#create-button-modal-inner">Update Entry</button></div></div></div>`)
                 });
             })
     },
@@ -106,51 +104,109 @@ module.exports = {
                 console.log('Success:', data);
             })
     },
-    readFromCRUDyDB: (inputTitle, inputRating, inputGenre, inputID) => {
+    readFromCRUDyDB: function(inputTitle, inputRating, inputGenre, inputID) {
         $('#main-container').html(`<h1 id="loading-h1">Loading...</h1>`);
         return fetch('/api/movies')
             .then(response => response.json())
             .then((movies) => {
-                let filteredArr = [];
-                let i = 1;
+                $('#append-me').html(`<h1 id="loading-h1">Loading...</h1>`);
                 let filteredParamArr = [];
                 let inputParamArr = [
-                    {Title: inputTitle}, {Rating: inputRating}, {Genre: inputGenre}, {id: inputID}
+                    {Title: inputTitle.toLowerCase()}, {Rating: inputRating}, {Genre: inputGenre.toLowerCase()}, {id: inputID}
                 ];
+                // console.log(inputParamArr);
+                let title =[];
+                let rating =[];
+                let genre =[];
+                let id =[];
                 inputParamArr.forEach(param => {
                     console.log(param);
                     console.log(Object.values(param));
                     let paramArr = Object.values(param);
-                    let testParam = paramArr.join('');
-                    if (testParam !== '') {
+                    let testParam = paramArr.join('').toLowerCase();
+                    if (testParam !== '' && testParam !== 'n/a') {
                         filteredParamArr.push(param);
+                        // console.log(filteredParamArr);
+                    } else {
+                        alert("Please select read parameters");
+                        return;
                     }
                 });
+                if (filteredParamArr.length === 0) {
+                    refreshMovies();
+                    return;
+                }
                 let filteredMoviesArr = [];
                 filteredParamArr.forEach(param => {
                     let paramKey = Object.keys(param).join('');
                     let paramValue = Object.values(param).join(' ');
-                    movies.filter(movie => {
+                    movies.forEach(movie => {
                         for (const property in movie) {
-                            console.log(paramKey);
-                            console.log(paramValue);
-                            console.log(property);
-                            console.log(movie[`${property}`])
-                            if (property === paramKey && movie[`${property}`] === paramValue) {
+                            // console.log(property);
+                            // console.log(paramKey);
+                            // console.log(movie[`${property}`]); //number
+                            // console.log(paramValue);//string
+                            let movProp;
+                            if (typeof movie[`${property}`] === 'string') {
+                                movProp = movie[`${property}`]
+                                movProp = movProp.toLowerCase();
+                            } else {
+                                movProp = movie[`${property}`]
+                                movProp = movProp.toString()
+                            }
+                            if (property.toLowerCase() === paramKey && movProp === paramValue) {
+                                if (property === "Title") {
+                                    console.log("title");
+                                    console.log(property.toLowerCase());
+                                    console.log(paramKey);
+                                    console.log(movProp);
+                                    console.log(paramValue);
+                                    title.push(movie);
+                                }
+                                else if (property === "Rating") {
+                                    console.log("rating");
+                                    console.log(property.toLowerCase());
+                                    console.log(paramKey);
+                                    console.log(movProp);
+                                    console.log(paramValue);
+                                    rating.push(movie);
+                                }
+                                else if (property === "Genre") {
+                                    console.log("genre");
+                                    console.log(property.toLowerCase());
+                                    console.log(paramKey);
+                                    console.log(movProp);
+                                    console.log(paramValue);
+                                    genre.push(movie);
+                                }
+                                else if (property === "id") {
+                                    console.log("id");
+                                    console.log(property.toLowerCase());
+                                    console.log(paramKey);
+                                    console.log(movProp);
+                                    console.log(paramValue);
+                                    id.push(movie);
+                                }
                                 console.log("In if");
-                                filteredMoviesArr.push(movie);
+
                             }
                         }
                     })
                 })
-                console.log(filteredMoviesArr);
-                return filteredMoviesArr;
+                console.log(title);
+                console.log(rating);
+                console.log(genre);
+                console.log(id);
+                return title;
+                // console.log(filteredMoviesArr);
+                // return filteredMoviesArr;
             })
-        // $('#loading-h1').remove();
-        // filteredArr.forEach(({Title, Overview, Year, Rated, Genre, Image, Website, imdbRating, Rating, id}) => {
-        //     $('#main-container').append(`<div class="movie-container" id="movie-container-${i}">${Title}, ${Overview}, ${Year}, ${Rated}, ${Genre}, ${Image}, ${Website}, ${imdbRating}, ${Rating}, ${id}</div>`)
-        //     i++;
-        // });
+            .then((movies) => {
+                $('#loading-h1').remove();
+                movies.forEach(({Title, Overview, Year, Rated, Genre, Image, Website, imdbRating, Rating, id}) => {
+                    $('#append-me').append(`<div class="col-md-4 col-lg-4 mt-2 mb-2 cust-col"><div id="card-${id}" class="card cust-card"><img id="img-${id}" class="img-thumbnail" src="${Image}" alt="Card image cap"><div class="card-body"><h5 id="movie-title-${id}" class="card-title">${Title}</h5><p id="movie-overview-${id}" class="card-text">${Overview}</p></div><ul id="attributes-ul-${id}" class="list-group list-group-flush"><li class="list-group-item">Your Rating: ${Rating}</li><li class="list-group-item">Year: ${Year}</li><li class="list-group-item">Genre: ${Genre}</li><li class="list-group-item">MPAA Rating: ${Rated}</li><li class="list-group-item">Website: ${Website}</li><li class="list-group-item">IMDb&#174; Rating: ${imdbRating}</li><li class="list-group-item">CRUDy-Movies ID: ${id}</li></ul><div class="card-body"><button id="card-{id}-delete-button" type="button" class="btn btn-danger card-delete-button ml-4 mr-4" data-dismiss="modal" data-toggle="modal" data-target="#create-button-modal-inner">Delete Entry</button><button id="card-${id}-edit-button" type="button" class="btn btn-success card-update-button ml-4" data-dismiss="modal" data-toggle="modal" data-target="#create-button-modal-inner">Update Entry</button></div></div></div>`)
+                });
+            })
     }
 };
 
