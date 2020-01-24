@@ -10,10 +10,14 @@ module.exports = {
             method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(newMovie)
         })
     },
-    editMovie: (title, rating, genre) => {
-        let editMovie = {title: title, rating: rating, genre: genre};
-        return fetch(`/api/movies/`, {
-            method: 'PATCH', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(editMovie)
+    editMovie: (id, movie) => {
+        return fetch(`/api/movies/${id}`, {
+            data: {
+                title: ${editTitle},
+                rating: ${editRating},
+                genre: ${editGenre}
+            }
+            method: 'PATCH', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(movie)
         })
     },
     deleteMovie: (id) => {

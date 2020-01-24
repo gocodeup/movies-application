@@ -20,7 +20,7 @@ function refreshMovies() {
             // movieItems += `Rating: ${rating} Title: ${title} Id:${id}`;
             // $('.movies').append(movieItems);
             $('.movies').append(`<div class="delete edit">Rating: ${rating} Title: ${title} Id:${id}<button value="${id}" class="delete">Delete</button></div> `);
-            $('.movies').append(`<div><button type="button" class="formButton">Edit</button></div>`);
+            $('.movies').append(`<div><button type="button" value="${id}" class="formButton">Edit</button></div>`);
         });
         $(".formButton").click(function() {
             $("#form1").toggle();
