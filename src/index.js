@@ -50,7 +50,7 @@ $('#addMovie').click(() => {
     // look up inputs
     addMovie(title, rating, genre);
 });
-
+//
 //     $('#editMovie').click(() => {
 //     let title = $('#editTitle').val();
 //     let rating = $('#editRating').val();
@@ -58,16 +58,20 @@ $('#addMovie').click(() => {
 //     // look up inputs
 //     editMovie(title, rating, genre);
 // });
+//
+const editTitle = $('#editTitle').val();
+const editRating = $('#editRating').val();
+const editGenre = $('#editGenre').val();
+// const targetID = ${this.id}
 
-
-
-// $('#editMovie').click(() => {
-//     let title = $('#editTitle').val();
-//     let rating = $('#editRating').val();
-//     let genre = $('#editGenre').val();
-//     // look up inputs
-//     editMovie(title, rating, genre);
-// });
+$('#editMovie').click(() => {
+    // console.log(this.id);
+    let title = editTitle.val();
+    let rating = editRating.val();
+    let genre = editGenre.val();
+    // look up inputs
+    editMovie(title, rating, genre, id);
+});
 
 
 
