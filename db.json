@@ -61,12 +61,6 @@
       "genre": "anime"
     },
     {
-      "title": "The Magnificent Seven",
-      "rating": "3",
-      "id": 11,
-      "genre": "western"
-    },
-    {
       "title": "Catwoman",
       "rating": "1",
       "id": 12,
@@ -79,10 +73,10 @@
       "genre": "fantasy"
     },
     {
-      "title": "Aladdin",
-      "rating": "1",
-      "id": 14,
-      "genre": "live-action"
+      "title": "Forest Gump",
+      "rating": "2",
+      "genre": "kids",
+      "id": 14
     }
   ]
 }
