@@ -1,39 +1,28 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
-      "rating": "4",
-      "overview": "thing",
-      "genre": "thing",
+      "Title": "Star Wars: Episode III - Revenge of the Sith",
+      "Overview": "Three years into the Clone Wars, the Jedi rescue Palpatine from Count Dooku. As Obi-Wan pursues a new threat, Anakin acts as a double agent between the Jedi Council and Palpatine and is lured into a sinister plan to rule the galaxy.",
+      "Year": "2005",
+      "Rated": "PG-13",
+      "Genre": "Action, Adventure, Fantasy, Sci-Fi",
+      "Image": "https://m.media-amazon.com/images/M/MV5BNTc4MTc3NTQ5OF5BMl5BanBnXkFtZTcwOTg0NjI4NA@@._V1_SX300.jpg",
+      "Website": "N/A",
+      "imdbRating": "7.5",
+      "Rating": "5",
       "id": 1
     },
     {
-      "title": "Star Wars: A New Hope",
-      "overview": "thing",
-      "genre": "thing",
-      "rating": "5",
+      "Title": "Star Wars: Episode IV - A New Hope",
+      "Overview": "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia from the mysterious Darth Vader.",
+      "Year": "1977",
+      "Rated": "PG",
+      "Genre": "Action, Adventure, Fantasy, Sci-Fi",
+      "Image": "https://m.media-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+      "Website": "N/A",
+      "imdbRating": "8.6",
+      "Rating": "4",
       "id": 2
-    },
-    {
-      "title": "Cats",
-      "overview": "Cats are fun.",
-      "genre": "Fun",
-      "rating": "3",
-      "id": 3
-    },
-    {
-      "title": "Star Wars: The Last Jedi",
-      "overview": "Rey develops her newly discovered abilities with the guidance of Luke Skywalker, who is unsettled by the strength of her powers. Meanwhile, the Resistance prepares to do battle with the First Order.",
-      "genre": "Fantasy",
-      "rating": "1",
-      "id": 4
-    },
-    {
-      "title": "Casablanca",
-      "rating": "4",
-      "overview": "thing",
-      "genre": "thing",
-      "id": 1
     }
   ]
 }
