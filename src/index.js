@@ -5,6 +5,7 @@ import sayHello from './hello.js';
 sayHello();
 
 import {getMovies} from './api';
+$('#edit-button').hide();
 
 function deleteThis() {
     $('.row-delete').on("click", function () {
@@ -13,7 +14,7 @@ function deleteThis() {
         console.log(id);
         fetch(`/api/movies/${id}`, {
             method: 'DELETE',
-            headers: {
+           headers: {
                 'Content-Type': 'application/json'
             }
         }).then(() => {
@@ -21,26 +22,43 @@ function deleteThis() {
        });
     });
 }
+
+
+
 function editThis() {
     $('.row-edit').on("click", function () {
-        let title = $('#movie-title-input').val();
-        let rating = $('#movie-rating-input').val();
-        let movie = {
-            title: title,
-            rating: rating
-        };
-        let id = $(this).attr('data-id');
-        console.log('edit clicked');
-        console.log(id);
-        fetch(`/api/movies/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(movie)
-        }).then(() => {
-            generateTable();
-        });
+                let id = $(this).attr('data-id');
+        let entry = 0;
+        if(entry === 0) {
+        $('#movie-title-input').attr('placeholder', 'Edit Movie Here');
+        $('#submit-button').hide();
+        $('#edit-button').show();
+        }
+            $('#edit-button').on("click", function() {
+                let title = $('#movie-title-input').val();
+                let rating = $('#movie-rating-input').val();
+                let movie = {
+                    title: title,
+                    rating: rating
+                };
+
+                console.log('edit clicked');
+                console.log(id);
+                fetch(`/api/movies/${id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(movie)
+                }).then(() => {
+                   $('#submit-button').show();
+                    $('#edit-button').hide();
+                    $('#movie-title-input').attr('placeholder', 'Movie Title');
+
+                });
+            generateTable()
+            });
+
     });
 }
 
@@ -60,7 +78,7 @@ const generateTable = () => {
             console.log(`id#${id} - ${title} - rating: ${rating}`);
             //renders movie and rating in table rows
             movieTable += `<tr><td id="row-title">${title}</td><td id="row-rating">${rating}</td>`;
-            movieTable += `<td><i data-id="${id}" class="fas fa-edit row-edit"></i> <i data-id="${id}" class="fas fa-trash-alt row-delete" ></i></td></tr>`
+           movieTable += `<td><i data-id="${id}" class="fas fa-edit row-edit"></i> <i data-id="${id}" class="fas fa-trash-alt row-delete" ></i></td></tr>`
             // add table edit and delete
 
         });
