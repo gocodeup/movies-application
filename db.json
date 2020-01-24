@@ -11,19 +11,29 @@
       "id": 3
     },
     {
-      "title": "The Sandlot",
-      "rating": "4",
+      "title": "Alien",
+      "rating": "5",
       "id": 4
     },
     {
-      "title": "Adams Family",
-      "rating": "1",
+      "title": "Movie",
+      "rating": "3",
       "id": 5
     },
     {
-      "title": "The Matrix",
+      "title": "Friday",
       "rating": "4",
       "id": 6
+    },
+    {
+      "title": "Movie",
+      "rating": "3",
+      "id": 7
+    },
+    {
+      "title": "Movie",
+      "rating": "3",
+      "id": 8
     }
   ]
 }
