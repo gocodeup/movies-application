@@ -15,12 +15,10 @@ function refreshMovies() {
 
         movies.forEach(({title, rating, id}) => {
 
-            // let movieItems = '';
-            //
-            // movieItems += `Rating: ${rating} Title: ${title} Id:${id}`;
-            // $('.movies').append(movieItems);
-            $('.movies').append(`<div class="delete edit">Rating: ${rating} Title: ${title} Id:${id}<button value="${id}" class="delete">Delete</button></div> `);
-            $('.movies').append(`<div><button type="button" value="${id}" class="formButton">Edit</button></div>`);
+            $('.movies').append(`<div class="border"></div><div class="delete edit"><ul>
+<li>Rating: ${rating}</li> <li>Title: ${title}</li>  <li>Id:${id}</li><button value="${id}" class="delete">Delete</button>
+</ul></div> `);
+            $('.movies').append(`<div class="edit"><button type="button" value="${id}" class="formButton">Edit</button></div></div>`);
         });
         $(".formButton").click(function() {
             $("#form1").toggle();
@@ -53,13 +51,13 @@ $('#addMovie').click(() => {
     addMovie(title, rating, genre);
 });
 
-    $('#editMovie').click(() => {
-    let title = $('#editTitle').val();
-    let rating = $('#editRating').val();
-    let genre = $('#editGenre').val();
-    // look up inputs
-    editMovie(title, rating, genre);
-});
+//     $('#editMovie').click(() => {
+//     let title = $('#editTitle').val();
+//     let rating = $('#editRating').val();
+//     let genre = $('#editGenre').val();
+//     // look up inputs
+//     editMovie(title, rating, genre);
+// });
 
 
 
