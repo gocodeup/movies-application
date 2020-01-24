@@ -71,9 +71,9 @@
     list-style: none;
 }
 
-.hidden {
-    display: none;
-}
+/*.hidden {*/
+/*    display: none;*/
+/*}*/
 
 .formContainer {
     padding: 5em;

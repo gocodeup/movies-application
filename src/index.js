@@ -24,27 +24,8 @@ function renderMovies() {
                 <p>Genre: ${genre}</p>
                 <button class="btn btn-primary edit editButton" data-toggle="collapse" data-target="#collapse" value="${id}">Edit</button>
                 <button id="deleteButton" class="btn btn-danger delete" value="${id}">Delete</button>
-                
-                <div class="collapse" id="collapse" aria-expanded="false" aria-controls="collapse">
-                    <form action="" class="editForm">
-                        <div class="form-group">
-                            <label for="inputTitle">Title</label>
-                            <input type="text" class="form-control editTitle">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputRating">Rating</label>
-                            <input type="text" class="form-control editRating">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputGenre">Genre</label>
-                            <input type="text" class="form-control editGenre">
-                        </div>
-                        <button class="editMovie">Edit Movie</button>
-                    </form>
                 </div>
-                
-                </div>
-                </div>`)
+                </div>`);
         });
     })
 }
@@ -80,9 +61,20 @@ $('.movies').on('click', '.delete', function (event) {
 });
 
 // this edit is for the cards
-$('.editButton').on('click', function (event){
-  let editId = $(event.target).val();
-  $('.editForm').toggle(editId);
+// $('.editButton').on('click', function (event){
+//   let editId = $(event.target).val();
+//   $('.editForm').toggle(editId);
+// });
+$('#exampleModal').on('shown.bs.modal', function (event) {
+    $('#exampleModal').trigger('focus');
+    console.log("test");
+    // let button = $(event.relatedTarget); // Button that triggered the modal
+    // let recipient = button.data('whatever');// Extract info from data-* attributes
+    // // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    // let modal = $(this);
+    // modal.find('.modal-title').text('New message to ' + recipient);
+    // modal.find('.modal-body input').val(recipient)
 });
 
 // this edit is for the form
