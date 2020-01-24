@@ -9,7 +9,7 @@ module.exports = {
                 let i = 1
                 $('#loading-h1').remove();
                 movies.forEach(({Title, Overview, Year, Rated, Genre, Image, Website, imdbRating, Rating, id}) => {
-                    $('#main-container').append(`<div class="movie-container" id="movie-container-${i}">${Title}, ${Overview}, ${Year}, ${Rated}, ${Genre}, ${Image}, ${Website}, ${imdbRating}, ${Rating}, ${id}</div>`)
+                    $('#append-me').append(`<div class="col-md-4 col-lg-4 cust-col"><div id="card-${i}" class="card"><img id="img-${i}" class="img-thumbnail" src="${Image}" alt="Card image cap"><div class="card-body"><h5 id="movie-title-${i}" class="card-title">${Title}</h5><p id="movie-overview-${i}" class="card-text">${Overview}</p></div><ul id="attributes-ul-${i}" class="list-group list-group-flush"><li class="list-group-item">Your Rating: ${Rating}</li><li class="list-group-item">Year: ${Year}</li><li class="list-group-item">Genre: ${Genre}</li><li class="list-group-item">MPAA Rating: ${Rated}</li><li class="list-group-item">Website: ${Website}</li><li class="list-group-item">IMDb&#174;: ${imdbRating}</li><li class="list-group-item">CRUDy-Movies ID: ${id}</li></ul><div class="card-body"><button id="custom-create-button" type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#create-button-modal-inner">Custom Create</button><button id="custom-create-button" type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#create-button-modal-inner">Custom Create</button></div></div></div>`)
                     i++;
                 });
             })
