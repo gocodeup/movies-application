@@ -1,8 +1,8 @@
 {
   "movies": [
     {
-      "title": "Star Wars: A New Hope",
-      "rating": "5",
+      "title": "Adams Family",
+      "rating": "1",
       "id": 2
     },
     {
@@ -16,8 +16,8 @@
       "id": 4
     },
     {
-      "title": "Mulan",
-      "rating": "4",
+      "title": "Adams Family",
+      "rating": "1",
       "id": 5
     },
     {
