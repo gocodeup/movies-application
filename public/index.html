@@ -4,13 +4,13 @@
     <meta charset="UTF-8"/>
     <title>My Application</title>
     <link rel="stylesheet" href="/style.css"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"-->
+<!--          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
 </head>
 <body class="mt-5">
 <div class="container">
     <div class="movies"></div>
-    <form action="">
+    <form action=""><h1>add movie</h1>
         <div class="form-group">
             <label for="inputTitle">Title</label>
             <input type="text" class="form-control" id="inputTitle" aria-describedby="emailHelp">
@@ -30,18 +30,19 @@
 
 <!--    <button type="button" class="formButton">Toggle Form!</button>-->
 
-    <form id="form1">
+    <form id="form1"><br>
+        <h1>edit movie</h1>
             <div class="form-group">
-                <label for="inputTitle">Title</label>
-                <input type="text" class="form-control" id="editInputTitle" aria-describedby="emailHelp">
+                <label for="editTitle">Title</label>
+                <input type="text" class="form-control" id="editTitle" aria-describedby="emailHelp">
             </div>
             <div class="form-group">
-                <label for="inputRating">Rating</label>
-                <input type="text" class="form-control" id="editInputRating">
+                <label for="editRating">Rating</label>
+                <input type="text" class="form-control" id="editRating">
             </div>
             <div class="form-group">
-                <label for="inputGenre">Genre</label>
-                <input type="text" class="form-control" id="editInputGenre">
+                <label for="editGenre">Genre</label>
+                <input type="text" class="form-control" id="editGenre">
             </div>
 <!--        <b>Preferred Color:</b>-->
 <!--        <select name="color">-->
@@ -52,7 +53,7 @@
 <!--            <option value="pink">Pink</option>-->
 <!--        </select>-->
         <br>
-        <button type="button" id="submit">Submit</button>
+        <button type="button" id="editMovie">Submit</button>
     </form>
 
 

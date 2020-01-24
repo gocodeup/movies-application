@@ -29,6 +29,12 @@
       "title": "It",
       "rating": "3",
       "id": 6
+    },
+    {
+      "title": "frozen 5",
+      "rating": "8",
+      "genre": "family",
+      "id": 7
     }
   ]
 }

@@ -20,7 +20,7 @@ function refreshMovies() {
             // movieItems += `Rating: ${rating} Title: ${title} Id:${id}`;
             // $('.movies').append(movieItems);
             $('.movies').append(`<div class="delete edit">Rating: ${rating} Title: ${title} Id:${id}<button value="${id}" class="delete">Delete</button></div> `);
-            $('.movies').append(`<div><button type="button" class="formButton">Toggle Form!</button></div>`);
+            $('.movies').append(`<div><button type="button" class="formButton">Edit</button></div>`);
         });
         $(".formButton").click(function() {
             $("#form1").toggle();
@@ -53,14 +53,22 @@ $('#addMovie').click(() => {
     addMovie(title, rating, genre);
 });
 
+    $('#editMovie').click(() => {
+    let title = $('#editTitle').val();
+    let rating = $('#editRating').val();
+    let genre = $('#editGenre').val();
+    // look up inputs
+    editMovie(title, rating, genre);
+});
+
+
 
 // $('#editMovie').click(() => {
-//
-//     let editTitle = $('#editTitle').val();
-//     let editRating = $('#editRating').val();
-//     let editGenre = $('#editGenre').val();
+//     let title = $('#editTitle').val();
+//     let rating = $('#editRating').val();
+//     let genre = $('#editGenre').val();
 //     // look up inputs
-//     editMovie(editTitle, editRating, editGenre);
+//     editMovie(title, rating, genre);
 // });
 
 
