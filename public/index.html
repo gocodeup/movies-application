@@ -11,7 +11,6 @@
     <script src="https://kit.fontawesome.com/ed020a3921.js" crossorigin="anonymous"></script>
 </head>
 <body id="custom">
-
 <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light">
     <a id="brand-link" class="navbar-brand" href="#">CRUDy-Movies</a>
     <button id="nav-toggle" class="navbar-toggler" type="button" data-toggle="collapse"  data-target="#nav-collapse" aria-controls="navbarSupportedContent" aria-expanded="false"  aria-label="Toggle navigation">
@@ -222,7 +221,79 @@
         </div>
     </div>
 </div>
-
+<!--MODAL FOR UPDATE VIA CARD BUTTON-->
+<div id="update-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div id="update-modal" class="modal-dialog modal-dialog-centered" role="document">
+        <div id="update-modal-content" class="modal-content">
+            <div id="update-modal-header" class="modal-header">
+                <h5 id="update-modal-title" class="modal-title">Create A Movie!</h5>
+                <button id="update-modal-close-button" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="false">&times;</span>
+                </button>
+            </div>
+            <div id="update-modal-body" class="modal-body">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="create-movie-title-input">Movie Title</label>
+                            <input type="text" class="form-control" id="update-movie-title-input">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="update-rating-select">Rate It</label>
+                            <select id="update-rating-select" class="form-control">
+                                <option value="1" selected>⭐</option>
+                                <option value="2">⭐⭐</option>
+                                <option value="3">⭐⭐⭐</option>
+                                <option value="4">⭐⭐⭐⭐</option>
+                                <option value="5">⭐⭐⭐⭐⭐</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="genre-input">Genre</label>
+                            <input type="text" class="form-control" id="update-genre-input">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="year-input">Year</label>
+                            <input type="text" class="form-control" id="update-year-input">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="mpaa-rating-input">MPAA Rating</label>
+                            <input type="text" class="form-control" id="update-mpaa-rating-input">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="imdb-rating-input">imdbRating</label>
+                            <input type="text" class="form-control" id="update-imdb-rating-input">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="website-url-input">Website URL</label>
+                            <input type="text" class="form-control" id="update-website-url-input">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="image-url-input">Image Url</label>
+                            <input type="text" class="form-control" id="update-image-url-input">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="overview-input">Overview</label>
+                            <input type="text" class="form-control" id="update-overview-input">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="update-submit-button" type="button" class="btn btn-primary" data-dismiss="modal">Create!</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--END MODAL FOR UPDATE VIA CARD BUTTON-->
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

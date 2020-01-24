@@ -219,6 +219,19 @@ module.exports = {
                 console.log(response);
             });
 
+    },
+    updateEntry: (data, id) => {
+        return fetch(`/api/movies/${id}`, {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('Success:', data);
+            })
     }
 };
 
