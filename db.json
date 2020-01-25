@@ -1,18 +1,18 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
-      "rating": "4",
+      "title": "test",
+      "rating": "1",
       "id": 1
     },
     {
-      "title": "Star Wars: A New Hope",
-      "rating": "3",
+      "title": "it2",
+      "rating": "5",
       "id": 2
     },
     {
       "title": "Home Alone",
-      "rating": "4",
+      "rating": "1",
       "id": 3
     },
     {
@@ -24,6 +24,12 @@
       "title": "The Lion King",
       "rating": "1",
       "id": 5
+    },
+    {
+      "title": "the war",
+      "rating": "5",
+      "genre": "family",
+      "id": 6
     }
   ]
 }

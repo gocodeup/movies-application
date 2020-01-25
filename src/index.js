@@ -2,26 +2,36 @@
  * es6 modules and imports
  */
 const $ = require('jquery');
-
+var editIDNum = 0;
 import sayHello from './hello';
 
 sayHello('World');
 
-const {getMovies, addMovie, deleteMovie, editMovie,} = require('./api.js');
+const {getMovies, getMovie, addMovie, deleteMovie, editMovie,} = require('./api.js');
 
 function refreshMovies() {
     getMovies().then((movies) => {
         $('.movies').html('');
 
         movies.forEach(({title, rating, id}) => {
-
-            $('.movies').append(`</div><ul class="delete">
+            $('.movies').append(`<ul class="delete">
 <li>Title: ${title}, Rating: ${rating}, Id:${id} </li><button value="${id}" class="delete">Delete</button>
 </ul> `);
             $('.movies').append(`<div class="edit"><button type="button" value="${id}" class="formButton">Edit</button></div><hr>`);
         });
-        $(".formButton").click(function() {
-            $("#form1").toggle();
+
+
+        $(".formButton").click(function(event) {
+
+            editIDNum = $(event.target).val();
+            getMovie(editIDNum).then((movie) => {
+                $('#editTitle').val(movie.title);
+                $('#editRating').val(movie.rating);
+                $('#editGenre').val("");
+                $("#form1").toggle();
+            });
+
+
         });
     })
         .catch((error) => {
@@ -59,18 +69,24 @@ $('#addMovie').click(() => {
 //     editMovie(title, rating, genre);
 // });
 //
-const editTitle = $('#editTitle').val();
-const editRating = $('#editRating').val();
-const editGenre = $('#editGenre').val();
+
 // const targetID = ${this.id}
 
 $('#editMovie').click(() => {
-    // console.log(this.id);
-    let title = editTitle.val();
-    let rating = editRating.val();
-    let genre = editGenre.val();
+//$('.movies').on('click', '.edit', function (event){
+    let editId = editIDNum;
+    console.log("This", editId);
+    const editTitle = $('#editTitle').val();
+    const editRating = $('#editRating').val();
+
+    let title = editTitle;
+    let rating = editRating;
     // look up inputs
-    editMovie(title, rating, genre, id);
+
+    editMovie(editId, title, rating);
+    editIDNum = 0;
+    $("#form1").toggle();
+    refreshMovies();
 });
 
 
