@@ -41,7 +41,7 @@ function editThis() {
         console.log(`row ${id} edit clicked`);
         // let entry = 0;
         // if (entry === 0) {
-            $('#movie-title-input').attr('placeholder', 'Edit Movie Here');
+            $('#movie-title-input').attr('placeholder', 'Edit Movie');
             $('#submit-button').hide();
             $('#edit-button').show();
         // }
