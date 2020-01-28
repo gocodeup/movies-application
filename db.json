@@ -1,17 +1,17 @@
 {
   "movies": [
     {
-      "title": "Friday",
-      "rating": "★★★★",
+      "title": "Test 2",
+      "rating": "★★",
       "id": 5
     },
     {
       "title": "Test",
-      "rating": "★★★",
+      "rating": "★",
       "id": 6
     },
     {
-      "title": "Test",
+      "title": "Test 3",
       "rating": "★★★",
       "id": 7
     },
