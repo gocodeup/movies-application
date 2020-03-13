@@ -47,3 +47,40 @@ $('#submitBtn').click((e) => {
   $('#new-movie-title').val("");
   $("input[name='rating']:checked").prop('checked', false);
 });
+
+
+// --------------- HIDE THE NEXT STEP OF EDIT----------------
+
+$('#edit-movie-title, #edit-movie-rating, #submitEditBtn').hide();
+
+
+// ---------------EDIT BUTTON ----------------
+
+$('#editBtn').click((e) => {
+
+  e.preventDefault();
+
+  $("#edit-movie-id, #editBtn").hide();
+  $('#edit-movie-title, #edit-movie-rating, #submitEditBtn').show();
+
+
+});
+
+
+// ---------------SUBMIT THE EDITS BUTTON ----------------
+
+$('#submitEditBtn').click((e) => {
+
+  e.preventDefault();
+
+  editMovie( id , {
+    "title": $('#new-movie-title').val(),
+    "rating": $("input[name='rating']:checked").val()
+  })
+      .then(data => getMovies())
+      .then(movies => updateMovies());
+
+  $('#new-movie-title').val("");
+  $("input[name='rating']:checked").prop('checked', false);
+
+});

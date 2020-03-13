@@ -17,7 +17,7 @@
     </main>
 
 
-    <section id="add-movie">
+    <section id="add-movie-section">
             <h1>Add a Movie</h1>
             <form id="add-movie-form">
                 <label for="new-movie-title">Title: </label>
@@ -34,6 +34,19 @@
             <br><br><button id="submitBtn" type="submit">Add movie</button>
 
             </form>
+    </section>
+
+    <section id="edit-movie-section">
+        <h1>Edit Movie</h1>
+        <form id="edit-movie-form">
+            <label for="edit-movie-id"></label>
+            <input type="text" id="edit-movie-id" placeholder="Movie Id">
+            <br><br><button id="editBtn" type="submit">Edit movie</button><br><br>
+
+            <input type="text" id="edit-movie-title">
+            <input type="text" id="edit-movie-rating">
+            <br><br><button id="submitEditBtn" type="submit">Edit movie</button>
+        </form>
     </section>
 
     <script src="./main.js"></script>

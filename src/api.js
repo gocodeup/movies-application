@@ -23,6 +23,18 @@ module.exports = { //export the contents of this code block
       body: JSON.stringify(title, rating),
     })
         .then(response => response.json());
+  },
+
+  editMovie: (id, book) => { // when addMovie is called -->
+
+    return fetch(`api/movies/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(title, rating),
+    })
+        .then(response => response.json());
   }
 
 };
