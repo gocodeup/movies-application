@@ -7,13 +7,57 @@
 
 </head>
 <body>
-<h1>Movies Application</h1>
+<!--<h1>Movies Application</h1>-->
 
-    <div class="container">
-        <h1>Loading...test</h1>
-<!--        <p>To get started, edit <code>src/index.js</code>.</p>-->
-    </div>
-    <div class="modal"><!-- Place at bottom of page --></div>
+<!--    <div class="container">-->
+<!--        <h1>Loading...test</h1>-->
+<!--&lt;!&ndash;        <p>To get started, edit <code>src/index.js</code>.</p>&ndash;&gt;-->
+<!--    </div>-->
+<!--    <div class="modal">&lt;!&ndash; Place at bottom of page &ndash;&gt;</div>-->
+<header>
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-5 h1">Los Vatos Locos Movies!</span>
+    </nav>
+</header>
+<!--<main class="container">-->
+<!--<form>-->
+<!--<fieldset class="form-group">-->
+<!--<label for="searchTerm"></label>-->
+<!--<input type="text" class="form-control" id="searchTerm" placeholder="Search For Your Movie Here...">-->
+<!--</fieldset>-->
+<!--<button type="submit" class="btn btn-primary">Search!</button>-->
+<!--</form>-->
+<!--</main>-->
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Movie title</th>
+        <th scope="col">Movie Rating</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">1</th>
+        <td>Casablanca</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <th scope="row">2</th>
+        <td>Star Wars: A New Hope</td>
+        <td>5</td>
+    </tr>
+    </tbody>
+</table>
+
+<form>
+    <label for="movie-title">Name of movie</label>
+    <input type="text" id="movie-title" placeholder="Movie Title">
+    <label for="movie-rating">Rating of movie</label>
+    <input type="text" id="movie-rating" placeholder="Movie Rating">
+    <button type="submit" id="add-movie" class="btn btn-primary">Submit</button>
+</form>
+
     <script src="./main.js"></script>
 </body>
 </html>
