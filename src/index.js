@@ -1,13 +1,22 @@
+const $ = require('jquery');
+
+
 /**
  * es6 modules and imports
  */
-import sayHello from './hello';
+import sayHello  from './hello';
 sayHello('World');
 
 /**
  * require style imports
  */
-const {getMovies} = require('./api.js');
+const {getMovies, addMovie} = require('./api.js');
+
+$('#submit').click(function (e) {
+e.preventDefault();
+addMovie();
+});
+$('#hello').css('background', 'blue');
 
 getMovies().then((movies) => {
   console.log('Here are all the movies:');
@@ -18,3 +27,5 @@ getMovies().then((movies) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.')
   console.log(error);
 });
+
+
