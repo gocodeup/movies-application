@@ -45,8 +45,8 @@ module.exports = {
     fetch('/api/movies')
         .then(data => {return data.json()
         }).then(data2 => {
-      var newTitle = data2[id].title
-      console.log(newTitle)
+      var newTitle = data2[id].title;
+      console.log(newTitle);
 
       console.log(newTitle);
       const userMovie = {title: newTitle, rating: $('#ratingEdit').val()};
@@ -57,7 +57,6 @@ module.exports = {
         method: 'Put',
         headers: {
           'Content-Type': 'application/json',
-
         },
         body: JSON.stringify(userMovie),
       };
@@ -68,5 +67,14 @@ module.exports = {
     });
 
   },
+  refresh: (movies) => {
+    console.log('Here are all the movies:');
+    movies.forEach(({title, rating, id}) => {
+      console.log(`id#${id} - ${title} - rating: ${rating}`);
+      $('#movies').append(
+          `<li>id#${id} - ${title} - rating: ${rating}</li>`
+      )
+    })
+  }
 };
 

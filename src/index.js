@@ -10,17 +10,20 @@ sayHello('World');
 /**
  * require style imports
  */
-const {getMovies, addMovie, editMovie} = require('./api.js');
+const {getMovies, addMovie, editMovie, refresh} = require('./api.js');
 
 $('#submit').click(function (e) {
 e.preventDefault();
 addMovie();
+refresh();
 });
 
 $('#submitEdit').click(function (e) {
   e.preventDefault();
   editMovie($('#idNumber').val());
   console.log($('#idNumber').val());
+  refresh();
+
 });
 
 getMovies().then((movies) => {
