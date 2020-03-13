@@ -1,6 +1,17 @@
 /**
  * es6 modules and imports
  */
+const $ = require('jquery');
+
+let $body = $("body");
+
+$(document).on({
+  ajaxStart: function() { $body.addClass("loading");    },
+  ajaxStop: function() { $body.removeClass("loading"); }
+});
+
+
+
 import sayHello from './hello';
 sayHello('World');
 
@@ -15,6 +26,9 @@ getMovies().then((movies) => {
     console.log(`id#${id} - ${title} - rating: ${rating}`);
   });
 }).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.')
+  alert('Oh no! Something went wrong.\nCheck the console for details.');
   console.log(error);
 });
+
+
+
