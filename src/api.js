@@ -22,22 +22,51 @@ module.exports = {
         .then(/* post was created successfully */)
         .catch(/* handle errors */);
   },
+  // editMovie: (id) => {
+  //   fetch('/api/movies')
+  //   const userMovie = {rating: $('#ratingEdit').val()};
+  //   const url = `/api/movies/${id}`;
+  //   console.log('success');
+  //
+  //   const options = {
+  //     method: 'Patch',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //
+  //     },
+  //     body: JSON.stringify(userMovie),
+  //   };
+  //   fetch(url, options)
+  //       .then(/* post was created successfully */)
+  //       .catch(/* handle errors */);
+  // },
+
   editMovie: (id) => {
-    const userMovie = {title: $('#title').val(), rating: $('#ratingEdit').val()};
-    const url = `/api/movies/${id}`;
-    console.log('success');
+    fetch('/api/movies')
+        .then(data => {return data.json()
+        }).then(data2 => {
+      var newTitle = data2[id].title
+      console.log(newTitle)
 
-    const options = {
-      method: 'Put',
-      headers: {
-        'Content-Type': 'application/json',
+      console.log(newTitle);
+      const userMovie = {title: newTitle, rating: $('#ratingEdit').val()};
+      const url = `/api/movies/${id}`;
+      console.log('success');
 
-      },
-      body: JSON.stringify(userMovie),
-    };
-    fetch(url, options)
-        .then(/* post was created successfully */)
-        .catch(/* handle errors */);
+      const options = {
+        method: 'Put',
+        headers: {
+          'Content-Type': 'application/json',
+
+        },
+        body: JSON.stringify(userMovie),
+      };
+
+      fetch(url, options)
+          .then(/* post was created successfully */)
+          .catch(/* handle errors */);
+    });
+
   },
 };
 
