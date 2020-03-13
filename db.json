@@ -6,8 +6,8 @@
       "id": 1
     },
     {
-      "title": "Star Wars: A New Hope",
-      "rating": "5",
+      "title": "Steer Magnolias",
+      "rating": "2",
       "id": 2
     },
     {
@@ -19,6 +19,35 @@
       "title": "afarf",
       "rating": "arfarf",
       "id": 4
+    },
+    {
+      "title": "Steer Magnolias",
+      "rating": "2",
+      "id": 5
+    },
+    {
+      "title": "Steel Magnolias",
+      "rating": "5",
+      "id": 6
+    },
+    {
+      "title": "Steel Magnolias",
+      "rating": "5",
+      "id": 7
+    },
+    {
+      "title": "Steel Magnolias",
+      "rating": "5",
+      "id": 8
+    },
+    {
+      "title": "Steel Magnolias",
+      "rating": "5",
+      "id": 9
+    },
+    {
+      "rating": "2",
+      "id": 10
     }
   ]
 }

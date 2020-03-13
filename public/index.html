@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <title>My Application</title>
     <link rel="stylesheet" href="/style.css" />
+    <style>
+        .highlighted{
+            background: yellow;
+        }
+    </style>
 </head>
 <body>
 
@@ -16,7 +21,13 @@
             <button type="submit" id="submit">submit</button>
         </form>
 
-        <div id="movies"></div>
+        <form id="editForm">Edit Form
+            <label for="idNumber">Id Number</label><input id="idNumber" type="text">
+            <label for="rating">Rating</label><input id="ratingEdit" type="text">
+            <button type="submit" id="submitEdit">submit</button>
+        </form>
+        <ul id="movies">
+        </ul>
     </div>
 
 
