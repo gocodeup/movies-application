@@ -1,29 +1,17 @@
 'use strict';
 
 const $ = require('jquery'); // We need jquery --> pulling the jquery here
-// window.$ = $; //What it do? i dont know
-require('bootstrap'); // We need bootstrap --> pulling the bootstrap here
 
-/**
-* es6 modules and imports
-*/
-import sayHello from './hello'; // This function says hello imported from hello.js where it is defined, Name the function here
-sayHello('World'); // call the hello function
+const {getMovies, addMovie} = require('./api.js'); //Get the get movies function from the api.js file
 
-/**
- * require style imports
- */
-const {getMovies} = require('./api.js'); //Get the get movies function from the api.js file
+const updateMovies = () => getMovies().then((movies) => { //use the getmovies function to pull all the movies
 
-getMovies().then((movies) => { //use the getmovies function to pull all the movies
-
-  console.log('Here are all the movies:'); // console this message
-  $('#all-movies').html('');
+  $('#all-movies').html(''); // Empty HTML after AJAX call received
 
   movies.forEach(({title, rating, id}) => { //iterate through each movie object and get the title, rating, and id
 
 
-    $('#all-movies').append(`<div class='card'><div class="card-body">id#${id} - ${title} - rating: ${rating} </div></div>`); //console.log the id, title, and rating
+    $('#all-movies').append(`<div>id#${id} - ${title} - rating: ${rating}</div>`); //console.log the id, title, and rating
 
   });
 
@@ -33,4 +21,29 @@ getMovies().then((movies) => { //use the getmovies function to pull all the movi
 
   console.log(error); //console log the error
 
+});
+
+updateMovies();
+
+
+// ADD MOVIES CALL RESPONSE
+
+// addMovie(newTitle, newRating)
+//     .then(data => updateMovies());
+
+
+// LET USER ADD MOVIE ON BUTTON CLICK
+
+$('#submitBtn').click((e) => {
+  e.preventDefault();
+
+  addMovie({
+    "title": $('#new-movie-title').val(),
+    "rating": $("input[name='rating']:checked").val()
+  })
+      .then(data => getMovies())
+      .then(movies => updateMovies());
+
+  $('#new-movie-title').val("");
+  $("input[name='rating']:checked").prop('checked', false);
 });
