@@ -6,7 +6,7 @@ module.exports = {
         .then(response => response.json());
   },
   addMovie: () => {
-    const userMovie = {title: $('#title').val(), body: $('#rating').val()};
+    const userMovie = {title: $('#title').val(), rating: $('#rating').val()};
     const url = '/api/movies';
     console.log('success');
 
