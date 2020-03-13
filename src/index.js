@@ -2,6 +2,10 @@
  * es6 modules and imports
  */
 const $ = require('jquery');
+const {editMovie} = require('./api.js');
+const {deleteMovie} = require('./api.js');
+const {addMovie} = require('./api.js');
+
 
 // let $body = $("body");
 //
@@ -47,8 +51,6 @@ const $ = require('jquery');
 //
 // //------------------------------
 
-const {editMovie} = require('./api.js');
-
 editMovie().then((movie, id) => {
   console.log('EDIT MOVIE WORKING');
   movies.forEach(({title, rating, id}) => {
@@ -60,8 +62,7 @@ editMovie().then((movie, id) => {
 });
 
 // //------------------------------
-//
-const {deleteMovie} = require('./api.js');
+
 
 deleteMovie().then((movies) => {
   console.log('DELETE MOVIE WORKING');
@@ -73,7 +74,7 @@ deleteMovie().then((movies) => {
   console.log(error);
 });
 
-import {getMovies,addMovie,deleteMovie,editMovie} from'./api.js';
+// import {getMovies,addMovie,deleteMovie,editMovie} from'./api.js';
 const form = document.querySelector('form');
 const input = document.querySelector('#searchTerm');
 const movieTitle = document.querySelector('#movie-title');
