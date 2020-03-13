@@ -8,6 +8,9 @@
         .highlighted{
             background: yellow;
         }
+        li {
+            list-style: none;
+        }
     </style>
 </head>
 <body>
@@ -16,14 +19,26 @@
 <!--        <h1 id="hello">Hello There!</h1>-->
 <!--        <p>To get started, edit <code>src/index.js</code>.</p>-->
         <form id="firstForm">
-            <label for="title">Title</label><input id="title" type="text">
-            <label for="rating">Rating</label><input id="rating" type="text">
+            <label for="title">Title</label>
+            <br>
+            <input id="title" type="text">
+            <br>
+            <label for="rating">Rating</label>
+            <br>
+            <input id="rating" type="text">
+            <br>
             <button type="submit" id="submit">submit</button>
         </form>
 
         <form id="editForm">Edit Form
-            <label for="idNumber">Id Number</label><input id="idNumber" type="text">
-            <label for="rating">Rating</label><input id="ratingEdit" type="text">
+            <label for="idNumber">Id Number</label>
+            <br>
+            <input id="idNumber" type="text">
+            <br>
+            <label for="rating">Rating</label>
+            <br>
+            <input id="ratingEdit" type="text">
+            <br>
             <button type="submit" id="submitEdit">submit</button>
         </form>
         <ul id="movies">
