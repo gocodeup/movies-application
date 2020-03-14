@@ -74,6 +74,46 @@
       "title": "ET Part II",
       "rating": "1",
       "id": 19
+    },
+    {
+      "title": "Enter the Dragon",
+      "rating": "5",
+      "id": 20
+    },
+    {
+      "title": "Predator",
+      "rating": "5",
+      "id": 21
+    },
+    {
+      "title": "Black Hawk Down",
+      "rating": "4",
+      "id": 22
+    },
+    {
+      "title": "The Untouchables",
+      "rating": "2",
+      "id": 23
+    },
+    {
+      "title": "The Thin Red Line",
+      "rating": "2",
+      "id": 24
+    },
+    {
+      "title": "",
+      "rating": "",
+      "id": 25
+    },
+    {
+      "title": "",
+      "rating": "",
+      "id": 26
+    },
+    {
+      "title": "A Bronx Tale",
+      "rating": "4",
+      "id": 27
     }
   ]
 }
