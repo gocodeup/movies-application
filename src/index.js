@@ -51,23 +51,6 @@ getMovies().then((movies) => {
 
 //-------GET MOVIES: END-----------
 
-//-------ADD MOVIE: START-----------
-
-$('#add-movie').click(function (e) {
-  e.preventDefault();
-  const addedMovieTitle = movieTitle.value;
-  const addedMovieRating = movieRating.value;
-  const addedMovie = {
-    title: addedMovieTitle,
-    rating: addedMovieRating
-  };
-  addMovie(addedMovie);
-  console.log(addedMovie);
-  movieRefresh();
-});
-
-//-------ADD MOVIE: END-----------
-
 //-------DELETE MOVIE: START-----------
 
 // deleteMovie().then((movies) => {
@@ -81,10 +64,10 @@ $('#add-movie').click(function (e) {
 // });
 //
 // // import {getMovies,addMovie,deleteMovie,editMovie} from'./api.js';
-// const form = document.querySelector('form');
-// const input = document.querySelector('#searchTerm');
-// const movieTitle = document.querySelector('#movie-title');
-// const movieRating = document.querySelector('#movie-rating');
+const form = document.querySelector('form');
+const input = document.querySelector('#searchTerm');
+const movieTitle = document.querySelector('#movie-title');
+const movieRating = document.querySelector('#movie-rating');
 
 //-------DELETE MOVIE: END-----------
 
@@ -135,3 +118,20 @@ const movieRefresh = () => {
 };
 
 //-------REFRESH MOVIES: END-----------
+
+//-------ADD MOVIE: START-----------
+
+$('#add-movie').click(function (e) {
+  e.preventDefault();
+  const addedMovieTitle = movieTitle.value;
+  const addedMovieRating = movieRating.value;
+  const addedMovie = {
+    title: addedMovieTitle,
+    rating: addedMovieRating
+  };
+  addMovie(addedMovie);
+  console.log(addedMovie);
+  movieRefresh();
+});
+
+//-------ADD MOVIE: END-----------
