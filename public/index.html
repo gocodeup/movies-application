@@ -1,17 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>My Application</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/style.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
-<body>
+<body >
 
-    <div class="container">
-        <h1>Hello There!</h1>
-        <p>To get started, edit <code>src/index.js</code>.</p>
+<div class="container d-flex justify-content-center align-items-center">
+<!--    <h1>Hello There!</h1>-->
+<!--    <p>To get started, edit <code>src/index.js</code>.</p>-->
+
+<!--List movies go here-->
+    <div class="movieList card bg-light" style="height: 400px; width:100%"  id="movieList">
+        <div class="card-body ">
+            <table id="movies" class="table table-hover">
+                <thead>
+                <tr><h5 class="card-title">Movies available</h5></tr>
+                <tr>
+                    <th scope="col" class="">Title</th>
+                    <th scope="col">Rating</th>
+                </tr>
+                </thead>
+                <tbody id="insertMovies"></tbody>
+            </table>
+    <input id="input-movie" type="text" placeholder="Add Movie">
+    <input id="input-rating" type="text" placeholder="enter rating">
+    <button id="add-movie" >Add</button>
+    <button id="delete-movie">Remove</button>
+        </div>
     </div>
 
-    <script src="./main.js"></script>
+<!--loading image-->
+    <div class="overlay-loader">
+        <div class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+<script src="./main.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </body>
 </html>
