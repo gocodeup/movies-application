@@ -4,7 +4,7 @@
 const $ = require('jquery'); // Enables jQuery
 const {getMovies} = require('./api.js'); // Retrieves movie API data
 const {addMovie} = require('./api.js'); // Enables "Add Movie" function
-const {deleteMovie} = require('./api.js'); // Enables "Delete Movie" function
+// const {deleteMovie} = require('./api.js'); // Enables "Delete Movie" function
 // const {editMovie} = require('./api.js'); // Enables "Edit Movie" function
 
 //-------ADDING RETRIEVED MOVIES TO AN HTML TABLE WITH REFRESH BUTTON: START-----------
@@ -60,11 +60,11 @@ getMovies().then((movies) => {
 //   console.log(error);
 // });
 //
-// // import {getMovies,addMovie,deleteMovie,editMovie} from'./api.js';
-// const form = document.querySelector('form');
-// const input = document.querySelector('#searchTerm');
-// const movieTitle = document.querySelector('#movie-title');
-// const movieRating = document.querySelector('#movie-rating');
+// import {getMovies,addMovie,deleteMovie,editMovie} from'./api.js';
+const form = document.querySelector('form');
+const input = document.querySelector('#searchTerm');
+const movieTitle = document.querySelector('#movie-title');
+const movieRating = document.querySelector('#movie-rating');
 
 //-------DELETE MOVIE: END-----------
 
