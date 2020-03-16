@@ -70,7 +70,7 @@ module.exports = {
     },
     deleteMovie: (id) => {
       console.log('hi from delete movies' + id);
-        return fetch(`api/books/${id}`, {
+        return fetch(`api/movies/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
