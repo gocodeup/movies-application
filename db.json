@@ -111,10 +111,10 @@
       "genre": "drama"
     },
     {
-      "title": "Fury Road",
+      "title": "MadMax: Fury Road",
       "rating": "4",
       "id": 26,
-      "genre": ""
+      "genre": "Action"
     },
     {
       "title": "A Bronx Tale",
@@ -132,6 +132,12 @@
       "rating": "5",
       "genre": "Action",
       "id": 29
+    },
+    {
+      "title": "Full Metal Jacket",
+      "rating": "5",
+      "genre": "Action",
+      "id": 30
     }
   ]
 }
