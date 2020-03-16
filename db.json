@@ -2,13 +2,15 @@
   "movies": [
     {
       "title": "Casablanca",
-      "rating": "4",
-      "id": 1
+      "rating": "3",
+      "id": 1,
+      "genre": "Romance"
     },
     {
-      "title": "Star Wars: A New Hope",
+      "title": "Star Wars: A New Hope\t",
       "rating": "5",
-      "id": 2
+      "id": 2,
+      "genre": "Epic"
     },
     {
       "id": 7,
@@ -25,43 +27,50 @@
     {
       "title": "E.T.",
       "rating": "5",
-      "id": 14
+      "id": 14,
+      "genre": "Science Fiction"
     },
     {
       "title": "Fight Club",
       "rating": "4",
-      "id": 15
+      "id": 15,
+      "genre": "Thriller"
     },
     {
       "title": "Jumanji",
       "rating": "5",
-      "id": 16
+      "id": 16,
+      "genre": "Adventure"
     },
     {
       "title": "Super Mario Bros.",
       "rating": "2",
-      "id": 17
+      "id": 17,
+      "genre": "Fantasy"
     },
     {
       "title": "Enter the Dragon",
       "rating": "5",
-      "id": 20
+      "id": 20,
+      "genre": "Martial Arts"
     },
     {
       "title": "Predator",
       "rating": "5",
       "id": 21,
-      "genre": "horror"
+      "genre": "Horror"
     },
     {
       "title": "Black Hawk Down",
       "rating": "4",
-      "id": 22
+      "id": 22,
+      "genre": "War"
     },
     {
       "title": "The Untouchables",
       "rating": "2",
-      "id": 23
+      "id": 23,
+      "genre": "Thriller"
     },
     {
       "title": "Basketball Diaries",
@@ -70,7 +79,7 @@
       "genre": "Drama"
     },
     {
-      "title": "MadMax: Fury Road",
+      "title": "Mad Max: Fury Road",
       "rating": "4",
       "id": 26,
       "genre": "Action"
@@ -80,6 +89,18 @@
       "rating": "5",
       "genre": "Action",
       "id": 27
+    },
+    {
+      "title": "West Side Story",
+      "rating": "4",
+      "genre": "Drama",
+      "id": 28
+    },
+    {
+      "title": "The Thing",
+      "rating": "5",
+      "genre": "Horror",
+      "id": 29
     }
   ]
 }
