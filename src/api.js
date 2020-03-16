@@ -55,7 +55,7 @@ module.exports = {
             console.log('success');
 
             const options = {
-                method: 'Put',
+                method: 'Patch',
                 headers: {
                     'Content-Type': 'application/json',
                 },
