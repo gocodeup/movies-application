@@ -68,13 +68,23 @@ module.exports = {
 
   },
   refresh: (movies) => {
+
     console.log('Here are all the movies:');
+    $('#movies').html('');
     movies.forEach(({title, rating, id}) => {
       console.log(`id#${id} - ${title} - rating: ${rating}`);
+
       $('#movies').append(
-          `<li>id#${id} - ${title} - rating: ${rating}</li>`
+          `<li>id#${id} - ${title} - rating: ${rating}</li>` +
+          '<button type="submit" class="deleteButton">delete</button>'
       )
-    })
+
+    });
+    $('li').click(function () {
+      console.log('hi there');
+      $(this).toggleClass('highlighted')
+    });
+    // $('li').css('color', 'yellow');
   }
 };
 
