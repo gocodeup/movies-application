@@ -17,16 +17,21 @@ module.exports = {
           .then(response => response.json())
     },
 
-    deleteMovie: (movie, id) => {
-      const options = {
-        method: "DELETE",
-        headers: {
-          "content-type": "application/json"
-        },
-        body: JSON.stringify(movie)
-      };
-      console.log(movie);
-      return fetch(`/api/movies/${id}`, options)
+    deleteMovie: (id) => {
+        return fetch(`/api/movies/${id}`, {
+            method: 'DELETE'
+        })
+
+    // deleteMovie: (movie, id) => {
+    //   const options = {
+    //     method: "DELETE",
+    //     headers: {
+    //       "content-type": "application/json"
+    //     },
+    //     body: JSON.stringify(movie)
+    //   };
+    //   console.log(movie);
+    //   return fetch(`/api/movies/${id}`, options)
     },
 
     editMovie: (movie, id) => {

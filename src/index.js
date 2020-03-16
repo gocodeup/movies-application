@@ -12,17 +12,21 @@ const {editMovie} = require('./api.js'); // Enables "Edit Movie" function
   var displayMovie = 0;
 
   function loadData() {
+    console.log("load data function");
+
     if (displayMovie === 0) {
       $.get("/api/movies").done(function (data) {
-        $.each(data, function (i, items) {
+        console.log(data);
+        $('#insertMovies').html("");
+        $.each(data, function (i, item) {
           let x = 1;
           $('#insertMovies').append(
               '<tr>' +
-              '<td>' + items.id + '</td>' +
-              '<td>' + '<em>' + items.title + '</em>' + '</td>' +
-              '<td>' + items.genre + '</td>' +
-              '<td>' + items.rating + '</td>' +
-              '<td>' + '<button type="submit" class="remove-movie btn btn-danger" data-id= x >' + 'Remove' + '</button>' + '</td>' +
+              '<td>' + item.id + '</td>' +
+              '<td>' + '<em>' + item.title + '</em>' + '</td>' +
+              '<td>' + item.genre + '</td>' +
+              '<td>' + item.rating + '</td>' +
+              '<td>' + '<button type="submit" class="remove-movie btn btn-danger" data-id="movie-id" id="' + item.id.toString() + '">' + 'Remove' + '</button>' + '</td>' +
               '</tr>')
         })
       })
@@ -43,7 +47,7 @@ const {editMovie} = require('./api.js'); // Enables "Edit Movie" function
 
 getMovies().then((movies) => {
   movies.forEach(({title, rating, id}) => {
-    console.log(`ID# ${id} - ${title} - Rating: ${rating}`); // Shows all movies in database in JS console
+    // console.log(`ID# ${id} - ${title} - Rating: ${rating}`); // Shows all movies in database in JS console
   });
 }).catch((error) => {
   alert('"getMovies" function is not working. Check JS console for details...');
@@ -66,11 +70,24 @@ getMovies().then((movies) => {
 
 $(document).on('click','.remove-movie', function () {
   console.log('remove button clicked');
+  let movieId = $(this).attr('id');
   let warning = confirm('Are you sure you want to remove this movie');
+  displayMovie = 0;
   if (warning === true){
-    deleteMovie()
+    // let deleteId = $('.remove-movie').val();
+    console.log(movieId);
+    deleteMovie(movieId).then(response => {
+      console.log(response);
+      loadData();
+    });
   }
 });
+
+//Clicking the "Add Movie" button will refresh the table data and auto-populate new entry
+// $(".remove-movie").click(function () {
+//   $('#insertMovies').html("");
+//   return loadData(displayMovie = 0);
+// });
 
 //
 // import {getMovies,addMovie,deleteMovie,editMovie} from'./api.js';
@@ -101,10 +118,10 @@ const movieGenre = document.querySelector('#movie-genre');
 
 const movieRefresh = () => {
   getMovies().then((movies) => {
-    console.log('Here are all the movies:');
-    movies.forEach(({title, rating, id}) => {
-      console.log(`id#${id} - ${title} - rating: ${rating}`);
-    })
+    // console.log('Here are all the movies:');
+    // movies.forEach(({title, rating, id}) => {
+      // console.log(`id#${id} - ${title} - rating: ${rating}`);
+    // })
 
   }).catch((error) => {
     alert('"movieRefresh" function is not working. Check JS console for details...');
