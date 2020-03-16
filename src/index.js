@@ -5,7 +5,7 @@ const $ = require('jquery'); // Enables jQuery
 const {getMovies} = require('./api.js'); // Retrieves movie API data
 const {addMovie} = require('./api.js'); // Enables "Add Movie" function
 // const {deleteMovie} = require('./api.js'); // Enables "Delete Movie" function
-// const {editMovie} = require('./api.js'); // Enables "Edit Movie" function
+const {editMovie} = require('./api.js'); // Enables "Edit Movie" function
 
 //-------ADDING RETRIEVED MOVIES TO AN HTML TABLE WITH REFRESH BUTTON: START-----------
 
@@ -17,6 +17,7 @@ const {addMovie} = require('./api.js'); // Enables "Add Movie" function
         $.each(data, function (i, items) {
           $('#insertMovies').append(
               '<tr>' +
+              '<td>' + items.id + '</td>' +
               '<td>' + '<em>' + items.title + '</em>' + '</td>' +
               '<td>' + items.rating + '</td>' +
               '</tr>');
@@ -68,19 +69,6 @@ const movieRating = document.querySelector('#movie-rating');
 
 //-------DELETE MOVIE: END-----------
 
-//-------EDIT MOVIE: START-----------
-
-// editMovie().then((movie, id) => {
-//   console.log('EDIT MOVIE WORKING');
-//   movies.forEach(({title, rating, id}) => {
-//     console.log(`id#${id} - ${title} - rating: ${rating}`);
-//   });
-// }).catch((error) => {
-//   alert('"editMovie" function is not working. Check JS console for details...');
-//   console.log(error);
-// });
-
-//-------EDIT MOVIE: END-----------
 
 //-------POST MOVIE: START-----------
 
@@ -130,3 +118,35 @@ $('#add-movie').click(function (e) {
 });
 
 //-------ADD MOVIE: END-----------
+
+//-------EDIT MOVIE: START-----------
+
+$('#edit-submit').on('click', function(e) {
+  e.preventDefault();
+  let movieName = $('#editTitle').val();
+  let rating = $('#editRating').val();
+  let newGenre = $('#editGenre').val();
+  let editId = $('#editId').val();
+
+  $('#editTitle').val('');
+  $('#editRating').val('');
+  $('#editGenre').val('');
+  $('#editId').val('');
+
+  let movieData = {title: movieName, rating: rating, genre: newGenre};
+  console.log(movieData);
+  editMovie(movieData, editId);
+  movieRefresh();
+});
+
+// editMovie().then((movie, id) => {
+//   console.log('EDIT MOVIE WORKING');
+//   movies.forEach(({title, rating, id}) => {
+//     console.log(`id#${id} - ${title} - rating: ${rating}`);
+//   });
+// }).catch((error) => {
+//   alert('"editMovie" function is not working. Check JS console for details...');
+//   console.log(error);
+// });
+
+//-------EDIT MOVIE: END-----------
