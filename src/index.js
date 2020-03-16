@@ -21,7 +21,8 @@ var refresh = (movies) => {
     console.log(`${title} rating: ${rating}`);
 
     $('#movies').append(
-        `<li class="title">${title}  <br> rating: ${rating}</li>` +
+        `<div class="cards">` +
+        `<li>${title} rating: ${rating}</li>` +
         `<span class="starRating">` +
         `<input id="${id}rating5" type="radio" name="${rating}" value="5">`+
         `<label for="${id}rating5">5</label>`+
@@ -34,7 +35,8 @@ var refresh = (movies) => {
         `<input id="${id}rating1" type="radio" name="${rating}" value="1">`+
         `<label for="${id}rating1">1</label>`+
         `</span>`+
-        `<button value="${id}" type="submit" class="deleteButton">delete</button>`)
+        `<button value="${id}" type="submit" class="deleteButton">delete</button>`+
+        `<div>`)
   });
   $('.starRating').children().click(function () {
     console.log(stars);
