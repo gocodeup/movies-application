@@ -67,13 +67,25 @@ addMovie();
   getMovies().then((movies)=>refresh(movies));
 });
 
+// $('#submitEdit').click(function (e) {
+//   e.preventDefault();
+//   editMovie($('#idNumber').val());
+//   console.log($('#idNumber').val());
+//   getMovies().then((movies)=>refresh(movies));
+//
+// });
+
 $('#submitEdit').click(function (e) {
   e.preventDefault();
-  editMovie($('#idNumber').val());
-  console.log($('#idNumber').val());
+ let id = $('#idNumber').val();
+ editMovie(id, {
+   "rating": $('#ratingEdit').val()
+ });
   getMovies().then((movies)=>refresh(movies));
 
 });
+
+
 
 // $('.deleteButton').click(function (e) {
 //   e.preventDefault();
