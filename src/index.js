@@ -4,7 +4,7 @@
 const $ = require('jquery'); // Enables jQuery
 const {getMovies} = require('./api.js'); // Retrieves movie API data
 const {addMovie} = require('./api.js'); // Enables "Add Movie" function
-// const {deleteMovie} = require('./api.js'); // Enables "Delete Movie" function
+const {deleteMovie} = require('./api.js'); // Enables "Delete Movie" function
 const {editMovie} = require('./api.js'); // Enables "Edit Movie" function
 
 //-------ADDING RETRIEVED MOVIES TO AN HTML TABLE WITH REFRESH BUTTON: START-----------
@@ -15,13 +15,15 @@ const {editMovie} = require('./api.js'); // Enables "Edit Movie" function
     if (displayMovie === 0) {
       $.get("/api/movies").done(function (data) {
         $.each(data, function (i, items) {
+          let x = 1;
           $('#insertMovies').append(
               '<tr>' +
               '<td>' + items.id + '</td>' +
               '<td>' + '<em>' + items.title + '</em>' + '</td>' +
               '<td>' + items.genre + '</td>' +
               '<td>' + items.rating + '</td>' +
-              '</tr>');
+              '<td>' + '<button type="submit" class="remove-movie btn btn-danger" data-id= x >' + 'Remove' + '</button>' + '</td>' +
+              '</tr>')
         })
       })
     }
@@ -53,14 +55,23 @@ getMovies().then((movies) => {
 //-------DELETE MOVIE: START-----------
 
 // deleteMovie().then((movies) => {
-//   console.log('DELETE MOVIE WORKING');
-//   movies.forEach(({title, rating, id}) => {
-//     console.log(`id#${id} - ${title} - rating: ${rating}`);
+//   // console.log('DELETE MOVIE WORKING');
+//   movies.forEach(({title, rating, id, genre}) => {
+//     console.log(`id#${id} - ${title} - rating: ${rating} - genre: ${genre}`);
 //   });
 // }).catch((error) => {
 //   alert('"deleteMovie" function is not working. Check JS console for details...');
 //   console.log(error);
 // });
+
+$(document).on('click','.remove-movie', function () {
+  console.log('remove button clicked');
+  let warning = confirm('Are you sure you want to remove this movie');
+  if (warning === true){
+    deleteMovie()
+  }
+});
+
 //
 // import {getMovies,addMovie,deleteMovie,editMovie} from'./api.js';
 const form = document.querySelector('form');
