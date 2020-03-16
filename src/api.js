@@ -41,15 +41,4 @@ module.exports = {
         return fetch(`/api/movies/${id}`, options)
     }
 
-    // editMovie: (movie, id) => {
-    //   const options = {
-    //     method: "PATCH",
-    //     headers: {
-    //       "content-type": "application/json"
-    //     },
-    //     body: JSON.stringify(movie)
-    //   };
-    //   console.log(movie);
-    //   return fetch(`/api/movies/${id}`, options)
-    // }
 };
