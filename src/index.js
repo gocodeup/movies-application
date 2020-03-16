@@ -22,11 +22,11 @@ const {editMovie} = require('./api.js'); // Enables "Edit Movie" function
           let x = 1;
           $('#insertMovies').append(
               '<tr>' +
-              '<td>' + item.id + '</td>' +
+              '<td class="text-center">' + item.id + '</td>' +
               '<td>' + '<em>' + item.title + '</em>' + '</td>' +
-              '<td>' + item.genre + '</td>' +
-              '<td>' + item.rating + '</td>' +
-              '<td>' + '<button type="submit" class="remove-movie btn btn-danger" data-id="movie-id" id="' + item.id.toString() + '">' + 'Remove' + '</button>' + '</td>' +
+              '<td class="text-center">' + item.genre + '</td>' +
+              '<td class="text-center">' + item.rating + '</td>' +
+              '<td class="text-center">' + '<button type="submit" class="remove-movie btn btn-danger" data-id="movie-id" id="' + item.id.toString() + '">' + 'Remove' + '</button>' + '</td>' +
               '</tr>')
         })
       })
@@ -35,11 +35,7 @@ const {editMovie} = require('./api.js'); // Enables "Edit Movie" function
   }
   loadData(displayMovie);
 
-//Clicking the "Add Movie" button will refresh the table data and auto-populate new entry
-  $("#add-movie").click(function () {
-    $('#insertMovies').html("");
-    return loadData(displayMovie = 0);
-  });
+
 
 //-------ADDING RETRIEVED MOVIES TO AN HTML TABLE WITH REFRESH BUTTON: END-----------
 
@@ -147,6 +143,12 @@ $('#add-movie').click(function (e) {
   addMovie(addedMovie);
   console.log(addedMovie);
   movieRefresh();
+});
+
+//Clicking the "Add Movie" button will refresh the table data and auto-populate new entry
+$("#add-movie").click(function () {
+  $('#insertMovies').html("");
+  return loadData(displayMovie = 0);
 });
 
 //-------ADD MOVIE: END-----------
