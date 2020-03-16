@@ -30,7 +30,7 @@ module.exports = { //export the contents of this code block
 
   editMovie: (id, body) => { // when editMovie is called -->
 
-    console.log(id);
+    // console.log(id);
 
     return fetch(`api/movies/${id}`, {
       method: 'PATCH',
@@ -40,6 +40,19 @@ module.exports = { //export the contents of this code block
       body: JSON.stringify(body)
     })
         .then(response => console.log(response))
+  },
+
+  deleteMovie: (id) => {
+
+    return fetch(`api/movies/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type' : 'application/json'
+      }
+
+    })
+        .then(response => response.json());
+
   }
 
 };
