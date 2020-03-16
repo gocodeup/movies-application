@@ -2,7 +2,7 @@
 
 const $ = require('jquery'); // We need jquery --> pulling the jquery here
 
-const {getMovies, addMovie} = require('./api.js'); //Get the get movies function from the api.js file
+const {getMovies, addMovie, getMovieToEdit, editMovie} = require('./api.js'); //Get the get movies function from the api.js file
 
 const updateMovies = () => getMovies().then((movies) => { //use the getmovies function to pull all the movies
 
@@ -23,13 +23,8 @@ const updateMovies = () => getMovies().then((movies) => { //use the getmovies fu
 
 });
 
-updateMovies();
+updateMovies(); // Call updateMovies on page load
 
-
-// ADD MOVIES CALL RESPONSE
-
-// addMovie(newTitle, newRating)
-//     .then(data => updateMovies());
 
 
 // LET USER ADD MOVIE ON BUTTON CLICK
@@ -37,12 +32,16 @@ updateMovies();
 $('#submitBtn').click((e) => {
   e.preventDefault();
 
+  // Add new movie with title and rating given by user inputs
+
   addMovie({
     "title": $('#new-movie-title').val(),
     "rating": $("input[name='rating']:checked").val()
   })
-      .then(data => getMovies())
-      .then(movies => updateMovies());
+      .then(getMovies())
+      .then(updateMovies());
+
+  // Clear the values of inputs after submission
 
   $('#new-movie-title').val("");
   $("input[name='rating']:checked").prop('checked', false);
@@ -63,6 +62,11 @@ $('#editBtn').click((e) => {
   $("#edit-movie-id, #editBtn").hide();
   $('#edit-movie-title, #edit-movie-rating, #submitEditBtn').show();
 
+  getMovieToEdit($('#edit-movie-id').val())
+      .then(data => {
+        $('#edit-movie-title').val(`${data.title}`)
+        $('#edit-movie-rating').val(`${data.rating}`);
+      });
 
 });
 
@@ -73,14 +77,17 @@ $('#submitEditBtn').click((e) => {
 
   e.preventDefault();
 
-  editMovie( id , {
-    "title": $('#new-movie-title').val(),
-    "rating": $("input[name='rating']:checked").val()
-  })
-      .then(data => getMovies())
-      .then(movies => updateMovies());
+  let id = $('#edit-movie-id').val();
 
-  $('#new-movie-title').val("");
-  $("input[name='rating']:checked").prop('checked', false);
+  editMovie(id, {
+    // "id": $('#edit-movie-id').val(),
+    "title": $('#edit-movie-title').val(),
+    "rating": $('#edit-movie-rating').val()
+  })
+      .then(getMovies())
+      .then(updateMovies());
+
+  $('#edit-movie-title').val("");
+  $('#edit-movie-rating').val("");
 
 });

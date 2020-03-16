@@ -14,6 +14,16 @@
       "title": "birbs",
       "rating": "1",
       "id": 3
+    },
+    {
+      "title": "Birbs 2: The Return",
+      "rating": "2",
+      "id": 4
+    },
+    {
+      "title": "Birbs 3",
+      "rating": "5",
+      "id": 5
     }
   ]
 }
