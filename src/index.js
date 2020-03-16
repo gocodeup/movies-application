@@ -10,7 +10,7 @@ sayHello('World');
 /**
  * require style imports
  */
-const {getMovies, addMovie, editMovie, refresh} = require('./api.js');
+const {getMovies, addMovie, editMovie, refresh, deleteMovie} = require('./api.js');
 
 $('#submit').click(function (e) {
 e.preventDefault();
@@ -26,10 +26,17 @@ $('#submitEdit').click(function (e) {
 
 });
 
+$('.deleteButton').click(function (e) {
+  e.preventDefault();
+  deleteMovie($(this).val());
+  getMovies().then((movies)=>refresh(movies));
+  console.log('click')
+});
+
 getMovies().then((movies) => {
   refresh(movies);
 }).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.')
+  alert('Oh no! Something went wrong.\nCheck the console for details.');
   console.log(error);
 });
 
