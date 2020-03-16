@@ -19,6 +19,7 @@ const {editMovie} = require('./api.js'); // Enables "Edit Movie" function
               '<tr>' +
               '<td>' + items.id + '</td>' +
               '<td>' + '<em>' + items.title + '</em>' + '</td>' +
+              '<td>' + items.genre + '</td>' +
               '<td>' + items.rating + '</td>' +
               '</tr>');
         })
@@ -66,6 +67,7 @@ const form = document.querySelector('form');
 const input = document.querySelector('#searchTerm');
 const movieTitle = document.querySelector('#movie-title');
 const movieRating = document.querySelector('#movie-rating');
+const movieGenre = document.querySelector('#movie-genre');
 
 //-------DELETE MOVIE: END-----------
 
@@ -107,9 +109,11 @@ $('#add-movie').click(function (e) {
   e.preventDefault();
   const addedMovieTitle = movieTitle.value;
   const addedMovieRating = movieRating.value;
+  const addedMovieGenre = movieGenre.value;
   const addedMovie = {
     title: addedMovieTitle,
-    rating: addedMovieRating
+    rating: addedMovieRating,
+    genre: addedMovieGenre
   };
 
   addMovie(addedMovie);
@@ -139,14 +143,10 @@ $('#edit-submit').on('click', function(e) {
   movieRefresh();
 });
 
-// editMovie().then((movie, id) => {
-//   console.log('EDIT MOVIE WORKING');
-//   movies.forEach(({title, rating, id}) => {
-//     console.log(`id#${id} - ${title} - rating: ${rating}`);
-//   });
-// }).catch((error) => {
-//   alert('"editMovie" function is not working. Check JS console for details...');
-//   console.log(error);
-// });
+//Clicking the "Edit Movie" button will refresh the table data and auto-populate EDITED entry
+$("#edit-submit").click(function () {
+  $('#insertMovies').html("");
+  return loadData(displayMovie = 0);
+});
 
 //-------EDIT MOVIE: END-----------

@@ -45,8 +45,9 @@
     },
     {
       "title": "Casino",
-      "rating": "6",
-      "id": 13
+      "rating": "5",
+      "id": 13,
+      "genre": "Drama"
     },
     {
       "title": "E.T.",
@@ -110,10 +111,10 @@
       "genre": "drama"
     },
     {
-      "title": "Mad Max",
-      "rating": "5",
+      "title": "Fury Road",
+      "rating": "4",
       "id": 26,
-      "genre": "action"
+      "genre": ""
     },
     {
       "title": "A Bronx Tale",
@@ -121,9 +122,16 @@
       "id": 27
     },
     {
-      "title": "Enter the Dragon",
+      "title": "Enter the Dragon Part 2",
+      "rating": "2",
+      "id": 28,
+      "genre": "Action"
+    },
+    {
+      "title": "Turbo Kid",
       "rating": "5",
-      "id": 28
+      "genre": "Action",
+      "id": 29
     }
   ]
 }
