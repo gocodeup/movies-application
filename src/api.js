@@ -69,6 +69,7 @@ module.exports = {
 
     },
     deleteMovie: (id) => {
+      console.log('hi from delete movies' + id);
         return fetch(`api/books/${id}`, {
             method: 'DELETE',
             headers: {
@@ -77,30 +78,30 @@ module.exports = {
         })
             .then(response => response.json());
     },
-    refresh: (movies) => {
-
-        console.log('Here are all the movies:');
-        $('#movies').html('');
-        movies.forEach(({title, rating, id}) => {
-            console.log(`id#${id} - ${title} - rating: ${rating}`);
-
-            $('#movies').append(
-                `<li>id#${id} - ${title} - rating: ${rating}</li>` +
-                `<button value="${id}" type="submit" class="deleteButton">delete</button>`)
-
-        });
-        $('li').click(function () {
-            console.log('hi there');
-            $(this).toggleClass('highlighted')
-        });
-
-      $('.deleteButton').click(function (e) {
-        e.preventDefault();
-        deleteMovie($(this).val());
-        getMovies().then((movies)=>refresh(movies));
-        console.log('click')
-      });
-        // $('li').css('color', 'yellow');
-    }
+    // refresh: (movies) => {
+    //
+    //     console.log('Here are all the movies:');
+    //     $('#movies').html('');
+    //     movies.forEach(({title, rating, id}) => {
+    //         console.log(`id#${id} - ${title} - rating: ${rating}`);
+    //
+    //         $('#movies').append(
+    //             `<li>id#${id} - ${title} - rating: ${rating}</li>` +
+    //             `<button value="${id}" type="submit" class="deleteButton">delete</button>`)
+    //
+    //     });
+    //     $('li').click(function () {
+    //         console.log('hi there');
+    //         $(this).toggleClass('highlighted')
+    //     });
+    //
+    //   $('.deleteButton').click(function (e) {
+    //     e.preventDefault();
+    //     deleteMovie($(this).val());
+    //     getMovies().then((movies)=>refresh(movies));
+    //     console.log('click')
+    //   });
+    //     // $('li').css('color', 'yellow');
+    // }
 };
 
