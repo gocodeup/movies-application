@@ -33,8 +33,8 @@ $(document).ready(function () {
             console.log('Here are all the movies:');
             movies.forEach(({title, rating, id}) => { //loops through each movie in the array
                 $('#insertMovies').append(`<tr>
-                                        <th>${title}</th>
-                                        <th>${rating}</th>
+                                        <td class="title">${title}</td>
+                                        <td class="rating">${rating}</td>
                                         </tr>`);
                 console.log(`id#${id} - ${title} - rating: ${rating}`);//logs movie
             });
@@ -92,6 +92,47 @@ $(document).ready(function () {
         $('.movieList').css("display", "none");
         setTimeout(removeLoader, 2000); //wait for page load PLUS two seconds.
     });
+
+
+    // on click of edit button #edit-movie
+    // loop through each movie
+    // replace each th with a an input box
+    // name variable should equal the $('th').text() in that part of the loop
+    //
+    function editMovies() {
+        $('#edit-movie').click(function(){
+            // getMovies().then((movies) => {
+            //     movies.forEach(({title, rating, id}) => {
+            $('#movies > tbody').each(function (element) {
+                // var name = $('th').text();
+                    $('tr > td.title, tr > td.rating').val();
+                    $('<input></input>')
+                        .attr({
+                            'type': 'text',
+                            'name': 'fname',
+                            'id': 'txt_fullname',
+                            'size': '30',
+                            'value': name
+                        })
+                        .appendTo('th');
+                    $('#txt_fullname').focus();
+            });
+
+
+            })
+
+        // $(document).on('blur','#txt_fullname', function(){
+        //     var name = $(this).val();
+        //     $.ajax({
+        //         type: 'post',
+        //         url: 'change-name.xhr?name=' + name,
+        //         success: function(){
+        //             $('th').text(name);
+        //         }
+        //     });
+        // });
+    }
+    editMovies();
 
 });
 
