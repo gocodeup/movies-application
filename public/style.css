@@ -1,15 +1,31 @@
 html, body {
     height: 100%;
 }
+.head{
+    height: 200px;
+    width: 100%;
+    background: #242582;
+}
+.headLine{
+    font-size: 50px;
+    color: #99738E;
+    font-family: "Heiti SC", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-/*.container {*/
-/*    position: relative;*/
-/*    top: 50%;*/
-/*    transform: translateY(-100%);*/
-/*    text-align: center;*/
-/*}*/
+.container {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
 
-
+.title{
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
 li {
     display: flex;
     flex-direction: row;
@@ -17,8 +33,7 @@ li {
     align-items: center;
     height: 150px;
     width: 120px;
-    background: lightgrey;
-    border: 2px solid black;
+    background: #553D67;
     font-family: Helvetica, sans-serif;
 
 }

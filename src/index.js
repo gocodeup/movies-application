@@ -21,23 +21,23 @@ var refresh = (movies) => {
     console.log(`${title} rating: ${rating}`);
 
     $('#movies').append(
-        `<li>${title}  <br> rating: ${rating}</li>` +
+        `<li class="title">${title}  <br> rating: ${rating}</li>` +
         `<span class="starRating">` +
-        `<input id="${id}rating5" type="radio" name="rating${id}" value="5">`+
+        `<input id="${id}rating5" type="radio" name="${rating}" value="5">`+
         `<label for="${id}rating5">5</label>`+
-        `<input id="${id}rating4" type="radio" name="rating${id}" value="4">`+
+        `<input id="${id}rating4" type="radio" name="${rating}" value="4">`+
         `<label for="${id}rating4">4</label>`+
-        `<input id="${id}rating3" type="radio" name="rating${id}" value="3">`+
+        `<input id="${id}rating3" type="radio" name="${rating}" value="3">`+
         `<label for="${id}rating3">3</label>`+
-        `<input id="${id}rating2" type="radio" name="rating${id}" value="2">`+
+        `<input id="${id}rating2" type="radio" name="${rating}" value="2">`+
         `<label for="${id}rating2">2</label>`+
-        `<input id="${id}rating1" type="radio" name="rating${id}" value="1">`+
+        `<input id="${id}rating1" type="radio" name="${rating}" value="1">`+
         `<label for="${id}rating1">1</label>`+
         `</span>`+
         `<button value="${id}" type="submit" class="deleteButton">delete</button>`)
   });
   $('.starRating').children().click(function () {
-      $(this)
+    console.log(stars);
   });
 
   $('li').click(function () {
