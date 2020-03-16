@@ -63,11 +63,7 @@ $(document).ready(function () {
                 $('#input-movie').val(''); //clears search box
 
             })// after item is deleted this will update the hmtl with current movies
-
-
         });
-
-
     }
 
 
@@ -100,26 +96,63 @@ $(document).ready(function () {
     // name variable should equal the $('th').text() in that part of the loop
     //
     function editMovies() {
-        $('#edit-movie').click(function(){
+        $('#edit-movie').click(function() {
             // getMovies().then((movies) => {
-            //     movies.forEach(({title, rating, id}) => {
+                //     movies.forEach(({title, rating, id}) => {
             $('#movies > tbody').each(function (element) {
                 // var name = $('th').text();
-                    $('tr > td.title, tr > td.rating').val();
-                    $('<input></input>')
-                        .attr({
-                            'type': 'text',
-                            'name': 'fname',
-                            'id': 'txt_fullname',
-                            'size': '30',
-                            'value': name
-                        })
-                        .appendTo('th');
-                    $('#txt_fullname').focus();
+                //     $('tr > td.title').val();
+
+                $(this).children().children().children().children().children().forEach(function(){
+                    console.log($(this));
+
+                        if ($(this).attr('class') === "title"){
+                            //this td element has our title
+                            $('<input></input>')
+                                .attr({
+                                    'type': 'text',
+                                    // 'name': 'fname',
+                                    'class': 'movies-edited',
+                                    'size': '30',
+                                    'value': $(this).val()
+                                })
+                                .appendTo($(this));
+                        }
+                        else if ($(this).attr('class')=== "rating"){
+                            //this td element has our rating
+                            $('<input></input>')
+                                .attr({
+                                    'type': 'text',
+                                    // 'name': 'fname',
+                                    'class': 'movies-edited',
+                                    'size': '30',
+                                    'value': $(this).val()
+                                })
+                                .appendTo($(this));
+                        }
+                    });
+
+
+
+
+                // var currentTitle = $('tr > td.title').attr('id');
+
+                // $('<input></input>')
+                //     .attr({
+                //         'type': 'text',
+                //         // 'name': 'fname',
+                //         'class': 'movies-edited',
+                //         'size': '30',
+                //         'value': currentTitle
+                //     })
+                //     .appendTo($('tr > td.title, tr > td.rating'));
+                $('.movies-edited').focus();
+
+
             });
 
-
-            })
+        })
+            // })
 
         // $(document).on('blur','#txt_fullname', function(){
         //     var name = $(this).val();
