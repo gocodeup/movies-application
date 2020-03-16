@@ -8,15 +8,19 @@
     <style>
         body {
             margin: 1em;
-            background-image: url("hollywood-sign1.jpg");
-            background-size: cover ;
             background-color: black;
             color: white;
-            background-repeat: no-repeat;
+        }
+
+        th {
+            height: 5vh;
         }
 
         th, td, #movies {
             border: 1px solid black;
+            margin: auto;
+            column-width: 12vw;
+            font-size: 1.2em;
         }
 
         td {
@@ -24,43 +28,51 @@
         }
 
         tr:nth-child(2n + 2) {
-            background-color: ghostwhite;
+            background-color: honeydew;
             color: black;
         }
 
         tr:nth-child(2n + 1) {
-            background-color: black;
-            color: white;
+            background-color: gray;
+            color: ghostwhite;
         }
 
         th {
-            background-color: #0056b3;
+            background-color: darkgoldenrod;
             color: white;
             text-align: center;
         }
-        /*.heading {*/
-        /*    background-color: #c32a2a;*/
-        /*}*/
 
         .jumbotron {
-            background-image: url("hollywood-sign1.jpg");
-            background-color: #c32a2a;
-            margin-top: auto;
+            background-image: url("reel.jpg");
             color: black;
-            background-size: cover ;
+            background-size: cover;
+            height: 20vh;
+            padding: 0;
         }
 
+        #left-reel {
+            float: left;
+            clear: right;
+        }
+
+        #left-reel {
+            float: left;
+            clear: right;
+        }
     </style>
 </head>
 <body>
 <header>
 </header>
+
 <div class="jumbotron jumbotron-fluid heading">
     <div class="container">
-        <h1 class="d-flex justify-content-center text-primary">Los Vatos Locos Movies!</h1>
+        <img class="align-middle" src="locos_link.png" alt="."/>
     </div>
 </div>
 
+<img id="left-reel" alt="." src="moving-reel-left.gif">
 
 <table id="movies">
     <thead>
@@ -74,36 +86,80 @@
     </thead>
     <tbody id="insertMovies"></tbody>
 </table>
-<hr>
-<h4>Add a Movie to Our Library:</h4>
-<form>
-    <label for="movie-title">Movie Title:</label>
-    <input type="text" id="movie-title" placeholder="(Enter title here...)">
-    <br>
-    <label for="movie-rating">Your Rating:</label>
-    <input type="text" id="movie-rating" placeholder="(Enter rating here...)">
-    <br>
-    <label for="movie-genre">Your Genre:</label>
-    <input type="text" id="movie-genre" placeholder="(Enter genre here...)">
-    <br>
-    <button type="submit" id="add-movie" class="btn btn-primary">
-        Add Movie
-    </button>
-</form>
-
 <br>
 
-<h4>Edit Movie Title, Rating, or Genre:</h4>
-<form>
-    <input type="text" id="editId" placeholder="Movie ID to Edit">
-    <input type="text" id="editTitle" placeholder="Enter new title">
-    <input type="text" id="editRating" placeholder="Enter new rating">
-    <input type="text" id="editGenre" placeholder="Enter new genre">
-    <button type="submit" id="edit-submit" class="btn btn-primary">Edit Movie</button>
-</form>
+<img id="right-reel" alt="." src="moving-reel-right.gif">
 
+<div class="row">
+    <div class="float-left mx-auto p-3">
+        <h4>Add a Movie to Our Library:</h4>
+        <form>
+            <label for="movie-title">Movie Title:</label>
+            <input type="text" id="movie-title" placeholder="(Enter title here...)">
+            <br>
+            <label for="movie-rating">Rating:</label>
+            <select id="movie-rating">
+                <option value="5">5 - Estupendo!</option>
+                <option value="4">4 - Gran</option>
+                <option value="3">3 - No malo</option>
+                <option value="2">2 - Mas o Menos</option>
+                <option value="1">1 - Basura!</option>
+            </select>
+            <br>
+            <label for="movie-genre">Genre:</label>
+            <select id="movie-genre">
+                <option value="Action">Action</option>
+                <option value="Drama">Drama</option>
+                <option value="Epic">Epic</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Horror">Horror</option>
+                <option value="Martial Arts">Martial Arts</option>
+                <option value="Romance">Romance</option>
+                <option value="Science Fiction">Science Fiction</option>
+                <option value="Thriller">Thriller</option>
+                <option value="War">War</option>
+            </select>
+            <br>
+            <button type="submit" id="add-movie" class="btn btn-primary mt-3">
+                Add Movie
+            </button>
+        </form>
+    </div>
+    <br>
 
-
+    <div class="float-left mx-auto p-3">
+        <h4>Edit a Movie Listing:</h4>
+        <form>
+            ID: <input type="text" id="editId" placeholder="(Enter ID here...)">
+            Title: <input type="text" id="editTitle" placeholder="(Enter title here...)">
+            <br>
+            <label for="editRating" class="mt-2">Rating:</label>
+            <select id="editRating">
+                <option value="5">5 - Estupendo!</option>
+                <option value="4">4 - Gran</option>
+                <option value="3">3 - No malo</option>
+                <option value="2">2 - Mas o Menos</option>
+                <option value="1">1 - Basura!</option>
+            </select>
+            <br>
+            <label for="editGenre">Genre:</label>
+            <select id="editGenre">
+                <option value="Action">Action</option>
+                <option value="Drama">Drama</option>
+                <option value="Epic">Epic</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Horror">Horror</option>
+                <option value="Martial Arts">Martial Arts</option>
+                <option value="Romance">Romance</option>
+                <option value="Science Fiction">Science Fiction</option>
+                <option value="Thriller">Thriller</option>
+                <option value="War">War</option>
+            </select>
+            <br>
+            <button type="submit" id="edit-submit" class="btn btn-primary mt-3">Edit Movie</button>
+        </form>
+    </div>
+</div>
 <script src="./main.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
