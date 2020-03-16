@@ -16,15 +16,28 @@ li {
     justify-content: center;
     align-items: center;
     height: 150px;
-    width: 100px;
+    width: 120px;
     background: lightgrey;
+    border: 2px solid black;
     font-family: Helvetica, sans-serif;
+
+}
+#movies{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 200px;
+    border: 2px solid black;
+
 }
 
 .movieBox{
-    display: flex;
-    flex-direction: row;
+
     background: grey;
+    border: 2px solid black;
+
 }
 
 .starRating:not(old){
@@ -44,7 +57,7 @@ li {
     display         : block;
     float           : right;
     position        : relative;
-    background      : url('../svg/star-off.svg');
+    background      : url('star-off.svg');
     background-size : contain;
 }
 
@@ -53,7 +66,7 @@ li {
     display         : block;
     width           : 1.5em;
     height          : 1.5em;
-    background      : url('../svg/star-on.svg');
+    background      : url('star-on.svg');
     background-size : contain;
     opacity         : 0;
     transition      : opacity 0.2s linear;

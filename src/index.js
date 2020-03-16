@@ -18,25 +18,28 @@ var refresh = (movies) => {
   console.log('Here are all the movies:');
   $('#movies').html('');
   movies.forEach(({title, rating, id}) => {
-    console.log(`${title} <br> rating: ${rating}`);
+    console.log(`${title} rating: ${rating}`);
 
     $('#movies').append(
-        `<li>${title} - rating: ${rating}</li>` +
+        `<li>${title}  <br> rating: ${rating}</li>` +
         `<span class="starRating">` +
-        `<input id="rating5" type="radio" name="rating" value="5">`+
-        `<label for="rating5">5</label>`+
-        `<input id="rating4" type="radio" name="rating" value="4">`+
-        `<label for="rating4">4</label>`+
-        `<input id="rating3" type="radio" name="rating" value="3">`+
-        `<label for="rating3">3</label>`+
-        `<input id="rating2" type="radio" name="rating" value="2">`+
-        `<label for="rating2">2</label>`+
-        `<input id="rating1" type="radio" name="rating" value="1">`+
-        `<label for="rating1">1</label>`+
+        `<input id="${id}rating5" type="radio" name="rating${id}" value="5">`+
+        `<label for="${id}rating5">5</label>`+
+        `<input id="${id}rating4" type="radio" name="rating${id}" value="4">`+
+        `<label for="${id}rating4">4</label>`+
+        `<input id="${id}rating3" type="radio" name="rating${id}" value="3">`+
+        `<label for="${id}rating3">3</label>`+
+        `<input id="${id}rating2" type="radio" name="rating${id}" value="2">`+
+        `<label for="${id}rating2">2</label>`+
+        `<input id="${id}rating1" type="radio" name="rating${id}" value="1">`+
+        `<label for="${id}rating1">1</label>`+
         `</span>`+
         `<button value="${id}" type="submit" class="deleteButton">delete</button>`)
-
   });
+  $('.starRating').children().click(function () {
+      $(this)
+  });
+
   $('li').click(function () {
     console.log('hi there');
     $(this).toggleClass('highlighted')
