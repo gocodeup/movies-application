@@ -8,6 +8,8 @@
     <style>
         body {
             margin: 1em;
+            background-color: black;
+            color: white
         }
 
         th, td, #movies {
@@ -20,6 +22,12 @@
 
         tr:nth-child(2n + 2) {
             background-color: ghostwhite;
+            color: black;
+        }
+
+        tr:nth-child(2n + 1) {
+            background-color: black;
+            color: white;
         }
 
         th {
@@ -27,13 +35,28 @@
             color: white;
             text-align: center;
         }
+        /*.heading {*/
+        /*    background-color: #c32a2a;*/
+        /*}*/
+
+        .jumbotron {
+            background-image: url("../hollywood-sign1.jpg");
+            background-color: #c32a2a;
+            margin-top: 2em;
+            color: black;
+        }
+
     </style>
 </head>
 <body>
 <header>
 </header>
+<div class="jumbotron jumbotron-fluid heading">
+    <div class="container">
+        <h1 class="d-flex justify-content-center">Los Vatos Locos Movies!</h1>
+    </div>
+</div>
 
-<h1 class="center">Los Vatos <em>Locos</em> Movies!</h1>
 
 <table id="movies">
     <thead>
