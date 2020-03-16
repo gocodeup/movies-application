@@ -32,8 +32,15 @@ getMovies().then((movies) => {
     console.log(`id#${id} - ${title} - rating: ${rating}`);
     $('#movies').append(
         `<li>id#${id} - ${title} - rating: ${rating}</li>`
+        // '<button type="submit">delete</button>'
     )
+
   });
+  $('li').click(function () {
+    console.log('hi there');
+    $(this).toggleClass('highlighted')
+  });
+  // $('li').css('color', 'yellow');
 }).catch((error) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.')
   console.log(error);
@@ -42,6 +49,3 @@ getMovies().then((movies) => {
 
 
 
-$('#movies > li').click(function() {
-  $(this).toggleClass('highlighted');
-});
