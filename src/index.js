@@ -29,10 +29,11 @@ $(document).ready(function () {
 
 //this function will console log the movie that you got from the API and add it to the #insertMovie
     function movieUpdate() {
+        $('#insertMovies').html("");
         getMovies().then((movies) => {
             console.log('Here are all the movies:');
             movies.forEach(({title, rating, id}) => { //loops through each movie in the array
-                $('#insertMovies').append(`<tr>
+                $('#insertMovies').append(`<tr id="${id}-movie">
                                         <td class="title">${title}</td>
                                         <td class="rating">${rating}</td>
                                         </tr>`);
@@ -70,6 +71,7 @@ $(document).ready(function () {
     movieUpdate();
     movieDelete();
 
+
 //will add a new movie to the jb.son file and log the new movies array. Will later have it added to a library appended to the body.
     $('#add-movie').click(function () {//on click will add the new movie to the json file
         addMovie({
@@ -95,77 +97,84 @@ $(document).ready(function () {
     // replace each th with a an input box
     // name variable should equal the $('th').text() in that part of the loop
     //
-    function editMovies() {
-        $('#edit-movie').click(function() {
-            // getMovies().then((movies) => {
-                //     movies.forEach(({title, rating, id}) => {
+
+        $('#edit-movie').click(function () {
+
+
+            //     movies.forEach(({title, rating, id}) => {
             $('#movies > tbody').each(function (element) {
+
                 // var name = $('th').text();
                 //     $('tr > td.title').val();
 
-                $(this).children().children().children().children().children().forEach(function(){
-                    console.log($(this));
-
-                        if ($(this).attr('class') === "title"){
+                $(this).children('tr').each(function () {
+                    $(this).children('td').each(function () {
+                        let title = $(this).html();
+                        $(this).html('');
+                        if ($(this).attr('class') === "title") {
                             //this td element has our title
                             $('<input></input>')
                                 .attr({
                                     'type': 'text',
                                     // 'name': 'fname',
-                                    'class': 'movies-edited',
+                                    'class': 'movie-edit',
                                     'size': '30',
-                                    'value': $(this).val()
+                                    'value': title
                                 })
                                 .appendTo($(this));
-                        }
-                        else if ($(this).attr('class')=== "rating"){
+                        } else if ($(this).attr('class') === "rating") {
                             //this td element has our rating
                             $('<input></input>')
                                 .attr({
                                     'type': 'text',
                                     // 'name': 'fname',
-                                    'class': 'movies-edited',
+                                    'class': 'rating-edit',
                                     'size': '30',
-                                    'value': $(this).val()
+                                    'value': title
                                 })
                                 .appendTo($(this));
                         }
                     });
+                    $('.movies-edited').focus();
+                    console.log($('.movie-edit').val());
+                    console.log($('.rating-edit').val());
+                });
+
+            });
+            // $('#save-edit').click(function () {//on click will add the new movie to the json file
+            //
+            //
+            //     editMovie({
+            //         "title": $('#movie-edit').val(),
+            //         "rating": $('#rating-edit').val()
+            //
+            //     },);
+            //     console.log(id);
+            //     $('#insertMovies').html("");// clears list
+            //     movieUpdate(); //updates list with no added movie
+            //
+            // });
 
 
+            $('#save-edit').click(function () {
+                getMovies().then((movies) => {
+                    movies.forEach(({title, rating, id}) => {
+                        if (title !== $(`#${id}-movie .movie-edit`).val()|| rating !== $(`#${id}-movie .rating-edit`).val() ) {
+                            editMovie({
+                                "title": $(`#${id}-movie .movie-edit`).val(),
+                                "rating": $(`#${id}-movie .rating-edit`).val()
+                            }, id);
+                        }
+                    });
 
-
-                // var currentTitle = $('tr > td.title').attr('id');
-
-                // $('<input></input>')
-                //     .attr({
-                //         'type': 'text',
-                //         // 'name': 'fname',
-                //         'class': 'movies-edited',
-                //         'size': '30',
-                //         'value': currentTitle
-                //     })
-                //     .appendTo($('tr > td.title, tr > td.rating'));
-                $('.movies-edited').focus();
-
+                            $('#insertMovies').html("");
+                            movieUpdate()
+                });
 
             });
 
-        })
-            // })
 
-        // $(document).on('blur','#txt_fullname', function(){
-        //     var name = $(this).val();
-        //     $.ajax({
-        //         type: 'post',
-        //         url: 'change-name.xhr?name=' + name,
-        //         success: function(){
-        //             $('th').text(name);
-        //         }
-        //     });
-        // });
-    }
-    editMovies();
+        })
 
 });
 

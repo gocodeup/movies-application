@@ -16,7 +16,7 @@ module.exports = {
         .then(response => response.json());
   },
 
-  editMovie: (movie, id) => {
+  editMovie: (movie ,id) => {
     const options = {
       method: "PATCH",
       headers: {
