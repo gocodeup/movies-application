@@ -8,14 +8,15 @@
 </head>
 <body>
 
-    <h1>Movie List</h1>
+    <h1 class="main-header">Movie List</h1>
 
     <main>
-    <div id="all-movies">...loading</div>
+    <div id="all-movies" class="card-container">...loading</div>
     </main>
 
 
-    <section id="add-movie-section">
+    <aside class="aside-container">
+        <section id="add-movie-section">
             <h1>Add a Movie</h1>
             <form id="add-movie-form">
                 <label for="new-movie-title">Title: </label>
@@ -29,23 +30,28 @@
                 <input type="radio" name="rating" value="4" id="4str"><label for="4str">4 stars</label><br>
                 <input type="radio" name="rating" value="5" id="5str"><label for="5str">5 stars</label>
 
-            <br><br><button id="submitBtn" type="submit">Add movie</button>
+                <br><br>
+                <button id="submitBtn" type="submit">Add movie</button>
 
             </form>
-    </section>
+        </section>
 
-    <section id="edit-movie-section">
-        <h1>Edit Movie</h1>
-        <form id="edit-movie-form">
-            <label for="edit-movie-id"></label>
-            <input type="text" id="edit-movie-id" placeholder="Movie Id">
-            <br><br><button id="editBtn" type="submit">Edit movie</button><br><br>
+        <section id="edit-movie-section">
+            <h1>Edit Movie</h1>
+            <form id="edit-movie-form">
+                <label for="edit-movie-id"></label>
+                <input type="text" id="edit-movie-id" placeholder="Movie Id">
+                <br><br>
+                <button id="editBtn" type="submit">Edit movie</button>
+                <br><br>
 
-            <input type="text" id="edit-movie-title" placeholder="Movie title">
-            <input type="text" id="edit-movie-rating" placeholder="Movie rating">
-            <br><br><button id="submitEditBtn" type="submit">Edit movie</button>
-        </form>
-    </section>
+                <input type="text" id="edit-movie-title" placeholder="Movie title">
+                <input type="text" id="edit-movie-rating" placeholder="Movie rating">
+                <br><br>
+                <button id="submitEditBtn" type="submit">Edit movie</button>
+            </form>
+        </section>
+    </aside>
 
 
     <script src="./main.js"></script>
