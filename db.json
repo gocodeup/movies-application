@@ -77,6 +77,12 @@
       "rating": "4",
       "id": 25,
       "genre": "Drama"
+    },
+    {
+      "title": "The Karate Kid",
+      "rating": "5",
+      "genre": "Martial Arts",
+      "id": 26
     }
   ]
 }
