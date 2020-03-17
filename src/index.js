@@ -15,10 +15,8 @@ const {getMovies, addMovie, editMovie, deleteMovie} = require('./api.js');
 // refresh start
 var refresh = (movies) => {
 
-  console.log('Here are all the movies:');
   $('#movies').html('');
   movies.forEach(({title, rating, id, description}) => {
-    console.log(`${title} rating: ${rating} description; ${description}`);
 
     $('#movies').append(
         `<div class="cards" >` +
@@ -27,10 +25,10 @@ var refresh = (movies) => {
         `<div id="ex${id}" class="modal">` +
         `<p class="modalTitle">${title}</p>`+
         `<p class="modalStyle">${description}</p>`+
-        `<form id="editForm">`+
+        `<form>`+
         `<br>`+
         `<input class="editDesc" id="${id}descriptionEdit" type="text">`+
-        `<button type="submit" id="submit">submit</button>`+
+        `<button type="submit" class="editButt" value="${id}">submit</button>`+
         `</form>`+
         `</div>` +
         `</a>`+
@@ -71,7 +69,6 @@ var refresh = (movies) => {
   });
 
   $(".radio5").click(function () {
-    console.log('hi from radio 5' + $(this).val() + ' <- id');
     editMovie($(this).val(), {
       "rating": "5"
     });
@@ -97,13 +94,22 @@ var refresh = (movies) => {
     });
   });
 
+  $(".editButt").click(function (e) {
+    e.preventDefault();
+    let id = $('#idNumber').val();
+    editMovie($(this).val(), {
+      "description": $(`#${$(this).val()}descriptionEdit`).val()
+    });
+    load();
+    getMovies().then((movies)=>refresh(movies));
+  });
 
 
   $('.deleteButton').click(function (e) {
     e.preventDefault();
     deleteMovie($(this).val());
+    load();
     getMovies().then((movies)=>refresh(movies));
-    console.log('click')
   });
 
   pass = 0;
@@ -120,8 +126,17 @@ pass = $(this).val();
 $('#submit').click(function (e) {
 e.preventDefault();
 addMovie(pass);
+  load();
   getMovies().then((movies)=>refresh(movies));
 });
+
+var load = () => {
+  $('#movies').html('');
+
+  $('#movies').append(
+      '<li>SUP</li>'
+  );
+}
 
 // $('#submitEdit').click(function (e) {
 //   e.preventDefault();
@@ -137,6 +152,7 @@ $('#submitEdit').click(function (e) {
  editMovie(id, {
    "rating": $('#ratingEdit').val()
  });
+  load();
   getMovies().then((movies)=>refresh(movies));
 
 });
@@ -147,6 +163,7 @@ $('#submitDescription').click(function (e) {
   editMovie(id, {
     "description": $('#descriptionEdit').val()
   });
+  load();
   getMovies().then((movies)=>refresh(movies));
 
 });
@@ -161,7 +178,7 @@ $('#submitDescription').click(function (e) {
 //   getMovies().then((movies)=>refresh(movies));
 //   console.log('click')
 // });
-
+load();
 getMovies().then((movies) => {
   refresh(movies);
 }).catch((error) => {

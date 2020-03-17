@@ -2,13 +2,14 @@ const $ = require('jquery');
 
 module.exports = {
     getMovies: () => {
+
+
         return fetch('/api/movies')
             .then(response => response.json());
     },
     addMovie: (rate) => {
         const userMovie = {title: $('#title').val(), rating: rate, description: $('#description').val()};
         const url = '/api/movies';
-        console.log(userMovie);
 
         const options = {
             method: 'POST',
@@ -21,7 +22,6 @@ module.exports = {
             .then(/* post was created successfully */)
             .catch(/* handle errors */);
     },
-
 
 
     editMovie: (id, body) => {
@@ -82,7 +82,6 @@ module.exports = {
     //
     // },
     deleteMovie: (id) => {
-      console.log('hi from delete movies' + id);
         return fetch(`api/movies/${id}`, {
             method: 'DELETE',
             headers: {
