@@ -141,6 +141,7 @@ $(document).ready(function () {
                 });
 
             });
+        });
             // $('#save-edit').click(function () {//on click will add the new movie to the json file
             //
             //
@@ -174,9 +175,9 @@ $(document).ready(function () {
             });
 
 
-        })
+        });
 
-});
+
 
 
 
