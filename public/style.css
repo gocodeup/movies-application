@@ -53,7 +53,7 @@ th {
 th, td, #movies {
     border: 1px solid black;
     margin: auto;
-    column-width: 6vw;
+    column-width: 10vw;
     font-size: 1.2em;
 }
 
@@ -87,12 +87,12 @@ th {
 
 #left-reel {
     float: left;
-    width: 20em;
-    /*clear: right;*/
+    width: 15em;
+    height: 52em;
 }
 
 #right-reel {
     float: right;
-    width: 20em;
-    /*clear: left;*/
+    width: 15em;
+    height: 52em;
 }
