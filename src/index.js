@@ -2,6 +2,11 @@
 
 const $ = require('jquery'); // We need jquery --> pulling the jquery here
 
+$(document).ready(function() {
+
+  console.log( 'The DOM has finished loading!' );
+
+
 const {getMovies, addMovie, getMovieToEdit, editMovie, deleteMovie} = require('./api.js'); //Get the get movies function from the api.js file
 
 let updateMovies = () => {getMovies().then((movies) => { //use the getMovies function to pull all the movies
@@ -12,6 +17,26 @@ let updateMovies = () => {getMovies().then((movies) => { //use the getMovies fun
 
     $('#all-movies').append(`<div>id#${id} - ${title} - rating: ${rating}</div><button class="delete-btn" data-id="${id}">Delete</button>`); // put the id, title, and rating into the html
 
+
+  });
+    // $('.delete-btn').click ((e) => { // when the delete button is clicked
+    //   console.log($(this).data("id"));
+    //   console.log(e);
+    //   e.preventDefault(); //Stop the button's default behavior
+    //
+    //
+    //   // deleteMovie($(this).data("id") )// call the delete function
+    //   //
+    //   //     .then(updateMovies()) //refresh the movie list
+    //
+    //
+    // });
+
+  $('.delete-btn').on("click", function(e){ // when the delete button is clicked
+    e.preventDefault(); //Stop the button's default behavior
+    console.log(this)
+    console.log($(this))
+    console.log($(this).data("id"));
   });
 
 }).catch((error) => { //If the AJAX request fails
@@ -93,15 +118,5 @@ $('#submitEditBtn').click((e) => { // when we click the final submit edit buttio
 
 
 // ---------------DELETE MOVIE BUTTON ----------------
-$('.delete-btn').click ((e) => { // when the delete button is clicked
-
-  e.preventDefault(); //Stop the button's default behavior
-
-  console.log($(this).data("id"));
-
-  // deleteMovie($(this).data("id") )// call the delete function
-  //
-  //     .then(updateMovies()) //refresh the movie list
-
 
 });
