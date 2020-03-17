@@ -59,6 +59,7 @@ li {
     font-size: 20px;
     font-weight: bold;
     text-transform: uppercase;
+    text-align: center;
     height: 150px;
     width: 120px;
     border: 1px solid #FBEEC1;
@@ -88,6 +89,7 @@ li {
     border: 2px solid black;
     box-shadow: 0px 0px 4px black;
     background-image: url('img-noise-361x370.png');
+    padding: 0;
 }
 
 .movieBox{
