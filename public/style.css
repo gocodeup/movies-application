@@ -88,13 +88,13 @@ th {
 #left-reel {
     float: left;
     width: 15em;
-    height: 52em;
+    height: 60em;
 }
 
 #right-reel {
     float: right;
     width: 15em;
-    height: 52em;
+    height: 60em;
 }
 
 .modal-body {
@@ -104,3 +104,12 @@ th {
 #exampleModalLongTitle {
     color: black;
 }
+
+input {
+    width: 210px;
+}
+
+select {
+    width: 240px;
+}
+
