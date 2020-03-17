@@ -17,8 +17,13 @@ $(document).ready(function() {
 
     movies.forEach(({title, rating, id}) => { //iterate through each movie object and get the title, rating, and id
 
-      $('#all-movies').append(`<div class="card"><div class="card-body">id#${id} - ${title} - rating: ${rating}</div> <button class="delete-btn" data-id="${id}">Delete</button></div>`); // put the id, title, and rating into the html
-
+      $('#all-movies').append(`
+    <div class="card">
+        <h3>${title}</h3>
+    <div class="card-body">
+        <br>Rating: ${rating}</div>
+    </div>`); // put the id, title, and rating into the html
+    // <button class="delete-btn" data-id="${id}">Delete</button>
 
     });
 
@@ -124,27 +129,23 @@ $(document).ready(function() {
 
 });
 
-//{
-//  "movies": [
-//    {
-//      "title": "Casablanca",
-//      "rating": "4",
-//      "id": 1
-//    },
-//    {
-//      "title": "Birbs",
-//      "rating": "1",
-//      "id": 2
-//    },
-//    {
-//      "title": "The Reckoning",
-//      "rating": "4",
-//      "id": 3
-//    },
-//    {
-//      "title": "Stale Mate",
-//      "rating": "3",
-//      "id": 4
-//    }
-//  ]
-//}
+
+// --------------- BLOB ANIMATION ----------------
+
+const box = document.querySelector('.box');
+
+setInterval(setBorderRadius, 300);
+
+function setBorderRadius() {
+  box.style.setProperty('--br-blobby', generateBorderRadiusValue());
+  box.style.setProperty('--br-blobby-after', generateBorderRadiusValue());
+  box.style.setProperty('--br-blobby-before', generateBorderRadiusValue());
+}
+
+function generateBorderRadiusValue() {
+  return `${getRandomValue()}% ${getRandomValue()}% ${getRandomValue()}% ${getRandomValue()}% / ${getRandomValue()}% ${getRandomValue()}% ${getRandomValue()}%`;
+}
+
+function getRandomValue() {
+  return Math.floor(Math.random() * 50) + 50;
+}

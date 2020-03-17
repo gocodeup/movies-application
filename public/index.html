@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8" />
     <title>My Application</title>
-    <link rel="stylesheet" href="./style.css" />
 
+
+    <link rel="stylesheet" href="./style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Dosis|Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <h1 class="main-header">Movie List</h1>
+<div class="parent-container">
+    <header>
+        <div class="box"></div>
+        <h1 class="main-header">Allegory</h1>
+        <h2 class="main-subheader">of the Cave</h2>
+    </header>
 
     <main>
-    <div id="all-movies" class="card-container">...loading</div>
+    <div id="all-movies" class="card-container"><img class="loadingIcon shadow" src="assets/animations/Ellipsis-1s-200px.svg"></div>
     </main>
 
 
@@ -52,7 +59,7 @@
             </form>
         </section>
     </aside>
-
+</div>
 
     <script src="./main.js"></script>
 
