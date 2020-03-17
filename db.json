@@ -1,21 +1,6 @@
 {
   "movies": [
     {
-      "title": "The Her There",
-      "rating": "5",
-      "id": 18
-    },
-    {
-      "title": "folsom prison",
-      "rating": "5",
-      "id": 21
-    },
-    {
-      "title": "Tornado Tykes 4",
-      "rating": "4",
-      "id": 24
-    },
-    {
       "title": "Weekend at Bernies",
       "rating": "3",
       "id": 25
@@ -29,6 +14,24 @@
       "title": "Greeks",
       "rating": "2",
       "id": 27
+    },
+    {
+      "title": "Fog",
+      "rating": "",
+      "description": "the fog movie",
+      "id": 28
+    },
+    {
+      "title": "creepers 2",
+      "rating": "",
+      "description": "shhh it's creepy",
+      "id": 29
+    },
+    {
+      "title": "whereeee",
+      "rating": "",
+      "description": "its that one ",
+      "id": 30
     }
   ]
 }

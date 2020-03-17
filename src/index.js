@@ -17,12 +17,18 @@ var refresh = (movies) => {
 
   console.log('Here are all the movies:');
   $('#movies').html('');
-  movies.forEach(({title, rating, id}) => {
-    console.log(`${title} rating: ${rating}`);
+  movies.forEach(({title, rating, id, description}) => {
+    console.log(`${title} rating: ${rating} description; ${description}`);
 
     $('#movies').append(
-        `<div class="cards">` +
-        `<li>${title} rating: ${rating}</li>` +
+        `<div class="cards" >` +
+        `<p><a href="#ex" rel="modal:open">`+
+        `<li>${title}</li>` +
+        `<div id="ex" class="modal">` +
+        `<p class="modalTitle">${title}</p>`+
+        `<p class="modalStyle">${description}</p>`+
+        `</div>` +
+        `</a></p>`+
         `<span class="starRating">` +
         `<input id="${id}rating5" type="radio" name="${rating}" value="5">`+
         `<label for="${id}rating5">5</label>`+
@@ -34,13 +40,16 @@ var refresh = (movies) => {
         `<label for="${id}rating2">2</label>`+
         `<input id="${id}rating1" type="radio" name="${rating}" value="1">`+
         `<label for="${id}rating1">1</label>`+
+
         `</span>`+
         `<button value="${id}" type="submit" class="deleteButton">delete</button>`+
-        `<div>`)
+        `<div>`
+
+    )
   });
-  $('.starRating').children().click(function () {
-    console.log(stars);
-  });
+  // $('.starRating').children().click(function () {
+  //   console.log(stars);
+  // });
 
   $('li').click(function () {
     console.log('hi there');

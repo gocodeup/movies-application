@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>My Application</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
     <style>
-        .highlighted{
+        .highlighted {
             background: yellow;
         }
+
         li {
             list-style: none;
         }
@@ -15,54 +18,58 @@
 </head>
 <body>
 <h1 class="head">
-<div class="headLine">JUST JOSHIN' FILMS</div>
+    <div class="headLine">JUST JOSHIN' FILMS</div>
 </h1>
 
-    <div class="container">
-<!--        <h1 id="hello">Hello There!</h1>-->
-<!--        <p>To get started, edit <code>src/index.js</code>.</p>-->
-        <form id="firstForm">
-            <label for="title">Title</label>
-            <br>
-            <input id="title" type="text">
-            <br>
-            <span class="starRating">
-        <input id="${id}rating5" type="radio" name="${rating}" value="5">
-        <label for="${id}rating5">5</label>
-        <input id="${id}rating4" type="radio" name="${rating}" value="4">
-        <label for="${id}rating4">4</label>
-        <input id="${id}rating3" type="radio" name="${rating}" value="3">
-        <label for="${id}rating3">3</label>
-        <input id="${id}rating2" type="radio" name="${rating}" value="2">
-        <label for="${id}rating2">2</label>
-        <input id="${id}rating1" type="radio" name="${rating}" value="1">
-        <label for="${id}rating1">1</label>
+<div class="container">
+    <!--        <h1 id="hello">Hello There!</h1>-->
+    <!--        <p>To get started, edit <code>src/index.js</code>.</p>-->
+    <form id="firstForm">
+        <label for="title">Title</label>
+        <br>
+        <input id="title" type="text">
+        <br>
+        <label for="description">Description</label>
+        <br>
+        <input id="description" type="text">
+        <br>
+        <span class="starRating">
+        <input id="rating5" type="radio" name="rating" value="5">
+        <label for="rating5">5</label>
+        <input id="rating4" type="radio" name="rating" value="4">
+        <label for="rating4">4</label>
+        <input id="rating3" type="radio" name="rating" value="3">
+        <label for="rating3">3</label>
+        <input id="rating2" type="radio" name="rating" value="2">
+        <label for="rating2">2</label>
+        <input id="rating1" type="radio" name="rating" value="1">
+        <label for="rating1">1</label>
         </span>
-            <button type="submit" id="submit">submit</button>
-        </form>
+        <br>
+        <button type="submit" id="submit">submit</button>
+    </form>
 
-<!--        <form id="editForm">-->
-<!--            <label for="idNumber">Id Number</label>-->
-<!--            <br>-->
-<!--            <input id="idNumber" type="text">-->
-<!--            <br>-->
-<!--            <label for="rating">Rating</label>-->
-<!--            <br>-->
-<!--            <input id="ratingEdit" type="text">-->
-<!--            <br>-->
-<!--            <button type="submit" id="submitEdit">submit</button>-->
-<!--        </form>-->
-    </div>
+    <!--        <form id="editForm">-->
+    <!--            <label for="idNumber">Id Number</label>-->
+    <!--            <br>-->
+    <!--            <input id="idNumber" type="text">-->
+    <!--            <br>-->
+    <!--            <label for="rating">Rating</label>-->
+    <!--            <br>-->
+    <!--            <input id="ratingEdit" type="text">-->
+    <!--            <br>-->
+    <!--            <button type="submit" id="submitEdit">submit</button>-->
+    <!--        </form>-->
+</div>
 
-        <div class="movieBox">
-        <ul id="movies">
-        </ul>
-        </div>
+<div class="movieBox">
+    <ul id="movies">
+    </ul>
+</div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 
-
-
-
-    <script src="./main.js"></script>
+<script src="./main.js"></script>
 </body>
 </html>

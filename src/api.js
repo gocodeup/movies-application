@@ -6,15 +6,14 @@ module.exports = {
             .then(response => response.json());
     },
     addMovie: () => {
-        const userMovie = {title: $('#title').val(), rating: $('#rating').val()};
+        const userMovie = {title: $('#title').val(), rating: $('.starRating').val(), description: $('#description').val()};
         const url = '/api/movies';
-        console.log('success');
+        console.log(userMovie);
 
         const options = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-
             },
             body: JSON.stringify(userMovie),
         };
