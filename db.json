@@ -2,36 +2,49 @@
   "movies": [
     {
       "title": "Weekend at Bernies",
-      "rating": "3",
+      "rating": "5",
       "id": 25
     },
     {
-      "title": "All Those Dumb Feelings",
-      "rating": "8",
-      "id": 26
-    },
-    {
       "title": "Greeks",
-      "rating": "2",
+      "rating": "1",
       "id": 27
     },
     {
       "title": "Fog",
-      "rating": "",
+      "rating": "3",
       "description": "the fog movie",
       "id": 28
     },
     {
       "title": "creepers 2",
-      "rating": "",
+      "rating": "3",
       "description": "shhh it's creepy",
       "id": 29
     },
     {
       "title": "whereeee",
-      "rating": "",
+      "rating": "5",
       "description": "its that one ",
       "id": 30
+    },
+    {
+      "title": "343434",
+      "rating": "5",
+      "description": "5",
+      "id": 31
+    },
+    {
+      "title": "thingy",
+      "rating": "1",
+      "description": "5",
+      "id": 32
+    },
+    {
+      "title": "Should be five",
+      "rating": "5",
+      "description": "easfs",
+      "id": 33
     }
   ]
 }

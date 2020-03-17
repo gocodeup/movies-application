@@ -5,8 +5,8 @@ module.exports = {
         return fetch('/api/movies')
             .then(response => response.json());
     },
-    addMovie: () => {
-        const userMovie = {title: $('#title').val(), rating: $('.starRating').val(), description: $('#description').val()};
+    addMovie: (rate) => {
+        const userMovie = {title: $('#title').val(), rating: rate, description: $('#description').val()};
         const url = '/api/movies';
         console.log(userMovie);
 
