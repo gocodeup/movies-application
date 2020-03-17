@@ -77,30 +77,6 @@
       "rating": "4",
       "id": 25,
       "genre": "Drama"
-    },
-    {
-      "title": "Mad Max: Fury Road",
-      "rating": "4",
-      "id": 26,
-      "genre": "Action"
-    },
-    {
-      "title": "Turbo Kid",
-      "rating": "5",
-      "genre": "Action",
-      "id": 27
-    },
-    {
-      "title": "West Side Story",
-      "rating": "4",
-      "genre": "Drama",
-      "id": 28
-    },
-    {
-      "title": "The Thing",
-      "rating": "5",
-      "genre": "Horror",
-      "id": 29
     }
   ]
 }
