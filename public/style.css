@@ -87,10 +87,12 @@ th {
 
 #left-reel {
     float: left;
+    width: 20em;
     /*clear: right;*/
 }
 
 #right-reel {
     float: right;
+    width: 20em;
     /*clear: left;*/
 }
