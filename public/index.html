@@ -5,7 +5,7 @@
     <title>My Application</title>
     <link rel="stylesheet" href="/style.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2|Exo+2|Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <style>
         .highlighted {
             background: yellow;
@@ -18,13 +18,18 @@
 </head>
 <body>
 <h1 class="head">
-    <div class="headLine">JUST JOSHIN' FILMS</div>
+    <p class="headLine">JUST JOSHIN' FILMS</p>
 </h1>
+
 
 <div class="container">
 
     <!--        <h1 id="hello">Hello There!</h1>-->
     <!--        <p>To get started, edit <code>src/index.js</code>.</p>-->
+    <div>
+        <a class="underline" href="#ex1" rel="modal:open">
+            <div id="ex1" class="modal">
+                <p class="modalTitle">
     <form id="firstForm">
         <label for="title">Title</label>
         <br>
@@ -49,6 +54,13 @@
         <br>
         <button type="submit" id="submit">Add</button>
     </form>
+    </div>
+    </p>
+        <p class="modalStyle">Click Here To Add Films</p>
+        <form id="editForm">
+
+    </a>
+        </div>
 
 <!--            <form id="editForm">-->
 <!--                <label for="idNumber">Id Number</label>-->

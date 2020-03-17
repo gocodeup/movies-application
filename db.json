@@ -2,7 +2,7 @@
   "movies": [
     {
       "title": "Weekend at Bernies",
-      "rating": "5",
+      "rating": "2",
       "id": 25
     },
     {
@@ -51,6 +51,12 @@
       "rating": "3",
       "description": "",
       "id": 34
+    },
+    {
+      "title": "Shoogar",
+      "rating": "2",
+      "description": "cool movie about cool people",
+      "id": 36
     }
   ]
 }

@@ -45,7 +45,6 @@ var refresh = (movies) => {
         `<label for="${id}rating2">2</label>`+
         `<input id="${id}rating1" type="radio" name="${id}" value="${id}" class="radio1">`+
         `<label for="${id}rating1">1</label>`+
-
         `</span>`+
         `<button value="${id}" type="submit" class="deleteButton">delete</button>`+
         `<div>`

@@ -11,17 +11,19 @@ html, body {
     justify-content: center;
     align-items: center;
 }
+
 .headLine{
-    font-size: 50px;
-    color: black;
+    font-size: 70px;
+    color: #EDF5E1;
     font-family: 'Yanone Kaffeesatz', sans-serif;
-    text-shadow: 0px 0px 40px #EDF5E1;
+    text-shadow: 0px 0px 40px black;
 }
 
 #firstForm{
     color: whitesmoke;
     font-size: 15px;
     text-transform: uppercase;
+    background: black;
     box-shadow: 0px 0px 10px black;
     font-family: 'Exo 2', sans-serif;
     padding: 4px;
@@ -39,6 +41,8 @@ html, body {
     display: flex;
     text-align: center;
     justify-content: center;
+    width: 100%;
+    background: #45A29E;
 }
 
 .starRating{
@@ -68,7 +72,7 @@ li {
     font-family: 'Exo 2', sans-serif;
     padding: 10px;
     border-radius: 4px;
-    text-shadow: 0px 0px 5px black;
+    text-shadow: 2px 0px 5px black;
 }
 
 .cards{
@@ -89,7 +93,7 @@ li {
     border: 2px solid black;
     box-shadow: 0px 0px 4px black;
     background-image: url('img-noise-361x370.png');
-    padding: 0;
+    padding: 4px;
 }
 
 .movieBox{
