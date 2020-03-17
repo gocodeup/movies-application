@@ -109,6 +109,9 @@ $('#add-movie').click(function (e) {
     rating: addedMovieRating,
     genre: addedMovieGenre
   };
+  $('#movie-title').val('');
+  $('#movie-rating').val('');
+  $('#movie-genre').val('');
 
   addMovie(addedMovie);
   console.log(addedMovie);

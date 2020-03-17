@@ -83,6 +83,30 @@
       "rating": "5",
       "genre": "Martial Arts",
       "id": 26
+    },
+    {
+      "title": "Commando",
+      "rating": "4",
+      "genre": "Action",
+      "id": 27
+    },
+    {
+      "title": "Rush Hour",
+      "rating": "5",
+      "genre": "Action",
+      "id": 28
+    },
+    {
+      "title": "Saving Private Ryan",
+      "rating": "5",
+      "genre": "War",
+      "id": 29
+    },
+    {
+      "title": "Jaws",
+      "rating": "3",
+      "genre": "Horror",
+      "id": 30
     }
   ]
 }
