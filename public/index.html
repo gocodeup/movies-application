@@ -5,62 +5,6 @@
     <title>My Application</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css"/>
-    <style>
-        body {
-            margin: 1em;
-            background-color: black;
-            color: white;
-        }
-
-        th {
-            height: 5vh;
-        }
-
-        th, td, #movies {
-            border: 1px solid black;
-            margin: auto;
-            column-width: 12vw;
-            font-size: 1.2em;
-        }
-
-        td {
-            padding: .3em;
-        }
-
-        tr:nth-child(2n + 2) {
-            background-color: honeydew;
-            color: black;
-        }
-
-        tr:nth-child(2n + 1) {
-            background-color: gray;
-            color: ghostwhite;
-        }
-
-        th {
-            background-color: darkgoldenrod;
-            color: white;
-            text-align: center;
-        }
-
-        .jumbotron {
-            background-image: url("reel.jpg");
-            color: black;
-            background-size: cover;
-            height: 20vh;
-            padding: 0;
-        }
-
-        #left-reel {
-            float: left;
-            clear: right;
-        }
-
-        #left-reel {
-            float: left;
-            clear: right;
-        }
-    </style>
 </head>
 <body>
 <header>
@@ -72,23 +16,29 @@
     </div>
 </div>
 
-<img id="left-reel" alt="." src="moving-reel-left.gif">
+<div class="d-flex">
+    <img id="left-reel" class="justify-content flex-start" alt="." src="moving-reel-left.gif">
+</div>
 
-<table id="movies">
-    <thead>
-    <tr>
-        <th>Movie ID</th>
-        <th>Title</th>
-        <th>Genre</th>
-        <th>Rating (Out of 5)</th>
-        <th>Remove From Library</th>
-    </tr>
-    </thead>
-    <tbody id="insertMovies"></tbody>
-</table>
+<div class="d-flex">
+    <div class="align-content center">
+        <table id="movies">
+            <thead>
+            <tr>
+                <th>Movie ID</th>
+                <th>Title</th>
+                <th>Genre</th>
+                <th>Rating</th>
+                <th>Remove</th>
+            </tr>
+            </thead>
+            <tbody id="insertMovies"></tbody>
+        </table>
+    </div>
+</div>
 <br>
 
-<img id="right-reel" alt="." src="moving-reel-right.gif">
+<img id="right-reel" class="d-flex justify-content flex-end" alt="." src="moving-reel-right.gif">
 
 <div class="row">
     <div class="float-left mx-auto p-3">

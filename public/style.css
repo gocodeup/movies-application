@@ -39,3 +39,58 @@ body.loading .modal {
 body.loading .modal {
     display: block;
 }
+
+body {
+    margin: 1em;
+    background-color: black;
+    color: white;
+}
+
+th {
+    height: 5vh;
+}
+
+th, td, #movies {
+    border: 1px solid black;
+    margin: auto;
+    column-width: 6vw;
+    font-size: 1.2em;
+}
+
+td {
+    padding: .3em;
+}
+
+tr:nth-child(2n + 2) {
+    background-color: honeydew;
+    color: black;
+}
+
+tr:nth-child(2n + 1) {
+    background-color: gray;
+    color: ghostwhite;
+}
+
+th {
+    background-color: darkgoldenrod;
+    color: white;
+    text-align: center;
+}
+
+.jumbotron {
+    background-image: url("reel.jpg");
+    color: black;
+    background-size: cover;
+    height: 20vh;
+    padding: 0;
+}
+
+#left-reel {
+    float: left;
+    /*clear: right;*/
+}
+
+#right-reel {
+    float: right;
+    /*clear: left;*/
+}
