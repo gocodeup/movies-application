@@ -1,13 +1,13 @@
 
-
 html, body {
     height: 100vh;
-    background-image: url("../movie-theater-3.jpg")  !important;
+    background-image: url("../movie-theater-3.jpg") !important;
 
     /*-webkit-background-size: cover;*/
     /*-moz-background-size: cover;*/
     /*-o-background-size: cover;*/
-    background-size:100% 100%;
+    background-size: 100% 100%;
+
 }
 
 .container {
@@ -17,14 +17,30 @@ html, body {
     text-align: center;
     height: 100vh;
 
+
 }
 
-#movieList{
-    margin-bottom:200px ;
+
+.card-body {
+
+    /*overflow: scroll;*/
 }
+.table {
+    color: white !important;
+}
+
+
+
+#movieList {
+    margin-bottom: 200px;
+    overflow: scroll;
+
+}
+
 table {
-    border-collapse:collapse;
+    border-collapse: collapse;
 }
+
 th, tr {
     border: none;
 }
@@ -40,6 +56,7 @@ th, tr {
     right: 0;
     bottom: 0;
 }
+
 .loader {
     position: absolute;
     top: 0;
@@ -49,8 +66,7 @@ th, tr {
     margin: auto;
     width: 97px;
     height: 97px;
-    back
-    animation-name: rotateAnim;
+    back animation-name: rotateAnim;
     -o-animation-name: rotateAnim;
     -ms-animation-name: rotateAnim;
     -webkit-animation-name: rotateAnim;
@@ -71,11 +87,12 @@ th, tr {
     -webkit-animation-timing-function: linear;
     -moz-animation-timing-function: linear;
 }
+
 .loader div {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    border: 1px solid rgb(255,255,255);
+    border: 1px solid rgb(255, 255, 255);
     position: absolute;
     top: 2px;
     left: 0;
@@ -83,14 +100,17 @@ th, tr {
     bottom: 0;
     margin: auto;
 }
+
 .loader div:nth-child(odd) {
     border-top: none;
     border-left: none;
 }
+
 .loader div:nth-child(even) {
     border-bottom: none;
     border-right: none;
 }
+
 .loader div:nth-child(2) {
     border-width: 2px;
     left: 0px;
@@ -98,6 +118,7 @@ th, tr {
     width: 12px;
     height: 12px;
 }
+
 .loader div:nth-child(3) {
     border-width: 2px;
     left: -1px;
@@ -105,6 +126,7 @@ th, tr {
     width: 18px;
     height: 18px;
 }
+
 .loader div:nth-child(4) {
     border-width: 3px;
     left: -1px;
@@ -112,6 +134,7 @@ th, tr {
     width: 23px;
     height: 23px;
 }
+
 .loader div:nth-child(5) {
     border-width: 3px;
     left: -1px;
@@ -119,6 +142,7 @@ th, tr {
     width: 31px;
     height: 31px;
 }
+
 .loader div:nth-child(6) {
     border-width: 4px;
     left: 0px;
@@ -126,6 +150,7 @@ th, tr {
     width: 39px;
     height: 39px;
 }
+
 .loader div:nth-child(7) {
     border-width: 4px;
     left: 0px;

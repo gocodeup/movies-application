@@ -9,29 +9,32 @@
 </head>
 <body>
 
-<div class="container d-flex justify-content-center align-items-center">
-    <!--    <h1>Hello There!</h1>-->
-    <!--    <p>To get started, edit <code>src/index.js</code>.</p>-->
-
-    <!--List movies go here-->
-    <div class="movieList card bg-light" style="height: 400px; width:100%" id="movieList">
-        <div class="card-body ">
-            <table id="movies" class="table table-hover">
-                <thead>
-                <tr><h5 class="card-title">Movies available</h5></tr>
-                <tr>
-                    <th scope="col" class="">Title</th>
-                    <th scope="col">Rating</th>
-                </tr>
-                </thead>
-                <tbody id="insertMovies"></tbody>
-            </table>
+           <nav class="sticky-top">
             <input id="input-movie" type="text" placeholder="Add/Remove movie">
             <input id="input-rating" type="text" placeholder="enter rating">
             <button id="add-movie">Add</button>
             <button id="delete-movie">Remove</button>
             <button id="edit-movie">Edit</button>
             <button id="save-edit">Save</button>
+           </nav>
+<div class="container d-flex justify-content-center align-items-center ">
+    <!--    <h1>Hello There!</h1>-->
+    <!--    <p>To get started, edit <code>src/index.js</code>.</p>-->
+
+    <!--List movies go here-->
+    <div class="movieList card bg-light " style="height: 400px; width:100%" id="movieList">
+        <div class="card-body card text-white bg-dark ">
+            <table id="movies" class="table table-hover table-borderless ">
+                <thead>
+                <h5 class="card-title sticky-top">Movies available</h5></tr>
+                <tr>
+                    <th scope="col" class="">Title</th>
+                    <th scope="col">Rating</th>
+                </tr>
+                </thead>
+                <tbody  id="insertMovies"></tbody>
+
+            </table>
         </div>
     </div>
 
