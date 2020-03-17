@@ -1,13 +1,9 @@
 {
   "movies": [
     {
-      "title": "Weekend at Bernies",
-      "rating": "2",
-      "id": 25
-    },
-    {
       "title": "Greeks",
       "rating": "1",
+      "description": "Ne",
       "id": 27
     },
     {
@@ -36,7 +32,7 @@
     },
     {
       "title": "thingy",
-      "rating": "1",
+      "rating": "3",
       "description": "5",
       "id": 32
     },
@@ -49,7 +45,7 @@
     {
       "title": "dgjhg",
       "rating": "3",
-      "description": "",
+      "description": "gergerg",
       "id": 34
     },
     {
