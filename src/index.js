@@ -1,7 +1,7 @@
 /*   ES6 MODULES & IMPORTS  */
 // NOTE: ONLY HAVE 'REQUIRE' OR 'IMPORT' METHOD FOR EACH FUNCTION @ THE TOP OF THE PAGE...NOT BOTH!
 
-const $ = require('jquery'); // Enables jQuery
+// const $ = require('jquery'); // Enables jQuery
 const {getMovies} = require('./api.js'); // Retrieves movie API data
 const {addMovie} = require('./api.js'); // Enables "Add Movie" function
 const {deleteMovie} = require('./api.js'); // Enables "Delete Movie" function
@@ -25,10 +25,13 @@ const {editMovie} = require('./api.js'); // Enables "Edit Movie" function
               '<td>' + '<em>' + item.title + '</em>' + '</td>' +
               '<td class="text-center">' + item.genre + '</td>' +
               '<td class="text-center">' + item.rating + '</td>' +
-              '<td class="text-center">' + '<button type="submit" class="remove-movie btn btn-danger" data-id="movie-id" id="' + item.id.toString() + '">' + 'Remove' + '</button>' + '</td>' +
+              // '<td class="text-center">' + '<button type="submit" class="remove-movie btn btn-danger" data-id="movie-id" id="' + item.id.toString() + '">' + 'Remove' + '</button>' + '</td>' +
+              '<td class="text-center">' + '<button type="submit" class="remove-movie btn btn-danger" data-toggle="modal" data-target="#exampleModalLong" data-id="movie-id" id="' + item.id.toString() + '">' + 'Remove' + '</button>' + '</td>' +
               '</tr>')
         })
       })
+
+
     }
     return displayMovie = 1;
   }
@@ -55,15 +58,23 @@ getMovies().then((movies) => {
 $(document).on('click','.remove-movie', function () {
   console.log('remove button clicked');
   let movieId = $(this).attr('id');
-  let warning = confirm('Are you sure you want to remove this movie?');
+  $('#exampleModalLong').modal('show');
+  $('#exampleModalLong').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+  });
   displayMovie = 0;
-  if (warning === true){
-    console.log(movieId);
+  $('#confirm-delete').click(function () {
+    // $('#exampleModalLong').css('display', 'none');
+    $('#exampleModalLong').modal('hide');
     deleteMovie(movieId).then(response => {
       console.log(response);
       loadData();
     });
-  }
+  })
+  // if (warning === true){
+  //   console.log(movieId);
+
+  // }
 });
 
 const form = document.querySelector('form');

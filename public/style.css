@@ -14,7 +14,7 @@ html, body {
    with position:fixed. Width, height, top and left speak
    for themselves. Background we set to 80% white with
    our animation centered, and no-repeating */
-.modal {
+.loading-gif {
     display:    none;
     position:   fixed;
     z-index:    1000;
@@ -30,7 +30,7 @@ html, body {
 
 /* When the body has the loading class, we turn
    the scrollbar off with overflow:hidden */
-body.loading .modal {
+body.loading .loading-gif {
     overflow: hidden;
 }
 
@@ -95,4 +95,12 @@ th {
     float: right;
     width: 15em;
     height: 52em;
+}
+
+.modal-body {
+    color: black;
+}
+
+#exampleModalLongTitle {
+    color: black;
 }
