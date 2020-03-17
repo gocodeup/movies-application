@@ -21,6 +21,9 @@ module.exports = {
             .then(/* post was created successfully */)
             .catch(/* handle errors */);
     },
+
+
+
     editMovie: (id, body) => {
         return fetch(`api/movies/${id}`, {
             method: 'PATCH',

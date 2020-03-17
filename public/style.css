@@ -1,59 +1,73 @@
 html, body {
     height: 100%;
-    background: rgba(51, 51, 51, 1);
+    background: black;
 }
 
 .head{
-    height: 200px;
+    height: 170px;
     width: 100%;
-    background: #242582;
+    background: #5CDB95;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .headLine{
     font-size: 50px;
-    color: #99738E;
-    font-family: "Heiti SC", sans-serif;
-    text-shadow: 0px 0px 5px black;
+    color: black;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    text-shadow: 0px 0px 40px #EDF5E1;
 }
 
 #firstForm{
     color: whitesmoke;
-    font-size: 20px;
+    font-size: 15px;
     text-transform: uppercase;
     box-shadow: 0px 0px 10px black;
-    font-family: Helvetica, sans-serif;
-    padding: 2px;
+    font-family: 'Exo 2', sans-serif;
+    padding: 4px;
     width: 100%;
     border-radius: 4px;
+    margin: 4px;
+}
+#title{
+    margin: 2px;
+}
+#description{
+    margin: 2px;
 }
 .container {
     display: flex;
     text-align: center;
     justify-content: center;
 }
+
 .starRating{
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+.underline{
+    text-decoration: none;
+    color: ghostwhite;
+}
 
 li {
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 20px;
     font-weight: bold;
     text-transform: uppercase;
     height: 150px;
     width: 120px;
     border: 1px solid #FBEEC1;
-    background: #553D67;
+    background: #05386B;
     box-shadow: 0px 0px 10px black;
-    font-family: Helvetica, sans-serif;
-    padding: 2px;
+    font-family: 'Exo 2', sans-serif;
+    padding: 10px;
     border-radius: 4px;
-
+    text-shadow: 0px 0px 5px black;
 }
 
 .cards{
@@ -73,6 +87,7 @@ li {
     flex-wrap: wrap;
     border: 2px solid black;
     box-shadow: 0px 0px 4px black;
+    background-image: url('img-noise-361x370.png');
 }
 
 .movieBox{
@@ -119,25 +134,28 @@ li {
     opacity : 1;
 }
 .modalTitle{
-    color: whitesmoke;
+    color: black;
+    background: #379683;
     font-size: 20px;
     text-transform: uppercase;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Exo 2', sans-serif;
     padding: 2px;
     width: 100%;
     border-radius: 4px;
 }
 
 .modalStyle{
-    color: whitesmoke;
+    color: black;
+    background: #379683;
     font-size: 20px;
     text-transform: uppercase;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Exo 2', sans-serif;
     padding: 2px;
     width: 100%;
     border-radius: 4px;
 }
 
-#ex:link {
-    text-decoration: none;
+li {
+    list-style: none;
 }
+

@@ -22,13 +22,18 @@ var refresh = (movies) => {
 
     $('#movies').append(
         `<div class="cards" >` +
-        `<p><a href="#ex" rel="modal:open">`+
+        `<a class="underline" href="#ex${id}" rel="modal:open">`+
         `<li>${title}</li>` +
-        `<div id="ex" class="modal">` +
+        `<div id="ex${id}" class="modal">` +
         `<p class="modalTitle">${title}</p>`+
         `<p class="modalStyle">${description}</p>`+
+        `<form id="editForm">`+
+        `<br>`+
+        `<input class="editDesc" id="${id}descriptionEdit" type="text">`+
+        `<button type="submit" id="submit">submit</button>`+
+        `</form>`+
         `</div>` +
-        `</a></p>`+
+        `</a>`+
         `<span class="starRating">` +
         `<input id="${id}rating5" type="radio" name="${id}" value="${id}" class="radio5">`+
         `<label for="${id}rating5">5</label>`+
@@ -95,13 +100,6 @@ var refresh = (movies) => {
 
 
 
-  $('li').click(function () {
-    console.log('hi there');
-    $(this).toggleClass('highlighted')
-  });
-
-
-
   $('.deleteButton').click(function (e) {
     e.preventDefault();
     deleteMovie($(this).val());
@@ -143,6 +141,17 @@ $('#submitEdit').click(function (e) {
   getMovies().then((movies)=>refresh(movies));
 
 });
+
+$('#submitDescription').click(function (e) {
+  e.preventDefault();
+  let id = $('#idNumber').val();
+  editMovie(id, {
+    "description": $('#descriptionEdit').val()
+  });
+  getMovies().then((movies)=>refresh(movies));
+
+});
+
 
 
 
