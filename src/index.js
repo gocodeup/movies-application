@@ -4,12 +4,17 @@
 //---------PAGE LOAD--------------
 
 $(document).ready(function(){
+
+function loadingScreen() {
+  $('#loader').show();
   $('#movies').hide();
   setTimeout(function () {
-    $('#movies').prop('selected', true);
     $('#movies').show();
     $('#loader').hide();
   }, 3000);
+}
+
+loadingScreen();
 
 const {getMovies} = require('./api.js'); // Retrieves movie API data
 const {addMovie} = require('./api.js'); // Enables "Add Movie" function
@@ -45,6 +50,10 @@ const {editMovie} = require('./api.js'); // Enables "Edit Movie" function
   }
   loadData(displayMovie);
 
+  const pepperParty = (rating) => {
+
+  };
+
 
 //-------ADDING RETRIEVED MOVIES TO AN HTML TABLE WITH REFRESH BUTTON: END-----------
 
@@ -76,6 +85,7 @@ $(document).on('click','.remove-movie', function () {
     $('#exampleModalLong').modal('hide');
     deleteMovie(movieId).then(response => {
       console.log(response);
+      loadingScreen();
       loadData();
     });
   })
@@ -120,6 +130,7 @@ $('#add-movie').click(function (e) {
 
   addMovie(addedMovie);
   console.log(addedMovie);
+  loadingScreen();
   movieRefresh();
 });
 
@@ -148,6 +159,7 @@ $('#edit-submit').on('click', function(e) {
   let movieData = {title: movieName, rating: rating, genre: newGenre};
   console.log(movieData);
   editMovie(movieData, editId);
+  loadingScreen();
   movieRefresh();
 });
 
