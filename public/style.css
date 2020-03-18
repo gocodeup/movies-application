@@ -104,6 +104,13 @@ li {
 
 }
 
+.circles{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: red;
+}
+
 .starRating:not(old){
     display        : inline-block;
     width          : 7.5em;
@@ -142,10 +149,20 @@ li {
 .starRating:not(:hover) > :checked ~ label:before{
     opacity : 1;
 }
+.modalMainPage{
+    color: black;
+    background: #379683;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-family: 'Exo 2', sans-serif;
+    padding: 2px;
+    width: 100%;
+    border-radius: 4px;
+}
 .modalTitle{
     color: black;
     background: #379683;
-    font-size: 20px;
+    font-size: 22px;
     text-transform: uppercase;
     font-family: 'Exo 2', sans-serif;
     padding: 2px;
@@ -153,10 +170,20 @@ li {
     border-radius: 4px;
 }
 
-.modalStyle{
+.modalDescription{
     color: black;
     background: #379683;
-    font-size: 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-family: 'Exo 2', sans-serif;
+    padding: 2px;
+    width: 100%;
+    border-radius: 4px;
+}
+.modalGenre{
+    color: black;
+    background: #379683;
+    font-size: 18px;
     text-transform: uppercase;
     font-family: 'Exo 2', sans-serif;
     padding: 2px;

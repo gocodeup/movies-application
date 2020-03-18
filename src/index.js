@@ -20,12 +20,15 @@ var refresh = (movies) => {
 
     $('#movies').append(
         `<div class="cards" >` +
+
+
         `<a class="underline" href="#ex${id}" rel="modal:open">`+
         `<li>${title}</li>` +
         `<div id="ex${id}" class="modal">` +
+        `<div class="circles"></div>`+
         `<p class="modalTitle">${title}</p>`+
-        `<p class="modalStyle">${description}</p>`+
-        `<p class="modalStyle">${genre}</p>`+
+        `<p class="modalDescription">${description}</p>`+
+        `<p class="modalGenre"> Genre: ${genre}</p>`+
 
         `<form>`+
         `<br>`+
@@ -34,6 +37,7 @@ var refresh = (movies) => {
         `</form>`+
         `</div>` +
         `</a>`+
+
         `<span class="starRating">` +
         `<input id="${id}rating5" type="radio" name="${id}" value="${id}" class="radio5">`+
         `<label for="${id}rating5">5</label>`+

@@ -8,7 +8,7 @@ module.exports = {
             .then(response => response.json());
     },
     addMovie: (rate) => {
-        const userMovie = {title: $('#title').val(), rating: rate, description: $('#description').val()};
+        const userMovie = {title: $('#title').val(), rating: rate, description: $('#description').val(), genre: $('#genre').val() };
         const url = '/api/movies';
 
         const options = {

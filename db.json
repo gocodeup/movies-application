@@ -25,12 +25,6 @@
       "id": 30
     },
     {
-      "title": "343434",
-      "rating": "5",
-      "description": "5",
-      "id": 31
-    },
-    {
       "title": "thingy",
       "rating": "3",
       "description": "5",
@@ -41,12 +35,6 @@
       "rating": "5",
       "description": "easfs",
       "id": 33
-    },
-    {
-      "title": "dgjhg",
-      "rating": "3",
-      "description": "gergerg",
-      "id": 34
     },
     {
       "title": "Shoogar",
@@ -61,9 +49,10 @@
       "id": 37
     },
     {
-      "title": "huh?",
-      "rating": "1",
-      "description": "what?",
+      "title": "Value Variable",
+      "rating": "3",
+      "description": "Hi Tech Action",
+      "genre": "action",
       "id": 38
     }
   ]
