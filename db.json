@@ -68,7 +68,7 @@
     },
     {
       "title": "The Untouchables",
-      "rating": "2",
+      "rating": "3",
       "id": 23,
       "genre": "Thriller"
     },
@@ -93,7 +93,7 @@
     {
       "title": "Rush Hour",
       "rating": "5",
-      "genre": "Action",
+      "genre": "Comedy",
       "id": 28
     },
     {

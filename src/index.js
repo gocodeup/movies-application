@@ -25,18 +25,14 @@ const {editMovie} = require('./api.js'); // Enables "Edit Movie" function
               '<td>' + '<em>' + item.title + '</em>' + '</td>' +
               '<td class="text-center">' + item.genre + '</td>' +
               '<td class="text-center">' + item.rating + '</td>' +
-              // '<td class="text-center">' + '<button type="submit" class="remove-movie btn btn-danger" data-id="movie-id" id="' + item.id.toString() + '">' + 'Remove' + '</button>' + '</td>' +
               '<td class="text-center">' + '<button type="submit" class="remove-movie btn btn-danger" data-toggle="modal" data-target="#exampleModalLong" data-id="movie-id" id="' + item.id.toString() + '">' + 'Remove' + '</button>' + '</td>' +
               '</tr>')
         })
       })
-
-
     }
     return displayMovie = 1;
   }
   loadData(displayMovie);
-
 
 
 //-------ADDING RETRIEVED MOVIES TO AN HTML TABLE WITH REFRESH BUTTON: END-----------
@@ -71,10 +67,6 @@ $(document).on('click','.remove-movie', function () {
       loadData();
     });
   })
-  // if (warning === true){
-  //   console.log(movieId);
-
-  // }
 });
 
 const form = document.querySelector('form');
