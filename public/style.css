@@ -116,6 +116,7 @@ select {
 }
 
 #loader {
-    width: 928px;
-    height: 960px
+    /*margin-top: 7em;*/
+    width: 63vw;
+    height: 87vh;
 }
