@@ -16,7 +16,7 @@ const {getMovies, addMovie, editMovie, deleteMovie} = require('./api.js');
 var refresh = (movies) => {
 
   $('#movies').html('');
-  movies.forEach(({title, rating, id, description}) => {
+  movies.forEach(({title, rating, id, description, genre, viewed}) => {
 
     $('#movies').append(
         `<div class="cards" >` +
@@ -25,6 +25,8 @@ var refresh = (movies) => {
         `<div id="ex${id}" class="modal">` +
         `<p class="modalTitle">${title}</p>`+
         `<p class="modalStyle">${description}</p>`+
+        `<p class="modalStyle">${genre}</p>`+
+
         `<form>`+
         `<br>`+
         `<input class="editDesc" id="${id}descriptionEdit" type="text">`+
@@ -136,7 +138,7 @@ var load = () => {
   $('#movies').append(
       '<li>SUP</li>'
   );
-}
+};
 
 // $('#submitEdit').click(function (e) {
 //   e.preventDefault();
