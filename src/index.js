@@ -1,10 +1,22 @@
 /*   ES6 MODULES & IMPORTS  */
 // NOTE: ONLY HAVE 'REQUIRE' OR 'IMPORT' METHOD FOR EACH FUNCTION @ THE TOP OF THE PAGE...NOT BOTH!
 
+//---------PAGE LOAD--------------
+
+$(document).ready(function(){
+  $('#movies').hide();
+  setTimeout(function () {
+    $('#movies').prop('selected', true);
+    $('#movies').show();
+    $('#loader').hide();
+  }, 3000);
+
 const {getMovies} = require('./api.js'); // Retrieves movie API data
 const {addMovie} = require('./api.js'); // Enables "Add Movie" function
 const {deleteMovie} = require('./api.js'); // Enables "Delete Movie" function
 const {editMovie} = require('./api.js'); // Enables "Edit Movie" function
+
+
 
 //-------ADDING RETRIEVED MOVIES TO AN HTML TABLE WITH REFRESH BUTTON: START-----------
 
@@ -147,3 +159,5 @@ $("#edit-submit").click(function () {
 });
 
 //-------EDIT MOVIE: END-----------
+
+}); // END OF DOCUMENT.READY

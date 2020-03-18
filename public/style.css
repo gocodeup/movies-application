@@ -114,3 +114,8 @@ select {
     width: 52px;
     height: 55px;
 }
+
+#loader {
+    width: 928px;
+    height: 960px
+}
