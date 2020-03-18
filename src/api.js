@@ -44,3 +44,4 @@ module.exports = {
         return fetch(`/api/movies/${id}`, options)
     }
 };
+
