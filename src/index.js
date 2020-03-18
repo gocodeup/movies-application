@@ -15,13 +15,21 @@ $(document).ready(function() {
 
     $('#all-movies').html(''); // Empty HTML after AJAX call received
 
-    movies.forEach(({title, rating, id}) => { //iterate through each movie object and get the title, rating, and id
+    movies.forEach(({title, rating, id, posterUrl, director, actors, plot}) => { //iterate through each movie object and get the title, rating, and id
 
       $('#all-movies').append(`
     <div class="card">
-        <h3>${title}</h3>
-    <div class="card-body">
-        <br>Rating: ${rating}</div>
+        <img class="card-img" src="${posterUrl}">
+        <div class="card-body">
+          <div class="card-rating"> Rating: ${rating}</div>
+          <h3 class="card-title">${title}</h3>
+          <div class="card-director">${director}</div>
+          <div class="card-actors">${actors}</div>
+          <div class="card-plot">${plot}</div>
+        </div>
+        <div>
+            <i class="fas fa-trash-alt delete-btn" data-id="${id}"></i>
+        </div>
     </div>`); // put the id, title, and rating into the html
     // <button class="delete-btn" data-id="${id}">Delete</button>
 

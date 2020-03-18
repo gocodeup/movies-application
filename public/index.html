@@ -1,66 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8" />
     <title>My Application</title>
 
-
+    <!---------------- CUSTOM CSS ----------------->
     <link rel="stylesheet" href="./style.css" />
+
+    <!---------------- GOOGLE FONTS ----------------->
     <link href="https://fonts.googleapis.com/css?family=Dosis|Roboto&display=swap" rel="stylesheet">
+
+    <!---------------- FONT AWESOME ----------------->
+    <script src="https://kit.fontawesome.com/bed02793ca.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
 
-<div class="parent-container">
-    <header>
-        <div class="box"></div>
-        <h1 class="main-header">Allegory</h1>
-        <h2 class="main-subheader">of the Cave</h2>
-    </header>
+    <div class="parent-container">
 
-    <main>
-    <div id="all-movies" class="card-container"><img class="loadingIcon shadow" src="assets/animations/Ellipsis-1s-200px.svg"></div>
-    </main>
+        <!---------------- TYPE LOGO HEADER ----------------->
+        <header>
+            <div class="box"></div>
+            <h1 class="main-header">Allegory</h1>
+            <h2 class="main-subheader">of the Cave</h2>
+        </header>
+
+        <!---------------- MOVIE CARDS ----------------->
+        <main>
+        <div id="all-movies" class="card-container"><img class="loadingIcon shadow" src="assets/animations/Ellipsis-1s-200px.svg"></div>
+        </main>
 
 
-    <aside class="aside-container">
-        <section id="add-movie-section">
-            <h1>Add a Movie</h1>
-            <form id="add-movie-form">
-                <label for="new-movie-title">Title: </label>
-                <input type="text" id="new-movie-title" placeholder="Movie title">
+        <!---------------- ASIDE FORMS ----------------->
+        <aside class="aside-container">
 
-                <br><br>
-                <h3>Rating: </h3>
-                <input type="radio" name="rating" value="1" id="1str"><label for="1str">1 star</label><br>
-                <input type="radio" name="rating" value="2" id="2str"><label for="2str">2 stars</label><br>
-                <input type="radio" name="rating" value="3" id="3str"><label for="3str">3 stars</label><br>
-                <input type="radio" name="rating" value="4" id="4str"><label for="4str">4 stars</label><br>
-                <input type="radio" name="rating" value="5" id="5str"><label for="5str">5 stars</label>
+            <!---------------- ADD FORM ----------------->
+            <section id="add-movie-section">
+                <h1>Add a Movie</h1>
+                <form id="add-movie-form">
+                    <label for="new-movie-title">Title: </label>
+                    <input type="text" id="new-movie-title" placeholder="Movie title">
 
-                <br><br>
-                <button id="submitBtn" type="submit">Add movie</button>
+                    <br><br>
+                    <h3>Rating: </h3>
+                    <input type="radio" name="rating" value="1" id="1str"><label for="1str">1 star</label><br>
+                    <input type="radio" name="rating" value="2" id="2str"><label for="2str">2 stars</label><br>
+                    <input type="radio" name="rating" value="3" id="3str"><label for="3str">3 stars</label><br>
+                    <input type="radio" name="rating" value="4" id="4str"><label for="4str">4 stars</label><br>
+                    <input type="radio" name="rating" value="5" id="5str"><label for="5str">5 stars</label>
 
-            </form>
-        </section>
+                    <br><br>
+                    <button id="submitBtn" type="submit">Add movie</button>
 
-        <section id="edit-movie-section">
-            <h1>Edit Movie</h1>
-            <form id="edit-movie-form">
-                <label for="edit-movie-id"></label>
-                <input type="text" id="edit-movie-id" placeholder="Movie Id">
-                <br><br>
-                <button id="editBtn" type="submit">Edit movie</button>
-                <br><br>
+                </form>
+            </section>
 
-                <input type="text" id="edit-movie-title" placeholder="Movie title">
-                <input type="text" id="edit-movie-rating" placeholder="Movie rating">
-                <br><br>
-                <button id="submitEditBtn" type="submit">Edit movie</button>
-            </form>
-        </section>
-    </aside>
-</div>
+            <!---------------- EDIT FORM ----------------->
+            <section id="edit-movie-section">
+                <h1>Edit Movie</h1>
+                <form id="edit-movie-form">
+                    <label for="edit-movie-id"></label>
+                    <input type="text" id="edit-movie-id" placeholder="Movie Id">
+                    <br><br>
+                    <button id="editBtn" type="submit">Edit movie</button>
+                    <br><br>
 
+                    <input type="text" id="edit-movie-title" placeholder="Movie title">
+                    <input type="text" id="edit-movie-rating" placeholder="Movie rating">
+                    <br><br>
+                    <button id="submitEditBtn" type="submit">Edit movie</button>
+                </form>
+            </section>
+        </aside>
+    </div>
+
+    <!---------------- BUNDLED JS ----------------->
     <script src="./main.js"></script>
 
 </body>
