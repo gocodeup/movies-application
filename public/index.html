@@ -14,6 +14,10 @@
     <!---------------- FONT AWESOME ----------------->
     <script src="https://kit.fontawesome.com/bed02793ca.js" crossorigin="anonymous"></script>
 
+    <!---------------- JQUERY PAGINATION PLUGIN ----------------->
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="jquery.easyPaginate.js"></script>
+
 </head>
 <body>
 
@@ -27,9 +31,13 @@
         </header>
 
         <!---------------- MOVIE CARDS ----------------->
-        <main>
-        <div id="all-movies" class="card-container"><img class="loadingIcon shadow" src="assets/animations/Ellipsis-1s-200px.svg"></div>
+        <main id="easyPaginate">
+            <div id="all-movies" class="card-container container">
+                <img class="loadingIcon shadow" src="assets/animations/Ellipsis-1s-200px.svg">
+            </div>
         </main>
+
+        <button id="trigger1" class="trigger">Load more</button>
 
 
         <!---------------- ASIDE FORMS ----------------->
