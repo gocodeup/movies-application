@@ -120,3 +120,8 @@ select {
     width: 63vw;
     height: 87vh;
 }
+
+.pepper{
+    font-size: 30px;
+    color: red;
+}

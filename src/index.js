@@ -51,7 +51,6 @@ const {editMovie} = require('./api.js'); // Enables "Edit Movie" function
   loadData(displayMovie);
 
   const pepperParty = (rating) => {
-
   };
 
 
