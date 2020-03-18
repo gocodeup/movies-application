@@ -9,7 +9,10 @@ $(document).ready(function() {
 
   const {getMovies, addMovie, getMovieToEdit, editMovie, deleteMovie, getStars} = require('./api.js'); //Get the get movies function from the api.js file
 
-
+  // const shine = new Shine(document.getElementById('headerTitle'));
+  // shine.light.position.x = window.innerWidth * 0.5;
+  // shine.light.position.y = window.innerHeight * 0.5;
+  // shine.draw();
 
   let updateMovies = () => {getMovies().then((movies) => { //use the getMovies function to pull all the movies
 
@@ -19,10 +22,10 @@ $(document).ready(function() {
 
       $('#all-movies').append(`
     <div class="card item">
+          <h3 class="card-title">${title}</h3>
         <img class="card-img" src="${posterUrl}">
         <div class="card-body">
           <div class="card-rating">${getStars(rating)}</div>
-          <h3 class="card-title">${title}</h3>
           <div class="card-director">${director}</div>
           <div class="card-actors">${actors}</div>
           <div class="card-plot">${plot}</div>
@@ -42,14 +45,12 @@ $(document).ready(function() {
 
       e.preventDefault(); //Stop the button's default behavior
 
-      // console.log($(this).data("id")); //get the id of the current clicked button
+      if(confirm('Are you sure you want to delete this movie?')) { // If user confirms to delete move, then...
 
-      deleteMovie($(this).data("id"))// call the delete function for the clicked delete button id
+        deleteMovie($(this).data("id"))// call the delete function for the clicked delete button id
 
           .then(updateMovies()) //refresh the movie list
-
-
-    });
+    }});
 
 
   // --------------- WHAT'S THE CATCH? ----------------

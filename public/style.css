@@ -22,29 +22,47 @@ html, body {
 }
 
 
-header > h1 {
-    color: var(--yankees-blue-color);
-    font-family: 'Dosis', sans-serif;
-    font-size: 5em;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    margin: 10px;
-    z-index: 4;
-    position: absolute;
-    top: 50px;
-}
+/*------ MODAL -----*/
 
-header > h2 {
-    font-size: 2em;
-    color: var(--yankees-blue-color);
-    font-family: 'Roboto', sans-serif;
-    /*text-transform: uppercase;*/
-    letter-spacing: 5px;
-    margin: 10px;
-    z-index: 4;
-    position: absolute;
-    top: 130px;
-}
+/*!* The Modal (background) *!*/
+/*.modal {*/
+/*    display: none; !* Hidden by default *!*/
+/*    position: fixed; !* Stay in place *!*/
+/*    z-index: 1; !* Sit on top *!*/
+/*    padding-top: 100px; !* Location of the box *!*/
+/*    left: 0;*/
+/*    top: 0;*/
+/*    width: 100%; !* Full width *!*/
+/*    height: 100%; !* Full height *!*/
+/*    overflow: auto; !* Enable scroll if needed *!*/
+/*    background-color: rgb(0,0,0); !* Fallback color *!*/
+/*    background-color: rgba(0,0,0,0.4); !* Black w/ opacity *!*/
+/*}*/
+
+/*!* Modal Content *!*/
+/*.modal-content {*/
+/*    background-color: #fefefe;*/
+/*    margin: auto;*/
+/*    padding: 20px;*/
+/*    border: 1px solid #888;*/
+/*    width: 80%;*/
+/*}*/
+
+/*!* The Close Button *!*/
+/*.close {*/
+/*    color: #aaaaaa;*/
+/*    float: right;*/
+/*    font-size: 28px;*/
+/*    font-weight: bold;*/
+/*}*/
+
+/*.close:hover,*/
+/*.close:focus {*/
+/*    color: #000;*/
+/*    text-decoration: none;*/
+/*    cursor: pointer;*/
+/*}
+
 
 
 /*_______________ LOADING ICON  _______________*/
@@ -86,18 +104,28 @@ header > h2 {
 
 @media screen and (max-width:575px) {
 
+    header {
+        height: 40vh;
+    }
+
+    header > h1 {
+        color: var(--yankees-blue-color);
+        font-family: 'Dosis', sans-serif;
+        font-size: 5em;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        margin: 10px;
+        z-index: 4;
+        position: absolute;
+        top: 50px;
+    }
+
     .parent-container {
         display: grid;
         grid-template-columns: 1fr;
         /*grid-template-rows: repeat(2, 1fr);*/
         /*grid-column-gap: 0;*/
         /*grid-row-gap: 1fr;*/
-    }
-
-    header {
-        height: 40vh;
-        /*margin: 0 10px;*/
-        /*border-radius: 0 0 30px 30px;*/
     }
 
     /*_______________ Blob _______________*/
@@ -176,7 +204,6 @@ header > h2 {
         box-shadow:  0px 15px 15px -15px #000;
         transition: 0.4s ease-out;
         position: relative;
-        /*margin: auto;*/
         grid-area: 2 / 1 / 4 / 5;
 
         color: var(--pastel-red-color);
@@ -221,10 +248,6 @@ header > h2 {
     /*    z-index: 3;*/
     /*}*/
 
-    .aside-container{
-
-        background-color: var(--yankees-blue-color);
-    }
 
     .main-header { grid-area: 1 / 1 / 2 / 7; }
 }
@@ -236,11 +259,30 @@ header > h2 {
 
 @media screen and (min-width: 576px) {
 
+
+
+    header {
+        text-align: center;
+        height: 40vh;
+        background-color: #3b3a3c;
+        line-height: 40vh;
+    }
+
+    header > h1 {
+        color: var(--yankees-blue-color);
+        font-family: 'Dosis', sans-serif;
+        font-size: 8.25em;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        margin: 0 10px 0 10px;
+    }
+
     .card-container {
         grid-area: 2 / 1 / 4 / 5;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: space-evenly;
     }
 
     .card {
@@ -252,8 +294,8 @@ header > h2 {
         justify-content: space-between;
 
         background-color: var(--yankees-blue-color);
-        border-radius: 1em;
-        box-shadow: -1rem 0 3rem #000;
+        border-radius:0 0 1em 1em;
+        box-shadow:  0px 15px 15px -15px #000;
         text-align: center;
         overflow: hidden;
 
@@ -261,6 +303,11 @@ header > h2 {
         position: relative;
 
         color: var(--baby-powder-color);
+    }
+
+    .card-title {
+        width: 100%;
+        height: 30px;
     }
 
     .card-body {
@@ -273,15 +320,27 @@ header > h2 {
         transition: 0.4s ease-out;
     }
 
-    .aside-container{
-        background-color: var(--spanish-violet-color);
-        grid-area: 2 / 5 / 4 / 7;
-    }
-
     .main-header {
         grid-area: 1 / 1 / 2 / 7;
         color: var(--baby-powder-color);
 
+    }
+
+    .card-director , .card-actors{
+        color: var(--pastel-red-color);
+        font-family: 'Dosis', sans-serif;
+        font-size: .95em;
+        display: none;
+    }
+    .card-plot{
+        color: var(--spanish-violet-color);
+        font-family: 'roboto', sans-serif;
+        font-size: .95em;
+        width: 120%;
+    }
+
+    .card-rating, .card-plot {
+        display: none;
     }
 
 
