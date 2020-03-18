@@ -7,7 +7,7 @@ $(document).ready(function() {
 
   // --------------- FUNCTIONS TO BA CALLED LATER ----------------
 
-  const {getMovies, addMovie, getMovieToEdit, editMovie, deleteMovie} = require('./api.js'); //Get the get movies function from the api.js file
+  const {getMovies, addMovie, getMovieToEdit, editMovie, deleteMovie, getStars} = require('./api.js'); //Get the get movies function from the api.js file
 
 
 
@@ -21,7 +21,7 @@ $(document).ready(function() {
     <div class="card item">
         <img class="card-img" src="${posterUrl}">
         <div class="card-body">
-          <div class="card-rating"> Rating: ${rating}</div>
+          <div class="card-rating">${getStars(rating)}</div>
           <h3 class="card-title">${title}</h3>
           <div class="card-director">${director}</div>
           <div class="card-actors">${actors}</div>

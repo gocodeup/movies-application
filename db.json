@@ -25,6 +25,7 @@
   "movies": [
     {
       "id": 2,
+      "rating": 5,
       "title": "The Cotton Club",
       "year": "1984",
       "runtime": "127",
@@ -40,6 +41,7 @@
     },
     {
       "id": 4,
+      "rating": 4,
       "title": "Crocodile Dundee",
       "year": "1986",
       "runtime": "97",
@@ -54,6 +56,7 @@
     },
     {
       "id": 6,
+      "rating": 3.5,
       "title": "Ratatouille",
       "year": "2007",
       "runtime": "111",
@@ -69,6 +72,7 @@
     },
     {
       "id": 7,
+      "rating": 4,
       "title": "City of God",
       "year": "2002",
       "runtime": "130",
@@ -83,6 +87,7 @@
     },
     {
       "id": 10,
+      "rating": 1,
       "title": "Stardust",
       "year": "2007",
       "runtime": "127",
@@ -98,6 +103,7 @@
     },
     {
       "id": 11,
+      "rating": 3.5,
       "title": "Apocalypto",
       "year": "2006",
       "runtime": "139",
@@ -113,6 +119,7 @@
     },
     {
       "id": 13,
+      "rating": 5,
       "title": "No Country for Old Men",
       "year": "2007",
       "runtime": "122",
@@ -128,6 +135,7 @@
     },
     {
       "id": 17,
+      "rating": 5,
       "title": "The Third Man",
       "year": "1949",
       "runtime": "93",
@@ -143,6 +151,7 @@
     },
     {
       "id": 18,
+      "rating": 5,
       "title": "The Beach",
       "year": "2000",
       "runtime": "119",
@@ -158,6 +167,7 @@
     },
     {
       "id": 19,
+      "rating": 5,
       "title": "Scarface",
       "year": "1983",
       "runtime": "170",
@@ -172,6 +182,7 @@
     },
     {
       "id": 20,
+      "rating": 5,
       "title": "Sid and Nancy",
       "year": "1986",
       "runtime": "112",
@@ -187,6 +198,7 @@
     },
     {
       "id": 21,
+      "rating": 5,
       "title": "Black Swan",
       "year": "2010",
       "runtime": "108",
@@ -201,6 +213,7 @@
     },
     {
       "id": 22,
+      "rating": 5,
       "title": "Inception",
       "year": "2010",
       "runtime": "148",
