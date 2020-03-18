@@ -123,5 +123,6 @@ select {
 
 .pepper{
     font-size: 30px;
-    color: red;
+    color: black;
+    opacity: 40%;
 }

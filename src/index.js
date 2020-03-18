@@ -30,29 +30,63 @@ const {editMovie} = require('./api.js'); // Enables "Edit Movie" function
   function loadData() {
     console.log("load data function");
 
-    if (displayMovie === 0) {
-      $.get("/api/movies").done(function (data) {
-        console.log(data);
-        $('#insertMovies').html("");
-        $.each(data, function (i, item) {
-          $('#insertMovies').append(
-              '<tr>' +
-              '<td class="text-center">' + item.id + '</td>' +
-              '<td>' + '<em>' + item.title + '</em>' + '</td>' +
-              '<td class="text-center">' + item.genre + '</td>' +
-              '<td class="text-center">' + item.rating + '</td>' +
-              '<td class="text-center">' + '<button type="submit" class="remove-movie btn btn-danger" data-toggle="modal" data-target="#exampleModalLong" data-id="movie-id" id="' + item.id.toString() + '">' + 'Remove' + '</button>' + '</td>' +
-              '</tr>')
-        })
-      })
-    }
-    return displayMovie = 1;
-  }
-  loadData(displayMovie);
+  //   if (displayMovie === 0) {
+  //     $.get("/api/movies").done(function (data) {
+  //       console.log(data);
+  //       $('#insertMovies').html("");
+  //       $.each(data, function (i, item) {
+  //         $('#insertMovies').append(
+  //             '<tr>' +
+  //             '<td class="text-center">' + item.id + '</td>' +
+  //             '<td>' + '<em>' + item.title + '</em>' + '</td>' +
+  //             '<td class="text-center">' + item.genre + '</td>' +
+  //             '<td class="text-center">' + item.rating + '</td>' +
+  //             '<td class="text-center">' + '<button type="submit" class="remove-movie btn btn-danger" data-toggle="modal" data-target="#exampleModalLong" data-id="movie-id" id="' + item.id.toString() + '">' + 'Remove' + '</button>' + '</td>' +
+  //             '</tr>')
+  //       })
+  //     })
+  //   }
+  //   return displayMovie = 1;
+  // }
+  // loadData(displayMovie);
 
-  const pepperParty = (rating) => {
+
+    //------------------------ refactored display movie function start-------------------------------------------------
+
+      if (displayMovie === 0) {
+        $.get("/api/movies").done(function (data) {
+          console.log(data);
+          $('#insertMovies').html("");
+          $.each(data, function (i, item) {
+            $('#insertMovies').append(
+                '<tr>' +
+                '<td class="text-center">' + item.id + '</td>' +
+                '<td>' + '<em>' + item.title + '</em>' + '</td>' +
+                '<td class="text-center">' + item.genre + '</td>' +
+                '<td class="text-center">' +
+                '<i class="fas fa-pepper-hot pepper"></i>' +
+                '<i class="fas fa-pepper-hot pepper"></i>' +
+                '<i class="fas fa-pepper-hot pepper"></i>' +
+                '<i class="fas fa-pepper-hot pepper"></i>' +
+                '<i class="fas fa-pepper-hot pepper"></i>' +
+                '</td>' +
+                '<td class="text-center">' + '<button type="submit" class="remove-movie btn btn-danger" data-toggle="modal" data-target="#exampleModalLong" data-id="movie-id" id="' + item.id.toString() + '">' + 'Remove' + '</button>' + '</td>' +
+                '</tr>')
+          })
+        })
+      }
+      return displayMovie = 1;
+    }
+    loadData(displayMovie);
+
+  const pepperParty = (item) => {
+    if (item.rating === '1-basura!'){
+      $('.pepper').css('color', 'red')
+    }
   };
 
+
+    //------------------------ refactored display movie function end-------------------------------------------------
 
 //-------ADDING RETRIEVED MOVIES TO AN HTML TABLE WITH REFRESH BUTTON: END-----------
 
