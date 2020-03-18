@@ -126,3 +126,8 @@ select {
     color: black;
     opacity: 40%;
 }
+
+.color-pepper {
+    color: red;
+    opacity: 100%;
+}
