@@ -7,43 +7,23 @@ html, body {
     top: 50%;
     transform: translateY(-100%);
     text-align: center;
+    margin-top: 2.5em;
+    padding: 0;
+    margin-left: 10em;
 }
-
-/* Start by setting display:none to make this hidden.
-   Then we position it in relation to the viewport window
-   with position:fixed. Width, height, top and left speak
-   for themselves. Background we set to 80% white with
-   our animation centered, and no-repeating */
-.loading-gif {
-    display:    none;
-    position:   fixed;
-    z-index:    1000;
-    top:        0;
-    left:       0;
-    height:     100%;
-    width:      100%;
-    background: rgba( 255, 255, 255, .8 );
-    url("../spinny-wheel.gif")
-    50% 50%
-    no-repeat;
+.jumbotron {
+    background-image: url("reel.jpg");
+    color: black;
+    background-size: cover;
+    height: 28vh;
+    width: 100vw;
 }
-
-/* When the body has the loading class, we turn
-   the scrollbar off with overflow:hidden */
-body.loading .loading-gif {
-    overflow: hidden;
-}
-
-/* Anytime the body has the loading class, our
-   modal element will be visible */
-body.loading .modal {
-    display: block;
-}
-
 body {
-    margin: 1em;
+    margin: 0;
     background-color: black;
     color: white;
+    padding: 0;
+    overflow-x: hidden
 }
 
 th {
@@ -77,24 +57,16 @@ th {
     text-align: center;
 }
 
-.jumbotron {
-    background-image: url("reel.jpg");
-    color: black;
-    background-size: cover;
-    height: 20vh;
+#left-reel {
+    width: 15em;
+    height: 60em;
     padding: 0;
 }
 
-#left-reel {
-    float: left;
-    width: 15em;
-    height: 60em;
-}
-
 #right-reel {
-    float: right;
     width: 15em;
     height: 60em;
+    padding: 0;
 }
 
 .modal-body {
@@ -106,10 +78,39 @@ th {
 }
 
 input {
-    width: 210px;
+    width: 166px;
 }
 
 select {
-    width: 240px;
+    width: 198px;
 }
 
+#movie-genre {
+    width: 200px;
+}
+
+#editId {
+    width: 190px;
+}
+
+#editTitle {
+    width: 175px;
+}
+
+#editRating {
+    width: 160px;
+}
+
+#editGenre {
+    width: 162px;
+}
+
+.nope{
+    width: 60px;
+    height: 55px;
+}
+
+.agree{
+    width: 52px;
+    height: 55px;
+}

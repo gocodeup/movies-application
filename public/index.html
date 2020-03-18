@@ -9,16 +9,15 @@
 <body>
 <header>
 </header>
-
 <div class="jumbotron jumbotron-fluid heading">
     <div class="container">
-        <img class="align-middle" src="locos_link.png" alt="."/>
+        <img src="locos_link.png" alt="."/>
     </div>
 </div>
 
 <div class="reels-container">
     <div class="row">
-        <div class="col">
+        <div class="col-2 p-0 ml-5">
             <img id="left-reel" alt="." src="moving-reel-left.gif">
         </div>
 
@@ -39,7 +38,7 @@
             </div>
     <br>
         <div class="row">
-            <div class="col">
+            <div class="col-2 p-0 m-0">
                 <img id="right-reel" alt="." src="moving-reel-right.gif">
             </div>
         </div>
@@ -49,13 +48,14 @@
 
 <div class="justify-content-center row">
     <div class="p-5">
-        <h4>Add a Movie to Our Library:</h4>
+        <h4>Add a Movie to the List:</h4>
         <form>
-            <label for="movie-title">Movie Title:</label>
+            <label for="movie-title" class="add_search">Movie Title:</label>
             <input type="text" id="movie-title" placeholder="(Enter title here...)">
             <br>
-            <label for="movie-rating">Rating:</label>
+            <label for="movie-rating" class="mt-1">Rating:</label>
             <select id="movie-rating">
+                <option style="display:none;"></option>
                 <option value="5">5 - Estupendo!</option>
                 <option value="4">4 - Gran</option>
                 <option value="3">3 - No malo</option>
@@ -65,7 +65,9 @@
             <br>
             <label for="movie-genre">Genre:</label>
             <select id="movie-genre">
+                <option style="display:none;"></option>
                 <option value="Action">Action</option>
+                <option value="Comedy">Comedy</option>
                 <option value="Drama">Drama</option>
                 <option value="Epic">Epic</option>
                 <option value="Fantasy">Fantasy</option>
@@ -78,7 +80,7 @@
             </select>
             <br>
             <button type="submit" id="add-movie" class="btn btn-primary mt-3">
-                Add Movie
+                Add a Movie
             </button>
         </form>
     </div>
@@ -88,10 +90,12 @@
         <h4>Edit a Movie Listing:</h4>
         <form>
             ID: <input type="text" id="editId" placeholder="(Enter ID here...)">
-            Title: <input type="text" id="editTitle" placeholder="(Enter title here...)">
+            <br>
+            Title: <input type="text" id="editTitle" placeholder="(Enter title here...)" class="mt-2">
             <br>
             <label for="editRating" class="mt-2">Rating:</label>
             <select id="editRating">
+                <option style="display:none;"></option>
                 <option value="5">5 - Estupendo!</option>
                 <option value="4">4 - Gran</option>
                 <option value="3">3 - No malo</option>
@@ -101,7 +105,9 @@
             <br>
             <label for="editGenre">Genre:</label>
             <select id="editGenre">
+                <option style="display:none;"></option>
                 <option value="Action">Action</option>
+                <option value="Comedy">Comedy</option>
                 <option value="Drama">Drama</option>
                 <option value="Epic">Epic</option>
                 <option value="Fantasy">Fantasy</option>
@@ -113,7 +119,7 @@
                 <option value="War">War</option>
             </select>
             <br>
-            <button type="submit" id="edit-submit" class="btn btn-primary mt-3">Edit Movie</button>
+            <button type="submit" id="edit-submit" class="btn btn-primary mt-3">Edit a Movie</button>
         </form>
     </div>
 </div>
@@ -123,23 +129,21 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header bg-warning">
-                <h5 class="modal-title font-weight-bold" id="exampleModalLongTitle">Hold Up Vato!</h5>
+                <h2 class="modal-title font-weight-bold center" id="exampleModalLongTitle">Hold Up Vato!</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body text-center">
-<!--                <p>Are You Sure You Want To Remove This Movie?</p>-->
-                <img src="square_up.jpg" alt="" height="290" width="450">
+            <div class="modal-body text-center p-0 m-0">
+                <img src="square_up.jpg" alt="" height="354" width="498">
             </div>
             <div class="modal-footer bg-warning">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">I'LL BE BACK! </button>
-                <button type="button" class="btn btn-success" id="confirm-delete">BRING IT ON!</button>
+                <button type="button" class="btn btn-danger p-1 m-0" data-dismiss="modal"><img src="nope.gif" alt="." class="nope"></button>
+                <button type="button" class="btn btn-success p-1 m-0" id="confirm-delete"><img src="agree.gif" alt="." class="agree"></button>
             </div>
         </div>
     </div>
 </div>
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
