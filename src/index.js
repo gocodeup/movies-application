@@ -1,7 +1,6 @@
 /*   ES6 MODULES & IMPORTS  */
 // NOTE: ONLY HAVE 'REQUIRE' OR 'IMPORT' METHOD FOR EACH FUNCTION @ THE TOP OF THE PAGE...NOT BOTH!
 
-// const $ = require('jquery'); // Enables jQuery
 const {getMovies} = require('./api.js'); // Retrieves movie API data
 const {addMovie} = require('./api.js'); // Enables "Add Movie" function
 const {deleteMovie} = require('./api.js'); // Enables "Delete Movie" function
@@ -51,6 +50,8 @@ getMovies().then((movies) => {
 
 //-------DELETE MOVIE: START-----------
 
+// When the Remove button is clicked from the code at the top which is dynamically appended to page, it will run this function on click.  This function launches a modal which will allow the user to choose whether they want to delete movie.  If use chooses to delete movie then the deleteMovie function will remove movie from json.
+
 $(document).on('click','.remove-movie', function () {
   console.log('remove button clicked');
   let movieId = $(this).attr('id');
@@ -60,7 +61,6 @@ $(document).on('click','.remove-movie', function () {
   });
   displayMovie = 0;
   $('#confirm-delete').click(function () {
-    // $('#exampleModalLong').css('display', 'none');
     $('#exampleModalLong').modal('hide');
     deleteMovie(movieId).then(response => {
       console.log(response);
@@ -101,7 +101,8 @@ $('#add-movie').click(function (e) {
     rating: addedMovieRating,
     genre: addedMovieGenre
   };
-  $('#movie-title').val('');
+
+  $('#movie-title').val('');  // These next 3 lines will default to empty/blank fields
   $('#movie-rating').val('');
   $('#movie-genre').val('');
 
@@ -127,7 +128,7 @@ $('#edit-submit').on('click', function(e) {
   let newGenre = $('#editGenre').val();
   let editId = $('#editId').val();
 
-  $('#editTitle').val('');
+  $('#editTitle').val('');  // These next 4 lines will default to empty/blank fields
   $('#editRating').val('');
   $('#editGenre').val('');
   $('#editId').val('');
@@ -139,6 +140,7 @@ $('#edit-submit').on('click', function(e) {
 });
 
 //Clicking the "Edit Movie" button will refresh the table data and auto-populate with the Edited entry
+
 $("#edit-submit").click(function () {
   $('#insertMovies').html("");
   return loadData(displayMovie = 0);
