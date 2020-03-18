@@ -140,7 +140,7 @@ var load = () => {
   $('#movies').html('');
 
   $('#movies').append(
-      '<li>SUP</li>'
+      '<img src="ZZ5H.gif">'
   );
 };
 
