@@ -18,3 +18,9 @@ getMovies().then((movies) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.')
   console.log(error);
 });
+
+const API = require('./api');
+
+API.createLists();
+
+console.log(API.createLists());
