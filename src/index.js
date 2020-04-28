@@ -28,6 +28,13 @@ getMovies().then((movies) => {
 });
 
 
+const API = require('./api');
+
+API.createLists();
+
+console.log(API.createLists());
+
+
 
 
   $('#load_message').html('loading...');
