@@ -1,6 +1,7 @@
-
+const $ = require ('jQuery');
 
 const movie = {
+
   movieListing: () => {
     fetch('/api/movies', {
       method: 'GET',
@@ -10,14 +11,17 @@ const movie = {
     })
         .then( response => response.json() )
         .then( data => {
-          let html = '';
+            let html = "";
             data.forEach((movies) => {
               console.log(movies);
-              html += document.getElementById('movie-list').innerHTML = movies.title;
+            html += (`Title: ${movies.title} Rating: ${movies.rating} Id: ${movies.id}<br>`);
             });
+            $('#movie-list').html(html);
         })
         .catch( error => console.error(error));
   }
 };
+
+
 
 module.exports = movie;
