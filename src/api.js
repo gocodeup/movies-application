@@ -20,10 +20,12 @@ const movie = {
                 },
                 body: JSON.stringify(movieData),
             };
-            fetch(url, addMovie)
-                .then($('#movie-list').append(movieData))
-                // .then(console.log(movieData),
-                .catch(/* handle errors */);
+
+        return fetch(url, addMovie)
+            .then(() => {
+            console.log(this);
+            })
+            .catch(/* handle errors */);
     },
 
     //Get movie
@@ -52,28 +54,9 @@ module.exports = movie;
 
 
 
+// load movies into choose movie dropdown
 
 
-
-
-
-
-
-// module.exports = addMovie;
-
-// const API = {
-//     createReview: () => {
-//         fetch("https://frest.glitch.me/reviews", {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-//             body: JSON.stringify(reviewData),
-//         })
-//             .then( response => response.json() )
-//             .then( data => console.log(data) )
-//             .catch( error => console.error(error));
-//     }
-// };
-//
-// module.exports = API;
+//get from value from edit inputs on form
+//target and store .val() of inputs in variable
+// javascript code should make an ajax request when the form is submitted
