@@ -1,9 +1,7 @@
+const $ = require ('jQuery');
 
 const movie = require('./api');
 
 movie.movieListing();
 
-// const addMovie = require('./api');
-//
-// addMovie.createMovie();
-
+$('#add-movie-btn').click(movie.addMovie);
