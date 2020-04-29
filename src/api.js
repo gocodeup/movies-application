@@ -22,6 +22,25 @@ const movie = {
   }
 };
 
-
-
 module.exports = movie;
+
+
+
+// ADD MOVIE POST
+
+
+const movieData = {title: 'Ajax Requests', body: 'Are a fun way to use JS!'};
+const url = '/api/movies';
+const addMovie = {
+    createMovie: () => {}
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(movieData),
+    };
+    fetch(url, addMovie)
+        .then(console.log(movieData))
+        .catch(/* handle errors */);
+
+// module.exports = addMovie;
