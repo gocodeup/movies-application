@@ -42,7 +42,7 @@ const movie = {
             let html = "";
             data.forEach((movies) => {
               console.log(movies);
-            html += (`Title: ${movies.title} Rating: ${movies.rating} Id: ${movies.id}<br>`);
+            html += (`Title: ${movies.title} Rating: ${movies.rating} Id: ${movies.id}<button id="movie-select" style="border: 1px solid">edit</button><br>`);
             });
             $('#movie-list').html(html);
         })
