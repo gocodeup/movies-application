@@ -1,7 +1,10 @@
-
+const $ = require ('jQuery');
 
 const movie = {
+
   movieListing: () => {
+    // let html = "";
+    // $('#movie-list').empty();
     fetch('/api/movies', {
       method: 'GET',
       headers: {
@@ -10,10 +13,10 @@ const movie = {
     })
         .then( response => response.json() )
         .then( data => {
-          let html = '';
+
             data.forEach((movies) => {
               console.log(movies);
-              html += document.getElementById('movie-list').innerHTML = movies.title;
+            $('#movie-list').html(movies.title);
             });
         })
         .catch( error => console.error(error));
