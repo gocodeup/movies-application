@@ -26,6 +26,8 @@ const movie = {
 
     //Get movie
 
+
+
   movieListing: () => {
     fetch('/api/movies', {
       method: 'GET',
@@ -35,16 +37,17 @@ const movie = {
     })
         .then( response => response.json() )
         .then( data => {
-            let html = "";
+            let movieTitle = '';
+            let html = '';
             data.forEach((movies) => {
-              console.log(movies);
             html += (`Title: ${movies.title} Rating: ${movies.rating} Id: ${movies.id}<button data-id=${movies.id} class="movie_edit" style="border: 1px solid">edit</button><br>`);
+            movieTitle = `${movies.title}`
             });
             $('#movie-list').html(html);
             $('.movie_edit').click(function() {
                 // let movie_id = $(this).data('id');
                 // console.log(movie_id);
-
+                $('#title-edit').val(movieTitle);
             });
         })
         .catch( error => console.error(error));
