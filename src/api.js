@@ -3,8 +3,6 @@ const $ = require ('jQuery');
 const movie = {
 
   movieListing: () => {
-    // let html = "";
-    // $('#movie-list').empty();
     fetch('/api/movies', {
       method: 'GET',
       headers: {
@@ -13,14 +11,17 @@ const movie = {
     })
         .then( response => response.json() )
         .then( data => {
-
+            let html = "";
             data.forEach((movies) => {
               console.log(movies);
-            $('#movie-list').html(movies.title);
+            html += (`Title: ${movies.title} Rating: ${movies.rating} Id: ${movies.id}<br>`);
             });
+            $('#movie-list').html(html);
         })
         .catch( error => console.error(error));
   }
 };
+
+
 
 module.exports = movie;
