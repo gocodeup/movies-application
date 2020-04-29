@@ -20,7 +20,7 @@ console.log('movie time!');
 
 const {getMovies} = require('./api.js');
 
-let htmlBody = "<table style= \"width:80%\">";
+let htmlBody = "<table>";
 
 getMovies().then((movies) => {
   console.log('Here are all the movies:');
@@ -39,15 +39,14 @@ getMovies().then((movies) => {
                     <td>${title}</td>
                     <td>${rating}</td>
                     <td>${id}</td>
-                </tr>
-                </table>`
+                </tr>`
 
 
-  };
-
+  });
+  htmlBody += '</table>';
   $('#main').html(htmlBody);
 
-  );
+
 }).catch((error) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.')
   console.log(error);
