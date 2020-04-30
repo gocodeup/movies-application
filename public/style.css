@@ -1,5 +1,14 @@
 html, body {
     height: 100%;
+    background-color: lightgrey;
+}
+
+h1  {
+    color: white;
+    font-weight: bolder;
+    background-color: black;
+    text-align: center;
+
 }
 
 .container {
@@ -7,6 +16,7 @@ html, body {
     top: 50%;
     transform: translateY(-100%);
     text-align: center;
+
 }
 
 .movie_edit {
@@ -19,4 +29,5 @@ html, body {
     margin-left: 20px;
     border: solid 1px black;
     border-radius: 3px;
+    margin-right: 20px;
 }

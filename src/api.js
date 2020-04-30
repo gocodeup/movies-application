@@ -4,6 +4,23 @@ const movie = {
 
     // ADD MOVIE POST
 
+    addPoster: () => {
+        const addMovie = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(movieData),
+        };
+
+        return fetch("http://www.omdbapi.com/?i=tt3896198&apikey=" + movieAPIKey, addPoster)
+        .then((success) => { success.json() } )
+            .then((movies) => { console.log(movies) } )
+            .catch((error)=>{ console.log(error)});
+    },
+
+
+
     addMovie: (e) => {
         e.preventDefault();
         let movieTitle = $('#add-movie').val();
@@ -87,9 +104,15 @@ const movie = {
                 let movieTitle = '';
                 let html = '';
                 data.forEach((movies) => {
-                    html += (`Title: ${movies.title} Rating: ${movies.rating} Id: ${movies.id}
+                    html += (`<div class="card text-center">
+                    <div class="card-header">
+                        <h4>Title:</h4> ${movies.title} </div>
+                        <h4>Rating:</h4> ${movies.rating}
+                        <h4>Id:</h4> ${movies.id}
+                    </div>
+                    <div></div>
                     <button data-id=${movies.id} class="movie_edit" >edit</button>
-                    <button data-id=${movies.id} class="delete_movie" >delete</button><br>`);
+                    <button data-id=${movies.id} class="delete_movie" >delete</button>`);
                     movieTitle = `${movies.title}`
                 });
                 // add movie
