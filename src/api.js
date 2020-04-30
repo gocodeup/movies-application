@@ -31,10 +31,11 @@ const movie = {
         j.preventDefault();
         let editTitle = $('#title-edit').val();
         let editRating = $('#edit-movie-rating').val();
+        let movie_id = $('#movie-id').val();
         const editData = {title: editTitle, rating: editRating};
-        const url = '/api/movies';
+        const url = `/api/movies/${movie_id}`;
         const addMovieEdit = {
-            method: 'POST',
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -48,36 +49,69 @@ const movie = {
     },
 
 
+// DELETE MOVIE
+
+    // EDIT MOVIE
+    deleteMovie: (delete_id) => {
+
+        const url = `/api/movies/${delete_id}`;
+        const deleteMovies = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            // body: JSON.stringify(deleteData),
+        };
+
+        return fetch(url, deleteMovies)
+            .then(() => {
+            })
+            .catch(/* handle errors */);
+    },
+
+
 
 
     //Get movie
 
 
-
-  movieListing: () => {
-    fetch('/api/movies', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-        .then( response => response.json() )
-        .then( data => {
-            let movieTitle = '';
-            let html = '';
-            data.forEach((movies) => {
-            html += (`Title: ${movies.title} Rating: ${movies.rating} Id: ${movies.id}<button data-id=${movies.id} class="movie_edit" >edit</button><br>`);
-            movieTitle = `${movies.title}`
-            });
-            $('#movie-list').html(html);
-            $('.movie_edit').click(function() {
-                let movie_id = $(this).attr("data-id");
-                console.log(movie_id);
-                $('#movie-id').val(movie_id);
-            });
+    movieListing: () => {
+        fetch('/api/movies', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
         })
-        .catch( error => console.error(error));
-  }
+            .then(response => response.json())
+            .then(data => {
+                let movieTitle = '';
+                let html = '';
+                data.forEach((movies) => {
+                    html += (`Title: ${movies.title} Rating: ${movies.rating} Id: ${movies.id}
+                    <button data-id=${movies.id} class="movie_edit" >edit</button>
+                    <button data-id=${movies.id} class="delete_movie" >delete</button><br>`);
+                    movieTitle = `${movies.title}`
+                });
+                // add movie
+                $('#movie-list').html(html);
+
+                // edit movie
+                $('.movie_edit').click(function () {
+                    let movie_id = $(this).attr("data-id");
+                    console.log(movie_id);
+                    $('#movie-id').val(movie_id);
+                });
+                // delete movie
+                $('.delete_movie').click(function () {
+                    let delete_id = $(this).attr('data-id');
+                    console.log(delete_id);
+                    movie.deleteMovie(delete_id);
+                    movie.movieListing();
+                });
+
+            })
+            .catch(error => console.error(error));
+    }
 };
 
 module.exports = movie;
