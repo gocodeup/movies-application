@@ -35,9 +35,17 @@
 
     <form>
         <div id="edit-movie"  class="form-group col-3">
-            <label for="title-edit">Edit Movie Selection</label>
-            <input type="text" class="form-control mb-1" id="title-edit" placeholder="Edit Title">
-            <input type="text" class="form-control" id="rating-edit" placeholder="Edit Rating">
+            <label for="movie-id">Edit Movie Selection by ID</label>
+            <input type="text" class="form-control mb-1" id="movie-id" placeholder="Movie ID">
+            <input type="text" class="form-control" id="title-edit" placeholder="Edit Title">
+            <select class="form-control" id="edit-movie-rating">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+
 <!--            edit movie button-->
             <button type="button" class="btn btn-primary" id="edit-movie-btn">Submit</button>
         </div>
