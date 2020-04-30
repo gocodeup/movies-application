@@ -4,9 +4,6 @@ const movie = {
 
     // ADD MOVIE POST
 
-    //get from value from inputs on form
-    //target and store .val() of inputs in variable
-
     addMovie: (e) => {
         e.preventDefault();
         let movieTitle = $('#add-movie').val();
@@ -23,12 +20,13 @@ const movie = {
 
         return fetch(url, addMovie)
             .then(() => {
-            console.log(this);
             })
             .catch(/* handle errors */);
     },
 
     //Get movie
+
+
 
   movieListing: () => {
     fetch('/api/movies', {
@@ -39,12 +37,18 @@ const movie = {
     })
         .then( response => response.json() )
         .then( data => {
-            let html = "";
+            let movieTitle = '';
+            let html = '';
             data.forEach((movies) => {
-              console.log(movies);
-            html += (`Title: ${movies.title} Rating: ${movies.rating} Id: ${movies.id}<button id="movie-select" style="border: 1px solid">edit</button><br>`);
+            html += (`Title: ${movies.title} Rating: ${movies.rating} Id: ${movies.id}<button data-id=${movies.id} class="movie_edit" style="border: 1px solid">edit</button><br>`);
+            movieTitle = `${movies.title}`
             });
             $('#movie-list').html(html);
+            $('.movie_edit').click(function() {
+                // let movie_id = $(this).data('id');
+                // console.log(movie_id);
+                $('#title-edit').val(movieTitle);
+            });
         })
         .catch( error => console.error(error));
   }

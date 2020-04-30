@@ -7,5 +7,3 @@ movie.movieListing();
 $('#add-movie-btn').click((e) => {
     movie.addMovie(e).then(()=>{movie.movieListing()})
 });
-
-$('#movie-select').click(console.log());
