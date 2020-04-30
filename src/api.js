@@ -4,21 +4,6 @@ const movie = {
 
     // ADD MOVIE POST
 
-    addPoster: () => {
-        const addMovie = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(movieData),
-        };
-
-        return fetch("http://www.omdbapi.com/?i=tt3896198&apikey=" + movieAPIKey, addPoster)
-        .then((success) => { success.json() } )
-            .then((movies) => { console.log(movies) } )
-            .catch((error)=>{ console.log(error)});
-    },
-
 
 
     addMovie: (e) => {
