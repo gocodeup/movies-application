@@ -8,12 +8,49 @@
 <body>
     <div id="loading"></div>
     <div class="container">
-        <h1>Hello There!</h1>
-        <p>To get started, edit <code>src/index.js</code>.</p>
-
-        <div id="movieList"></div>
+        <h1>Movies and their ratings</h1>
+        <p>Welcome to our Movie page. You may add movies and a rating.  You may also edit an existing movie as well as delete a movie from this list.  </p>
+        <div class="d-flex" id="movieList"></div>
         <div></div>
     </div>
+<!--        maybe we can add a function that takes in a rating for each movie and averages it out?-->
+<!--Allow users to add new movies
+
+Create a form for adding a new movie that has fields for the movie's title and rating
+When the form is submitted, the page should not reload / refresh, instead, your javascript should make a POST request to /api/movies with the information the user put into the form
+Allow users to edit existing movies
+
+Give users the option to edit an existing movie
+A form should be pre-populated with the selected movie's details
+Like creating a movie, this should not involve any page reloads, instead your javascript code should make an ajax request when the form is submitted.
+Delete movies
+
+Each movie should have a "delete" button
+When this button is clicked, your javascript should send a DELETE request
+-->
+
+<!--    first form---------------->
+
+    <form>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Add a New Movie Title</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Add a Rating</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+        </div>
+    </form>
+
+
+
+
+
+
+
+
+
+<!--    ---------------scripts below this line-------------------->
 
     <script type="application/javascript" src="./main.js"></script>
 </body>

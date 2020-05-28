@@ -20,7 +20,8 @@ function renderMovies(movies){
   movies.forEach(({title, rating, id}) => {
     $('#movieList').empty();
     // console.log(`id#${id} - ${title} - rating: ${rating}`);
-    html += '<div>' + `id#${id} - ${title} - rating: ${rating}` + '</div>';
+    html += '<div class="d-flex">' + '<div class="justify-content-start">' + '<h3>'+ `${title}` + '</h3>' + '</div>'
+        + '<div class="justify-content-end">' +  '<p>' +` - rating: ${rating}` + '</p>' + '</div>' +  '</div>';
     $('#movieList').append(html);
   })
 }
@@ -36,6 +37,6 @@ let createMovie = (title, rating) => {
 }
 
 
-addMovie(createMovie("test1", "4")).then((movies) => renderMovies(movies));
+// addMovie(createMovie("test1", "4")).then((movies) => renderMovies(movies));
 
 
