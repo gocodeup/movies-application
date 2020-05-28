@@ -9,10 +9,12 @@ const options = {
 
 module.exports = {
   getMovies: () => {
-    return fetch('../db.json', options)
+    return fetch('/api/movies')
       .then(response => response.json());
       //   .then(response => console.log(response.json()))
   }
+
+
 
 };
 
