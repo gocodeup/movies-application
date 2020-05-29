@@ -11,19 +11,14 @@
       "id": 2
     },
     {
-      "title": "test1",
+      "title": "movie",
       "rating": "4",
       "id": 3
     },
     {
-      "title": "test1",
-      "rating": "4",
+      "title": "newMovie",
+      "rating": "1",
       "id": 4
-    },
-    {
-      "title": "test1",
-      "rating": "4",
-      "id": 5
     }
   ]
 }

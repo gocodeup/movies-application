@@ -1,18 +1,30 @@
-const options = {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  }
-
-}
-
 const getOptions = {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json',
   }
 }
+//-----add movies---------
+const options = {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  }
+}
 
+//-----------edit movies-----------------
+
+// const editOptions = {
+//     method: 'PATCH',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     }
+// }
+
+//------------delete movies---------------------
+// const delOptions = {
+//   method: 'DELETE',
+// }
 
 module.exports = {
   getMovies: () => {
@@ -26,21 +38,14 @@ module.exports = {
         // let newMovie = {};
         .then(response => response.json())
 
-  }
+  }//,
+
+  // editMovie: (id) => {
+  //   options.body = JSON.stringify(id);
+  //     return fetch('/api/movies/id', options)
+  //         .then(response => response.json());
+  //     //   .then(response => console.log(response.json()))
+  //   },
+
 
 };
-//
-// module.exports = {
-//   addMovie: () => {
-//   return fetch('/api/movies', options)
-//       // let newMovie = {};
-//       .then(response => response.json())
-//
-//
-//
-//   // movies.push(newMovie);
-//   // return movies;
-// }
-// };
-// // console.log(addMovie("Fake 1", "4));
-

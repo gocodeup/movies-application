@@ -3,17 +3,68 @@
 <head>
     <meta charset="UTF-8" />
     <title>My Application</title>
-    <link rel="stylesheet" href="public/style.css" />
+    <link rel="stylesheet" href="./style.css" >
 </head>
 <body>
     <div id="loading"></div>
     <div class="container">
-        <h1>Hello There!</h1>
-        <p>To get started, edit <code>src/index.js</code>.</p>
-
-        <div id="movieList"></div>
+        <h1>Movies and their ratings</h1>
+        <p>Welcome to our Movie page. You may add movies and a rating.  You may also edit an existing movie as well as delete a movie from this list.  </p>
+        <div class="d-flex" id="movieList"></div>
         <div></div>
     </div>
+<!--        maybe we can add a function that takes in a rating for each movie and averages it out?-->
+<!--Allow users to add new movies
+
+Create a form for adding a new movie that has fields for the movie's title and rating
+When the form is submitted, the page should not reload / refresh, instead, your javascript should make a POST request to /api/movies with the information the user put into the form
+Allow users to edit existing movies
+
+Give users the option to edit an existing movie
+A form should be pre-populated with the selected movie's details
+Like creating a movie, this should not involve any page reloads, instead your javascript code should make an ajax request when the form is submitted.
+Delete movies
+
+Each movie should have a "delete" button
+When this button is clicked, your javascript should send a DELETE request
+-->
+
+<!--    first form---------------->
+    <div class="msg"></div>
+<div id="addMovieDiv" class="container ">
+    <form id="addMovieForm" >
+        <div class="form-group " >
+            <label for="userAddMovie">Add a New Movie Title</label>
+            <input type="text" class="form-control" id="userAddMovie" placeholder="Enter a movie title">
+        </div>
+        <div class="form-group">
+            <label for="userRatingInput">Add a Rating</label>
+            <input type="text" class="form-control" id="userRatingInput" placeholder="Enter a Rating 1-5">
+        </div>
+    </form>
+    <button id="submitAddMovie">Add Your Movie</button>
+</div>
+<br>
+<div id='editMovieDiv' class="container ">
+    <form id="editMovieForm" >
+        <div class="form-group">
+            <label for="userEditMovie">Edit Movie</label>
+            <input type="text" class="form-control" id="userEditMovie" placeholder="Enter new movie title">
+        </div>
+        <div class="form-group">
+            <label for="userEditRating">Add a Rating</label>
+            <input type="text" class="form-control" id="userEditRating" placeholder="Enter new Rating 1-5">
+        </div>
+    </form>
+    <button id="editMovie">Submit Your Changes</button>
+</div>
+
+
+
+
+
+
+<!--    ---------------scripts below this line-------------------->
 
     <script type="application/javascript" src="./main.js"></script>
 </body>
