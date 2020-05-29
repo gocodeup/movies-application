@@ -14,12 +14,12 @@ const options = {
 
 //-----------edit movies-----------------
 
-// const editOptions = {
-//     method: 'PATCH',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     }
-// }
+const editOptions = {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+}
 
 //------------delete movies---------------------
 // const delOptions = {
@@ -38,14 +38,14 @@ module.exports = {
         // let newMovie = {};
         .then(response => response.json())
 
-  }//,
+  },
 
-  // editMovie: (id) => {
-  //   options.body = JSON.stringify(id);
-  //     return fetch('/api/movies/id', options)
-  //         .then(response => response.json());
-  //     //   .then(response => console.log(response.json()))
-  //   },
+  editMovie: (editMovie, targetId) => {
+    options.body = JSON.stringify(editMovie);
+      return fetch('/api/movies/' + targetId, editOptions)
+          .then(response => response.json());
+      //   .then(response => console.log(response.json()))
+    },
 
 
 };
