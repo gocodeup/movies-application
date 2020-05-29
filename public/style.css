@@ -1,10 +1,21 @@
 html, body {
     height: 100%;
 }
+/*body{*/
+/*    background-color: darkred;*/
+/*}*/
 
 .container {
     position: relative;
-    top: 50%;
-    transform: translateY(-100%);
+    top: 35%;
+    /*transform: translateY(-100%);*/
     text-align: center;
+}
+
+/*#addMovieForm {*/
+/*    visibility: hidden;*/
+/*}*/
+
+.invisible {
+    visibility: hidden;
 }

@@ -1,16 +1,5 @@
-/**
- * es6 modules and imports
- */
 const $ = require('jquery');
 
-import sayHello from './hello';
-sayHello('World');
-
-
-
-/**
- * require style imports
- */
 const {getMovies} = require('./api.js');
 const {addMovie} = require('./api.js');
 // const {createMovie} = require('./api.js');
@@ -31,12 +20,45 @@ getMovies().then((movies) => renderMovies(movies)).catch((error) => {
     console.log(error);
 });
 
-let createMovie = (title, rating) => {
-  let newMovie = {"title": title, "rating": rating}
-  return newMovie;
-}
+$('#submitAddMovie').click(() => {
+    // console.log('test')
+    let title = $('#userAddMovie').val();
+    let rating = $('#userRatingInput').val();
+    // console.log(title, rating);
+    // let createMovie = (userAddMovie, userRatingInput) => {
+    //    if ($('#userAddMovie').val() === undefined) {
+    //         alert('please enter a move title');
+    //         // $('.msg').html("please a movie title.")
+    //         //
+    //         // setTimeout(function () {
+    //         //     $('.msg').remove();
+    //         // }, 3000);
+    //     } else {
+    //         return newMovie;
+    //     }
+
+        addMovie({title, rating})
+            .then(getMovies)
+            .then((movies) => renderMovies(movies))
+        ;
+    // }
+})
+//
+// $('#submitAddMovie').click(() => {
+// // console.log('test');
+//     addMovie(createMovie())
+//             .then((movies) => renderMovies(movies))
+// })
 
 
-// addMovie(createMovie("test1", "4")).then((movies) => renderMovies(movies));
 
 
+
+
+
+
+// let userRating = rating => {
+//     // ${userRatingInput}.val()
+//     rating = prompt('Please enter a rating for this movie.');
+//     return rating
+// }

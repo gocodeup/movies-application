@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>My Application</title>
-    <link rel="stylesheet" href="public/style.css" />
+    <link rel="stylesheet" href="./style.css" >
 </head>
 <body>
     <div id="loading"></div>
@@ -30,20 +30,34 @@ When this button is clicked, your javascript should send a DELETE request
 -->
 
 <!--    first form---------------->
-
-    <form>
-        <div class="form-group">
-            <label for="formGroupExampleInput">Add a New Movie Title</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+    <div class="msg"></div>
+<div id="addMovieDiv" class="container ">
+    <form id="addMovieForm" >
+        <div class="form-group " >
+            <label for="userAddMovie">Add a New Movie Title</label>
+            <input type="text" class="form-control" id="userAddMovie" placeholder="Enter a movie title">
         </div>
         <div class="form-group">
-            <label for="formGroupExampleInput2">Add a Rating</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+            <label for="userRatingInput">Add a Rating</label>
+            <input type="text" class="form-control" id="userRatingInput" placeholder="Enter a Rating 1-5">
         </div>
     </form>
-
-
-
+    <button id="submitAddMovie">Add Your Movie</button>
+</div>
+<br>
+<div id='editMovieDiv' class="container ">
+    <form id="editMovieForm" >
+        <div class="form-group">
+            <label for="userEditMovie">Edit Movie</label>
+            <input type="text" class="form-control" id="userEditMovie" placeholder="Enter new movie title">
+        </div>
+        <div class="form-group">
+            <label for="userEditRating">Add a Rating</label>
+            <input type="text" class="form-control" id="userEditRating" placeholder="Enter new Rating 1-5">
+        </div>
+    </form>
+    <button id="editMovie">Submit Your Changes</button>
+</div>
 
 
 
