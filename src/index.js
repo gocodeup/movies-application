@@ -79,7 +79,7 @@ $('#editMovieBtn').on ('click', () => {
         .then((movies) => renderMovies(movies));
         $('#editMovieForm').trigger('reset');
 })
-
+//
 //delete movie button
 $('#deleteMovieBtn').on('click', () => {
     $(' #showEditFormBtn, #editMovieForm, #deleteMovieBtn, #editMovieBtn').toggleClass('invisible');
@@ -89,7 +89,7 @@ $('#deleteMovieBtn').on('click', () => {
         .then((movies) => renderMovies(movies));
     $('#editMovieForm').trigger('reset');
 })
-
+//
 $('#showAddFormBtn').click(() =>{
     $('#addMovieForm, #showAddFormBtn, #addMovieBtn').toggleClass("invisible")
 })

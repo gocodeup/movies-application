@@ -17,6 +17,7 @@ img{
  display: flex;
     float: left;
     /*margin-left: 10px;*/
+    //
 }
 #movieCard{
     overflow: scroll;
