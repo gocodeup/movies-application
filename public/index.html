@@ -3,63 +3,65 @@
 <head>
     <meta charset="UTF-8" />
     <title>My Application</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css" >
+
 </head>
 <body>
-    <div id="loading"></div>
-    <div class="container">
-        <h1>Movies and their ratings</h1>
-        <p>Welcome to our Movie page. You may add movies and a rating.  You may also edit an existing movie as well as delete a movie from this list.  </p>
-        <div class="d-flex" id="movieList"></div>
-        <div></div>
+<img src="./img/person-holding-film-strip-3585046.jpg" id="filmPic">
+<div class="container container-fluid">
+    <div class="row">
+<div class="card col-12 mr-auto" id="movieCard" >
+
+    <div class="card-body">
+        <h1 class="card-title">Loading, Please Wait...</h1>
+        <p>Please scroll down for more. </p>
+        <br>
+<!--        <h2 class="msg"></h2>-->
+        <div id="movieList" class="row"></div>
     </div>
-<!--        maybe we can add a function that takes in a rating for each movie and averages it out?-->
-<!--Allow users to add new movies
+</div>
 
-Create a form for adding a new movie that has fields for the movie's title and rating
-When the form is submitted, the page should not reload / refresh, instead, your javascript should make a POST request to /api/movies with the information the user put into the form
-Allow users to edit existing movies
-
-Give users the option to edit an existing movie
-A form should be pre-populated with the selected movie's details
-Like creating a movie, this should not involve any page reloads, instead your javascript code should make an ajax request when the form is submitted.
-Delete movies
-
-Each movie should have a "delete" button
-When this button is clicked, your javascript should send a DELETE request
--->
 
 <!--    first form---------------->
-    <div class="msg"></div>
-<div id="addMovieDiv" class="container ">
-    <form id="addMovieForm" >
+
+<div id='addMovieDiv' class=" col-6 ">
+    <div style="height: 21px"></div>
+    <button id="showAddFormBtn" >Add A Movie</button>
+    <form id="addMovieForm" class="invisible" >
         <div class="form-group " >
-            <label for="userAddMovie">Add a New Movie Title</label>
+            <label for="userAddMovie" class="card-title">Add a New Movie Title</label>
             <input type="text" class="form-control" id="userAddMovie" placeholder="Enter a movie title">
         </div>
         <div class="form-group">
-            <label for="userRatingInput">Add a Rating</label>
+            <label for="userRatingInput" class="card-title">Add a Rating for you New Movie</label>
             <input type="text" class="form-control" id="userRatingInput" placeholder="Enter a Rating 1-5">
         </div>
     </form>
-    <button id="submitAddMovie">Add Your Movie</button>
-</div>
-<br>
-<div id='editMovieDiv' class="container ">
-    <form id="editMovieForm" >
-        <div class="form-group">
-            <label for="userEditMovie">Edit Movie</label>
-            <input type="text" class="form-control" id="userEditMovie" placeholder="Enter new movie title">
-        </div>
-        <div class="form-group">
-            <label for="userEditRating">Add a Rating</label>
-            <input type="text" class="form-control" id="userEditRating" placeholder="Enter new Rating 1-5">
-        </div>
-    </form>
-    <button id="editMovie">Submit Your Changes</button>
+    <button id="addMovieBtn" class="invisible">Submit New Movie</button>
 </div>
 
+<!-- edit/delete form-->
 
+<div id='editMovieDiv' class="col-6 " >
+    <div style="height: 21px"></div>
+    <button id="showEditFormBtn">Edit or Delete a Movie</button>
+        <form id="editMovieForm" class="invisible" >
+            <div class="form-group">
+                <label for="userEditMovie" class="card-title">Click a Movie Title</label>
+                <input type="text" class="form-control" id="userEditMovie" placeholder="Enter new movie title">
+            </div>
+            <div class="form-group">
+                <label for="userEditRating" class="card-title">Update or Add a Rating</label>
+                <input type="text" class="form-control" id="userEditRating" placeholder="Enter new Rating 1-5">
+            </div>
+        </form>
+        <button id="editMovieBtn" class="invisible">Submit Changes</button>
+        <button id="deleteMovieBtn" class="invisible">Delete this Movie</button>
+    </div>
+
+</div>
+    </div>
 
 
 

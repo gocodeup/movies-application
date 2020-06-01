@@ -1,25 +1,18 @@
 const $ = require('jquery');
-
 const {getMovies} = require('./api.js');
 const {addMovie} = require('./api.js');
 const {editMovie} = require('./api.js');
+const {delMovie} = require('./api.js');
 
 
 function renderMovies(movies){
-  var html = "";
-  movies.forEach(({title, rating, id}) => {
-    $('#movieList').empty();
+    $('h1').html('Movies:');
+    var html = "";
+    movies.forEach(({title, rating, id}) => {
+        $('#movieList').empty();
     // console.log(`id#${id} - ${title} - rating: ${rating}`);
-
-    html += `<div class="d-flex">
-                <div class="justify-content-start"> 
-                    <h3 class="title" data-id="${id}" data-title=${title} data-rating=${rating}> ${title} </h3>
-                </div>
-                <div class="justify-content-end"> 
-                    <p>  - rating: ${rating} </p>
-                </div>
-            </div>`;
-
+            html += `<br><div class="col-6"> <h3 class="card-text title" data-id="${id}" data-title=${title} data-rating=${rating}> ${title} </h3>
+                <h5 class="card-text">  Rated ${rating} Stars</h5></div><br><br>`
     $('#movieList').append(html);
   })
 }
@@ -29,71 +22,77 @@ getMovies().then((movies) => renderMovies(movies)).catch((error) => {
     console.log(error);
 });
 
-$('#submitAddMovie').click(() => {
-    // console.log('test')
+// let timeoutMsg = (() => {
+//     if ($(title === '')) {
+//         // alert('please enter a movie title');
+//         $('.msg').html("please a movie title.")
+//         setTimeout(function () {
+//             $('.msg').remove();
+//         }, 3000);
+
+//add movie button
+$('#addMovieBtn').click(() => {
+    $('h1').html('Loading...');
+    $('#addMovieForm, #showAddFormBtn, #addMovieBtn').toggleClass("invisible")
     let title = $('#userAddMovie').val();
     let rating = $('#userRatingInput').val();
     // console.log(title, rating);
-    // let createMovie = (userAddMovie, userRatingInput) => {
-    //    if ($('#userAddMovie').val() === undefined) {
-    //         alert('please enter a move title');
-    //         // $('.msg').html("please a movie title.")
-    //         //
-    //         // setTimeout(function () {
-    //         //     $('.msg').remove();
-    //         // }, 3000);
+    //    if ($(title === '')) {
+    // //         // alert('please enter a movie title');
+    //          $('.msg').html("please add a movie title.")
+    //            setTimeout(function () {
+    //              $('.msg').remove();
+    //              }, 3000);
     //     } else {
-    //         return newMovie;
-    //     }
-
-        addMovie({title, rating})
-            .then(getMovies)
-            .then((movies) => renderMovies(movies))
-        // clearField(title);
-        // clearField(rating);
+   addMovie({title, rating})
+       .then(getMovies)
+       .then((movies) => renderMovies(movies))
+       // }
 })
 
-// function clearField(input) {
-//
-//     input.value = "";
-// }
 
-
+let Id;
+//populate edit/delete form
 $('#movieList').on('click', 'h3', function(e) {
+    e.stopImmediatePropagation();
     // console.log($(e.target));
     let editTitle = $(e.target).data('title');
     let editRating = $(e.target).data('rating');
     let targetId = $(e.target).data('id');
-    // console.log($(e.target).data('id'));
-    // var name = $('#input').val();
-    console.log(editTitle);
-    console.log(editRating);
-
-  $('#userEditMovie').val(editTitle);
-  $('#userEditRating').val(editRating);
-
-$('#editMovie').click(() => {
-    let title = $('#userEditMovie').val();
-    let rating = $('#userEditRating').val();
-    console.log(title);
-    console.log(rating);
-  editMovie({title, rating}, targetId)
-        .then(getMovies)
-        .then((movies) => renderMovies(movies));
-});
+    // console.log(editTitle);
+    // console.log(editRating);
+    $('#userEditMovie').val(editTitle);
+    $('#userEditRating').val(editRating);
+    Id = targetId;
 })
 
+//edit movie Button
+$('#editMovieBtn').on ('click', () => {
+    $("#editMovieForm, #editMovieBtn, #deleteMovieBtn, #showEditFormBtn").toggleClass('invisible');
+    $('h1').html('Loading...');
+    let title = $('#userEditMovie').val();
+    let rating = $('#userEditRating').val();
+    // console.log(title);
+    // console.log(rating);
+  editMovie(title, rating, Id)
+        .then(getMovies)
+        .then((movies) => renderMovies(movies));
+        $('#editMovieForm').trigger('reset');
+})
 
+//delete movie button
+$('#deleteMovieBtn').on('click', () => {
+    $(' #showEditFormBtn, #editMovieForm, #deleteMovieBtn, #editMovieBtn').toggleClass('invisible');
+    $('h1').html('Loading...');
+    delMovie(Id)
+        .then(getMovies)
+        .then((movies) => renderMovies(movies));
+    $('#editMovieForm').trigger('reset');
+})
 
-
-
-
-
-// function input(editTitle, editRating){
-//     // $('#userEditMovie').val()
-// }
-
-
-
-
-
+$('#showAddFormBtn').click(() =>{
+    $('#addMovieForm, #showAddFormBtn, #addMovieBtn').toggleClass("invisible")
+})
+$('#showEditFormBtn').click(() => {
+    $('#editMovieForm, #showEditFormBtn, #deleteMovieBtn, #editMovieBtn').toggleClass('invisible')
+})

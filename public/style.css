@@ -1,21 +1,47 @@
-html, body {
-    height: 100%;
+body{
+    width: 100%;
+    /*background-image: url("./img/man-sitting-in-front-of-turned-on-screen-2736135.jpg");*/
+    /*background-size: cover;*/
+    background-color: #7D4F50;
 }
-/*body{*/
-/*    background-color: darkred;*/
-/*}*/
-
 .container {
-    position: relative;
-    top: 35%;
-    /*transform: translateY(-100%);*/
     text-align: center;
+    display: flex;
+    width: 650px;
+    /*margin-left: 400px;*/
+    /*margin-top: 115px;*/
 }
-
-/*#addMovieForm {*/
-/*    visibility: hidden;*/
-/*}*/
-
+img{
+    height: 400px;
+    width: 300px;
+ display: flex;
+    float: left;
+    /*margin-left: 10px;*/
+}
+#movieCard{
+    overflow: scroll;
+    height: 400px;
+    /*height: 345px;*/
+    /*background-color: rgb(228,236, 249);*/
+    /*border: none;*/
+    background-color: #F9EAE1;
+    float: right;
+}
 .invisible {
     visibility: hidden;
+}
+.card-title{
+    text-decoration: underline;
+    color: #AA998F
+}
+h3{
+    color: #CC8B86;
+}
+
+label{
+    color: #D1BE9C;
+}
+button{
+    background-color: #AA998F;
+    color: black;
 }

@@ -1,15 +1,59 @@
 {
   "movies": [
     {
-      "id": 1
-    },
-    {
       "title": "Star Wars: A New Hope",
       "rating": "5",
       "id": 2
     },
     {
+      "title": "Fast and Furious",
+      "rating": "1",
       "id": 3
+    },
+    {
+      "title": "What Dreams May Come",
+      "rating": "5",
+      "id": 4
+    },
+    {
+      "title": "Pulp Fiction",
+      "rating": "5",
+      "id": 5
+    },
+    {
+      "title": "Ready Player One",
+      "rating": "4",
+      "id": 6
+    },
+    {
+      "title": "Kill Bill ",
+      "rating": "4",
+      "id": 7
+    },
+    {
+      "title": "Labyrinth",
+      "rating": "5",
+      "id": 8
+    },
+    {
+      "title": "Ferris Bueller's Day Off",
+      "rating": "5",
+      "id": 9
+    },
+    {
+      "title": "Howard the Duck",
+      "rating": "1",
+      "id": 10
+    },
+    {
+      "title": "Ghost Dad",
+      "rating": "3",
+      "id": 11
+    },
+    {
+      "title": "button test",
+      "rating": "3",
+      "id": 13
     }
   ]
 }
