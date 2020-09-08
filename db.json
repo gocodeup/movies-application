@@ -3,33 +3,38 @@
     {
       "title": "test",
       "rating": "1",
-      "id": 1
+      "id": 1,
+      "genre": "test"
     },
     {
       "title": "it2",
       "rating": "5",
-      "id": 2
+      "id": 2,
+      "genre": "test"
     },
     {
       "title": "Home Alone",
       "rating": "10000",
-      "id": 3
+      "id": 3,
+      "genre": "test"
     },
     {
       "title": "Bambi",
       "rating": "5",
-      "id": 4
+      "id": 4,
+      "genre": "test"
     },
     {
       "title": "The Lion King",
       "rating": "1",
-      "id": 5
+      "id": 5,
+      "genre": "test"
     },
     {
       "title": "the war",
       "rating": "5",
-      "genre": "family",
-      "id": 6
+      "id": 6,
+      "genre": "family"
     }
   ]
 }
